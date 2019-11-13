@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 2019_11_13_112451) do
+
 ActiveRecord::Schema.define(version: 2019_11_13_063024) do
+
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -59,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_063024) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "image_id", null: false
-    t.date "release_date", null: false
+    t.string "release_date", null: false
     t.integer "status", default: 0, null: false
     t.text "description", null: false
     t.integer "artist_id", null: false
