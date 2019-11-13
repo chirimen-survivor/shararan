@@ -15,41 +15,42 @@ ActiveRecord::Schema.define(version: 2019_11_13_063024) do
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postal_code1", null: false
+    t.string "postal_code2", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "building", null: false
+    t.string "phone_number1", null: false
+    t.string "phone_number2", null: false
+    t.string "phone_number3", null: false
+    t.datetime "deleted_at"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "postal_code1"
-    t.string "postal_code2"
-    t.integer "prefecture_code"
-    t.string "city"
-    t.string "building"
-    t.string "phone_number1"
-    t.string "phone_number2"
-    t.string "phone_number3"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "postal_code1"
-    t.string "postal_code2"
-    t.integer "prefecture_code"
-    t.string "city"
-    t.string "building"
-    t.integer "total"
-    t.integer "status"
-    t.integer "tax_id"
-    t.integer "product_id"
-    t.integer "customer_id"
-    t.integer "payment"
-    t.integer "postage_id"
-    t.integer "quantity"
+    t.string "postal_code1", null: false
+    t.string "postal_code2", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "building", null: false
+    t.integer "total", null: false
+    t.integer "status", null: false
+    t.integer "tax_id", null: false
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "payment", null: false
+    t.integer "postage_id", null: false
+    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
