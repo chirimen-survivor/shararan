@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+	 before_action :authenticate_customer!
+
 
 	protected
 	  def configure_permitted_parameters
