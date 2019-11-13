@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_063024) do
     t.string "phone_number1", null: false
     t.string "phone_number2", null: false
     t.string "phone_number3", null: false
+    t.datetime "deleted_at"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
