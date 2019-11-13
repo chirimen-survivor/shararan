@@ -1,29 +1,153 @@
-<h2>Sign up</h2>
+<div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h2>新規会員登録</h2>
+          </div>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :お名前 %>
+            </h3>
+          </div><br/>
+          <div class="col-md-2 md-offset-2">
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+          </div>
+          <div class="col-md-2 md-offset-2">
+            <div class="field">
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :フリガナ %>
+            </h3>
+          </div><br/>
+          <div class="col-md-2 md-offset-2">
+            <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+          </div>
+          <div class="col-md-2 md-offset-2">
+            <div class="field">
+            <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :郵便番号 %>
+            </h3>
+          </div><br/>
+          <div class="col-md-2 md-offset-2">
+            <%= f.text_field :postal_code1, autofocus: true, autocomplete: "postal_code1" %>
+          </div>
+          <div class="col-md-2 md-offset-2">
+            <%= f.text_field :postal_code2, autofocus: true, autocomplete: "postal_code2" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :都道府県 %>
+            </h3>
+          </div><br/>
+          <div class="col-md-3 md-offset-3">
+          <%= f.text_field :prefecture_code, autofocus: true, autocomplete: "prefecture_code" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :市区町村 %>
+            </h3>
+          </div><br/>
+          <div class="col-md-2 md-offset-2">
+            <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :番地 %>
+            </h3>
+          </div><br/>
+          <div class="col-md-2 md-offset-2">
+            <%= f.text_area :building, autofocus: true, autocomplete: "building" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :電話番号 %>
+            </h3>
+          </div><br/>
+          <div class="col-md-2">
+            <%= f.text_field :phone_number1, autofocus: true, autocomplete: "phone_number1" %>
+          </div>
+          <div class="col-md-2">
+            <%= f.text_field :phone_number2, autofocus: true, autocomplete: "phone_number2" %>
+          </div>
+          <div class="col-md-2">
+            <div class="field">
+            <%= f.text_field :phone_number3, autofocus: true, autocomplete: "phone_number3" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 md-offset-2">
+            <h3 class="field">
+            <%= f.label :メールアドレス %>
+            </h3>
+          </div><br/>
+          <div class="col-md-2 md-offset-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        </div>
+
+          <div class="row">
+            <div class="col-md-2 md-offset-2">
+              <h3 class="field">
+              <%= f.label :パスワード %>
+              </h3>
+            </div><br/>
+            <div class="col-md-2 md-offset-2">
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+            </div>
+            <div class="col-md-2 md-offset-2">
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 md-offset-2">
+              <h3 class="field">
+              <%= f.label :確認用 %><br />
+              </h3>
+            </div><br/>
+            <div class="col-md-2 md-offset-2">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+          </div><br/>
+        <div class="actions">
+          <%= f.submit "新規登録" %>
+        </div>
+        <% end %><br/>
+
+   <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
