@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 
 
@@ -167,4 +169,9 @@ hr {
 	float: right;
 	margin-right: 100px;
 	margin-bottom: 15px;
+}
+
+.fa-thumbs-up {
+	font-size: 40px;
+	margin: 15px auto;
 }
