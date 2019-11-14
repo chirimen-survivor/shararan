@@ -109,3 +109,23 @@
   border-radius: 0.25rem;
   margin-bottom: 50px;
 }
+
+.footer{
+  text-align: center;
+  padding: 50px 0;
+  background-color: #848282;
+}
+
+.footer_text{
+  color: #fff;
+  float: left;
+  width: 200px;
+}
+
+.footer_text_box{
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 30px;
+}
