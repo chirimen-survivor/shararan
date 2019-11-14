@@ -1,0 +1,31 @@
+<h1>OtherAddresses#index</h1>
+<p>Find me in app/views/other_addresses/index.html.erb</p>
+
+<!--新しい住所の追加  -->
+<div class="new_other_address_box">
+	<%= form_for() do |f| %>
+
+    	<h4>お名前</h4>
+    	<%= f.text_field :title %>
+
+    	<h4>お名前（カナ）</h4>
+    	<%= f.text_field :body %>
+
+    	<h4>郵便番号〒</h4>
+    	<%= f.text_field :title %>
+
+    	<h4>住所</h4>
+    	<%= f.text_field :title %>
+
+    	<h4>電話番号</h4>
+    	<%= f.text_field :title %>
+
+    	<%= f.submit '追加' %>
+
+	<% end %>
+</div>
+
+<!-- 追加されていく住所 -->
+<div class="creaded_other_address">
+	
+</div>
