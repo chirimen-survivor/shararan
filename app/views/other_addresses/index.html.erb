@@ -3,29 +3,34 @@
 
 <!--新しい住所の追加  -->
 <div class="new_other_address_box">
-	<%= form_for() do |f| %>
+	<%= form_for(@other_address) do |f| %>
 
     	<h4>お名前</h4>
-    	<%= f.text_field :title %>
+    	<%= f.text_field :last_name %>
+        <%= f.text_field :first_name %>
 
     	<h4>お名前（カナ）</h4>
-    	<%= f.text_field :body %>
+    	<%= f.text_field :last_name_kana %>
+        <%= f.text_field :first_name_kana %>
 
     	<h4>郵便番号〒</h4>
-    	<%= f.text_field :title %>
+    	<%= f.number_field :postal_cadde1 %>
+        <%= f.number_field :postal_cadde2 %>™
 
     	<h4>住所</h4>
-    	<%= f.text_field :title %>
+    	<%= f.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %>
+        <%= f.text_field :city %>
+        <%= f.text_field :building %>
 
     	<h4>電話番号</h4>
-    	<%= f.text_field :title %>
+    	<%= f.number_field :phone_number1 %>
+        <%= f.text_field :phone_number2 %>
+        <%= f._field :phone_number3 %>
 
     	<%= f.submit '追加' %>
-
 	<% end %>
 </div>
 
 <!-- 追加されていく住所 -->
 <div class="creaded_other_address">
-	
 </div>
