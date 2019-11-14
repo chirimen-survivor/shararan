@@ -7,6 +7,12 @@
   margin-bottom: 30px;
 }
 
+hr {
+	height: 2px;
+	background-color: black;
+	border: none;
+ }
+
 // ランキング
 .rank {
   font-size: 3rem;
@@ -128,4 +134,37 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     margin-bottom: 30px;
+}
+
+// 商品画像サイズ調整
+.img-size {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	margin: 20px auto;
+}
+
+// 商品情報
+.price {
+	font-size: 23px;
+	margin-top: 5px;
+}
+
+.amount {
+	font-size: 20px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+// カートに入れる　いいねアイコンセクション
+
+.btn-info {
+	float: right;
+}
+
+.icon-field {
+	width: 35%;
+	float: right;
+	margin-right: 100px;
+	margin-bottom: 15px;
 }
