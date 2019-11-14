@@ -19,6 +19,8 @@ gem 'pry-rails'
 gem 'pry-byebug'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'jp_prefecture'
+gem 'paranoia'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

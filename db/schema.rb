@@ -36,6 +36,24 @@ ActiveRecord::Schema.define(version: 2019_11_14_042018) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "postal_code1", null: false
+    t.string "postal_code2", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "building", null: false
+    t.integer "total", null: false
+    t.integer "status", null: false
+    t.integer "tax_id", null: false
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "payment", null: false
+    t.integer "postage_id", null: false
+    t.integer "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "other_addresses", force: :cascade do |t|
     t.string "last_name", null: false
     t.string "first_name", null: false
@@ -58,13 +76,23 @@ ActiveRecord::Schema.define(version: 2019_11_14_042018) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "image_id", null: false
-    t.date "release_date", null: false
+    t.string "release_date", null: false
     t.integer "status", default: 0, null: false
     t.text "description", null: false
     t.integer "artist_id", null: false
     t.integer "category_id", null: false
     t.integer "company_id", null: false
     t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.float "rating"
+    t.string "title"
+    t.string "customer_id"
+    t.text "body"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

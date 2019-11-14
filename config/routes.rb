@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show]
   resources :other_addresses
+  resources :customers, only: [:show, :exit, :destroy]
 end
