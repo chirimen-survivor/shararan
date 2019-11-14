@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show]
 
+  resources :orders, only: [:index, :complete]
+
+
   resources :customers, only: [:show, :update, :destroy] do
   	get 'exit', on: :member
   end
-
 end
