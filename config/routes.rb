@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   get 'customers/sign_up' => 'devise/registrations#new'
 
   resources :products, only: [:show]
+
   resources :orders, only: [:index, :complete]
+
+
+  resources :customers, only: [:show, :update, :destroy] do
+  	get 'exit', on: :member
+  end
 end

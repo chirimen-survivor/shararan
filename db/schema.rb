@@ -70,4 +70,14 @@ ActiveRecord::Schema.define(version: 2019_11_13_112451) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.float "rating"
+    t.string "title"
+    t.string "customer_id"
+    t.text "body"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
