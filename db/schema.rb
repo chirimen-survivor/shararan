@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_054220) do
     t.string "phone_number1"
     t.string "phone_number2"
     t.string "phone_number3"
+    t.datetime "deleted_at"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end

@@ -10,14 +10,13 @@ class Customer < ApplicationRecord
   # 都道府県コードを入れるために以下は必要
   include JpPrefecture
   jp_prefecture :prefecture_code
-
-  # Prefecture_codeからPrefecture_nameに変換するメソッドも記載します。
+  
   def prefecture_name
-  	JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
   end
-
+  
   def prefecture_name=(prefecture_name)
-  	self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
 end

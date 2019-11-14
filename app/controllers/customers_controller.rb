@@ -1,14 +1,10 @@
 class CustomersController < ApplicationController
 
-  before_action ：authenticate_customer！
   before_action :ensure_correct_customer, {only: [:show, :update, :destroy]}
-
 
   def show
     @customer = Customer.find(params[:id])
-    @product = Product.find(params[:id])
-    @review = @product.review
-    @place = Customer.find(prefecture_code :id)
+    @review = @customer.review
   end
 
   def update
@@ -31,6 +27,10 @@ class CustomersController < ApplicationController
       end
     end
 
+   def exit
+   	@customer = Customer.find(params[:id])
+   end
+
   #ここでユーザーのみが編集できるようにチェックするよ！
     def ensure_correct_customer
       @customer = Customer.find(params[:id])
@@ -43,7 +43,7 @@ class CustomersController < ApplicationController
 private
   def customer_params
     # 都道府県コードも入れるの忘れるなよ！
-    params.customer(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code1, :postal_code2, :prefecture_code, :city, :building, :phone_number1, :phone_number2, :phone_number3)
+    params.customer(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code1, :postal_code2, :prefecture_name, :city, :building, :phone_number1, :phone_number2, :phone_number3)
   end
 end
 

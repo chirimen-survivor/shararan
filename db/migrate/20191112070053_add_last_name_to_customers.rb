@@ -12,6 +12,7 @@ class AddLastNameToCustomers < ActiveRecord::Migration[5.2]
     add_column :customers, :phone_number1, :string
     add_column :customers, :phone_number2, :string
     add_column :customers, :phone_number3, :string
+    add_column :customers, :deleted_at, :datetime
    
   end
 end
