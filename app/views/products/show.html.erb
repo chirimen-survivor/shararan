@@ -1,4 +1,31 @@
-<h1>Products#show</h1>
 
-<%= @customer.id %>
-<%= @customer.first_name %>
+<!--- 商品情報 -->
+<div class="container padding">
+    <hr class="my-4">
+    <div class="row padding">
+      <div class="col-lg-5 col-lg-offset-1">
+        <img src="https://www.pakutaso.com/shared/img/thumb/00_PP59_PP_TP_V.jpg" class="img-size">
+      </div>
+      <div class="col-lg-6">
+        <h2><%= @product.name %></h2>
+        <p>アーティスト名: シューベルト</p>
+        <ul class="cp_tag01">
+          <li><a href="#">clsssic</a></li>
+        <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
+        </ul>
+        <p class="amount">数量</p>
+        <form action="#" method="post" class="form-position">
+          <input type="text" name="name"></p>
+      　</form>
+      </div>
+    </div>
+    <hr class="my-4">
+</div>
+
+<div class="container">
+    <div class="icon-field">
+      <button type="button" class="btn btn-block btn-info">カートに入れる</button>
+      <i class="fas fa-thumbs-up"></i>
+      <i>17いいね!</i>
+    </div>
+</div>
