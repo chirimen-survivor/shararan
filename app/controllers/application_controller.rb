@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
+
 	 before_action :authenticate_customer!
 	 before_action :configure_permitted_parameters, if: :devise_controller?
+
 
 	protected
 	def configure_permitted_parameters
@@ -9,7 +11,4 @@ class ApplicationController < ActionController::Base
 	  	:city, :building, :phone_number1, :phone_number2, :phone_number3, :email])
 	end
 
-	def after_sign_out_path_for(resource)
-  	  root_path
-  	end
 end

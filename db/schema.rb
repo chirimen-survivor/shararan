@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_11_13_054220) do
+=======
+ActiveRecord::Schema.define(version: 2019_11_13_112451) do
+>>>>>>> master
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,11 +41,29 @@ ActiveRecord::Schema.define(version: 2019_11_13_054220) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "postal_code1", null: false
+    t.string "postal_code2", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "building", null: false
+    t.integer "total", null: false
+    t.integer "status", null: false
+    t.integer "tax_id", null: false
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "payment", null: false
+    t.integer "postage_id", null: false
+    t.integer "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
     t.text "image_id", null: false
-    t.date "release_date", null: false
+    t.string "release_date", null: false
     t.integer "status", default: 0, null: false
     t.text "description", null: false
     t.integer "artist_id", null: false
