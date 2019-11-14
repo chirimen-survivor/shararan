@@ -13,8 +13,6 @@
 
 ActiveRecord::Schema.define(version: 2019_11_13_112451) do
 
-ActiveRecord::Schema.define(version: 2019_11_13_063024) do
-
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
