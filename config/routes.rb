@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show]
 
-  resources :orders, only: [:index, :complete]
+  resources :orders, only: [:new, :index, :show] do
+  	get 'create', on: :member
+
+  	get 'select', on: :member
+
+  	get 'complete', on: :member
+  end
 
 
   resources :customers, only: [:show, :update, :destroy] do
