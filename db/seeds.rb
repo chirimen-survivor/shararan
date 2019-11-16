@@ -25,6 +25,12 @@ Customer.create!(
 	deleted_at: "",
 	)
 
+#マスターデータ（管理者）のデータ
+Manager.create!(
+	email: "ss@ss",
+	password: "aaaaaa",
+	)
+
 
 # カスタマーのサンプルデータ
 50.times do |n|
