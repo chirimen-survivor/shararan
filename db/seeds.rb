@@ -6,6 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#マスターデータ（カスタマー）のデータ
+Customer.create!(
+	last_name:  "test",
+	first_name: "test",
+	last_name_kana: "test",
+	first_name_kana: "test",
+	postal_code1: '123',
+	postal_code2: '1234',
+	prefecture_code: 1,
+	city: 'test',
+	building: 'test',
+	phone_number1: '123',
+	phone_number2: '123',
+	phone_number3: '123',
+	email: 'test@test',
+	password: '123456',
+	deleted_at: "",
+	)
+
 
 # カスタマーのサンプルデータ
 50.times do |n|
