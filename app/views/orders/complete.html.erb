@@ -1,0 +1,86 @@
+<!-- 購入完了画面を表示する -->
+
+
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="page-header">
+					<h2 class="title-head">ご注文内容のご確認</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+		<div class="row">
+				<div class="cart-role">
+					<div class="col-md-3">
+						<li class="ec-progress-item">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-inverse fa-stack-1x">1</i>
+							</span>
+							<div class="ec-progress__label">カートの商品</div>
+						</li>
+					</div>
+
+					<div class="col-md-3">
+						<li class="ec-progress-item">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-inverse fa-stack-1x">2</i>
+							</span>
+							<div class="ec-progress__label">お届け先・支払い方法の選択</div>
+						</li>
+					</div>
+					<div class="col-md-3">
+						<li class="ec-progress-item">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-inverse fa-stack-1x">3</i>
+							</span>
+							<div class="ec-progress__label">ご注文内容のご確認</div>
+						</li>
+					</div>
+					<div class="col-md-3">
+						<li class="ec-progress-item">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-inverse fa-stack-1x">4</i>
+							</span>
+							<div class="ec-progress__label">ご注文完了</div>
+						</li>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+		<div class="container">
+		<div class="row">
+			<div class="col-md-3 md-offset-3">
+				<div class="select-address">
+					<h3 class="title-head">お届け先指定</h3>
+					<%= check_box_tag :address %>
+					<%= label_tag :address, "名前" %>
+					<%= label_tag :address, "住所" %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<div class="row">
+			<div class="col-md-3 md-offset-3">
+				<div class="select-how">
+					<h3 class="tittle-head">お届け先指定</h3>
+					<%= check_box_tag :pay1 %>
+					<%= label_tag :pay, "銀行振り込み" %><br/>
+
+					<%= check_box_tag :pay2 %>
+					<%= label_tag :pay, "クレジットカード" %><br/>
+
+					<%= check_box_tag :pay3 %>
+					<%= label_tag :pay, "代引き" %>
+				</div>
+			</div>
+		</div>

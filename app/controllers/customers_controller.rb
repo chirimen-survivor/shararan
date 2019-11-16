@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
   def update
       @customer = Customer.find(params[:id])
       if @customer.update(customer_params)
-    	redirect_to customer_path(@current_customer.id)
+        redirect_to customer_path(@current_customer.id)
       else
         @Customers = Customers.all
         render action: :show
@@ -44,4 +44,3 @@ private
     params.require(:customer).permit(:email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code1, :postal_code2, :prefecture_code, :city, :building, :phone_number1, :phone_number2, :phone_number3)
   end
 end
-
