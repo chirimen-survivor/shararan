@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+    has_many :artists
+    has_many :categories
+    has_many :company
     attachment :image
     acts_as_paranoid
 
