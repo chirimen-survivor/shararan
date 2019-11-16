@@ -2,4 +2,52 @@
 <p>Find me in app/views/other_addresses/index.html.erb</p>
 
 <p>新しい住所の追加</p>
+
+<!-- 追加されていく住所 -->
 <p>住所一覧</p>
+<div class="creaded_other_address">
+	<%= @other_address.each do |other_address|%>
+		<p>お名前</p>
+		<div class="table table-striped lastname">
+			<%= other_address.last_name %>
+		</div>
+		<div class="first_name">
+			<%= other_address.first_name %>
+		</div>
+		<p>お名前（カナ）</p>
+		<div class="last_name_kana">
+			<%= other_address.last_name_kana %>
+		</div>
+		<div class="first_name_kana">
+			<%= other_address.first_name_kana %>
+		</div>
+		<p>〒　郵便番号</p>
+		<div class="postal_code1">
+			<%= other_address.postal_code1 %>
+		</div>
+		<div class="postal_code2">
+			<%= other_address.postal_code2 %>
+		</div>
+		<P>都道府県</P>
+		<div class="prefecture_code">
+			<%= other_address.prefecture_code %>
+		</div>
+		<p>市町村</p>
+		<div class="city">
+			<%= other_address.city %>
+		</div>
+		<div class="building">
+			<%= other_address.building %>
+		</div>
+		<p>電話番号</p>
+		<div class="phone_number1">
+			<%= other_address.phone_number1 %>
+		</div>
+		<div class="phone_number2">
+			<%= other_address.phone_number2 %>
+		</div>
+		<div class="phone_number3">
+			<%= other_address.phone_number3 %>
+		</div>
+	<% end %>
+</div>

@@ -67,9 +67,9 @@ end
 # ジャンル情報
 # レーベル情報
 
- # 住所情報
- 10.times do |n|
 
+# 住所情報
+10.times do |n|
  	last_name = Faker::Name.name,
 	first_name = Faker::Name.name,
 	last_name_kana = Faker::Name.name,

@@ -1,8 +1,6 @@
 class OtherAddressesController < ApplicationController
-def index
-  
-end
-def edit
-  
-end
+ def index
+ 	other_address = OtherAddress.new
+    @other_address = OtherAddress.all
+ end
 end
