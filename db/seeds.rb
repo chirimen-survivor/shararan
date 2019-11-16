@@ -32,6 +32,7 @@ Manager.create!(
 	)
 
 
+
 # カスタマーのサンプルデータ
 50.times do |n|
 	last_name = Faker::Name.name,
@@ -85,6 +86,8 @@ end
                   company_id: 1,
                   deleted_at: "")
 end
+
+
 
 
 # アーティスト情報 artists
