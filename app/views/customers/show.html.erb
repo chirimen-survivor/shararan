@@ -1,6 +1,26 @@
 <h1>マイページ</h1>
 
-<div><h2>ヘッダー</h2></div>
+<nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+              <ul class="nav navbar-nav">
+                <li><a><%= link_to '退会手続き', exit_customer_path %></a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <span></span>
 
 
 <%= form_for(@customer) do |f| %>
@@ -8,7 +28,6 @@
 	<h3>お名前</h3>
 	<%= f.text_field :last_name %>
 	<%= f.text_field :first_name %>
-	
 
 	<h3>お名前（フリガナ）</h3>
 	<%= f.text_field :last_name_kana %>
@@ -19,7 +38,7 @@
 	<%= f.text_field :postal_code2 %>
 
 	<!-- 都道府県はプルダウン式にするのでcollectionを使います。 -->
-
+	<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
 	<%= f.text_field :city %>
 
 	<h3>電話番号</h3>

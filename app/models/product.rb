@@ -1,3 +1,7 @@
 class Product < ApplicationRecord
-	has_many :review
+
+  has_many :review
+
+  attachment :image
+
 end
