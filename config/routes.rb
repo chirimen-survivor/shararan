@@ -9,10 +9,10 @@ Rails.application.routes.draw do
    :sessions => 'managers/sessions'
   }
 
-    devise_scope :manager do
-      get "manager/sign_in", :to => "manager/sessions#new"
-      get "manager/sign_out", :to => "manager/sessions#destroy" 
-    end
+    # devise_scope :manager do
+    #   get "managers/sign_in", :to => "manager/sessions#new"
+    #   get "managers/sign_out", :to => "manager/sessions#destroy" 
+    # end
 
 
 
