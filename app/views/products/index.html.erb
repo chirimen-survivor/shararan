@@ -87,7 +87,7 @@
                 <ul class="cp_tag01">
                   <li><a href="#">clsssic</a></li>
                 </ul>
-                <p class="card-text">ホームページ・ブログ開設など基礎を身に付けたい方向けコースです。</p>
+                <p class="card-text"><%= product.description %></p>
                 <p class="card-text"><%= "¥ #{product.price.to_s(:delimited)} 税込" %></p>
                 <%= link_to "詳細を見る", product_path(product.id), class: 'btn btn-primary' %>
               </div>
