@@ -82,5 +82,20 @@ end
 
 
 # アーティスト情報 artists
-# ジャンル情報
-# レーベル情報
+10.times do |n|
+	Artist.create!(
+		name: Faker::Music.band
+	)
+end
+# ジャンル情報 categories
+10.times do |n|
+	Categorie.create!(
+		name: Faker::Music.genre
+	)
+end
+# レーベル情報 companies
+10.times do |n|
+	Company.create!(
+		name: "Record Label#{n+1}"
+	)
+end
