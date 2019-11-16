@@ -22,10 +22,10 @@ class Customer < ApplicationRecord
   acts_as_paranoid
 
   #バリデーションチェック
-  validates :last_name, presence: true, length: {minimum: 1, maximum: 50}
-  validates :first_name, presence: true, length: {minimum: 1, maximum: 50}
-  validates :last_name_kana, presence: true, length: {minimum: 1, maximum: 50}
-  validates :first_name_kana, presence: true, length: {minimum: 1, maximum: 50}
+  validates :last_name, presence: true, length: {minimum: 1}
+  validates :first_name, presence: true, length: {minimum: 1}
+  validates :last_name_kana, presence: true, length: {minimum: 1}
+  validates :first_name_kana, presence: true, length: {minimum: 1}
   validates :postal_code1, presence: true, length: {minimum: 1, maximum: 3}
   validates :postal_code2, presence: true, length: {minimum: 1, maximum: 4}
   validates :prefecture_code, presence: true, numericality: {less_than_or_equal_to: 47}

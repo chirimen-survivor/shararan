@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
 
-  # devise_for :managers
-  devise_for :customers
-  root to: 'products#index'
 
+  # 管理者用のルーティング
   devise_for :managers, :controllers => {
    :registrations => 'managers/registrations',
    :sessions => 'managers/sessions'
   }
 
-    # devise_scope :manager do
-    #   get "managers/sign_in", :to => "manager/sessions#new"
-    #   get "managers/sign_out", :to => "manager/sessions#destroy" 
-    # end
+
+  # ユーザー用のルーティング
+  devise_for :customers
+  root to: 'products#index'
 
 
 
