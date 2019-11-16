@@ -1,53 +1,72 @@
-<h1>OtherAddresses#index</h1>
-<p>Find me in app/views/other_addresses/index.html.erb</p>
-
-<p>新しい住所の追加</p>
-
-<!-- 追加されていく住所 -->
-<p>住所一覧</p>
-<div class="creaded_other_address">
-	<%= @other_address.each do |other_address|%>
-		<p>お名前</p>
-		<div class="table table-striped lastname">
-			<%= other_address.last_name %>
+<div class="container">
+	<div class="row">
+	 <div class="well col-lg-6" style="background-color: silver;">
+	 	<p>新しい住所の追加</p>
+	 	<p>お名前</p>
+	 	<p>住所</p>
+	 </div>
+	</div>
+	<!-- 追加されていく住所 -->
+	 <div class="col-xs-12">
+	 <p>住所一覧</p>
+	 </div>
+	 <% @other_address.each do |other_address|%>
+	  <div class="col-xs-12 creaded_other_address">
+	  	<div class="container col-lg-6 well">
+	  		 <p>お名前</p>
+			<div class="row card-body bg-danger">
+			 <div class="col-xs-5 lastname">
+				<%= other_address.last_name %>
+			 </div>
+			 <div class="col-xs-5 first_name">
+				<%= other_address.first_name %>
+			 </div>
+			</div>
+			<p>お名前（カナ）</p>
+			<div class="row card-body bg-danger">
+			 <div class="col-xs-5 last_name_kana">
+				<%= other_address.last_name_kana %>
+			 </div>
+			 <div class="col-xs-5 first_name_kana">
+				<%= other_address.first_name_kana %>
+			 </div>
+			</div>
+			<p>住所</p>
+			<div class="row card-body bg-danger">
+			 <div class="col-xs-2 postal_code1">
+			 	<body>〒</body>
+				<%= other_address.postal_code1 %>
+			 </div>
+			 <div class="col-xs-2 postal_code2">
+				<%= other_address.postal_code2 %>
+			 </div>
+			</div>
+			<div class="row card-body bg-danger">
+			 <div class="col-xs-1 prefecture_code">
+				<%= other_address.prefecture_code %>
+			 </div>
+			 <div class="col-xs-4 city">
+				<%= other_address.city %>
+			 </div>
+			</div>
+			<div class="row card-body bg-danger">
+			 <div class="col-xs-4 building">
+				<%= other_address.building %>
+			 </div>
+			</div>
+			<p>電話番号</p>
+			<div class="row card-body bg-danger">
+			 <div class="col-xs-1 phone_number1">
+				<%= other_address.phone_number1 %>
+			 </div>
+			 <div class="col-xs-1 phone_number2">
+				<%= other_address.phone_number2 %>
+			 </div>
+			 <div class="col-xs-1 phone_number3">
+				<%= other_address.phone_number3 %>
+			 </div>
+			</div>
 		</div>
-		<div class="first_name">
-			<%= other_address.first_name %>
-		</div>
-		<p>お名前（カナ）</p>
-		<div class="last_name_kana">
-			<%= other_address.last_name_kana %>
-		</div>
-		<div class="first_name_kana">
-			<%= other_address.first_name_kana %>
-		</div>
-		<p>〒　郵便番号</p>
-		<div class="postal_code1">
-			<%= other_address.postal_code1 %>
-		</div>
-		<div class="postal_code2">
-			<%= other_address.postal_code2 %>
-		</div>
-		<P>都道府県</P>
-		<div class="prefecture_code">
-			<%= other_address.prefecture_code %>
-		</div>
-		<p>市町村</p>
-		<div class="city">
-			<%= other_address.city %>
-		</div>
-		<div class="building">
-			<%= other_address.building %>
-		</div>
-		<p>電話番号</p>
-		<div class="phone_number1">
-			<%= other_address.phone_number1 %>
-		</div>
-		<div class="phone_number2">
-			<%= other_address.phone_number2 %>
-		</div>
-		<div class="phone_number3">
-			<%= other_address.phone_number3 %>
-		</div>
-	<% end %>
+	  </div>
+	 <% end %>
 </div>
