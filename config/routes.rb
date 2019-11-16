@@ -7,6 +7,10 @@ Rails.application.routes.draw do
    :sessions => 'managers/sessions'
   }
 
+  namespace :managers do
+    resources :products
+  end
+
 
   # ユーザー用のルーティング
   devise_for :customers
