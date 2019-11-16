@@ -6,7 +6,16 @@
         </div>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+          <% if f.object.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= f.object.errors.count %>件のエラーがあります。</h2>
+              <ul>
+              <% f.object.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
         <div class="row">
           <div class="col-md-2 md-offset-2">

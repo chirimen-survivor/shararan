@@ -69,11 +69,13 @@
 <!--- レビュー一覧 -->
 <div class="container">
   <div class="review">
-    <p>レビュー評価</p>
-    <p>タイトル</p>
-    <p>日付</p>
-    <p>商品名</p>
-    <p>review body review bodyreview body review bodyreview body review bodyreview body review bodyreview body review body</p>
+    <% @reviews.each do |r| %>
+      <%= r.rating %>
+      <%= r.title %>
+      <%= r.created_at %>
+      <%= @product.name %>
+      <%= r.body %>
+    <% end %>
   </div>
   <hr class="my-4">
 </div>
@@ -81,4 +83,14 @@
 <!--- レビュー投稿 -->
 
 <div class="container">
+  <%= form_for [@product, @review] do |f| %>
+    <h3>評価</h3>
+    <%= f.select :rating, [[0.5, 0.5], [1.0,1.0],[1.5,1.5],[2.0,2.0],[2.5,2.5],[3.0,3.0],[3.5,3.5],[4.0,4.0],[4.5,4.5],[5.0,5.0]], :selected => 3.0 %>
+    <h3>タイトル</h3>
+    <%= f.text_field :title %>
+    <h3>本文</h3>
+    <%= f.text_area :body %>
+
+    <%= f.submit '投稿する' %>
+  <% end %>
 </div>

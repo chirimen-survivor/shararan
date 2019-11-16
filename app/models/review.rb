@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-	belongs_to :customers
-	belongs_to :products
+	belongs_to :customer
+	belongs_to :product
 end

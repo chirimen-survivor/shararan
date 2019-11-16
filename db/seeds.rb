@@ -80,6 +80,14 @@ end
                   deleted_at: "")
 end
 
+20.times do |n|
+	Review.create!(
+			rating: 3.5,
+			title: "いいね",
+			customer_id: n,
+			product_id: n,
+			body: "いいね")
+end
 
 # アーティスト情報 artists
 # ジャンル情報

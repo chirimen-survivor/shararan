@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :review
+  has_many :reviews
 
   # 都道府県コードを入れるために以下は必要
   include JpPrefecture
