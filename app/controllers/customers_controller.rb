@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
   def update
       @customer = Customer.find(params[:id])
       if @customer.update(customer_params)
-      redirect_to customer_path(@current_customer.id)
+    	redirect_to customer_path(@current_customer.id)
       else
         @Customers = Customers.all
         render action: :show
@@ -35,7 +35,7 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
       #ユーザーIDのチェックするよ！
     unless @customer.id == current_customer.id
-        redirect_to customer_path(current_customer)
+		redirect_to customer_path(current_customer)
       end
   end
 
