@@ -1,7 +1,5 @@
 <div class="container">
-  <h1>Products#index</h1>
-      <p>Find me in app/views/products/index.html.erb</p>
-
+  <h1>商品一覧画面</h1>
       <div id="carousel-1" class="carousel slide">
         <ol class="carousel-indicators">
           <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
@@ -80,95 +78,23 @@
 
       <div class="container">
         <div class="row">
+        <% @products.each do |product| %>
           <div class="col-lg-4">
             <div class="card">
               <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/chikyuGFVS3960_TP_V.jpg" alt="イメージ画像">
               <div class="card-body">
-                <h4 class="card-title">商品1</h4>
+                <h4 class="card-title"><%= product.name %></h4>
                 <ul class="cp_tag01">
                   <li><a href="#">clsssic</a></li>
                 </ul>
                 <p class="card-text">ホームページ・ブログ開設など基礎を身に付けたい方向けコースです。</p>
-                <p class="card-text">¥1,700円</p>
+                <p class="card-text"><%= "¥ #{product.price.to_s(:delimited)} 税込" %></p>
                 <a href="#" class="btn btn-primary">詳細を見る</a>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/JYUN923_5_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title">商品2</h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text">ホームページ作成・Web集客を一通り習得したい方向けです。</p>
-                <p class="card-text">¥1,700円</p>
-                <a href="#" class="btn btn-primary">詳細を見る</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/macbook1988_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title">商品3</h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text">より制作技術をしっかり身につけたい方向けの徹底コースです。</p>
-                <p class="card-text">¥1,700円</p>
-                <a href="#" class="btn btn-primary">詳細を見る</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/chikyuGFVS3960_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title">商品1</h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text">ホームページ・ブログ開設など基礎を身に付けたい方向けコースです。</p>
-                <p class="card-text">¥1,700円</p>
-                <a href="#" class="btn btn-primary">詳細を見る</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/JYUN923_5_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title">商品2</h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text">ホームページ作成・Web集客を一通り習得したい方向けです。</p>
-                <p class="card-text">¥1,700円</p>
-                <a href="#" class="btn btn-primary">詳細を見る</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/macbook1988_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title">商品3</h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text">より制作技術をしっかり身につけたい方向けの徹底コースです。</p>
-                <p class="card-text">¥1,700円</p>
-                <a href="#" class="btn btn-primary">詳細を見る</a>
-              </div>
-            </div>
-          </div>
+        <% end %>
+        <%= paginate @products, class: "paginate" %>
         </div>
       </div>
 </div>
