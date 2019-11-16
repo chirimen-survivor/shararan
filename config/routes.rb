@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
 
+  # devise_for :managers
   devise_for :customers
   root to: 'products#index'
-  # devise_scope :user do
+
+  devise_for :managers, :controllers => {
+   :registrations => 'managers/registrations',
+   :sessions => 'managers/sessions'
+  }
+
+    devise_scope :manager do
+      get "manager/sign_in", :to => "manager/sessions#new"
+      get "manager/sign_out", :to => "manager/sessions#destroy" 
+    end
+
+
+
   get 'customers/sign_up' => 'devise/registrations#new'
 
   resources :products, only: [:show]
