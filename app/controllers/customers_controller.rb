@@ -35,7 +35,7 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
       #ユーザーIDのチェックするよ！
     unless @customer.id == current_customer.id
-        redirect_to customer_path(current_customer)
+		redirect_to customer_path(current_customer)
       end
   end
 
