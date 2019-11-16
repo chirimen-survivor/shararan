@@ -2,7 +2,7 @@ class Product < ApplicationRecord
     # テーブルのリレーション
     has_many :artists
     has_many :categories
-    has_many :company
+    has_many :companies
 
     # gemの設定関連
     attachment :image
