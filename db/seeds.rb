@@ -82,5 +82,6 @@ end
 
 
 # アーティスト情報 artists
-# ジャンル情報
-# レーベル情報
+
+# ジャンル情報 categories
+# レーベル情報 companies
