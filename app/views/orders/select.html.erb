@@ -69,9 +69,6 @@
 					<h3 class="title-head">お届け先指定</h3>
 
 					
-					<%= check_box_tag :address %>
-					<%= label_tag :address, "名前" %>
-					<%= label_tag :address, "住所" %>
 				</div>
 			</div>
 		</div>
@@ -86,9 +83,9 @@
 					<h3 class="title-head">支払方法選択</h3>
 					<%= form_for (@order) do |t|%>
 
-					<label><%= t.radio_button :payment, "銀行振り込み" %>銀行振り込み</label><br/>
-					<label><%= t.radio_button :payment, "クレジットカード" %>クレジットカード</label><br/>
-					<label><%= t.radio_button :payment, "代引き" %>代引き</label>
+					<label><%= t.radio_button :payment, "0" %>銀行振り込み</label><br/>
+					<label><%= t.radio_button :payment, "1" %>クレジットカード</label><br/>
+					<label><%= t.radio_button :payment, "2" %>代引き</label>
 					<% end %>
 
 				</div>
@@ -135,7 +132,7 @@
 			<br/>
 				<div class="row">
 				<div class="col-md-11 text-right">
-				<%= link_to "一覧へ戻る", root_path, class: 'btn btn-default' %>
+				<%= t.submit 'Create Order ' %>
 				</div>
 		</div>
 	</div>

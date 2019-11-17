@@ -21,8 +21,15 @@ class OrdersController < ApplicationController
 
 
 	def select
-		# 配送先、支払い方法を選択する
-		@order = Order.new
+		# 顧客情報
+		@customer = Customer.find(params[:id])
+		# 配送先、支払い方法を選択するために空
+		@order = Order.find(order_params)
+
+
+		# @ordersに個人の購入履歴
+		# @addresses = @customer.other_addresses
+
 	end
 
 
@@ -33,7 +40,6 @@ class OrdersController < ApplicationController
 		# @ordersに個人の購入履歴
 		@orders = @customer.orders
 	end
-
 
 	def show
 		# 購入履歴詳細画面を表示する
