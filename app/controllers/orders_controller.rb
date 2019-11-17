@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
 
 	def select
 		# 配送先、支払い方法を選択する
-
+		@order = Order.new
 	end
 
 
