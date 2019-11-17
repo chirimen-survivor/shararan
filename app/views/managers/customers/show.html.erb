@@ -50,7 +50,7 @@
 	<%= f.email_field :email %>
 
 	<%= f.submit '変更する' %>
-	<%= link_to "削除する", managers_customer_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %>
+	<%= link_to "削除する", managers_customer_path(f.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %>
 <% end %>
 
 <% @reviews.each do |j| %>
