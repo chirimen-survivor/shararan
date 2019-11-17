@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
 
 	def index
 		# 購入履歴を表示する
+		# 顧客情報
 		@customer = Customer.find(params[:id])
 		# @ordersに個人の購入履歴
 		@orders = @customer.orders
