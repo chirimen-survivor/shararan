@@ -1,0 +1,2 @@
+class Otheraddress < ApplicationRecord
+end
