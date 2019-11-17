@@ -3,10 +3,13 @@ class ReviewsController < ApplicationController
   	@product = Product.find(params[:product_id])
   	@review = Review.new(review_params)
 	@review.customer_id = current_customer.id
+	@review.product_id = @product.id
 	if @review.save
+		@reviews = @product.reviews.page(params[:page])
 		redirect_to product_path(@product.id)
 	else
-		render template: "products/show"
+		@reviews = @product.reviews.page(params[:page])
+		render "products/show"
 	end
  end
 

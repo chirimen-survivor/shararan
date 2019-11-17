@@ -54,12 +54,12 @@
 <% end %>
 
 <h2>レビュー一覧</h2>
-<% @customer.reviews.each do |j| %>
-	<h3><%= j.rating %></h3>
-	<h3><%= j.title %></h3>
-	<h3><%= j.created_at %></h3>
+<% @reviews.each do |j| %>
+	<%= j.rating %>
+	<%= j.title %>
+	<%= j.created_at %>
 	<!-- 	商品名から商品詳細に飛べるようにします。 -->
-	<h3><%= @review.name %></h3>
-	<h3><%= j.body %></h3>
+	<%= j.body %>
 <% end %>
+<%= paginate @reviews, class: "paginatate" %>
 
