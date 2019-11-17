@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   }
 
   namespace :managers do
-    resources :products, only: [:new, :show, :index]
+    resources :products, only: [:new, :show, :index, :create]
   end
 
 
   # ユーザー用のルーティング
   devise_for :customers
   root to: 'products#index'
-
+  resources :other_addresses
 
 
   get 'customers/sign_up' => 'devise/registrations#new'
