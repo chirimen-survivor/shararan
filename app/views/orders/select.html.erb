@@ -81,12 +81,7 @@
 			<div class="col-md-3 md-offset-3">
 				<div class="select-address">
 					<h3 class="title-head">支払方法選択</h3>
-					<%= form_for (@order) do |t|%>
 
-					<label><%= t.radio_button :payment, "0" %>銀行振り込み</label><br/>
-					<label><%= t.radio_button :payment, "1" %>クレジットカード</label><br/>
-					<label><%= t.radio_button :payment, "2" %>代引き</label>
-					<% end %>
 
 				</div>
 			</div>
