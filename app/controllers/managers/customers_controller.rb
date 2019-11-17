@@ -1,17 +1,20 @@
-class CustomersController < ApplicationController
+class Managers::CustomersController < ApplicationController
+  skip_before_action :authenticate_customer!, only: [:index, :show, :update, :destroy]
 
-  before_action :ensure_correct_customer, {only: [:show, :exit, :update, :destroy]}
+  def index
+    @customers = Customer.all
+  end
 
   def show
     @customer = Customer.find(params[:id])
     @reviews = @customer.reviews.page(params[:page])
-    @review = Review.find(params[id])
+    @review = Review.find(params[:id])
   end
 
   def update
       @customer = Customer.find(params[:id])
       if @customer.update(customer_params)
-        redirect_to customer_path(@current_customer.id)
+        redirect_to managers_customer_path(@customer.id)
       else
         @Customers = Customers.all
         render action: :show
@@ -26,19 +29,6 @@ class CustomersController < ApplicationController
 		redirect_to root_path
       end
     end
-
-   def exit
-   	@customer = Customer.find(params[:id])
-   end
-
-  #ここでユーザーのみが編集できるようにチェックするよ！
-    def ensure_correct_customer
-      @customer = Customer.find(params[:id])
-      #ユーザーIDのチェックするよ！
-    unless @customer.id == current_customer.id
-		redirect_to customer_path(current_customer)
-      end
-  end
 
 private
   def customer_params

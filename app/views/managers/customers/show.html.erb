@@ -1,4 +1,4 @@
-<h1>マイページ</h1>
+<h1>顧客詳細</h1>
 
 <nav class="navbar navbar-inverse">
           <div class="container-fluid">
@@ -50,17 +50,24 @@
 	<%= f.email_field :email %>
 
 	<%= f.submit '変更する' %>
-
+	<%= link_to "削除する", managers_customer_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %>
 <% end %>
 
-<h2>レビュー一覧</h2>
 <% @reviews.each do |j| %>
-	<%= j.rating %>
-	<%= j.title %>
-	<%= j.created_at %>
-	<!-- 	商品名から商品詳細に飛べるようにします。 -->
-	<%= @review.product.name %>
-	<%= j.body %>
+	<table class = "table table-striped">
+		<tr>
+			<th>評価</th>
+			<th>商品名</th>
+			<th>タイトル</th>
+			<th>本文</th>
+		</tr>
+
+		<tr>
+			<td><%= j.rating %></td>
+			<td><%= @review.product.name %></td>
+			<td><%= j.title %></td>
+			<td><%= j.body %></td>
+		</tr>
+	</table>
 <% end %>
 <%= paginate @reviews, class: "paginatate" %>
-
