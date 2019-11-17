@@ -1,5 +1,15 @@
 class Product < ApplicationRecord
 
+    # テーブルのリレーション
+    belongs_to :artist
+    belongs_to :categorie
+    belongs_to :company
+    has_many :discs, dependent: :destroy
+
+    accepts_nested_attributes_for :discs, allow_destroy: true
+
+    # gemの設定関連
+
   has_many :reviews
   has_many :review
 
