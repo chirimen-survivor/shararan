@@ -1,5 +1,5 @@
 class Managers::ApplicationController < ActionController::Base
-   before_action :authenticate_customer!
+   before_action :authenticate_manager!
 	 before_action :configure_permitted_parameters, if: :devise_controller?
 
 

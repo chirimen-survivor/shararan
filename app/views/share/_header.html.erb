@@ -30,6 +30,7 @@
           </div>
         </nav>
         <span></span>
+        <!-- 管理者がログインしているかどうか -->
         <% elsif manager_signed_in? %>
         <ul class="nav navbar-nav">
                 <li class="active"><%= link_to '商品一覧', root_path %></li>
