@@ -25,6 +25,13 @@ Customer.create!(
 	deleted_at: "",
 	)
 
+#マスターデータ（管理者）のデータ
+Manager.create!(
+	email: "ss@ss",
+	password: "aaaaaa",
+	)
+
+
 
 # カスタマーのサンプルデータ
 50.times do |n|
@@ -79,6 +86,17 @@ end
                   company_id: 1,
                   deleted_at: "")
 end
+
+40.times do |n|
+
+	Review.create!(
+			rating: 3.5,
+			title: "いいね",
+			customer_id: Faker::Number.between(from: 1, to: 5),
+			product_id: Faker::Number.between(from: 1, to: 5),
+			body: "いいね")
+end
+
 
 
 # アーティスト情報 artists

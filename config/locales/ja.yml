@@ -1,20 +1,25 @@
 ja:
   activerecord:
     models:
-      customer: "お客様"
+     customer: "お客様"
+     review: "レビュー"
     attributes:
-      customer:
-        last_name: 名前
-        first_name: 姓名
-        last_name_kana: 名前(カナ)
-        first_name_kana: 姓名(カナ)
-        postal_code1: 郵便番号
-        postal_code2: 郵便番号
-        prefecture_code: 都道府県
-        city: 市区町村
-        building: ビル名
-        phone_number1: 電話番号
-        phone_number2: 電話番号
-        phone_number3: 電話番号
-        email: メールアドレス
-        password: パスワード
+     customer:
+      last_name: 名前
+      first_name: 姓名
+      last_name_kana: 名前(カナ)
+      first_name_kana: 姓名(カナ)
+      postal_code1: 郵便番号
+      postal_code2: 郵便番号
+      prefecture_code: 都道府県
+      city: 市区町村
+      building: ビル名
+      phone_number1: 電話番号
+      phone_number2: 電話番号
+      phone_number3: 電話番号
+      email: メールアドレス
+      password: パスワード
+     review:
+      rating: 評価
+      title: タイトル
+      body: 本文

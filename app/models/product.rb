@@ -1,4 +1,8 @@
 class Product < ApplicationRecord
+
+  has_many :reviews
+  has_many :review
+
     attachment :image
     acts_as_paranoid
 
@@ -12,4 +16,5 @@ class Product < ApplicationRecord
     validates :company_id, presence: true
 
     enum status: { 販売停止: 0, 販売中: 1 }
+
 end
