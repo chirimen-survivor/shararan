@@ -1,5 +1,6 @@
 <div class="nested-fields">
-    <%= f.label "ディスク" %>
+    <%= f.label "ディスク" %><br />
+    <%= f.select :sequence, options_for_select(1..10)%><br />
     <%= link_to_remove_association "ディスクを削除", f %>
 
     <%= f.fields_for :songs do |u| %>
