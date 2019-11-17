@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_16_031729) do
+ActiveRecord::Schema.define(version: 2019_11_16_094054) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -83,11 +101,11 @@ ActiveRecord::Schema.define(version: 2019_11_16_031729) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.float "rating"
-    t.string "title"
-    t.string "customer_id"
-    t.text "body"
-    t.integer "product_id"
+    t.float "rating", null: false
+    t.string "title", null: false
+    t.string "customer_id", null: false
+    t.text "body", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
