@@ -24,17 +24,17 @@ Rails.application.routes.draw do
   	resource :reviews, only: [:create]
   end
 
-  resources :orders, only: [:new, :index, :show] do
-  	get 'create', on: :member
-
-  	get 'select', on: :member
-
-  	get 'complete', on: :member
-  end
-
 
   resources :customers, only: [:show, :update, :destroy] do
-  	resource :reviews, only: [:create]
   	get 'exit', on: :member
+
+  	# レビュー用のルーティング
+  	resource :reviews, only: [:create]
+
+  	# 購入用のルーティング
+  	resources :orders, only: [:new, :index, :show, :create] do
+  		get 'select', on: :member
+  		get 'complete', on: :member
+  	end
   end
 end
