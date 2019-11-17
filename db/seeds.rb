@@ -87,6 +87,15 @@ end
                   deleted_at: "")
 end
 
+40.times do |n|
+
+	Review.create!(
+			rating: 3.5,
+			title: "いいね",
+			customer_id: Faker::Number.between(from: 1, to: 5),
+			product_id: Faker::Number.between(from: 1, to: 5),
+			body: "いいね")
+end
 
 
 
