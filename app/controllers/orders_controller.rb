@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 	def create
 		# 購入情報を確定する
 		@order = Order.new(order_params)
+		@order.customer_id = current_customer.id
 		if @order.save
 			redirect_to order_path(@order.id)
 
@@ -22,7 +23,7 @@ class OrdersController < ApplicationController
 
 	def select
 		# 顧客情報
-		@customer = Customer.find(params[:id])
+		@customer = Customer.find(params[:customer_id])
 		# 配送先、支払い方法を選択するために空
 		@order = Order.new
 
@@ -35,7 +36,8 @@ class OrdersController < ApplicationController
 	def index
 		# 購入履歴を表示する
 		# 顧客情報
-		@customer = Customer.find(params[:id])
+		# @order = Order.find(params[:id])
+		@customer = Customer.find(params[:customer_id])
 		# @ordersに個人の購入履歴
 		@orders = @customer.orders
 	end
