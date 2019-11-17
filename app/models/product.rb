@@ -1,8 +1,11 @@
 class Product < ApplicationRecord
     # テーブルのリレーション
-    has_many :artists
-    has_many :categories
-    has_many :companies
+    belongs_to :artist
+    belongs_to :categorie
+    belongs_to :company
+    has_many :discs, dependent: :destroy
+
+    accepts_nested_attributes_for :discs, allow_destroy: true
 
     # gemの設定関連
     attachment :image
