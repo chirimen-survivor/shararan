@@ -25,6 +25,13 @@ Customer.create!(
 	deleted_at: "",
 	)
 
+#マスターデータ（管理者）のデータ
+Manager.create!(
+	email: "ss@ss",
+	password: "aaaaaa",
+	)
+
+
 
 # カスタマーのサンプルデータ
 50.times do |n|
@@ -79,6 +86,8 @@ end
                   company_id: 1,
                   deleted_at: "")
 end
+
+
 
 
 # アーティスト情報 artists
