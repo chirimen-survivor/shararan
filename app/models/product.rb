@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+
     # テーブルのリレーション
     belongs_to :artist
     belongs_to :categorie
@@ -8,6 +9,10 @@ class Product < ApplicationRecord
     accepts_nested_attributes_for :discs, allow_destroy: true
 
     # gemの設定関連
+
+  has_many :reviews
+  has_many :review
+
     attachment :image
     acts_as_paranoid
 
@@ -21,4 +26,5 @@ class Product < ApplicationRecord
     validates :company_id, presence: true
 
     enum status: { 販売停止: 0, 販売中: 1 }
+
 end
