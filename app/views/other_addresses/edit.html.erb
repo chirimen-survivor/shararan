@@ -1,3 +1,39 @@
 <h1>OtherAddresses#edit</h1>
 <p>Find me in app/views/other_addresses/edit.html.erb</p>
 <p>住所編集します</p>
+<div class="container">
+	<%= form_for(@other_address) do |f| %>
+	   <div class="row">
+	    <div class="co-lg-6">
+    	<h4>お名前</h4>
+    	 <%= f.text_field :last_name %>
+         <%= f.text_field :first_name %>
+        </div>
+   	   </div>
+       <div class="row">
+       	<div class="co-lg-6">
+    	<h4>お名前（カナ）</h4>
+    	 <%= f.text_field :last_name_kana %>
+         <%= f.text_field :first_name_kana %>
+     	</div>
+       </div>
+       <div class="row">
+       	<div class="co-lg-6">
+    	<h4>住所</h4>
+    	 <%= f.number_field :postal_code1 %>
+	 	 <%= f.number_field :postal_code2 %>
+        </div>
+   	   </div>
+       <div class="row">
+       	<div class="co-lg-6">
+    	<h4>電話番号</h4>
+    	 <%= f.text_field :phone_number1 %>
+         <%= f.text_field :phone_number2 %>
+         <%= f.text_field :phone_number3 %>
+        </div>
+   	   </div>
+       <div class="row">
+    	 <%= f.submit '変更する' %>
+       </div>
+	<% end %>
+</div>
