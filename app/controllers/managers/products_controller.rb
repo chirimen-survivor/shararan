@@ -11,7 +11,7 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
   def create
     @product = Product.new(product_params)
     @product.save
-    redirect_to 'show'
+    redirect_to managers_product_path(@product)
   end
 
   def index
