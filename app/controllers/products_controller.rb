@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 
   def search_results
     @q = Product.search(search_params)
-    @products = @q.result(distinct: true)
+    @products = @q.result(distinct: true).page(params[:page])
   end
 
   private
