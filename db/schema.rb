@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_16_164713) do
+ActiveRecord::Schema.define(version: 2019_11_17_085957) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 2019_11_16_164713) do
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
   end
 
+  create_table "order_details", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
+    t.integer "subtotal", null: false
+    t.integer "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "postal_code1", null: false
     t.string "postal_code2", null: false
@@ -88,6 +97,24 @@ ActiveRecord::Schema.define(version: 2019_11_16_164713) do
     t.integer "payment", null: false
     t.integer "postage_id", null: false
     t.integer "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "other_addresses", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "postal_code1"
+    t.string "postal_code2"
+    t.integer "prefecture_code"
+    t.string "city"
+    t.string "building"
+    t.string "phone_number1"
+    t.string "phone_number2"
+    t.string "phone_number3"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

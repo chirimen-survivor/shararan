@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
 
 
   has_many :reviews
+  has_many :orders
 
   # 都道府県コードを入れるために以下は必要
   include JpPrefecture
