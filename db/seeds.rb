@@ -31,6 +31,44 @@ Manager.create!(
 	password: "aaaaaa",
 	)
 
+# 受注情報のサンプルデータ
+# postal_code1を2つ書いているのは、１行目が効かないため
+20.times do |n|
+	postal_code1 = Faker::Number.between(from: 100, to: 999),
+	postal_code2 = Faker::Number.between(from: 1000, to: 9999),
+	postal_code1 = Faker::Number.between(from: 100, to: 999),
+	prefecture_code = Faker::Number.between(from: 1, to: 47),
+	city = Faker::Address.city,
+	building = Faker::Address.street_address,
+	product_id = Faker::Number.between(from: 1, to: 10),
+	total = Faker::Number.between(from: 1000, to: 9999),
+	Order.create!(
+		postal_code1: postal_code1,
+		postal_code2: postal_code2,
+		prefecture_code: prefecture_code,
+		city: city,
+		building: building,
+		total: total,
+		status: 0,
+		tax_id: 1,
+		product_id: product_id,
+		customer_id: 1,
+		payment: 1,
+		postage_id: 1,
+		quantity: 2,
+		)
+end
+
+# 受注情報詳細のサンプルデータ
+20.times do |n|
+OrderDetail.create!(
+			order_id: Faker::Number.between(from: 1, to: 5),
+			product_id: Faker::Number.between(from: 1, to: 5),
+			subtotal: Faker::Number.between(from: 1000, to: 9999),
+			quantity: 2,
+	)
+end
+
 # カスタマーのサンプルデータ
 50.times do |n|
  Customer.create!(first_name: Faker::Bank.name,
@@ -97,24 +135,4 @@ end
 	)
 end
 
-
-# 受注情報のサンプルデータ
-# postal_code1を2つ書いているのは、１行目が効かないため
-20.times do |n|
-	Order.create!(
-		postal_code1: Faker::Number.between(from: 100, to: 999),
-		postal_code2: Faker::Number.between(from: 1000, to: 9999),
-		prefecture_code: Faker::Number.between(from: 1, to: 47),
-		city: Faker::Address.city,
-		building: Faker::Address.street_address,
-		total: Faker::Number.between(from: 1000, to: 9999),
-		status: 0,
-		tax_id: 1,
-		product_id: Faker::Number.between(from: 1, to: 10),
-		customer_id: 1,
-		payment: 1,
-		postage_id: 1,
-		quantity: 2,
-		)
-end
 

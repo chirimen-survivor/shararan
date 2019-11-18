@@ -10,133 +10,49 @@
 			</div>
 		</div>
 
-		<div class="container">
-		<div class="row">
-				<div class="cart-role">
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">1</i>
-							</span>
-							<div class="ec-progress__label">カートの商品</div>
-						</li>
-					</ul>
-					</div>
 
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">2</i>
-							</span>
-							<div class="ec-progress__label">お届け先・支払い方法の選択</div>
-						</li>
-					</ul>
-					</div>
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">3</i>
-							</span>
-							<div class="ec-progress__label">ご注文内容のご確認</div>
-						</li>
-					</ul>
-					</div>
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">4</i>
-							</span>
-							<div class="ec-progress__label">ご注文完了</div>
-						</li>
-					</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container">
-		<div class="row">
-			<div class="col-md-3 md-offset-3">
-				<div class="select-address">
-					<h3 class="title-head">お届け先指定</h3>
-					<%= check_box_tag :address %>
-					<%= label_tag :address, "名前" %>
-					<%= label_tag :address, "住所" %>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3 md-offset-3">
-				<div class="select-how">
-					<h3 class="tittle-head">お届け先指定</h3>
-					<%= check_box_tag :pay1 %>
-					<%= label_tag :pay, "銀行振り込み" %><br/>
-
-					<%= check_box_tag :pay2 %>
-					<%= label_tag :pay, "クレジットカード" %><br/>
-
-					<%= check_box_tag :pay3 %>
-					<%= label_tag :pay, "代引き" %>
-				</div>
-			</div>
-		</div>
-	</div>
-
-		<div class="row">
-		<div class="col-md-10">
-			<a href="#">
-			<button class="btn btn-default center-block">カートに戻る</button>
-		</a>
-			</div>
-		</div>
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 pull-right">
-					<div class="col-md-5 pull-left">小計
-					</div>
-					<div class="col-md-5 pull-right">
-						¥ 3,0000
-					</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 pull-right">
-					<div class="col-md-5 pull-left">
-						送料
-					</div>
-
-					<div class="col-md-5 pull-right">
-						¥ 500
-					</div>
-					<br/>
-					<br/>
-
-					<div class="col-md-6 pull-right">
-							合計　¥ 30,500 税込
-					</div>
-				</div>
-			</div>
-			<br/>
-			<br/>
+		<% @orders.each do |order| %>
+		<h3>
+		<%= order.created_at.strftime('%Y/%m/%d') %>
+		</h3>
+			<div class="container">
 				<div class="row">
-				<div class="col-md-11 text-right">
-				<%= link_to "一覧へ戻る", root_path, class: 'btn btn-default btn-lg' %>
+					<div class="col-md-4">
+						<label>ご注文状況</label>: :
+						<label>
+							<%= order.status %>
+						</label>
+					</div>
 				</div>
+
+				<div class="row row row-eq-height">
+					<div class="col-md-2 text-center">送付先</div>
+					<div class="col-md-7 text-center">
+						<%= order.prefecture_name %><%= order.city %><%= order.building %>
+					</div>
+					</div>
+
+				<div class="row row-eq-height">
+					<div class="col-md-8 text-right">
+						<!-- umber_with_delimiter は数値を3桁に区切るためのヘルパ -->
+						<h4>合計 : ¥<%= number_with_delimiter(order.total * order.tax_id) %> . <%= link_to "詳細", "/orders/#{order.id}", class: 'btn btn-default btn-xs' %></h4>
+
+					</div>
+				</div>
+
+
+			</div>
+
+
+	<% end %>
+	<div class="row">
+		<div class="col-md-12 text-center">
+
+			<%= paginate(@orders) %>
 		</div>
 	</div>
 </div>
+
 
 
 
