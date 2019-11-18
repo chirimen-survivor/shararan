@@ -59,6 +59,14 @@ Manager.create!(
 		)
 end
 
+# 受注情報詳細のサンプルデータ
+20.times do |n|
+OrderDetail.create!(
+			order_id: Faker::Number.between(from: 1, to: 5),
+			product_id: Faker::Number.between(from: 1, to: 5),
+			subtotal: Faker::Number.between(from: 1000, to: 9999),
+			quantity: 2,
+	)
 # カスタマーのサンプルデータ
 50.times do |n|
 
