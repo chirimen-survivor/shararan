@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
 	def update
 		@contact = Contact.new(contact_params)
 		if @contact.save
-		   redirect_to contact_path(), notice: "メールを送信しました！"
+		   redirect_to contact_path, notice: "メールを送信しました！"
 		   InquiryMailer.send_mail(@contact).deliver
 		end
 	end
