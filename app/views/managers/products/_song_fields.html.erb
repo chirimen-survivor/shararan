@@ -1,7 +1,5 @@
 <div class="nested-fields">
-    <%= f.label "曲名" %><br />
-    <%= f.text_field :name %><br />
-    <%= f.label "曲順" %><br />
-    <%= f.select :sequence, options_for_select(1..30)%><br />
-    <%= link_to_remove_association "曲を削除", f %>
+    <td><%= f.select :sequence, options_for_select(1..30)%></td>
+    <td><%= f.text_field :name %></td>
+    <td><%= link_to_remove_association "曲を削除", f, class: 'btn btn-sm btn-danger' %></td>
 </div>
