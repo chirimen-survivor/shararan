@@ -100,8 +100,8 @@ end
 
 20.times do |n|
  OrderDetail.create!(
-	orders_id: Faker::Number.between(from: 1, to: 10),
-	products_id: Faker::Number.between(from: 1, to: 10),
+	order_id: Faker::Number.between(from: 1, to: 10),
+	product_id: Faker::Number.between(from: 1, to: 10),
 	subtotal: Faker::Number.between(from: 1000, to: 9999),
 	quantity: Faker::Number.between(from: 1, to: 10),)
 end
