@@ -67,6 +67,7 @@ OrderDetail.create!(
 			subtotal: Faker::Number.between(from: 1000, to: 9999),
 			quantity: 2,
 	)
+end
 # カスタマーのサンプルデータ
 50.times do |n|
 

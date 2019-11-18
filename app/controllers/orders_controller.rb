@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
 		# @ordersに個人の購入履歴
 		@orders = @customer.orders
 
-		@orders = Order.page(params[:page]).per(6)
+		@orders = Order.page(params[:page]).per(10)
 	end
 
 	def show
