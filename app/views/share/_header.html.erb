@@ -33,6 +33,7 @@
         <!-- 管理者がログインしているかどうか -->
         <% elsif manager_signed_in? %>
           <div class="container">
+            <div class="row"></div>
             <div class="row well well-lg">
               <div class="col-lg-4">しゃららん</div>
               <div class="row">
@@ -48,9 +49,9 @@
                     <li class="list-group-item"><%= link_to '商品登録'%></li>
                     <li class="list-group-item"><%= link_to '受注履歴'%></li>
                     <li class="list-group-item"><%= link_to '入荷履歴'%></li>
-                    <li class="list-group-item"><%= link_to 'ユーザー情報一覧'%></li>
+                    <li class="list-group-item"><%= link_to 'ユーザー情報一覧',managers_customers_path%></li>
                     <li class="list-group-item"><%= link_to 'お問合せ一覧'%></li>
-                    <li class="list-group-item"><%= link_to 'ろぐあうと',destroy_manager_session_path, method: :delete%></li>
+                    <li class="list-group-item"><%= link_to 'ログアウト',destroy_manager_session_path, method: :delete%></li>
                   </div>
               </div>
             </div>
