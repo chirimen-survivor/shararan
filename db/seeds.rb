@@ -31,6 +31,25 @@ Manager.create!(
 	password: "aaaaaa",
 	)
 
+	# アーティスト情報 artists
+10.times do |n|
+	Artist.create!(
+		name: "Artist-#{n+1}"
+	)
+end
+# ジャンル情報 categories
+10.times do |n|
+	Categorie.create!(
+		name: "Category#{n+1}"
+	)
+end
+# レーベル情報 companies
+10.times do |n|
+	Company.create!(
+		name: "Record Label#{n+1}"
+	)
+end
+
 
 
 # カスタマーのサンプルデータ
@@ -82,7 +101,7 @@ end
                   status:     0,
                   description: description,
                   artist_id: 1,
-                  category_id: 1,
+                  categorie_id: 1,
                   company_id: 1,
                   deleted_at: "")
 end
@@ -95,25 +114,4 @@ end
 			customer_id: Faker::Number.between(from: 1, to: 5),
 			product_id: Faker::Number.between(from: 1, to: 5),
 			body: "いいね")
-end
-
-
-
-# アーティスト情報 artists
-10.times do |n|
-	Artist.create!(
-		name: Faker::Music.band
-	)
-end
-# ジャンル情報 categories
-10.times do |n|
-	Categorie.create!(
-		name: Faker::Music.genre
-	)
-end
-# レーベル情報 companies
-10.times do |n|
-	Company.create!(
-		name: "Record Label#{n+1}"
-	)
 end
