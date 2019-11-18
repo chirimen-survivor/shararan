@@ -12,6 +12,7 @@ class Product < ApplicationRecord
 
   has_many :reviews
   has_many :review
+  has_many :favorite
 
     attachment :image
     acts_as_paranoid
