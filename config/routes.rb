@@ -43,4 +43,10 @@ Rails.application.routes.draw do
   		get 'complete', on: :member
   	end
   end
+
+  # letter_openerを表示させるためのルーティング
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end

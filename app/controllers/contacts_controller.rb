@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
    		blog.save
     	redirect_to new_contact_path
 	end
+
 	def index
 		@contacts = Contact.all
 	end
@@ -16,14 +17,17 @@ class ContactsController < ApplicationController
 		@contact = Contact.find(params[:id])
 	end
 
-
 	def update
-
+		@contact = Contact.new(contact_params)
+		if @contact.save
+		   redirect_to contact_path(), notice: "メールを送信しました！"
+		   InquiryMailer.send_mail(@contact).deliver
+		end
 	end
 
 	private
 
 	def contact_params
 	      params.require(:contact).permit(:email,:title,:body)
-	end
+    end
 end

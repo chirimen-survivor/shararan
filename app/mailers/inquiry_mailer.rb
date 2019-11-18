@@ -1,6 +1,6 @@
 class InquiryMailer < ApplicationMailer
-	def send_mail
-		@inquiry = inquiry
+	def send_mail(contact)
+		@contact = contact
 		mail(
 			from: 'manager@example.com',
 			top: 'system@example.com',

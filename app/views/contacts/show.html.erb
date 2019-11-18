@@ -32,10 +32,15 @@
 		<ul class="list-group">
 			<li class="list-group-item"><%= @contact.email %></li>
 			<li class="list-group-item"><%= @contact.title %></li>
-			<li class="list-group-item"><%= @contact.reply_message %></li>
+			<%= form_for(@contact) do |f| %>
+			<li class="list-group-item"><%= f.text_field :reply_message %></li>
 		</ul>
 	  </div>
 	</div>
+	<div class="row">
+		<div class="col-lg-3">
+    	 	<%= f.submit '送信する' %>
+    	</div>
+    </div>
+			<% end %>
 </div>
-
-
