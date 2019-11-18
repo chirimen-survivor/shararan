@@ -31,16 +31,16 @@ Manager.create!(
 	password: "aaaaaa",
 	)
 
-# アーティスト情報 artists
+	# アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
-		name: Faker::Music.band
+		name: "Artist-#{n+1}"
 	)
 end
 # ジャンル情報 categories
 10.times do |n|
 	Categorie.create!(
-		name: Faker::Music.genre
+		name: "Category#{n+1}"
 	)
 end
 # レーベル情報 companies
@@ -50,9 +50,17 @@ end
 	)
 end
 
+# カスタマーのサンプルデータ
+50.times do |n|
+	last_name = Faker::Name.name,
+	first_name = Faker::Name.name,
+	last_name_kana = Faker::Name.name,
+	first_name_kana = Faker::Name.name,
+
 # 受注情報のサンプルデータ
 # postal_code1を2つ書いているのは、１行目が効かないため
 20.times do |n|
+
 	postal_code1 = Faker::Number.between(from: 100, to: 999),
 	postal_code2 = Faker::Number.between(from: 1000, to: 9999),
 	postal_code1 = Faker::Number.between(from: 100, to: 999),
@@ -121,18 +129,9 @@ end
                   status:     0,
                   description: description,
                   artist_id: 1,
-                  category_id: 1,
+                  categorie_id: 1,
                   company_id: 1,
                   deleted_at: "")
-end
-
-40.times do |n|
-	Review.create!(
-			rating: 3.5,
-			title: "いいね",
-			customer_id: Faker::Number.between(from: 1, to: 5),
-			product_id: Faker::Number.between(from: 1, to: 5),
-			body: "いいね")
 end
 
 20.times do |n|
@@ -161,5 +160,11 @@ end
 	quantity: Faker::Number.between(from: 1, to: 10),)
 end
 
-
-
+40.times do |n|
+	Review.create!(
+			rating: 3.5,
+			title: "いいね",
+			customer_id: Faker::Number.between(from: 1, to: 5),
+			product_id: Faker::Number.between(from: 1, to: 5),
+			body: "いいね")
+end

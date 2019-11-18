@@ -23,7 +23,7 @@ class Product < ApplicationRecord
     validates :release_date, presence: true
     validates :description, presence: true, length: {minimum: 1}
     validates :artist_id, presence: true
-    validates :category_id, presence: true
+    validates :categorie_id, presence: true
     validates :company_id, presence: true
 
     enum status: { 販売停止: 0, 販売中: 1 }

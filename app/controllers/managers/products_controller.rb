@@ -15,6 +15,7 @@ skip_before_action :authenticate_customer!, only: [:index, :show, :new, :create]
   end
 
   def index
+    @products = Product.page(params[:page])
   end
 
   def show
@@ -24,7 +25,7 @@ skip_before_action :authenticate_customer!, only: [:index, :show, :new, :create]
 
   def product_params
     params.require(:product).permit(:name, :price, :image, :release_date, :status,
-                                    :description, :artist_id, :category_id, :company_id,
+                                    :description, :artist_id, :categorie_id, :company_id,
                                     discs_attributes: [:id, :sequence, :_destroy,
                                     songs_attributes: [:id, :name, :sequence, :_destroy]])
   end
