@@ -40,6 +40,8 @@ class OrdersController < ApplicationController
 		@customer = Customer.find(params[:customer_id])
 		# @ordersに個人の購入履歴
 		@orders = @customer.orders
+
+		@orders = Order.page(params[:page]).per(6)
 	end
 
 	def show
