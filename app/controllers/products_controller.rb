@@ -13,13 +13,13 @@ class ProductsController < ApplicationController
   end
 
   def search_results
-    # @q = Product.search(search_params)
-    # @products = @q.result(distinct: true)
+    @q = Product.search(search_params)
+    @products = @q.result(distinct: true)
   end
 
   private
 
     def search_params
-      params.require(:q).permit!
+      params.require(:q).permit(:name_cont)
     end
 end
