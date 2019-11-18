@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_customer!, only: [:index, :show]
+  skip_before_action :authenticate_customer!, only: [:index, :show, :search_results]
 
   def index
-    @products = Product.page(params[:page])
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true).page(params[:page])
   end
 
   def show
@@ -12,5 +13,13 @@ class ProductsController < ApplicationController
   end
 
   def search_results
+    @q = Product.search(search_params)
+    @products = @q.result(distinct: true)
   end
+
+  private
+
+    def search_params
+      params.require(:q).permit(:name_cont)
+    end
 end

@@ -1,1 +1,5 @@
 <p>検索結果ページです</P>
+<% @products.each do |product| %>
+<p><%= product.id %></p>
+<p><%= product.name %></p>
+<% end %>
