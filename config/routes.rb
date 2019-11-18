@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   # ユーザー用のルーティング
   devise_for :customers
   root to: 'products#index'
+
+  # その他の住所のルーティング
   resources :other_addresses
+
+  # お問合せ用のルーティング
+  resources :contacts
 
 
   get 'customers/sign_up' => 'devise/registrations#new'

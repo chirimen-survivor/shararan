@@ -1,0 +1,29 @@
+<h1>manegers画面</h1>
+	<h3>お問合せ一覧</h3>
+
+	<div class="container">
+		<div class="row">
+			<table class="col-l-6 table table-bordered">
+			<h3>お問合せ一覧</h3>
+			<p>◯ 件のお問い合わせがあります</p>
+		    <thead>
+		        <tr>
+		            <th>顧客名</th>
+		            <th>件名</th>
+		            <th>送信日時</th>
+		     		<th><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></th>
+		        </tr>
+		    </thead>
+		    <% @contacts.each do |contact|%>
+			    <tbody>
+			        <tr>
+			            <th>顧客名</th>
+			            <td><%= contact.title %></td>
+			            <td><%= contact.created_at %></td>
+			            <td><%= link_to '詳細', contact_path(contact) %></td>
+			        </tr>
+			    </tbody>
+		    <% end %>
+			</table>
+		</div>
+	</div>
