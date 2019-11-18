@@ -36,17 +36,18 @@ class OrdersController < ApplicationController
 	def index
 		# 購入履歴を表示する
 		# 顧客情報
-		# @order = Order.find(params[:id])
 		@customer = Customer.find(params[:customer_id])
 		# @ordersに個人の購入履歴
 		@orders = @customer.orders
-
+		# ページネーション
 		@orders = Order.page(params[:page]).per(10)
 	end
 
 	def show
 		# 購入履歴詳細画面を表示する
-
+		@customer = Customer.find(params[:customer_id])
+		@orders = @customer.orders
+		@order_detail = Order.find(params[:customer_id])
 	end
 
 
