@@ -68,9 +68,9 @@ OrderDetail.create!(
 			quantity: 2,
 	)
 end
+
 # カスタマーのサンプルデータ
 50.times do |n|
-
  Customer.create!(first_name: Faker::Bank.name,
 				  last_name: Faker::Name.name,
 				  last_name_kana: Faker::Name.name,
@@ -116,8 +116,6 @@ end
 			body: "いいね")
 end
 
-
-
 # アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
@@ -136,7 +134,5 @@ end
 		name: "Record Label#{n+1}"
 	)
 end
-
-
 
 
