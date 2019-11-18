@@ -23,7 +23,7 @@
         <span></span>
 
 
-<%= form_for(@customer) do |f| %>
+<%= form_for(@customer, url: managers_customer_path(@customer.id)) do |f| %>
 
 	<h3>お名前</h3>
 	<%= f.text_field :last_name %>
@@ -50,7 +50,7 @@
 	<%= f.email_field :email %>
 
 	<%= f.submit '変更する' %>
-	<%= link_to "削除する", managers_customer_path(f.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %>
+	<%= link_to "削除する", managers_customer_path(@customer.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn-sm btn-danger" %>
 <% end %>
 
 <% @reviews.each do |j| %>
