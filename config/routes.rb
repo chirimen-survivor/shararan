@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   	resource :reviews, only: [:create]
   end
 
+  # 検索結果のルート
+
+  get 'search', to: 'products#search_results'
+
 
   resources :customers, only: [:show, :update, :destroy] do
   	get 'exit', on: :member
