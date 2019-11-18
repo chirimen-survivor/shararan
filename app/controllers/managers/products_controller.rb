@@ -1,5 +1,5 @@
 class Managers::ProductsController < Managers::ApplicationController
-skip_before_action :authenticate_customer!, only: [:index, :show, :new, :create]
+skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
 
 
   def new
