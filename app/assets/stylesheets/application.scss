@@ -16,6 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
@@ -30,6 +31,12 @@ hr {
 	background-color: black;
 	border: none;
  }
+
+//  カレンダーの位置を調整
+
+ #carendar-position {
+  position: relative;
+}
 
 // ランキング
 .rank {
@@ -210,4 +217,3 @@ hr {
 label{
 		margin-top: 20px;
 }
-

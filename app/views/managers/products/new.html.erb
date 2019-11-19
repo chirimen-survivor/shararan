@@ -18,10 +18,9 @@
         <%= f.text_field :price,  autofocus: true %>
       </div>
 
-      <P>カレンダーで日付を選べるように修正する</P>
-      <div class="field">
+      <div id="carendar-position" class="field">
         <%= f.label :発売日 %>
-        <%= f.text_field :release_date, :placeholder => "2019/1/11",  autofocus: true %>
+        <%= f.text_field :release_date, autofocus: true, class: 'datepicker' %>
       </div>
 
       <div class="field">
@@ -34,31 +33,41 @@
         <%= f.collection_select :categorie_id, Categorie.all, :id, :name, :prompt => "選択して下さい" %>
       </div>
 
-      <table class="table table-list">
-        <thead>
-          <tr>
-            <th>商品名</th>
-            <th>ディスク</th>
-            <th>曲名</th>
-            <th>曲順</th>
-            <th></th>
-          </tr>
-        </thead>
-      </table>
-
-      <div class="field">
-        <%= f.label :商品名 %><br />
-        <%= f.text_field :name %>
-        <div class="parents">
-          <%= f.fields_for :discs do |t| %>
-              <%= render "disc_fields", f: t %>
-          <% end %>
+        <h4>内容登録</h4>
+        <hr class="my-4">
+        <div class="text-left">
           <div class="links">
-              <%= link_to_add_association "ディスクを追加", f, :discs,
-                  class: 'btn btn-primary' %>
+            <%= link_to_add_association "ディスクを追加", f, :discs,
+            class: 'btn btn-primary',
+                    data: {
+                      association_insertion_node: '#detail-association-insertion-point',
+                      association_insertion_method: 'after' }
+            %>
           </div>
         </div>
-      </div>
+
+
+        <table class="table table-list">
+          <thead>
+            <tr>
+              <th>ディスク</th>
+              <th>曲順</th>
+              <th>曲名</th>
+              <th></th>
+            </tr>
+          </thead>
+
+        <tbody id='detail-association-insertion-point'>
+              <div class="form-group">
+                <%= f.label :商品名 %><br />
+                <%= f.text_field :name %>
+                <%= f.fields_for :discs do |t| %>
+                  <%= render "disc_fields", f: t %>
+                <% end %>
+              </div>
+        </tbody>
+      </table>
+    <hr class="my-4">
 
       <div class="field">
         <%= f.label :販売ステータス %>
@@ -67,7 +76,7 @@
 
       <div class="field">
         <%= f.label :商品説明 %><br />
-        <%= f.text_area :description, autofocus: true, class: 'form-control'  %>
+        <%= f.text_area :description, autofocus: true %>
       </div>
 
       <div class="actions">
@@ -75,3 +84,15 @@
       </div>
     <% end %>
 </div>
+
+<script>
+  $(function(){
+      $('.datepicker').datetimepicker({
+        format : "YYYY/MM/DD",
+        icons: {
+          previous: "fa fa-arrow-left",
+          next: "fa fa-arrow-right"
+        }
+      });
+    });
+</script>

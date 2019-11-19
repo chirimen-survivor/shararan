@@ -35,13 +35,13 @@ Manager.create!(
 	# アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
-		name: "Artist-#{n+1}"
+		name: Faker::Music::GratefulDead.unique.player
 	)
 end
 # ジャンル情報 categories
 10.times do |n|
 	Categorie.create!(
-		name: "Category#{n+1}"
+		name: Faker::Music.unique.genre
 	)
 end
 # レーベル情報 companies
@@ -50,7 +50,6 @@ end
 		name: "Record Label#{n+1}"
 	)
 end
-
 
 
 
@@ -175,4 +174,3 @@ end
       customer_id: 1
       )
 end
-
