@@ -1,0 +1,19 @@
+<div id="product-<%= product.id %>">
+<span class="favorite">
+  <% if customer_signed_in? %>
+    <% if product.good?(current_customer) %>
+    	<%= link_to product_favorites_path(product_id: product.id), {method: :delete, remote: true} do %>
+        	<%= button_tag(class: "btn btn-default btn-xs") do %>
+          	<%= content_tag :span, "#{product.favorites_count}", class: "glyphicon glyphicon-heart" %>
+          <% end %>
+    	<% end %>
+    <% else %>
+		  <%= link_to  product_favorites_path(product_id: product.id), {method: :post, remote: true} do %>
+        	<%= button_tag(class: "btn btn-default btn-xs") do %>
+          	<%= content_tag :span, "#{product.favorites_count}", class: "glyphicon glyphicon-heart-empty" %>
+          <% end %>
+		  <% end %>
+    <% end %>
+  <%end %>
+</span>
+</div>
