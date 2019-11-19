@@ -2,6 +2,12 @@ class FavoritesController < ApplicationController
 
 	skip_before_action :authenticate_customer!
 
+	def index
+		@customer = Customer.find(params[:customer_id])
+		@favorites = @customer.favorites
+		# @product = Product.find(params[:product_id])
+	end
+
 	def create
 		@product = Product.find(params[:product_id])
 		unless @product.good?(current_customer)
