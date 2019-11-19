@@ -14,8 +14,10 @@
     </div>
 
     <div class="actions"><br />
-            <%= f.submit "登録する", class: 'btn btn-primary' %>
+            <%= f.submit "更新する", class: 'btn btn-primary' %>
     </div>
+    aaaa
+    <%= link_to "削除する", managers_acc_path(@artist.id, status: 1), method: :delete %>
 
     <% end %>
 
@@ -27,10 +29,11 @@
     </div>
 
     <div class="actions"><br />
-            <%= f.submit "登録する", class: 'btn btn-primary' %>
+            <%= f.submit "更新する", class: 'btn btn-primary' %>
     </div>
 
     <% end %>
+    <%= link_to "削除する", managers_acc_path(@categorie.id, status: 2), method: :delete %>
 
     <%= form_for @company, url: managers_acc_path do |f| %>
 
@@ -40,8 +43,9 @@
     </div>
 
     <div class="actions"><br />
-            <%= f.submit "登録する", class: 'btn btn-primary' %>
+            <%= f.submit "更新する", class: 'btn btn-primary' %>
     </div>
 
     <% end %>
+    <%= link_to "削除する", managers_acc_path(@company.id, status: 3), method: :delete %>
 </div>

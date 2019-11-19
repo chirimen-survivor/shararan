@@ -1,5 +1,5 @@
 class Managers::AccsController < Managers::ApplicationController
-  skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create, :edit, :update] # 後で消す
+  skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create, :edit, :update, :destroy] # 後で消す
 
   def new
     @artist = Artist.new
@@ -18,7 +18,7 @@ class Managers::AccsController < Managers::ApplicationController
       redirect_to new_managers_product_path
     else
       @company = Company.new(company_params)
-      @campany.save
+      @company.save
       redirect_to new_managers_product_path
     end
   end
@@ -32,20 +32,33 @@ class Managers::AccsController < Managers::ApplicationController
   def update
     if !params[:artist].nil?
       @artist = Artist.find(params[:id])
-      @artist.update
+      @artist.update(artist_params)
       redirect_to new_managers_product_path
     elsif !params[:categorie].nil?
       @categorie = Categorie.find(params[:id])
-      @categorie.update
+      @categorie.update(categorie_params)
       redirect_to new_managers_product_path
     else
       @company = Company.find(params[:id])
-      @campany.update
+      @company.update(company_params)
       redirect_to new_managers_product_path
     end
   end
 
   def destroy
+    if status == 1
+      @artist = Artist.find(params[:id])
+      @artist.destroy
+      redirect_to new_managers_product_path
+    elsif status == 2
+      @categorie = Categorie.find(params[:id])
+      @categorie.destroy
+      redirect_to new_managers_product_path
+    else
+      @company = Company.find(params[:id])
+      @company.destroy
+      redirect_to new_managers_product_path
+    end
   end
 
   private
