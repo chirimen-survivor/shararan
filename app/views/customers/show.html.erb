@@ -59,7 +59,7 @@
 	<%= j.title %>
 	<%= j.created_at %>
 	<!-- 	商品名から商品詳細に飛べるようにします。 -->
-	<%= @review.product.name %>
+	<%= j.product.name %>
 	<%= j.body %>
 <% end %>
 <%= paginate @reviews, class: "paginatate" %>
