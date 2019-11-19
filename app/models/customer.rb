@@ -10,6 +10,7 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   paginates_per 5
+  has_many :other_address
 
   # 都道府県コードを入れるために以下は必要
   include JpPrefecture

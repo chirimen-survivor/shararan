@@ -30,6 +30,11 @@ gem "refile-mini_magick"
 gem 'cocoon'
 gem 'counter_culture', '~> 1.8'
 
+gem 'ransack'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

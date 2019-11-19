@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_054123) do
   create_table "favorites", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "product_id", null: false
-    t.integer "favorite_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -140,7 +139,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_054123) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "favorite_count"
+    t.integer "favorites_count", default: 0, null: false
   end
 
   create_table "reviews", force: :cascade do |t|

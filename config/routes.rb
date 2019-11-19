@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   namespace :managers do
-    resources :products, only: [:new, :show, :index]
+    resources :products, only: [:new, :create, :show, :index]
     resources :customers, only: [:index, :show, :update, :destroy]
   end
 
@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   	resource :reviews, only: [:create]
     resource :favorites, only: [:create, :destroy]
   end
+
+  # 検索結果のルート
+
+  get 'search', to: 'products#search_results'
 
 
   resources :customers, only: [:show, :update, :destroy] do
