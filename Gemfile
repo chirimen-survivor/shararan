@@ -28,6 +28,7 @@ gem 'kaminari','~> 1.1.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'cocoon'
+gem 'counter_culture', '~> 1.8'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

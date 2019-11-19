@@ -50,13 +50,6 @@ end
 	)
 end
 
-# カスタマーのサンプルデータ
-50.times do |n|
-	last_name = Faker::Name.name,
-	first_name = Faker::Name.name,
-	last_name_kana = Faker::Name.name,
-	first_name_kana = Faker::Name.name,
-
 # 受注情報のサンプルデータ
 # postal_code1を2つ書いているのは、１行目が効かないため
 20.times do |n|
