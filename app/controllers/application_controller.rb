@@ -3,9 +3,15 @@ class ApplicationController < ActionController::Base
 	 before_action :authenticate_customer!
 	 before_action :configure_permitted_parameters, if: :devise_controller?
 
-	# def after_sign_in_path_for(manager)
-		# managers_products_path
-	# end
+	 def after_sign_in_path_for(resource)
+	 	if resource.class == Manager
+	 		binding.pry
+			managers_products_path
+		elsif resource.class == Customer
+			binding.pry
+			root_path
+		end
+	 end
 
 	protected
 	def configure_permitted_parameters
