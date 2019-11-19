@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
 
 	def new
 		# 購入確認画面を表示する
-		@order = Order.find(params[:id])
+		@customer = Customer.find(params[:customer_id])
+		@order = Order.find(params[:customer_id])
 	end
 
 
@@ -24,12 +25,13 @@ class OrdersController < ApplicationController
 	def select
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
+		# 顧客のメイン以外の住所
+		@addresses = @customer.other_address
 		# 配送先、支払い方法を選択するために空
 		@order = Order.find(params[:id])
 
 
 		# @ordersに個人の購入履歴
-		# @addresses = @customer.other_addresses
 	end
 
 
@@ -54,13 +56,11 @@ class OrdersController < ApplicationController
 		# その中の詳細
 		@details = @order.order_details
 
-
 	end
 
 
 	def complete
 		# 購入完了画面を表示する
-
 	end
 
 	private
