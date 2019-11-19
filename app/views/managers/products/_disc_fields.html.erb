@@ -1,11 +1,12 @@
-<div class="nested-fields">
-    <%= f.label "ディスク" %><br />
-    <%= f.select :sequence, options_for_select(1..10)%><br />
-    <%= link_to_remove_association "ディスクを削除", f %>
+<tr class="nested-fields">
+    <td>
+        <%= f.select :sequence, options_for_select(1..10)%><br />
+        <%= link_to_remove_association "ディスクを削除", f, class: 'btn btn-sm btn-danger' %>
+    </td>
 
     <%= f.fields_for :songs do |u| %>
         <%= render "song_fields", f: u %>
     <% end %>
 
-    <%= link_to_add_association "曲を追加", f, :songs %>
-</div>
+    <td><%= link_to_add_association "曲を追加", f, :songs, class: 'btn btn-sm btn-primary' %></td>
+</tr>

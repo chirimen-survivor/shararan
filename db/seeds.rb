@@ -35,13 +35,13 @@ Manager.create!(
 	# アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
-		name: "Artist-#{n+1}"
+		name: Faker::Music::GratefulDead.unique.player
 	)
 end
 # ジャンル情報 categories
 10.times do |n|
 	Categorie.create!(
-		name: "Category#{n+1}"
+		name: Faker::Music.unique.genre
 	)
 end
 # レーベル情報 companies
@@ -53,12 +53,6 @@ end
 
 
 
-# カスタマーのサンプルデータ
-50.times do |n|
-	last_name = Faker::Name.name,
-	first_name = Faker::Name.name,
-	last_name_kana = Faker::Name.name,
-	first_name_kana = Faker::Name.name,
 
 # 受注情報のサンプルデータ
 # postal_code1を2つ書いているのは、１行目が効かないため
@@ -101,6 +95,10 @@ end
 
 # カスタマーのサンプルデータ
 50.times do |n|
+	last_name = Faker::Name.name,
+	first_name = Faker::Name.name,
+	last_name_kana = Faker::Name.name,
+	first_name_kana = Faker::Name.name,
  Customer.create!(first_name: Faker::Bank.name,
 				  last_name: Faker::Name.name,
 				  last_name_kana: Faker::Name.name,
@@ -146,3 +144,33 @@ end
 			body: "いいね")
 end
 
+# 住所情報
+10.times do |n|
+      last_name = Faker::Name.name,
+      first_name = Faker::Name.name,
+      last_name_kana = Faker::Name.name,
+      first_name_kana = Faker::Name.name,
+      postal_code1 = Faker::Number.between(from: 100, to: 999),
+      postal_code2 = Faker::Number.between(from: 1000, to: 9999),
+      prefecture_code = Faker::Number.between(from: 1, to: 47),
+      city = Faker::Address.city,
+      building = Faker::Address.street_address,
+      phone_number1 = Faker::Number.between(from: 1, to: 9999),
+      phone_number2 = Faker::Number.between(from: 1, to: 9999),
+      phone_number3 = Faker::Number.between(from: 1, to: 9999),
+      OtherAddress.create!(
+      last_name: Faker::Name.name,
+      first_name: Faker::Name.name,
+      last_name_kana: Faker::Name.name,
+      first_name_kana: Faker::Name.name,
+      postal_code1: Faker::Number.between(from: 100, to: 999),
+      postal_code2: Faker::Number.between(from: 1000, to: 9999),
+      prefecture_code: Faker::Number.between(from: 1, to: 47),
+      city: Faker::Address.city,
+      building: Faker::Address.street_address,
+      phone_number1: Faker::Number.between(from: 1, to: 9999),
+      phone_number2: Faker::Number.between(from: 1, to: 9999),
+      phone_number3: Faker::Number.between(from: 1, to: 9999),
+      customer_id: 1
+      )
+end
