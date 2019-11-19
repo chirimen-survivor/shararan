@@ -1,3 +1,3 @@
 class OrderDetail < ApplicationRecord
-	belongs_to :order1
+	belongs_to :order
 end

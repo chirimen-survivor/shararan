@@ -23,34 +23,42 @@
         <span></span>
 
 
-<%= form_for(@customer) do |f| %>
+<div class="container">
+	<div class="mypage-info">
+		<%= form_for(@customer) do |f| %>
+	 	<div class="row">
+	 		<div class="co-lg-6">
+		<h3>お名前</h3>
+		<%= f.text_field :last_name %>
+		<%= f.text_field :first_name %>
+	 		</div>
+	 	<div class="co-lg-6">
+		<h3>お名前（フリガナ）</h3>
+		<%= f.text_field :last_name_kana %>
+		<%= f.text_field :first_name_kana %>
 
-	<h3>お名前</h3>
-	<%= f.text_field :last_name %>
-	<%= f.text_field :first_name %>
+		<h3>住所</h3>
+		 <div class="co-lg-6"><P>郵便番号</P>
+			<%= f.text_field :postal_code1 %>
+			<%= f.text_field :postal_code2 %>
+		 </div>
 
-	<h3>お名前（フリガナ）</h3>
-	<%= f.text_field :last_name_kana %>
-	<%= f.text_field :first_name_kana %>
+		<!-- 都道府県はプルダウン式にするのでcollectionを使います。 -->
+		<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+		<%= f.text_field :city %>
+		<%= f.text_field :building %>
 
-	<h3>住所</h3>
-	<%= f.text_field :postal_code1 %>
-	<%= f.text_field :postal_code2 %>
+		<h3>電話番号</h3>
+		<%= f.text_field :phone_number1 %>
+		<%= f.text_field :phone_number2 %>
+		<%= f.text_field :phone_number3 %>
 
-	<!-- 都道府県はプルダウン式にするのでcollectionを使います。 -->
-	<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
-	<%= f.text_field :city %>
-
-	<h3>電話番号</h3>
-	<%= f.text_field :phone_number1 %>
-	<%= f.text_field :phone_number2 %>
-	<%= f.text_field :phone_number3 %>
-
-	<h3>メールアドレス</h3>
-	<%= f.email_field :email %>
-
-	<%= f.submit '変更する' %>
-
+		<h3>メールアドレス</h3>
+		<%= f.email_field :email %>
+		<div class="co-lg-6">
+			<%= f.submit '変更する' %>
+		</div>
+	</div>
 <% end %>
 
 <h2>レビュー一覧</h2>
@@ -77,5 +85,5 @@
     <% end %>
   </div>
   <hr class="my-4">
-<%= paginate @reviews, class: "paginatate" %>
 
+<%= paginate @reviews, class: "paginatate" %>
