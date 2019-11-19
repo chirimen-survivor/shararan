@@ -12,6 +12,23 @@ class Product < ApplicationRecord
 
   has_many :reviews
   has_many :review
+  has_many :favorites, dependent: :destroy
+  #has_many :good_customers, through: :favorites, source: :customer
+
+  # 商品にいいね
+  def good(customer)
+    favorites.create(customer_id: customer.id)
+  end
+
+  def ungood(customer)
+    favorites.find_by(customer_id: customer.id).destroy
+  end
+
+  def good?(customer)
+    customer_ids = favorites.pluck(:customer_id)
+    customer_ids.include?(customer.id)
+  end
+
 
     attachment :image
     acts_as_paranoid
@@ -26,5 +43,6 @@ class Product < ApplicationRecord
     validates :company_id, presence: true
 
     enum status: { 販売停止: 0, 販売中: 1 }
+
 
 end
