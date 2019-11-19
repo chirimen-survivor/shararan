@@ -1,0 +1,50 @@
+<div class="container">
+    <p>アーティスト・ジャンル・レーベル情報編集</p>
+</div>
+
+<hr class="my-4">
+
+<div class="container">
+
+    <%= form_for @artist, url: managers_acc_path do |f| %>
+
+    <div class="field">
+        <%= f.label :"アーティスト名" %><br />
+        <%= f.text_field :name,  autofocus: true %>
+    </div>
+
+    <div class="actions"><br />
+            <%= f.submit "更新する", class: 'btn btn-primary' %>
+    </div>
+    <%= link_to "削除する", managers_acc_path(@artist.id, status: 1), method: :delete, class: 'btn btn-danger' %>
+
+    <% end %>
+
+    <%= form_for @categorie, url: managers_acc_path do |f| %>
+
+    <div class="field">
+        <%= f.label :"ジャンル名" %><br />
+        <%= f.text_field :name,  autofocus: true %>
+    </div>
+
+    <div class="actions"><br />
+            <%= f.submit "更新する", class: 'btn btn-primary' %>
+    </div>
+
+    <% end %>
+    <%= link_to "削除する", managers_acc_path(@categorie.id, status: 2), method: :delete, class: 'btn btn-danger' %>
+
+    <%= form_for @company, url: managers_acc_path do |f| %>
+
+    <div class="field">
+        <%= f.label :"レーベル名" %><br />
+        <%= f.text_field :name,  autofocus: true %>
+    </div>
+
+    <div class="actions"><br />
+            <%= f.submit "更新する", class: 'btn btn-primary' %>
+    </div>
+
+    <% end %>
+    <%= link_to "削除する", managers_acc_path(@company.id, status: 3), method: :delete, class: 'btn btn-danger' %>
+</div>
