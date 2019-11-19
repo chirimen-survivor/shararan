@@ -18,10 +18,11 @@
         <%= f.text_field :price,  autofocus: true %>
       </div>
 
-      <P>カレンダーで日付を選べるように修正する</P>
       <div class="field">
-        <%= f.label :発売日 %>
-        <%= f.text_field :release_date, :placeholder => "2019/1/11",  autofocus: true %>
+        <div id="carendar-position" class="field">
+          <%= f.label :発売日 %>
+          <%= f.text_field :release_date, autofocus: true, class: 'datepicker' %>
+        </div>
       </div>
 
       <div class="field">
@@ -75,3 +76,16 @@
       </div>
     <% end %>
 </div>
+
+
+<script>
+$(function(){
+    $('.datepicker').datetimepicker({
+      format : "YYYY/MM/DD",
+      icons: {
+        previous: "fa fa-arrow-left",
+        next: "fa fa-arrow-right"
+      }
+    });
+  });
+</script>

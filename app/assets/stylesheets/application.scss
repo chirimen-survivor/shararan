@@ -16,6 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
@@ -174,6 +175,12 @@ hr {
 	margin-bottom: 5px;
 }
 
+//  カレンダーの位置を調整
+
+#carendar-position {
+  position: relative;
+}
+
 // カートに入れる　いいねアイコンセクション
 
 .btn-info {
@@ -210,4 +217,3 @@ hr {
 label{
 		margin-top: 20px;
 }
-
