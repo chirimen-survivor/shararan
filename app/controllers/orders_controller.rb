@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
 		# 配送先、支払い方法を選択するために空
-		@order = Order.new
+		@order = Order.find(params[:id])
 
 
 		# @ordersに個人の購入履歴
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
 		@customer = Customer.find(params[:customer_id])
 		@orders = @customer.orders
 		@order = Order.find(params[:id])
-		# @order1 = Order_detail.find(params[:id])
+		# @detail = Product.orderDetail
 	end
 
 

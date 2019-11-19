@@ -53,7 +53,7 @@
 								</div>
 								<div class="col-md-5 text-right">
 									<label2>
-										
+										<!-- ここに小計額 -->
 									</label2>
 								</div>
 							</div>
@@ -65,24 +65,34 @@
 								</div>
 								<div class="col-md-5 text-right">
 									<label2>
-										<%= @order.postage_id %>
+										<!-- ここに送料 -->
 									</label2>
 								</div>
 							</div>
 
+							<div class="row">
+								<div class="col-md-3 text-left total">
+									<h4>合計</h4>
+									<br/>
+								</div>
+								<div class="col-md-5 text-right total">
+									<h4>
+										¥ <%= number_with_delimiter(@order.total * @order.tax_id) %>
+									</h4>
+								</div>
+							</div>
 						</div>
 				</div>
 			</div>
 		</div>
 
-
-
-
-
-
-
-
-					
+	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<
+				</div>
+			</div>
+		</div>
 
 
 
