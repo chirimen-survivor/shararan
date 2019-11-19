@@ -13,6 +13,7 @@ class Product < ApplicationRecord
   has_many :reviews
   has_many :review
   has_many :favorites, dependent: :destroy
+  has_many :cart_items
   #has_many :good_customers, through: :favorites, source: :customer
 
   # 商品にいいね
