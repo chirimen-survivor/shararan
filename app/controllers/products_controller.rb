@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @product = Product.find(params[:id])
     @reviews = @product.reviews.page(params[:page])
-    @review = Review.new
   end
 
   def search_results
