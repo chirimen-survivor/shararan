@@ -52,8 +52,6 @@ end
 end
 
 
-
-
 # 受注情報のサンプルデータ
 # postal_code1を2つ書いているのは、１行目が効かないため
 20.times do |n|
@@ -83,6 +81,7 @@ end
 		)
 end
 
+
 # 受注情報詳細のサンプルデータ
 20.times do |n|
 OrderDetail.create!(
@@ -92,6 +91,7 @@ OrderDetail.create!(
 			quantity: 2,
 	)
 end
+
 
 # カスタマーのサンプルデータ
 50.times do |n|

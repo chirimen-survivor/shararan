@@ -52,7 +52,9 @@ class OrdersController < ApplicationController
 		# 一覧の中の一軒の購入情報
 		@order = Order.find(params[:id])
 		# その中の詳細
-		@detail = @order.order_details
+		@details = @order.order_details
+
+
 	end
 
 
