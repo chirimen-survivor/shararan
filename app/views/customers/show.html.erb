@@ -61,28 +61,29 @@
 	</div>
 <% end %>
 
-<% @reviews.each do |j| %>
+<h2>レビュー一覧</h2>
+<div class="container">
+  <div class="review">
+    <% @reviews.each do |r| %>
+  <table class = "table table-striped">
+    <tr>
+      <th>評価</th>
+      <th>商品名</th>
+      <th>作成日時</th>
+      <th>タイトル</th>
+      <th>本文</th>
+    </tr>
 
-	<%= j.rating %>
-	<%= j.title %>
-	<%= j.created_at %>
-	<!-- 	商品名から商品詳細に飛べるようにします。 -->
-	<%= j.product.name %>
-	<%= j.body %>
-	<table class = "table table-striped">
-		<tr>
-			<th>評価</th>
-			<th>商品名</th>
-			<th>タイトル</th>
-			<th>本文</th>
-		</tr>
+    <tr>
+        <td><%= r.rating %></td>
+        <td><%= r.product.name %></td>
+        <td><%= r.created_at %></td>
+        <td><%= r.title %></td>
+        <td><%= r.body %></td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+  <hr class="my-4">
 
-		<tr>
-			<td><%= j.rating %></td>
-			<td><%= @review.product.name %></td>
-			<td><%= j.title %></td>
-			<td><%= j.body %></td>
-		</tr>
-	</table>
-<% end %>
 <%= paginate @reviews, class: "paginatate" %>
