@@ -41,7 +41,7 @@
             class: 'btn btn-primary',
                     data: {
                       association_insertion_node: '#detail-association-insertion-point',
-                      association_insertion_method: 'append' }
+                      association_insertion_method: 'after' }
             %>
           </div>
         </div>
@@ -57,7 +57,7 @@
             </tr>
           </thead>
 
-          <tbody id='detail-association-insertion-point'>
+        <tbody id='detail-association-insertion-point'>
               <div class="form-group">
                 <%= f.label :商品名 %><br />
                 <%= f.text_field :name %>
@@ -86,13 +86,13 @@
 </div>
 
 <script>
-$(function(){
-    $('.datepicker').datetimepicker({
-      format : "YYYY/MM/DD",
-      icons: {
-        previous: "fa fa-arrow-left",
-        next: "fa fa-arrow-right"
-      }
+  $(function(){
+      $('.datepicker').datetimepicker({
+        format : "YYYY/MM/DD",
+        icons: {
+          previous: "fa fa-arrow-left",
+          next: "fa fa-arrow-right"
+        }
+      });
     });
-  });
 </script>

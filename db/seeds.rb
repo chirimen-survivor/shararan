@@ -35,13 +35,13 @@ Manager.create!(
 	# アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
-		name: "Artist-#{n+1}"
+		name: Faker::Music::GratefulDead.unique.player
 	)
 end
 # ジャンル情報 categories
 10.times do |n|
 	Categorie.create!(
-		name: "Category#{n+1}"
+		name: Faker::Music.unique.genre
 	)
 end
 # レーベル情報 companies
@@ -59,6 +59,7 @@ end
 	first_name = Faker::Name.name,
 	last_name_kana = Faker::Name.name,
 	first_name_kana = Faker::Name.name,
+end
 
 # 受注情報のサンプルデータ
 # postal_code1を2つ書いているのは、１行目が効かないため
@@ -145,4 +146,3 @@ end
 			product_id: Faker::Number.between(from: 1, to: 5),
 			body: "いいね")
 end
-
