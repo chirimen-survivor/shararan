@@ -16,8 +16,7 @@
     <div class="actions"><br />
             <%= f.submit "更新する", class: 'btn btn-primary' %>
     </div>
-    aaaa
-    <%= link_to "削除する", managers_acc_path(@artist.id, status: 1), method: :delete %>
+    <%= link_to "削除する", managers_acc_path(@artist.id, status: 1), method: :delete, class: 'btn btn-danger' %>
 
     <% end %>
 
@@ -33,7 +32,7 @@
     </div>
 
     <% end %>
-    <%= link_to "削除する", managers_acc_path(@categorie.id, status: 2), method: :delete %>
+    <%= link_to "削除する", managers_acc_path(@categorie.id, status: 2), method: :delete, class: 'btn btn-danger' %>
 
     <%= form_for @company, url: managers_acc_path do |f| %>
 
@@ -47,5 +46,5 @@
     </div>
 
     <% end %>
-    <%= link_to "削除する", managers_acc_path(@company.id, status: 3), method: :delete %>
+    <%= link_to "削除する", managers_acc_path(@company.id, status: 3), method: :delete, class: 'btn btn-danger' %>
 </div>
