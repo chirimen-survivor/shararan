@@ -45,10 +45,14 @@ class OrdersController < ApplicationController
 
 	def show
 		# 購入履歴詳細画面を表示する
+		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
+		# 顧客の購入一覧
 		@orders = @customer.orders
+		# 一覧の中の一軒の購入情報
 		@order = Order.find(params[:id])
-		# @detail = Product.orderDetail
+		# その中の詳細
+		@detail = @order.order_details
 	end
 
 
