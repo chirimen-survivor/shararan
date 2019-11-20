@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
 
   has_many :reviews
   has_many :orders
+  has_many :contacts
   has_many :favorites, dependent: :destroy
 
   paginates_per 5

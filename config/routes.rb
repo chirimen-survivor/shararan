@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  get 'manager_orders/index'
+  get 'manager_orders/show'
   # 管理者用のルーティング
   devise_for :managers, :controllers => {
    :registrations => 'managers/registrations',
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   namespace :managers do
     resources :products, only: [:new, :create, :show, :index]
     resources :customers, only: [:index, :show, :update, :destroy]
+    resources :contacts, only: [:index,:show, :update]
     resources :accs, only: [:new, :create, :edit, :update, :destroy]
   end
 
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   # ユーザー用のルーティング
   devise_for :customers
   root to: 'products#index'
+
+  # その他の住所のルーティング
   resources :other_addresses
 
 
@@ -48,6 +52,16 @@ Rails.application.routes.draw do
   		get 'complete', on: :member
   	end
 
+
+    resources :contacts, only: [:show, :create]
+
     resources :favorites, only: [:index]
+
   end
+
+  # letter_openerを表示させるためのルーティング
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end
