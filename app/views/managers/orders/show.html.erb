@@ -50,9 +50,12 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="label2">
-					<label1>ご注文状況</label1>: :
+					<label1>ご注文状況</label1>: 
 						<label1>
-							<%= @order.status %>
+							<%= form_for @order, url:managers_order_path(@order.id) do |f| %>
+								<%= f.select :status, Order.statuses.keys.to_a, {} %>
+								<%= f.submit %>
+							<% end %>
 						</label1>
 					</div>
 				</div>

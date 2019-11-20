@@ -11,6 +11,16 @@ class Managers::OrdersController < ApplicationController
 		@details = OrderDetail.where(order_id: @order.id)
 	end
 
+	def update
+		@order = Order.find(params[:id])
+		if @order.update(order_status_params)
+			@order = Order.find(params[:id])
+			redirect_to managers_order_path(@order.id)
+		else
+			render :show
+		end
+	end
+
 	private
 
 	def order_params
@@ -19,6 +29,10 @@ class Managers::OrdersController < ApplicationController
 
 	def order_detail_params
 		params.require(:order_detail).permit(:order_id, :product_id, :subtotal, :quantity)
+	end
+
+	def order_status_params
+		params.require(:order).permit(:status)
 	end
 
 end
