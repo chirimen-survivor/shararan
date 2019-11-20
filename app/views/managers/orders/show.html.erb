@@ -18,11 +18,11 @@
 							<label>お届け先住所</label>
 							<br/>
 							<label2>
-								<%= @customer.last_name + @customer.first_name + "様" %>
+								<%= @order.customer.last_name + @order.customer.first_name + "様" %>
 							</label2>
 							<br/>
 							<label2>
-								¥
+								〒
 								<%= @order.postal_code1 %> - <%= @order.postal_code2 %>
 							</label2>
 							<br/>
@@ -44,16 +44,18 @@
 						</div>
 
 						<div class="col-md-5 text-center">
-							<label>ご請求額</label>
+							<label></label>
 							<br/>
 							<div class="row">
 								<div class="col-md-2 text-center">
-									<label2>小計</label2>
+									<% @order_details.each do |order_detail| %>
+									<label2>小計 <%= order_detail.subtotal %>
+										<% end %>
+									</label2>
 									<br/>
 								</div>
 								<div class="col-md-5 text-right">
 									<label2>
-										
 									</label2>
 								</div>
 							</div>

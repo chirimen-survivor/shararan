@@ -1,23 +1,15 @@
-class OrdersController < ApplicationController
+class Managers::OrdersController < ApplicationController
 
 	# before_action :ensure_correct_customer, {only: [:new, :create, :select, :index, :show, :complete]}
 
 	def index
-		# 購入履歴を表示する
-		# 顧客情報
-		@customer = Customer.find(params[:customer_id])
-		# @ordersに個人の購入履歴
-		@orders = @customer.orders
-		# ページネーション
-		@orders = Order.page(params[:page]).per(10)
+		@orders = Order.all
 	end
 
 	def show
-		# 購入履歴詳細画面を表示する
-		@customer = Customer.find(params[:customer_id])
-		@orders = @customer.orders
 		@order = Order.find(params[:id])
-		# @order1 = Order_detail.find(params[:id])
+		#@order_detail = OrderDetail.find(params[:order_id])
+		@order_details = OrderDetail.where(order_id: @order.id)
 	end
 
 	private

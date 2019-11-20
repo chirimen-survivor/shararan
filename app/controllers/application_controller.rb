@@ -5,10 +5,8 @@ class ApplicationController < ActionController::Base
 
 	 def after_sign_in_path_for(resource)
 	 	if resource.class == Manager
-	 		binding.pry
 			managers_products_path
 		elsif resource.class == Customer
-			binding.pry
 			root_path
 		end
 	 end
