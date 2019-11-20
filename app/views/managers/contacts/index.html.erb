@@ -5,7 +5,7 @@
 		<div class="row">
 			<table class="col-l-6 table table-bordered">
 			<h3>お問合せ一覧</h3>
-			<p>◯ 件のお問い合わせがあります</p>
+			<p><%= @contacts.length %>件のお問い合わせがあります</p>
 		    <thead>
 		        <tr>
 		            <th>顧客名</th>
@@ -14,7 +14,7 @@
 		     		<th><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></th>
 		        </tr>
 		    </thead>
-		    <% @contacts.each_with_index do |contact, i|%>
+		    <% @contacts.each do |contact|%>
 			    <tbody>
 			        <tr>
 			            <th><%= contact.customer.last_name %></th>
@@ -22,8 +22,6 @@
 			            <td><%= contact.created_at %></td>
 			            <td><%= link_to '詳細', managers_contact_path(contact) %></td>
 			        </tr>
-
-
 			    </tbody>
 		    <% end %>
 			</table>
