@@ -64,7 +64,7 @@ end
 				  phone_number1: Faker::Number.between(from: 1, to: 9999),
 				  phone_number2: Faker::Number.between(from: 1, to: 9999),
 				  phone_number3: Faker::Number.between(from: 1, to: 9999),
-				  email: Faker::Internet.free_email,
+				  email: Faker::Internet.unique.free_email,
 				  password: Faker::Number.between(from: 100000, to: 999999),
 				  deleted_at: "")
 end
@@ -81,9 +81,9 @@ end
                   release_date: release_date,
                   status:     0,
                   description: description,
-                  artist_id: 1,
-                  categorie_id: 1,
-                  company_id: 1,
+                  artist_id: Faker::Number.between(from: 1, to: 10),
+                  categorie_id: Faker::Number.between(from: 1, to: 10),
+                  company_id: Faker::Number.between(from: 1, to: 10),
                   deleted_at: "")
 end
 

@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="review">
-    <% @cart_items.each do |cart| %>
+    <% current_customer.cart_items.each do |cart| %>
       <table class = "table table-striped">
 
         <thead>
@@ -10,7 +10,10 @@
               <th>商品内容</th>
               <th>商品名</th>
               <th>数量</th>
+              <th></th>
+              <th></th>
               <th>価格(税抜)</th>
+              <th></th>
           </tr>
         </thead>
 
@@ -18,8 +21,18 @@
             <tr>
               <td><%= "写真" %></td>
               <td><%= cart.product.name %></td>
+
+            <%= form_for cart, url: product_cart_items_path(cart.product), method: :patch  do |f| %>
               <td><%= cart.quantity %></td>
-              <td><%= "¥ #{cart.product.price.to_s(:delimited)}" %></td>
+              <td><%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :selected => 1 %></td>
+              <td><%= f.submit '購入数を変更する' %></td>
+            <% end %>
+
+            <td><%= "¥ #{cart.product.price.to_s(:delimited)}" %></td>
+              <td>
+                <%= link_to '商品を削除する', product_cart_items_path(cart.product_id), method: :delete,
+                                            data: {confirm: "本当に削除しますか？"} %>
+              </td>
             </tr>
         </tbody>
       </table>
