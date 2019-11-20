@@ -25,12 +25,13 @@ Rails.application.routes.draw do
   resources :products, only: [:show] do
   	resource :reviews, only: [:create]
     resource :favorites, only: [:create, :destroy]
-    resource :cart_items, only: [:create, :destroy]
+    resource :cart_items, only: [:destroy]
   end
 
   # 検索結果のルート
 
   get 'search', to: 'products#search_results'
+  post 'products/:product_id/cart_items', to: 'products#create'
 
 
   resources :customers, only: [:show, :update, :destroy] do
