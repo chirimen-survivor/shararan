@@ -61,11 +61,42 @@
 			</div>
 		</div>
 
+
+		
+
 		<div class="container">
 			<div class="row">
+				<div class="col-md-6 text-right">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="label2">お届け先住所</div>
+						</div>
+					</div>
 
+					<div class="row">
+						<div class="col-md-8">
+							<label>名前</label>:
+						<label>
+							<%= @customer.last_name + @customer.first_name %></label><br/><br/>
+						<div class="col-md-2">
+						<label>住所</label>:
+						<label>
+							〒<%= @order.postal_code1 %> - <%= @order.postal_code2 %></label>
+						</div>
+						<div class="col-md-10 text-left">
+						<label>
+							<%= @order.other_address.prefecture_code + @order.other_address.city + @order.other_address.building %>
+						</label>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
+
+
+
+
 
 
 

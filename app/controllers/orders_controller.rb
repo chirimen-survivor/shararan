@@ -4,8 +4,17 @@ class OrdersController < ApplicationController
 
 	def new
 		# 購入確認画面を表示する
+		OtherAddress.new
+		# @customer = Customer.find(params[:customer_id])
+		if params[:adress].to_i == 0
+		else
+			@addresses = OtherAddress.find(params[:adress].to_i)
+		end
 		@customer = Customer.find(params[:customer_id])
-		@order = Order.find(params[:customer_id])
+		binding.pry
+		@order = Order.new(payment: 0, customer_id: current_customer.id, address: address.id)
+		# @details = @order.order_details.first
+		# 確認用
 	end
 
 
@@ -26,9 +35,10 @@ class OrdersController < ApplicationController
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
 		# 顧客のメイン以外の住所
-		@addresses = @customer.other_address
+		@addresses = @customer.other_addresses
 		# 配送先、支払い方法を選択するため
 		@order = Order.find(params[:id])
+
 
 	end
 
@@ -53,6 +63,8 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		# その中の詳細
 		@details = @order.order_details
+		# 商品レビューや再度購入をするため
+		@product = Product.find(params[:id])
 
 	end
 
