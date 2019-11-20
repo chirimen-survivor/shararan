@@ -23,7 +23,8 @@ class ProductsController < ApplicationController
       @cart_item.save!
       redirect_to customer_cart_items_path(@customer.id)
     else
-      @cart_item.update(quantity: params[:cart_item][:quantity])
+      @cart_item = current_customer.cart_items.find_by(product_id: params[:product_id])
+      @cart_item.update(cart_params)
       redirect_to customer_cart_items_path(@customer.id)
     end
   end
