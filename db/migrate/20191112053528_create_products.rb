@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :status, null: false, default: 0
       t.text :description, null: false
       t.integer :artist_id, null: false
-      t.integer :category_id, null: false
+      t.integer :categorie_id, null: false
       t.integer :company_id, null: false
       t.datetime :deleted_at
       t.timestamps

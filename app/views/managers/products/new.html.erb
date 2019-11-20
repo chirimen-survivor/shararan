@@ -1,68 +1,104 @@
+<div class="container">
+    <h2>商品登録ぺーじやで</h2>
 
-<h2>商品登録ぺーじやで</h2>
+    <%= form_for @product, url: managers_products_path do |f| %>
 
-<%= form_for @product, url: managers_products_path do |f| %>
-
-  <div class="field">
-    <%= f.label :アーティスト名 %><br />
-    <%= f.collection_select :artist_id, Artist.all, :id, :name, :prompt => "選択して下さい" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :タイトル %>
-    <%= f.text_field :name,  autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ジャケット画像 %>
-    <%= f.attachment_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :価格（税別価格） %>
-    <%= f.text_field :price,  autofocus: true %>
-  </div>
-
-  <P>カレンダーで日付を選べるように修正する</P>
-  <div class="field">
-    <%= f.label :発売日 %>
-    <%= f.text_field :release_date, :placeholder => "2019/1/11",  autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :レーベル名 %><br />
-    <%= f.collection_select :company_id, Company.all, :id, :name, :prompt => "選択して下さい" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ジャンル %><br />
-    <%= f.collection_select :category_id, Categorie.all, :id, :name, :prompt => "選択して下さい" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :商品名 %><br />
-    <%= f.text_field :name %>
-    <div class="parents">
-      <%= f.fields_for :discs do |t| %>
-          <%= render "disc_fields", f: t %>
-      <% end %>
-      <div class="links">
-            <%= link_to_add_association "ディスクを追加", f, :discs %>
+      <div class="field">
+        <%= f.label :アーティスト名 %><br />
+        <%= f.collection_select :artist_id, Artist.all, :id, :name, :prompt => "選択して下さい" %>
       </div>
-    </div>
-  </div>
 
-  <div class="field">
-    <%= f.label :販売ステータス %>
-    <%= f.select :status, Product.statuses.keys.to_a, {} %>
-  </div>
 
-  <div class="field">
-    <%= f.label :商品説明 %><br />
-    <%= f.text_area :description, autofocus: true  %>
-  </div>
+      <div class="field">
+        <%= f.label :ジャケット画像 %>
+        <%= f.attachment_field :image %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
+      <div class="field">
+        <%= f.label :ジャケット画像 %>
+        <%= f.attachment_field :image %>
+      </div>
+
+      <div class="field">
+        <%= f.label :価格（税別価格） %>
+        <%= f.text_field :price,  autofocus: true %>
+      </div>
+
+      <div id="carendar-position" class="field">
+        <%= f.label :発売日 %>
+        <%= f.text_field :release_date, autofocus: true, class: 'datepicker' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :レーベル名 %><br />
+        <%= f.collection_select :company_id, Company.all, :id, :name, :prompt => "選択して下さい" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :ジャンル %><br />
+        <%= f.collection_select :categorie_id, Categorie.all, :id, :name, :prompt => "選択して下さい" %>
+      </div>
+
+        <h4>内容登録</h4>
+        <hr class="my-4">
+        <div class="text-left">
+          <div class="links">
+            <%= link_to_add_association "ディスクを追加", f, :discs,
+            class: 'btn btn-primary',
+                    data: {
+                      association_insertion_node: '#detail-association-insertion-point',
+                      association_insertion_method: 'after' }
+            %>
+          </div>
+        </div>
+
+
+        <table class="table table-list">
+          <thead>
+            <tr>
+              <th>ディスク</th>
+              <th>曲順</th>
+              <th>曲名</th>
+              <th></th>
+            </tr>
+          </thead>
+
+        <tbody id='detail-association-insertion-point'>
+              <div class="form-group">
+                <%= f.label :商品名 %><br />
+                <%= f.text_field :name %>
+                <%= f.fields_for :discs do |t| %>
+                  <%= render "disc_fields", f: t %>
+                <% end %>
+              </div>
+        </tbody>
+      </table>
+    <hr class="my-4">
+
+      <div class="field">
+        <%= f.label :販売ステータス %>
+        <%= f.select :status, Product.statuses.keys.to_a, {} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :商品説明 %><br />
+        <%= f.text_area :description, autofocus: true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+</div>
+
+<script>
+  $(function(){
+      $('.datepicker').datetimepicker({
+        format : "YYYY/MM/DD",
+        icons: {
+          previous: "fa fa-arrow-left",
+          next: "fa fa-arrow-right"
+        }
+      });
+    });
+</script>

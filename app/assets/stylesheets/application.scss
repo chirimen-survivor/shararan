@@ -1,5 +1,22 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
@@ -14,6 +31,12 @@ hr {
 	background-color: black;
 	border: none;
  }
+
+//  カレンダーの位置を調整
+
+ #carendar-position {
+  position: relative;
+}
 
 // ランキング
 .rank {
@@ -158,6 +181,12 @@ hr {
 	margin-bottom: 5px;
 }
 
+//  カレンダーの位置を調整
+
+#carendar-position {
+  position: relative;
+}
+
 // カートに入れる　いいねアイコンセクション
 
 .btn-info {
@@ -191,7 +220,37 @@ hr {
 }
 
 
-label{
+label1{
 		margin-top: 20px;
+}
+
+
+//注文完了
+.finish-text{
+	margin-bottom: 20px;
+}
+
+.finish{
+	margin: 20px;
+}
+
+//ご注文履歴詳細
+.label2{
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+
+.total{
+	border-top: solid #808080;
+}
+
+
+label3{
+	margin-bottom: 40px;
+}
+
+.order-box{
+	margin: 50px;
 }
 

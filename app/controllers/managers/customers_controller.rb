@@ -7,8 +7,7 @@ class Managers::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @reviews = @customer.reviews.page(params[:page])
-    @review = Review.find(params[:id])
+    @reviews = @customer.reviews.page(params[:page]).per(5)
   end
 
   def update

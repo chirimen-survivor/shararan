@@ -8,34 +8,33 @@
       </div>
       <div class="col-lg-6">
         <h2><%= @product.name %></h2>
-        <p>アーティスト名: シューベルト</p>
+        <p><%= "アーティスト名: #{@product.artist.name}" %></p>
         <ul class="cp_tag01">
-          <li><a href="#">clsssic</a></li>
+          <li><a href="#"><%= "#{@product.categorie.name}" %></a></li>
         <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
         </ul>
-        <p class="amount">数量</p>
-        <form action="#" method="post" class="form-position">
-          <input type="text" name="name"></p>
-        </form>
       </div>
     </div>
     <hr class="my-4">
 </div>
 
 <div class="container">
-    <div class="icon-field">
-      <button type="button" class="btn btn-block btn-info">カートに入れる</button>
-      <i class="fas fa-thumbs-up"></i>
-      <i>17いいね!</i>
-    </div>
+  <div class="icon-field">
+    <%= form_for @cart_item, url: product_cart_items_path(@product) do |f| %>
+      <%= f.label :"数量" %>
+      <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :selected => 1 %>
+      <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
+    <% end %>
+    <%= render "favorites/favorite", product: @product %>
+  </div>
 </div>
 
 <div class="container">
     <hr class="my-4">
     <div class="product-release">
       <h4>商品の情報</h4>
-      <p>発売日  2019/11/30</p>
-      <p>レーベル名  Avex</p>
+      <p><%= "発売日  #{@product.release_date}" %></p>
+      <p><%= "レーベル名: #{@product.company.name}" %></p>
     </div>
     <hr class="my-4">
     <div class="product-description">
@@ -70,11 +69,23 @@
 <div class="container">
   <div class="review">
     <% @reviews.each do |r| %>
-      <%= r.rating %>
-      <%= r.title %>
-      <%= r.created_at %>
-      <%= @product.name %>
-      <%= r.body %>
+  <table class = "table table-striped">
+    <tr>
+      <th>評価</th>
+      <th>商品名</th>
+      <th>作成日時</th>
+      <th>タイトル</th>
+      <th>本文</th>
+    </tr>
+
+    <tr>
+        <td><%= r.rating %></td>
+        <td><%= @product.name %></td>
+        <td><%= r.created_at %></td>
+        <td><%= r.title %></td>
+        <td><%= r.body %></td>
+      </tr>
+    </table>
     <% end %>
   </div>
   <hr class="my-4">

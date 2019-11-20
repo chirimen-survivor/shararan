@@ -18,17 +18,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<label>ご注文状況</label>: :
-						<label>
+						<label1>ご注文状況</label1>: :
+						<label1>
 							<%= order.status %>
-						</label>
+						</label1>
 					</div>
 				</div>
 
-				<div class="row row row-eq-height">
+				<div class="row row-eq-height">
 					<div class="col-md-2 text-center">送付先</div>
 					<div class="col-md-7 text-center">
-						<%= order.prefecture_name %><%= order.city %><%= order.building %>
+						<%= order.prefecture_name %>
+						<%= order.city %>
+						<%= order.building %>
 					</div>
 					</div>
 

@@ -1,1 +1,24 @@
-<p>index page</p>
+<h3 class="heading">商品一覧</h3>
+
+      <div class="container">
+        <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-lg-4">
+            <div class="card">
+              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/chikyuGFVS3960_TP_V.jpg" alt="イメージ画像">
+              <div class="card-body">
+                <h4 class="card-title"><%= product.name %></h4>
+                <ul class="cp_tag01">
+                  <li><a href="#">clsssic</a></li>
+                </ul>
+                <p class="card-text"><%= product.description %></p>
+                <p class="card-text"><%= "¥ #{product.price.to_s(:delimited)} 税込" %></p>
+                <%= link_to "詳細を見る", product_path(product.id), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @products, class: "paginate" %>
+        </div>
+      </div>
+</div>

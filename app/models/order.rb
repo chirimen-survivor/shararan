@@ -1,6 +1,10 @@
 class Order < ApplicationRecord
 	belongs_to :customer
-	has_many :order_detail
+
+	belongs_to :other_address
+	has_many :order_details
+
+	attachment :image
 
 
 	include JpPrefecture

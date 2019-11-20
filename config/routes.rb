@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   }
 
   namespace :managers do
-    resources :products, only: [:new, :show, :index]
+    resources :products, only: [:new, :create, :show, :index]
     resources :customers, only: [:index, :show, :update, :destroy]
     resources :contacts, only: [:index,:show, :update]
+    resources :accs, only: [:new, :create, :edit, :update, :destroy]
   end
 
 
@@ -27,14 +28,23 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show] do
   	resource :reviews, only: [:create]
+    resource :favorites, only: [:create, :destroy]
+    resource :cart_items, only: [:destroy]
   end
+
+  # 検索結果のルート
+
+  get 'search', to: 'products#search_results'
+  post 'products/:product_id/cart_items', to: 'products#create'
 
 
   resources :customers, only: [:show, :update, :destroy] do
   	get 'exit', on: :member
 
   	# レビュー用のルーティング
-  	resource :reviews, only: [:create]
+    resource :reviews, only: [:create]
+    resources :cart_items, only: [:index]
+
 
   	# 購入用のルーティング
   	resources :orders, only: [:new, :index, :show, :create] do
@@ -42,7 +52,10 @@ Rails.application.routes.draw do
   		get 'complete', on: :member
   	end
 
+
     resources :contacts, only: [:show, :create]
+
+    resources :favorites, only: [:index]
 
   end
 

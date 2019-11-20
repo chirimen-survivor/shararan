@@ -1,7 +1,7 @@
 <!-- 購入履歴詳細画面を表示する -->
 
-
 <div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="page-header">
@@ -9,57 +9,148 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="container">
-		<div class="row">
-				<div class="cart-role">
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">1</i>
-							</span>
-							<div class="ec-progress__label">カートの商品</div>
-						</li>
-					</ul>
-					</div>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-3">
+							<label>お届け先住所</label>
+							<br/>
+							<label2>
+								<%= @customer.last_name + @customer.first_name + "様" %>
+							</label2>
+							<br/>
+							<label2>
+								¥
+								<%= @order.postal_code1 %> - <%= @order.postal_code2 %>
+							</label2>
+							<br/>
+							<label2>
+								<%= @order.prefecture_name %>
+								<br/>
+								<%= @order.city %>
+								<br/>
+								<%= @order.building %>
+							</label2>
+						</div>
 
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">2</i>
-							</span>
-							<div class="ec-progress__label">お届け先・支払い方法の選択</div>
-						</li>
-					</ul>
-					</div>
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">3</i>
-							</span>
-							<div class="ec-progress__label">ご注文内容のご確認</div>
-						</li>
-					</ul>
-					</div>
-					<div class="col-md-3">
-						<ul class="list-unstyled">
-						<li class="ec-progress-item text-center">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-inverse fa-stack-1x">4</i>
-							</span>
-							<div class="ec-progress__label">ご注文完了</div>
-						</li>
-					</ul>
+						<div class="col-md-4">
+							<label>注文日</label>
+							<br/>
+							<label2>
+								<%= @order.created_at.strftime('%Y/%m/%d') %>
+							</label2>
+						</div>
+
+						<div class="col-md-5 text-center">
+							<label>ご請求額</label>
+							<br/>
+							<div class="row">
+								<div class="col-md-2 text-center">
+									<label2>小計</label2>
+									<br/>
+								</div>
+
+								<div class="col-md-5 text-right">
+									<label2>
+
+									</label2>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-2 text-center">
+									<label2>送料</label2>
+									<br/>
+								</div>
+								<div class="col-md-5 text-right">
+									<label2>
+										<%= @order.postage_id %>
+									</label2>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-3 text-left total">
+									<h4>合計</h4>
+									<br/>
+								</div>
+								<div class="col-md-5 text-right total">
+									<h4>
+										¥ <%= number_with_delimiter(@order.total * @order.tax_id) %>
+									</h4>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+
+	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="label2">
+					<label1>ご注文状況</label1>: :
+						<label1>
+							<%= @order.status %>
+						</label1>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<label3>配送日時 : :
+							<%= @order.created_at.strftime('%Y/%m/%d') %>
+						</label3>
+				</div>
+			</div>
+		</div>
+
+		<% @details.each do |detail| %>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="order-box">
+					<div class="col-md-6">
+						<div class="col-md-4 text-left">
+							<% if detail.product.image %>
+			        <!-- 画像があった時の処理をここに書く -->
+			        <%= image_tag 'sample_img.jpeg', style: "height: 60px" %>
+			        <% end %>
+						</div>
+						<div class="col-md-5 text-center">
+							<%= detail.product.name %><br/>
+							¥<%= detail.product.price %> × <%= detail.quantity %>
+						</div>
+						<div class="col-md-3 text-right">
+							¥<%= number_with_delimiter(detail.product.price * detail.quantity) %>
+						</div>
+					</div>
+					<div class="col-md-4 text-right">
+						<%= link_to "レビューを書く", "/products/#{product_url}", class: 'btn btn-default btn-md' %><br/>
+						<%= link_to "再度購入", "/products/#{product_url}", class: 'btn btn-default btn-ld' %>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-5 text-right">
+						<h4>合計</h4>
+					</div>
+					<div class="col-md-5 text-left">
+						<h4>¥<%= number_with_delimiter(@order.total * @order.tax_id) %></h4>
+					</div>
+				</div>
+			</div>
+	</div>
+
 </div>

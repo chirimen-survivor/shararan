@@ -5,10 +5,14 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   has_many :reviews
   has_many :orders
   has_many :contacts
+  has_many :favorites, dependent: :destroy
+
+  paginates_per 5
+  has_many :other_addresses, dependent: :destroy
+  has_one :cart_item, dependent: :destroy
 
   # 都道府県コードを入れるために以下は必要
   include JpPrefecture
