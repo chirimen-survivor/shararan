@@ -152,3 +152,13 @@ end
       customer_id: 1
       )
 end
+
+# カート情報
+
+5.times do |n|
+	CartItem.create!(
+		customer_id: Faker::Number.between(from: 1, to: 10),
+		product_id: Faker::Number.between(from: 1, to: 10),
+		quantity: Faker::Number.between(from: 1, to: 3)
+	)
+end

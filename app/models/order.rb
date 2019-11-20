@@ -1,6 +1,14 @@
 class Order < ApplicationRecord
 	belongs_to :customer
+<<<<<<< HEAD
 	has_many :order_details
+=======
+
+	belongs_to :other_address
+	has_many :order_details
+
+	attachment :image
+>>>>>>> master
 
 
 	include JpPrefecture
