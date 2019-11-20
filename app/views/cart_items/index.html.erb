@@ -30,7 +30,7 @@
 
             <td><%= "¥ #{cart.product.price.to_s(:delimited)}" %></td>
               <td>
-                <%= link_to '商品を削除する', product_cart_items_path(cart.product_id), method: :delete,
+                <%= link_to '商品を削除する', product_cart_items_path(cart.product), method: :delete,
                                             data: {confirm: "本当に削除しますか？"} %>
               </td>
             </tr>
