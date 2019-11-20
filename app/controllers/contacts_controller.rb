@@ -1,33 +1,23 @@
 class ContactsController < ApplicationController
-	def new
+	def show
+		@customer = Customer.find(params[:customer_id])
 		@contact = Contact.new
 	end
 
 	def create
-		blog = Contact.new(contact_params)
-   		blog.save
-    	redirect_to new_contact_path
-	end
-
-	def index
-		@contacts = Contact.all
-	end
-
-	def show
-		@contact = Contact.find(params[:id])
-	end
-
-	def update
+		@customer = Customer.find(params[:customer_id])
 		@contact = Contact.new(contact_params)
-		if @contact.save
-		   redirect_to contact_path, notice: "メールを送信しました！"
-		   InquiryMailer.send_mail(@contact).deliver
-		end
+		@contact.customer_id = current_customer.id
+   		if @contact.save
+    		redirect_to customer_contact_path(@customer.id, @contact)
+    	else
+    		render :show
+    	end
 	end
 
 	private
 
 	def contact_params
-	      params.require(:contact).permit(:email,:title,:body)
+	      params.require(:contact).permit(:email,:title,:body,:reply_message)
     end
 end

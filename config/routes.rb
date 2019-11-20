@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  get 'manager_orders/index'
+  get 'manager_orders/show'
   # 管理者用のルーティング
   devise_for :managers, :controllers => {
    :registrations => 'managers/registrations',
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   namespace :managers do
     resources :products, only: [:new, :show, :index]
     resources :customers, only: [:index, :show, :update, :destroy]
+    resources :contacts, only: [:index,:show, :update]
   end
 
 
@@ -19,9 +21,6 @@ Rails.application.routes.draw do
 
   # その他の住所のルーティング
   resources :other_addresses
-
-  # お問合せ用のルーティング
-  resources :contacts
 
 
   get 'customers/sign_up' => 'devise/registrations#new'
@@ -42,6 +41,9 @@ Rails.application.routes.draw do
   		get 'select', on: :member
   		get 'complete', on: :member
   	end
+
+    resources :contacts, only: [:show, :create]
+
   end
 
   # letter_openerを表示させるためのルーティング

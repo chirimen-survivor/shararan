@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_052800) do
+ActiveRecord::Schema.define(version: 2019_11_19_082352) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
@@ -72,6 +72,11 @@ ActiveRecord::Schema.define(version: 2019_11_18_052800) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "manager_contacts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "managers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,8 +90,8 @@ ActiveRecord::Schema.define(version: 2019_11_18_052800) do
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.integer "orders_id", null: false
-    t.integer "products_id", null: false
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
     t.integer "subtotal", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
@@ -137,7 +142,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_052800) do
     t.integer "status", default: 0, null: false
     t.text "description", null: false
     t.integer "artist_id", null: false
-    t.integer "category_id", null: false
+    t.integer "categorie_id", null: false
     t.integer "company_id", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
