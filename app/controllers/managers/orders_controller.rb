@@ -8,8 +8,7 @@ class Managers::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		#@order_detail = OrderDetail.find(params[:order_id])
-		@order_details = OrderDetail.where(order_id: @order.id)
+		@details = OrderDetail.where(order_id: @order.id)
 	end
 
 	private
