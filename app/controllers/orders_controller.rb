@@ -27,11 +27,9 @@ class OrdersController < ApplicationController
 		@customer = Customer.find(params[:customer_id])
 		# 顧客のメイン以外の住所
 		@addresses = @customer.other_address
-		# 配送先、支払い方法を選択するために空
+		# 配送先、支払い方法を選択するため
 		@order = Order.find(params[:id])
 
-
-		# @ordersに個人の購入履歴
 	end
 
 
