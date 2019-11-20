@@ -13,7 +13,8 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav">
-                <li><a><%= link_to '退会手続き', exit_customer_path %></a></li>
+                <li><%= link_to 'いいね一覧', customer_favorites_path(@customer.id) %></li>
+                <li><%= link_to '退会手続き', exit_customer_path %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
               </ul>

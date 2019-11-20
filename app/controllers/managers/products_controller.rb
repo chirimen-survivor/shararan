@@ -19,6 +19,8 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
   end
 
   def show
+    @product = Product.find(params[:id])
+    @reviews = @product.reviews.page(params[:page]).per(5)
   end
 
   private

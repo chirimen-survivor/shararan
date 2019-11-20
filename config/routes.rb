@@ -46,5 +46,7 @@ Rails.application.routes.draw do
   		get 'select', on: :member
   		get 'complete', on: :member
   	end
+
+    resources :favorites, only: [:index]
   end
 end
