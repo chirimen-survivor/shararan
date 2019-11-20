@@ -1,5 +1,7 @@
 class Order < ApplicationRecord
 	belongs_to :customer
+
+	belongs_to :other_address
 	has_many :order_details
 
 	attachment :image

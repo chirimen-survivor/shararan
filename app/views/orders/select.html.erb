@@ -67,8 +67,33 @@
 			<div class="col-md-3 md-offset-3">
 				<div class="select-address">
 					<h3 class="title-head">お届け先指定</h3>
-						
 				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="label2">
+			<div class="col-md-10">
+					<%= form_for(@order.postal_code1 + @order.postal_code2 + @order.prefecture_name.encode + @order.city + @order.building) do |t| %>
+						<% @addresses.each do |address| %>
+						<%= t.radio_button :address, address %>
+						<label>名前</label>:
+						<label>
+							<%= address.last_name + address.first_name %></label><br/><br/>
+						<div class="col-md-2">
+						<label>住所</label>:
+						<label>
+							〒<%= address.postal_code1 %> - <%= address.postal_code2 %></label>
+						</div>
+						<div class="col-md-10 text-left">
+						<label>
+							<%= address.prefecture_name + address.city + address.building %>
+						</label><br/><br/><br/>
+						</div>
+
+						<% end %>
+					<% end %>
+				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -77,7 +102,7 @@
 
 		<div class="container">
 		<div class="row">
-			<div class="col-md-3 md-offset-3">
+			<div class="col-md-3">
 				<div class="select-address">
 					<h3 class="title-head">支払方法選択</h3>
 
@@ -94,10 +119,12 @@
   						<%= t.radio_button :payment, 3 %>代引き
   					</label>
 
-  					<% end %>
+  					
 
 				</div>
 			</div>
+
+
 		</div>
 	</div>
 
@@ -144,11 +171,14 @@
 					</div>
 			</div>
 		</div>
-
-
-
 		</div>
-
-
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-right">
+						<%= t.submit "注文する", class: 'btn btn-default btn-md' %>
+						<% end %>
+				</div>
+			</div>
+		</div>
 
 </div>
