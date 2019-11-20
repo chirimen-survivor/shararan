@@ -13,20 +13,20 @@
           <li><a href="#"><%= "#{@product.categorie.name}" %></a></li>
         <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
         </ul>
-        <p class="amount">数量</p>
-        <form action="#" method="post" class="form-position">
-          <input type="text" name="name"></p>
-        </form>
       </div>
     </div>
     <hr class="my-4">
 </div>
 
 <div class="container">
-    <div class="icon-field">
-      <button type="button" class="btn btn-block btn-info">カートに入れる</button>
-        <%= render "favorites/favorite", product: @product %>
-    </div>
+  <div class="icon-field">
+    <%= form_for @cart_item, url: product_cart_items_path(@product) do |f| %>
+      <%= f.label :"数量" %>
+      <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :selected => 1 %>
+      <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
+    <% end %>
+    <%= render "favorites/favorite", product: @product %>
+  </div>
 </div>
 
 <div class="container">
