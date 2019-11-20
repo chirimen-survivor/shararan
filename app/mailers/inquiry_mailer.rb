@@ -1,9 +1,9 @@
 class InquiryMailer < ApplicationMailer
-	def send_mail(contact)
-		@contact = contact
+	def send_mail
+		@contact = params[:Inquiry]
 		mail(
 			from: 'manager@example.com',
-			top: 'system@example.com',
+			to: @contact.email,
 			subject: 'しゃららんへのお問い合わせについて'
 			)
 	end

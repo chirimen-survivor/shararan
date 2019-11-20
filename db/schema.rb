@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_082352) do
     t.integer "status", default: 0, null: false
     t.text "description", null: false
     t.integer "artist_id", null: false
-    t.integer "categorie_id", null: false
+    t.integer "category_id", null: false
     t.integer "company_id", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
