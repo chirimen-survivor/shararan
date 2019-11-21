@@ -1,5 +1,5 @@
-class Managers::CustomersController < ApplicationController
-  skip_before_action :authenticate_customer!, only: [:index, :show, :update, :destroy]
+class Managers::CustomersController < Managers::ApplicationController
+  skip_before_action :authenticate_manager!, only: [:index, :show, :update, :destroy]
 
   def index
     @customers = Customer.all
