@@ -152,3 +152,12 @@ end
 		quantity: Faker::Number.between(from: 1, to: 5)
 	)
 end
+
+40.times do |n|
+	Arrival.create!(
+		product_id: Faker::Number.between(from: 1, to: 20),
+		quantity: Faker::Number.between(from: 1, to: 10)
+	)
+end
+
+
