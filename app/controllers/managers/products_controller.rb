@@ -1,5 +1,4 @@
 class Managers::ProductsController < Managers::ApplicationController
-skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
 
 
   def new
@@ -15,7 +14,8 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
   end
 
   def index
-    @products = Product.page(params[:page])
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true).page(params[:page])
   end
 
   def show
@@ -24,6 +24,10 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
   end
 
   private
+
+  def search_params
+    params.require(:q).permit(:name_cont)
+  end
 
   def product_params
     params.require(:product).permit(:name, :price, :image, :release_date, :status,
