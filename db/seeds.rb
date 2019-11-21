@@ -8,24 +8,24 @@
 
 
 
-#マスターデータ（カスタマー）のデータ
-# Customer.create!(
-# 	last_name:  "test",
-# 	first_name: "test",
-# 	last_name_kana: "test",
-# 	first_name_kana: "test",
-# 	postal_code1: '123',
-# 	postal_code2: '1234',
-# 	prefecture_code: 1,
-# 	city: 'test',
-# 	building: 'test',
-# 	phone_number1: '123',
-# 	phone_number2: '123',
-# 	phone_number3: '123',
-# 	email: 'test@test',
-# 	password: '123456',
-# 	deleted_at: "",
-# 	)
+# マスターデータ（カスタマー）のデータ
+Customer.create!(
+	last_name:  "test",
+	first_name: "test",
+	last_name_kana: "test",
+	first_name_kana: "test",
+	postal_code1: '123',
+	postal_code2: '1234',
+	prefecture_code: 1,
+	city: 'test',
+	building: 'test',
+	phone_number1: '123',
+	phone_number2: '123',
+	phone_number3: '123',
+	email: 'test@test',
+	password: '123456',
+	deleted_at: "",
+	)
 
 #マスターデータ（管理者）のデータ
 # Manager.create!(
@@ -96,7 +96,7 @@ end
   description = "sample text sample text sample text sample text sample text" * 2
   Product.create!(name:  name,
                   price: price,
-                  image_id: 1,
+                  image_id: "",
                   release_date: release_date,
                   status:     0,
                   description: description,
