@@ -27,11 +27,11 @@ Customer.create!(
 	deleted_at: "",
 	)
 
-#マスターデータ（管理者）のデータ
-# Manager.create!(
-# 	email: "ss@ss",
-# 	password: "aaaaaa",
-# 	)
+# マスターデータ（管理者）のデータ
+Manager.create!(
+	email: "ss@ss",
+	password: "aaaaaa",
+	)
 
 	# アーティスト情報 artists
 10.times do |n|

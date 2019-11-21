@@ -89,7 +89,7 @@
                   <li><a href="#">clsssic</a></li>
                 </ul>
                 <p class="card-text"><%= product.description %></p>
-                <p class="card-text"><%= "¥ #{product.price.to_s(:delimited)} 税込" %></p>
+                <p class="card-text"><%= "¥ #{product.price.to_s(:delimited)} 税別" %></p>
                 <%= link_to "詳細を見る", product_path(product.id), class: 'btn btn-primary' %>
               </div>
             </div>
