@@ -1,5 +1,5 @@
 class Managers::ProductsController < Managers::ApplicationController
-skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
+skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create, :edit]
 
 
   def new
@@ -21,6 +21,18 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create]
   def show
     @product = Product.find(params[:id])
     @reviews = @product.reviews.page(params[:page]).per(5)
+  end
+
+  # 商品編集ページ
+  def edit
+    @product = Product.find(params[:id])
+        # binding.pry
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to managers_products_path
   end
 
   private
