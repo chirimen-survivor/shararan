@@ -19,8 +19,14 @@ class ProductsController < ApplicationController
     @cart_item = CartItem.new(cart_params)
     @cart_item.customer_id = current_customer.id
     @cart_item.product_id = @product.id
-    @cart_item.save!
-    redirect_to customer_cart_items_path(@customer.id)
+    unless CartItem.exists?(product_id: @product.id)
+      @cart_item.save!
+      redirect_to customer_cart_items_path(@customer.id)
+    else
+      @cart_item = current_customer.cart_items.find_by(product_id: params[:product_id])
+      @cart_item.update(cart_params)
+      redirect_to customer_cart_items_path(@customer.id)
+    end
   end
 
   def search_results
