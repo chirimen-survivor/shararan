@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true).page(params[:page])
+    @all_ranks = Product.find(Favorite.group(:product_id).order('count(product_id) desc').limit(3).pluck(:product_id))
   end
 
   def show
@@ -14,6 +15,7 @@ class ProductsController < ApplicationController
     @cart_item = CartItem.new(product_id: @product.id)
   end
 
+  # カートに入れる
   def create
     @product = Product.find(params[:product_id])
     @cart_item = CartItem.new(cart_params)

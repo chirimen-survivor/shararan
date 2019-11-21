@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_11_20_094552) do
 
   create_table "arrivals", force: :cascade do |t|
@@ -154,7 +155,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_094552) do
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.text "image_id", null: false
+    t.text "image_id"
     t.string "release_date", null: false
     t.integer "status", default: 0, null: false
     t.text "description", null: false
