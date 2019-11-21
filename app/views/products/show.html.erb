@@ -109,7 +109,6 @@
 <%= form_for [@product, @review] do |f| %>
   <%= render 'share/error_messages', object: f.object %>
 
-    <h3>評価</h3>
     <div class="form-group row" id="star">
       <%= f.label :rating,'評価 ', class:'col-md-3 col-form-label' %>
       <%= f.hidden_field :rating, id: :review_star %>
