@@ -1,4 +1,6 @@
 <div class="container">
+  <div class="row">
+  <div class="col-lg-12">
     <h2>商品登録ぺーじやで</h2>
 
     <%= form_for @product, url: managers_products_path do |f| %>
@@ -89,7 +91,10 @@
         <%= f.submit "新規登録", class: 'btn btn-primary' %>
       </div>
     <% end %>
+  </div>
+  </div>
 </div>
+
 
 <script>
   $(function(){
