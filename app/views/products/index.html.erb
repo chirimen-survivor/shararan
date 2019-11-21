@@ -21,55 +21,26 @@
         </a>
       </div>
 
-      <h3 class="heading">当サイトの総売上ランキング</h3>
-
+    <h3 class="heading">いいね数ランキング</h3>
+    <% @all_ranks.each.with_index(1) do |p, i| %>
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <p class="rank">1位</p>
+            <p class="rank"><%= "#{i}位" %></p>
             <div class="card">
               <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/chikyuGFVS3960_TP_V.jpg" alt="イメージ画像">
               <div class="card-body">
-                <h4 class="card-title">商品1</h4>
+                <h4 class="card-title"><%= p.name %></h4>
                 <ul class="cp_tag01">
                   <li><a href="#">clsssic</a></li>
                 </ul>
-                <p class="card-text">ホームページ・ブログ開設など基礎を身に付けたい方向けコースです。</p>
-                <p class="card-text">¥1,700円</p>
-                <%= link_to "詳細を見る", "#", class: 'btn btn-primary' %>
+                <p class="card-text"><%= p.description %></p>
+                <p class="card-text"><%= "¥ #{p.price.to_s(:delimited)} 税別" %></p>
+                <%= link_to "詳細を見る", product_path(p.id), class: 'btn btn-primary' %>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <p class="rank">2位</p>
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/JYUN923_5_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title">商品2</h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text">ホームページ作成・Web集客を一通り習得したい方向けです。</p>
-                <p class="card-text">¥2,300円</p>
-                <%= link_to "詳細を見る", "#", class: 'btn btn-primary' %>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <p class="rank">3位</p>
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/macbook1988_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title">商品3</h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text">より制作技術をしっかり身につけたい方向けの徹底コースです。</p>
-                <p class="card-text">¥3,200円</p>
-                <%= link_to "詳細を見る", "#", class: 'btn btn-primary' %>
-              </div>
-            </div>
+          <% end %>
           </div>
         </div>
       </div>

@@ -57,12 +57,16 @@
         </tbody>
       </table>
   </div>
-  <div class="container">
+
     <div class="total_price">
         <p><%= "合計金額: #{total_price.to_s(:delimited)}円" %></p>
     </div>
-      <%= link_to '配送先、支払い方法選択画面へ', root_path, class: 'btn btn-info' %>
-  </div>
+    <div class="btn_group1">
+      <%= link_to '配送先、支払い方法選択画面へ', root_path, class: 'btn btn-block btn-info' %>
+    </div>
+    <div class="btn_group2">
+      <%= link_to '買い物を続ける', root_path, class: 'btn btn-block btn-primary' %>
+    </div>
   <% end %>
   <hr class="my-4">
 </div>

@@ -152,3 +152,12 @@ end
 		quantity: Faker::Number.between(from: 1, to: 5)
 	)
 end
+
+# いいね情報
+
+20.times do |n|
+	Favorite.create!(
+		customer_id: Faker::Number.unique.between(from: 1, to: 30),
+		product_id: Faker::Number.between(from: 1, to: 20)
+	)
+end
