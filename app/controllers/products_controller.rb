@@ -28,6 +28,10 @@ class ProductsController < ApplicationController
     @products = @q.result(distinct: true).page(params[:page])
   end
 
+  def edit
+    # @cart_item = CartItem.find()
+  end
+
   private
 
     def search_params

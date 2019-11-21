@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   namespace :managers do
-    resources :products, only: [:new, :create, :show, :index]
+    resources :products, only: [:new, :create, :show, :index, :edit]
     resources :customers, only: [:index, :show, :update, :destroy]
     resources :accs, only: [:new, :create, :edit, :update, :destroy]
     resources :arrivals, only: [:index, :create]
