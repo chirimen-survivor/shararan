@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     @cart_item = CartItem.new(cart_params)
     @cart_item.customer_id = current_customer.id
     @cart_item.product_id = @product.id
-    if @cart_item.new_record?
+    unless CartItem.exists?(product_id: @product.id)
       @cart_item.save!
       redirect_to customer_cart_items_path(@customer.id)
     else

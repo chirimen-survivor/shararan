@@ -1,6 +1,5 @@
 class CartItemsController < ApplicationController
   before_action :correct_customer, only: [:index]
-  before_action :confirm_cartitem, only: [:destroy]
 
   def index
     @customer = Customer.find(params[:customer_id]) # beforeアクションで定義しているのでなくても大丈夫だが、コードをわかりやすくするため
@@ -27,15 +26,6 @@ class CartItemsController < ApplicationController
     def correct_customer
       if current_customer.id != params[:customer_id].to_i
         redirect_to root_path
-      end
-    end
-
-    #  カートの中身が空になったら、rootへ飛ばす
-    def confirm_cartitem
-      @cart_item = CartItem.where(customer_id: current_customer.id)
-      if @cart_item.count == 1
-        #  @cart_item.destroy
-         redirect_to root_path
       end
     end
 

@@ -70,7 +70,7 @@ end
 end
 
 # 商品情報のサンプルデータ
-20.times do |n|
+42.times do |n|
   name  = "Product-#{n+1}"
   price = "#{100+n*100}"
   release_date = "2019/1/#{n+1}"
@@ -155,10 +155,10 @@ end
 
 # カート情報
 
-40.times do |n|
+42.times do |n|
 	CartItem.create!(
 		customer_id: Faker::Number.between(from: 1, to: 10),
-		product_id: Faker::Number.between(from: 1, to: 10),
-		quantity: Faker::Number.between(from: 1, to: 3)
+		product_id: Faker::Number.unique.between(from: 1, to: 42),
+		quantity: Faker::Number.between(from: 1, to: 5)
 	)
 end
