@@ -5,6 +5,7 @@ class Product < ApplicationRecord
     belongs_to :categorie
     belongs_to :company
     has_many :discs, dependent: :destroy
+    has_many :arrivals
 
     accepts_nested_attributes_for :discs, allow_destroy: true
 
