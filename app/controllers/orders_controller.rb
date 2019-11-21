@@ -4,17 +4,30 @@ class OrdersController < ApplicationController
 
 	def new
 		# 購入確認画面を表示する
-		OtherAddress.new
-		# @customer = Customer.find(params[:customer_id])
-		if params[:adress].to_i == 0
-		else
-			@addresses = OtherAddress.find(params[:adress].to_i)
-		end
 		@customer = Customer.find(params[:customer_id])
+		@order = Order.new(payment: params[:payment], customer_id: current_customer.id,)
+		@cart = CartItem.find(params[:id])
 		binding.pry
-		@order = Order.new(payment: 0, customer_id: current_customer.id, address: address.id)
-		# @details = @order.order_details.first
-		# 確認用
+		@products = @cart.products
+		# 住所が登録住所の場合
+		if params[:address].to_i == 0
+			# @order.postal_code1 = @cusromer.postal_code1
+			# @order.postal_code2 = @cusromer.postal_code2
+			@order.prefecture_name = @customer.prefecture_name
+			@order.city = @customer.city
+			@order.building = @customer.building
+			@name = @customer.last_name + @customer.first_name
+		else
+			# @order.postal_code1 = @address.postal_code1
+			# @order.postal_code2 = @address.postal_code2
+			@address = OtherAddress.find(params[:address].to_i)
+			@order.prefecture_name = @address.prefecture_name
+			@order.city = @address.city
+			@order.building = @address.building
+			@name = @address.last_name + @address.first_name
+		end
+
+
 	end
 
 

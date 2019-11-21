@@ -1,5 +1,4 @@
 <!-- 購入確認画面を表示する -->
-
 <div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -62,34 +61,20 @@
 		</div>
 
 
-		
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 text-right">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="label2">お届け先住所</div>
-						</div>
-					</div>
+				<div class="col-md-3">
+					<div class="select-address">
+						<h3 class="title-head">商品情報</h3>
 
-					<div class="row">
-						<div class="col-md-8">
-							<label>名前</label>:
-						<label>
-							<%= @customer.last_name + @customer.first_name %></label><br/><br/>
-						<div class="col-md-2">
-						<label>住所</label>:
-						<label>
-							〒<%= @order.postal_code1 %> - <%= @order.postal_code2 %></label>
-						</div>
-						<div class="col-md-10 text-left">
-						<label>
-							<%= @order.other_address.prefecture_code + @order.other_address.city + @order.other_address.building %>
-						</label>
-						</div>
-					</div>
+						<% @products.each do |product| %>
+						<%= product.image %>
 
+						<%= product.name %>
+
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -97,17 +82,75 @@
 
 
 
+		<div class="container order-box">
+			<div class="row">
+				<div class="col-md-3">
+					<h4 class="title-head">お届け先情報</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<%= @name + "様" %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					〒<%=  %>
+				</div>
+				<div class="col-md-4 text-left">
+					<%= @order.prefecture_name + @order.city + @order.building %>
+				</div>
+			</div>
+		</div>
+
+		<div class="container order-box">
+			<div class="row">
+				<div class="col-md-3">
+					<h4 class="title-head">お支払い方法</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<%= @order.payment %>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<label>小計</label>
+				</div>
+				<div class="col-md-5">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<lebel>送料</lebel>
+				</div>
+				<div class="col-md-5">
+					<%= @order.postage_id %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<label>合計</label>
+				</div>
+				<div class="col-md-5">
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
 
 </div>
-
-
-
-
-
-
 
 
 
