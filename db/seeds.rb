@@ -8,32 +8,32 @@
 
 
 
-#マスターデータ（カスタマー）のデータ
-# Customer.create!(
-# 	last_name:  "test",
-# 	first_name: "test",
-# 	last_name_kana: "test",
-# 	first_name_kana: "test",
-# 	postal_code1: '123',
-# 	postal_code2: '1234',
-# 	prefecture_code: 1,
-# 	city: 'test',
-# 	building: 'test',
-# 	phone_number1: '123',
-# 	phone_number2: '123',
-# 	phone_number3: '123',
-# 	email: 'test@test',
-# 	password: '123456',
-# 	deleted_at: "",
-# 	)
+# マスターデータ（カスタマー）のデータ
+Customer.create!(
+	last_name:  "test",
+	first_name: "test",
+	last_name_kana: "test",
+	first_name_kana: "test",
+	postal_code1: '123',
+	postal_code2: '1234',
+	prefecture_code: 1,
+	city: 'test',
+	building: 'test',
+	phone_number1: '123',
+	phone_number2: '123',
+	phone_number3: '123',
+	email: 'test@test',
+	password: '123456',
+	deleted_at: "",
+	)
 
-#マスターデータ（管理者）のデータ
-# Manager.create!(
-# 	email: "ss@ss",
-# 	password: "aaaaaa",
-# 	)
+# マスターデータ（管理者）のデータ
+Manager.create!(
+	email: "ss@ss",
+	password: "aaaaaa",
+	)
 
-	# アーティスト情報 artists
+# アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
 		name: Faker::Music::GratefulDead.unique.player
