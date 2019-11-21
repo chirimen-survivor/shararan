@@ -40,7 +40,20 @@
 		</tr>
 
 		<tr>
-			<td><%= j.rating %></td>
+			<td><%= j.rating %>
+				<div id="star-rate-<%= r.id %>"></div>
+          		<script>
+          			$('#star-rate-<%= r.id %>').raty({
+          			  size: 36,
+          			  starOff:  '<%= asset_path('star-off.png') %>',
+          			  starOn : '<%= asset_path('star-on.png') %>',
+          			  starHalf: '<%= asset_path('star-half.png') %>',
+          			  half: true,
+          			  readOnly: true,
+          			  score: <%= r.rating %>,
+          			});
+          		</script>
+        	</td>
 			<td><%= j.product.name %></td>
 			<td><%= j.title %></td>
 			<td><%= j.body %></td>
