@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :update, :destroy]
     resources :contacts, only: [:index,:show, :update]
     resources :accs, only: [:new, :create, :edit, :update, :destroy]
+    resources :orders, only: [:index, :show, :update]
   end
 
 

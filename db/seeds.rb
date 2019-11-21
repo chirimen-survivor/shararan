@@ -6,30 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
 #マスターデータ（カスタマー）のデータ
-Customer.create!(
-	last_name:  "test",
-	first_name: "test",
-	last_name_kana: "test",
-	first_name_kana: "test",
-	postal_code1: '123',
-	postal_code2: '1234',
-	prefecture_code: 1,
-	city: 'test',
-	building: 'test',
-	phone_number1: '123',
-	phone_number2: '123',
-	phone_number3: '123',
-	email: 'test@test',
-	password: '123456',
-	deleted_at: "",
-	)
+# Customer.create!(
+# 	last_name:  "test",
+# 	first_name: "test",
+# 	last_name_kana: "test",
+# 	first_name_kana: "test",
+# 	postal_code1: '123',
+# 	postal_code2: '1234',
+# 	prefecture_code: 1,
+# 	city: 'test',
+# 	building: 'test',
+# 	phone_number1: '123',
+# 	phone_number2: '123',
+# 	phone_number3: '123',
+# 	email: 'test@test',
+# 	password: '123456',
+# 	deleted_at: "",
+# 	)
 
 #マスターデータ（管理者）のデータ
-Manager.create!(
-	email: "ss@ss",
-	password: "aaaaaa",
-	)
+# Manager.create!(
+# 	email: "ss@ss",
+# 	password: "aaaaaa",
+# 	)
 
 	# アーティスト情報 artists
 10.times do |n|
@@ -67,6 +69,23 @@ end
 				  email: Faker::Internet.free_email,
 				  password: Faker::Number.between(from: 100000, to: 999999),
 				  deleted_at: "")
+end
+
+# 住所情報
+10.times do |n|
+    OtherAddress.create!(last_name: Faker::Name.name,
+     					first_name: Faker::Name.name,
+      					last_name_kana: Faker::Name.name,
+      					first_name_kana: Faker::Name.name,
+      					postal_code1: Faker::Number.between(from: 100, to: 999),
+      					postal_code2: Faker::Number.between(from: 1000, to: 9999),
+      					prefecture_code: Faker::Number.between(from: 1, to: 47),
+      					city: Faker::Address.city,
+      					building: Faker::Address.street_address,
+      					phone_number1: Faker::Number.between(from: 1, to: 9999),
+      					phone_number2: Faker::Number.between(from: 1, to: 9999),
+      					phone_number3: Faker::Number.between(from: 1, to: 9999),
+      					customer_id: 1)
 end
 
 # 商品情報のサンプルデータ
@@ -122,36 +141,7 @@ end
 			body: "いいね")
 end
 
-# 住所情報
-10.times do |n|
-      last_name = Faker::Name.name,
-      first_name = Faker::Name.name,
-      last_name_kana = Faker::Name.name,
-      first_name_kana = Faker::Name.name,
-      postal_code1 = Faker::Number.between(from: 100, to: 999),
-      postal_code2 = Faker::Number.between(from: 1000, to: 9999),
-      prefecture_code = Faker::Number.between(from: 1, to: 47),
-      city = Faker::Address.city,
-      building = Faker::Address.street_address,
-      phone_number1 = Faker::Number.between(from: 1, to: 9999),
-      phone_number2 = Faker::Number.between(from: 1, to: 9999),
-      phone_number3 = Faker::Number.between(from: 1, to: 9999),
-      OtherAddress.create!(
-      last_name: Faker::Name.name,
-      first_name: Faker::Name.name,
-      last_name_kana: Faker::Name.name,
-      first_name_kana: Faker::Name.name,
-      postal_code1: Faker::Number.between(from: 100, to: 999),
-      postal_code2: Faker::Number.between(from: 1000, to: 9999),
-      prefecture_code: Faker::Number.between(from: 1, to: 47),
-      city: Faker::Address.city,
-      building: Faker::Address.street_address,
-      phone_number1: Faker::Number.between(from: 1, to: 9999),
-      phone_number2: Faker::Number.between(from: 1, to: 9999),
-      phone_number3: Faker::Number.between(from: 1, to: 9999),
-      customer_id: 1
-      )
-end
+
 
 # カート情報
 

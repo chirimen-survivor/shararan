@@ -1,0 +1,60 @@
+<!-- 購入履歴を確認する -->
+
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="page-header">
+					<h2 class="title-head">ご注文履歴</h2>
+				</div>
+			</div>
+		</div>
+
+
+		<% @orders.each do |order| %>
+		<h3>
+		<%= order.created_at.strftime('%Y/%m/%d') %>
+		</h3>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<label1>ご注文状況</label1>: :
+						<label1>
+							<%= order.status %>
+						</label1>
+					</div>
+				</div>
+
+				<div class="row row row-eq-height">
+					<div class="col-md-2 text-center">送付先</div>
+					<div class="col-md-7 text-center">
+						<%= order.prefecture_name %>
+						<%= order.city %>
+						<%= order.building %>
+					</div>
+					</div>
+
+				<div class="row row-eq-height">
+					<div class="col-md-8 text-right">
+						<!-- umber_with_delimiter は数値を3桁に区切るためのヘルパ -->
+						<h4>合計 : ¥<%= number_with_delimiter(order.total * order.tax_id) %> . <%= link_to "詳細", managers_order_path(order.id), class: 'btn btn-default btn-xs' %></h4>
+
+					</div>
+				</div>
+
+
+			</div>
+
+
+	<% end %>
+	<div class="row">
+		<div class="col-md-12 text-center">
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
