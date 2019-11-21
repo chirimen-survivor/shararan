@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :products, only: [:show] do
   	resource :reviews, only: [:create]
     resource :favorites, only: [:create, :destroy]
-    resource :cart_items, only: [:destroy]
+    resource :cart_items, only: [:destroy, :update]
   end
 
   # 検索結果のルート
