@@ -33,6 +33,7 @@ Manager.create!(
 	password: "aaaaaa",
 	)
 
+
 	# アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
@@ -152,6 +153,15 @@ end
 		quantity: Faker::Number.between(from: 1, to: 5)
 	)
 end
+
+
+40.times do |n|
+	Arrival.create!(
+		product_id: Faker::Number.between(from: 1, to: 20),
+		quantity: Faker::Number.between(from: 1, to: 10)
+	)
+end
+
 
 # いいね情報
 
