@@ -9,8 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2019_11_21_040857) do
 
+ActiveRecord::Schema.define(version: 2019_11_21_122930) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer "product_id"
@@ -135,11 +135,9 @@ ActiveRecord::Schema.define(version: 2019_11_21_040857) do
     t.integer "total", null: false
     t.integer "status", null: false
     t.integer "tax_id", null: false
-    t.integer "product_id", null: false
     t.integer "customer_id", null: false
     t.integer "payment", null: false
     t.integer "postage_id", null: false
-    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -162,6 +160,12 @@ ActiveRecord::Schema.define(version: 2019_11_21_040857) do
     t.datetime "updated_at", null: false
   end
 
+
+  create_table "postages", force: :cascade do |t|
+    t.integer "ship", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
   create_table "overall_averages", force: :cascade do |t|
     t.string "rateable_type"
     t.integer "rateable_id"
@@ -169,6 +173,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_040857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
+
   end
 
   create_table "products", force: :cascade do |t|

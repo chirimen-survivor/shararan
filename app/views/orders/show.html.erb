@@ -66,7 +66,7 @@
 								</div>
 								<div class="col-md-5 text-right">
 									<label2>
-										<%= @order.postage_id %>
+										¥ 500
 									</label2>
 								</div>
 							</div>
@@ -131,8 +131,8 @@
 						</div>
 					</div>
 					<div class="col-md-4 text-right">
-						<%= link_to "レビューを書く", "/products/#{product_url}", class: 'btn btn-default btn-md' %><br/>
-						<%= link_to "再度購入", "/products/#{product_url}", class: 'btn btn-default btn-ld' %>
+						<%= link_to "レビューを書く", product_path(@product.id), class: 'btn btn-default btn-md' %><br/>
+						<%= link_to "再度購入", product_path(@product.id), class: 'btn btn-default btn-ld' %>
 					</div>
 				</div>
 			</div>
@@ -141,6 +141,16 @@
 	<% end %>
 
 	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-5 text-right">
+						<label1>送料</label1>
+					</div>
+					<div class="col-md-6 text-left">
+						<label1>¥ 500</label1>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="col-md-5 text-right">

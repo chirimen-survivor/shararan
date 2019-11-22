@@ -2,6 +2,8 @@ class OtherAddress < ApplicationRecord
 	belongs_to :customer
 
 
+	has_many :orders
+
 
 	include JpPrefecture
   jp_prefecture :prefecture_code

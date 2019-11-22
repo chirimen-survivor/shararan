@@ -37,7 +37,7 @@
 				<div class="row row-eq-height">
 					<div class="col-md-8 text-right">
 						<!-- umber_with_delimiter は数値を3桁に区切るためのヘルパ -->
-						<h4>合計 : ¥<%= number_with_delimiter(order.total * order.tax_id) %> . <%= link_to "詳細", "/orders/#{order.id}", class: 'btn btn-default btn-xs' %></h4>
+						<h4>合計 : ¥<%= number_with_delimiter(order.total * order.tax_id) %> . <%= link_to "詳細", customer_order_path(order.id, @customer.id), class: 'btn btn-default btn-xs' %></h4>
 
 					</div>
 				</div>

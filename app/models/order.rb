@@ -5,6 +5,8 @@ class Order < ApplicationRecord
 
 	attachment :image
 
+  belongs_to :postage
+
 
 	include JpPrefecture
   jp_prefecture :prefecture_code
@@ -22,7 +24,7 @@ class Order < ApplicationRecord
 	enum status: { 出荷準備中: 0, 発送済み: 1 }
 
 
-	enum payment: { 現金振込: 0, クレジットカード: 1, 代引: 0 }
+	enum payment: { 現金振込: 0, クレジットカード: 1, 代引: 2 }
 
 
 end
