@@ -1,4 +1,6 @@
 <div class="container">
+  <div class="row">
+  <div class="col-lg-12">
     <h2>商品登録ぺーじやで</h2>
 
     <%= form_for @product, url: managers_products_path do |f| %>
@@ -8,11 +10,6 @@
         <%= f.collection_select :artist_id, Artist.all, :id, :name, :prompt => "選択して下さい" %>
       </div>
 
-
-      <div class="field">
-        <%= f.label :ジャケット画像 %>
-        <%= f.attachment_field :image %>
-      </div>
 
       <div class="field">
         <%= f.label :ジャケット画像 %>
@@ -46,24 +43,13 @@
             <%= link_to_add_association "ディスクを追加", f, :discs,
             class: 'btn btn-primary',
                     data: {
-                      association_insertion_node: '#detail-association-insertion-point',
-                      association_insertion_method: 'after' }
+                      association_insertion_node: '#disc-insertion-point',
+                      association_insertion_method: 'append' }
             %>
           </div>
         </div>
 
-
-        <table class="table table-list">
-          <thead>
-            <tr>
-              <th>ディスク</th>
-              <th>曲順</th>
-              <th>曲名</th>
-              <th></th>
-            </tr>
-          </thead>
-
-        <tbody id='detail-association-insertion-point'>
+        <div id='disc-insertion-point'>
               <div class="form-group">
                 <%= f.label :商品名 %><br />
                 <%= f.text_field :name %>
@@ -71,8 +57,7 @@
                   <%= render "disc_fields", f: t %>
                 <% end %>
               </div>
-        </tbody>
-      </table>
+        </div>
     <hr class="my-4">
 
       <div class="field">
@@ -89,7 +74,10 @@
         <%= f.submit "新規登録", class: 'btn btn-primary' %>
       </div>
     <% end %>
+  </div>
+  </div>
 </div>
+
 
 <script>
   $(function(){

@@ -1,0 +1,114 @@
+<!-- 購入履歴詳細画面を表示する -->
+
+<div class="container">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="page-header">
+					<h2 class="title-head">ご注文履歴詳細</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-3">
+							<label>お届け先住所</label>
+							<br/>
+							<label2>
+								<%= @order.customer.last_name + @order.customer.first_name + "様" %>
+							</label2>
+							<br/>
+							<label2>
+								¥
+								<%= @order.postal_code1 %> - <%= @order.postal_code2 %>
+							</label2>
+							<br/>
+							<label2>
+								<%= @order.prefecture_name %>
+								<br/>
+								<%= @order.city %>
+								<br/>
+								<%= @order.building %>
+							</label2>
+						</div>
+
+						<div class="col-md-4">
+							<label>注文日</label>
+							<br/>
+							<label2>
+								<%= @order.created_at.strftime('%Y/%m/%d') %>
+							</label2>
+						</div>
+				</div>
+			</div>
+		</div>
+
+	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="label2">
+					<label1>ご注文状況</label1>: 
+						<label1>
+							<%= form_for @order, url:managers_order_path(@order.id) do |f| %>
+								<%= f.select :status, Order.statuses.keys.to_a, {} %>
+								<%= f.submit %>
+							<% end %>
+						</label1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<label3>配送日時 : :
+							<%= @order.created_at.strftime('%Y/%m/%d') %>
+						</label3>
+				</div>
+			</div>
+		</div>
+
+		<% @details.each do |detail| %>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="order-box">
+					<div class="col-md-6">
+						<div class="col-md-4 text-left">
+							<% if detail.product.image %>
+			        <!-- 画像があった時の処理をここに書く -->
+			        <%= image_tag 'sample_img.jpeg', style: "height: 60px" %>
+			        <% end %>
+						</div>
+						<div class="col-md-5 text-center">
+							<%= detail.product.name %><br/>
+							¥<%= detail.product.price %> × <%= detail.quantity %>
+						</div>
+						<div class="col-md-3 text-right">
+							¥<%= number_with_delimiter(detail.product.price * detail.quantity) %>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-5 text-right">
+						<h4>合計</h4>
+					</div>
+					<div class="col-md-5 text-left">
+						<h4>¥<%= number_with_delimiter(@order.total * @order.tax_id) %></h4>
+					</div>
+				</div>
+			</div>
+	</div>
+
+</div>
