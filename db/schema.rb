@@ -25,17 +25,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "average_caches", force: :cascade do |t|
-    t.integer "rater_id"
-    t.string "rateable_type"
-    t.integer "rateable_id"
-    t.float "avg", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
-    t.index ["rater_id"], name: "index_average_caches_on_rater_id"
-  end
-
   create_table "cart_items", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "product_id", null: false
@@ -160,20 +149,10 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "postages", force: :cascade do |t|
     t.integer "ship", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-  create_table "overall_averages", force: :cascade do |t|
-    t.string "rateable_type"
-    t.integer "rateable_id"
-    t.float "overall_avg", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
-
   end
 
   create_table "products", force: :cascade do |t|
@@ -190,17 +169,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "favorites_count", default: 0, null: false
-  end
-
-  create_table "rating_caches", force: :cascade do |t|
-    t.string "cacheable_type"
-    t.integer "cacheable_id"
-    t.float "avg", null: false
-    t.integer "qty", null: false
-    t.string "dimension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
   end
 
   create_table "reviews", force: :cascade do |t|
