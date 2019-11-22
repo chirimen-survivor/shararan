@@ -13,8 +13,9 @@ class CustomersController < ApplicationController
       if @customer.update(customer_params)
         redirect_to customer_path(@current_customer.id)
       else
-        @Customers = Customers.all
-        render action: :show
+        @customer = Customer.find(params[:id])
+        @reviews = @customer.reviews.page(params[:page]).per(5)
+        render :show
       end
     end
 
@@ -22,8 +23,8 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
       # 退会権限はユーザー本人のみに与えるよ！
       if @customer.id == current_customer.id
-		@customer.destroy
-		redirect_to root_path
+		    @customer.destroy
+		    redirect_to root_path
       end
     end
 
@@ -36,8 +37,8 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
       #ユーザーIDのチェックするよ！
     unless @customer.id == current_customer.id
-		redirect_to customer_path(current_customer)
-      end
+		  redirect_to customer_path(current_customer)
+    end
   end
 
 private

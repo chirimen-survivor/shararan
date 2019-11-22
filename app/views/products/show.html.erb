@@ -25,6 +25,7 @@
         <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :selected => 1 %>
         <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
       <% end %>
+<!--  非同期通信のためにレンダーでここは部分テンプレート追加します。詳細はfavorites/_favorite.html.erbを参照 -->
       <%= render "favorites/favorite", product: @product %>
     </div>
   </div>
@@ -108,7 +109,7 @@
   <div class="container">
   <%= form_for [@product, @review] do |f| %>
     <%= render 'share/error_messages', object: f.object %>
-
+      <!-- ここから星評価つけるための処理 -->
       <div class="form-group row" id="star">
         <%= f.label :rating,'評価 ', class:'col-md-3 col-form-label' %>
         <%= f.hidden_field :rating, id: :review_star %>
@@ -122,12 +123,12 @@
       scoreName: 'review[rating]',
       half: true,
     });
-    </script> 
+    </script>
+    <!-- ここまでが星評価つけるための処理 -->
       <h3>タイトル</h3>
       <%= f.text_field :title %>
       <h3>本文</h3>
       <%= f.text_area :body %>
-
       <%= f.submit '投稿する' %>
     <% end %>
   </div>

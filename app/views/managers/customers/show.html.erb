@@ -1,7 +1,7 @@
 <h1>顧客詳細</h1>
 
 <%= form_for(@customer, url: managers_customer_path(@customer.id)) do |f| %>
-
+	<%= render 'share/error_messages', object: f.object %>
 	<h3>お名前</h3>
 	<%= f.text_field :last_name %>
 	<%= f.text_field :first_name %>
