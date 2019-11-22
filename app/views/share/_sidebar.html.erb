@@ -9,7 +9,7 @@
                     <li class="list-group-item"><%= link_to '販売商品一覧',root_path%></li>
                     <li class="list-group-item"><%= link_to '商品登録'%></li>
                     <li class="list-group-item"><%= link_to '受注履歴'%></li>
-                    <li class="list-group-item"><%= link_to '入荷履歴'%></li>
+                    <li class="list-group-item"><%= link_to '入荷履歴', managers_arrivals_path%></li>
                     <li class="list-group-item"><%= link_to 'ユーザー情報一覧',managers_customers_path%></li>
                     <li class="list-group-item"><%= link_to 'お問合せ一覧'%></li>
                     <li class="list-group-item"><%= link_to 'ログアウト',destroy_manager_session_path, method: :delete%></li>
