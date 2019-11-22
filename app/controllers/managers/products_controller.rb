@@ -1,7 +1,5 @@
 class Managers::ProductsController < Managers::ApplicationController
 
-# skip_before_action :authenticate_customer!, only: [:index, :show, :new, :create, :exit]
-
 
   def new
     @product = Product.new
@@ -26,6 +24,14 @@ class Managers::ProductsController < Managers::ApplicationController
     @reviews = @product.reviews.page(params[:page]).per(5)
   end
 
+
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to managers_products_path
+  end
+
   def edit
     @product = Product.find(params[:id])
     @arrival = Arrival.new
@@ -45,6 +51,7 @@ class Managers::ProductsController < Managers::ApplicationController
     render :edit
    end
  end
+
 
   private
 
