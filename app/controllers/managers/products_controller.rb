@@ -1,6 +1,4 @@
 class Managers::ProductsController < Managers::ApplicationController
-skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create, :edit]
-
 
   def new
     @product = Product.new
@@ -12,6 +10,7 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create, 
     @product = Product.new(product_params)
     @product.save
     redirect_to managers_product_path(@product)
+
   end
 
   def index
@@ -23,17 +22,34 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create, 
     @reviews = @product.reviews.page(params[:page]).per(5)
   end
 
-  # 商品編集ページ
-  def edit
-    @product = Product.find(params[:id])
-        # binding.pry
-  end
+
 
   def update
     @product = Product.find(params[:id])
     @product.update(product_params)
     redirect_to managers_products_path
   end
+
+  def edit
+    @product = Product.find(params[:id])
+    @arrival = Arrival.new
+    @arrival.product_id = @product.id
+  end
+
+  def arrival_save
+   @product = Product.find(params[:id])
+   @arrival = Arrival.new(arrival_params)
+   @arrival.product_id = @product.id
+   if @arrival.save
+    @product = Product.find(params[:id])
+    redirect_to managers_product_path(@product.id)
+   else
+    @product = Product.find(params[:id])
+    @arrival = Arrival.new(arrival_params)
+    render :edit
+   end
+ end
+
 
   private
 
@@ -42,5 +58,9 @@ skip_before_action :authenticate_manager!, only: [:index, :show, :new, :create, 
                                     :description, :artist_id, :categorie_id, :company_id,
                                     discs_attributes: [:id, :sequence, :_destroy,
                                     songs_attributes: [:id, :name, :sequence, :_destroy]])
+  end
+
+  def arrival_params
+    params.require(:arrival).permit(:quantity, :product_id)
   end
 end
