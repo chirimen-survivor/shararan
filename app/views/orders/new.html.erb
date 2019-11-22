@@ -1,4 +1,5 @@
 <!-- 購入確認画面を表示する -->
+<%= form_tag(customer_orders_path, method: :post) do %>
 
 <div class="container">
 		<div class="row">
@@ -63,20 +64,105 @@
 
 		<div class="container">
 			<div class="row">
+				<div class="col-md-12">
+					<h3 class="title-head">商品情報</h3>
+				</div>
+				<div class="row">
 
+				<div class="col-md-2 text-left">
+					<%= attachment_image_tag cart.product, :image, :fill, 40, 40, format: 'jpeg',fallback: "no_image.jpg", size:'40x40' %>
+				</div>
+
+				<div class="col-md-9">
+						<div class="col-md-3">
+							<%= cart.product.name %>
+						</div><br/>
+						<div class="col-md-3">
+							¥<%= number_with_delimiter(cart.product.price) %> × <%= cart.quantity %>
+						</div>
+						<div class="col-md-3">
+							¥<%= number_with_delimiter(cart.product.price * cart.quantity) %>
+						</div>
+						<% total_price += cart.product.price * cart.quantity %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+
+
+		<div class="container order-box">
+			<div class="row">
+				<div class="col-md-3">
+					<h4 class="title-head">お届け先情報</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<%= @name + "様" %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					〒<%= @order.postal_code1 %> - <%= @order.postal_code2 %>
+				</div>
+				<div class="col-md-4 text-left">
+					<%= @order.prefecture_name + @order.city + @order.building %>
+				</div>
 			</div>
 		</div>
 
+		<div class="container order-box">
+			<div class="row">
+				<div class="col-md-3">
+					<h4 class="title-head">お支払い方法</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<%= @order.payment %>
+				</div>
+			</div>
+		</div>
 
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<label>小計</label>
+				</div>
+				<div class="col-md-5">
+					¥<%= number_with_delimiter(total_price.to_i) %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<lebel>送料</lebel>
+				</div>
+				<div class="col-md-5">
+					¥<%= @postage.ship %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<label>合計</label>
+				</div>
+				<div class="col-md-5">
+					¥<%= number_with_delimiter(total_price.to_i + @postage.ship) %>
+				</div>
+			</div>
 
+			<div class="col-md-5 text-center">
+						<%= submit_tag "注文確定", class: 'btn btn-default btn-md' %>
+
+		</div>
+		<input type="hidden" id="orderId" name="orderId" value="order">
+		<input type="hidden" id="payment" name="payment" value="<%= @order.payment %>">
+	</div>
 
 </div>
-
-
-
-
-
-
-
+<% end %>
 
 
