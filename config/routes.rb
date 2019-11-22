@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   }
 
   namespace :managers do
-    resources :products, only: [:new, :create, :show, :index, :edit]
+    resources :products, only: [:new, :create, :show, :index, :edit] do
+      post 'arrival_save', on: :member
+    end
     resources :customers, only: [:index, :show, :update, :destroy]
     resources :contacts, only: [:index,:show, :update]
     resources :accs, only: [:new, :create, :edit, :update, :destroy]
-    resources :arrivals, only: [:index, :create]
+    resources :arrivals, only: [:index]
     resources :orders, only: [:index, :show, :update]
   end
 
