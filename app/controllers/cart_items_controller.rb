@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
   before_action :correct_customer, only: [:index]
 
   def index
-    @customer = Customer.find(params[:customer_id]) # beforeアクションで定義しているのでなくても大丈夫だが、コードをわかりやすくするため
+    @customer = Customer.find(params[:customer_id])
     @cart_item = CartItem.find_by(customer_id: @customer.id)
     @cart_items = CartItem.where(customer_id: @customer.id)
   end
@@ -25,6 +25,7 @@ class CartItemsController < ApplicationController
     # 正しいユーザーかどうか確認
     def correct_customer
       if current_customer.id != params[:customer_id].to_i
+        flash[:warning] = "カート一覧にアクセス出来ませんでした"
         redirect_to root_path
       end
     end

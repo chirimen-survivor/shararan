@@ -1,6 +1,6 @@
 
 <!--- 商品情報 -->
-<div class="container padding">
+<div class="container top-space">
     <hr class="my-4">
     <div class="row padding">
       <div class="col-lg-5 col-lg-offset-1">
@@ -45,21 +45,18 @@
 </div>
 
 <div class="container">
-  <h4>構成数:2枚組</h4>
+  <h4><%= "構成数:#{@product.discs.size}枚組" %></h4>
   <br>
   <p>曲名</p>
-  <div class="disk-info">
-    <div class="disk1">
-      <p>Disk1</p>
-      <p>ヴォルフガング・アマデウス・モーツァルト</p>
-      <p>1.セレナーデ</p>
-      <p>2.アマデウス</p>
-    </div>
-    <div class="disk2">
-      <p>Disk2</p>
-      <p>ブラームス</p>
-      <p>1.交響曲1~4</p>
-      <p>2.アルトラプソディ</p>
+  <div class="disc-info">
+    <div class="disc1">
+    <% @discs.each do |disc| %>
+      <p><%= "Disc#{disc.sequence}" %></p>
+      <% songs = disc.songs.all.order(sequence: 'ASC') %>
+      <% songs.each do |song| %>
+      <p><%= "#{song.sequence}.#{song.name}" %></p>
+      <% end %>
+    <% end %>
     </div>
   </div>
   <hr class="my-4">
@@ -122,7 +119,7 @@
     scoreName: 'review[rating]',
     half: true,
   });
-  </script> 
+  </script>
     <h3>タイトル</h3>
     <%= f.text_field :title %>
     <h3>本文</h3>

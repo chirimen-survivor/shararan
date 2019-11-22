@@ -46,5 +46,10 @@ class Product < ApplicationRecord
 
     enum status: { 販売停止: 0, 販売中: 1 }
 
+    #  メソッド
 
+    # 現在のユーザーがカートに同じ商品を持っていないか確認
+      # def same_cartitem(product)
+      #   CartItem.where(product_id: product.id).where(customer_id: current_customer.id)
+      # end
 end

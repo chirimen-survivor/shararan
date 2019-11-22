@@ -9,9 +9,13 @@ class Managers::ProductsController < Managers::ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to managers_product_path(@product)
-
+    if @product.save
+      flash[:succss] = "商品情報の登録が完了しました"
+      redirect_to managers_product_path(@product)
+    else
+      flash.now[:danger] = "商品情報の登録に失敗しました"
+      render :new
+    end
   end
 
   def index
@@ -28,8 +32,13 @@ class Managers::ProductsController < Managers::ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to managers_products_path
+    if @product.update(product_params)
+      flash[:succss] = "商品情報の更新が完了しました"
+      redirect_to managers_products_path
+    else
+      flash.now[:danger] = "商品情報の更新に失敗しました"
+      render :edit
+    end
   end
 
   def edit
