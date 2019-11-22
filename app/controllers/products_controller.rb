@@ -35,15 +35,6 @@ class ProductsController < ApplicationController
     @q = Product.search(search_params)
     @products = @q.result(distinct: true).page(params[:page])
   end
-# 商品編集ページ
-  # def edit
-  #   @product = Product.find(params[:id])
-  # end
-
-  # def update
-    
-  # end
-  # # 
 
   private
 

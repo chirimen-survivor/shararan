@@ -1,69 +1,110 @@
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-lg-12">
       <h1>商品情報編集</h1>
-      商品情報編集 -->
-      <!-- <div class="row">
+      <!-- 商品情報編集 -->
+      <div class="row">
+        <%= form_for @product, url: managers_product_path, method: :patch do |f| %>
         <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-6">アーティスト名</div>
-                <div class="col-lg-6"><%= f.collection_select :artist_id, Artist.all, :id, :name, :prompt => "選択して下さい" %></div>
+                <div class="col-lg-3">アーティスト名</div>
+                <div class="col-lg-3"><%= f.collection_select :artist_id, Artist.all, :id, :name, :prompt => "選択して下さい" %></div>
             </div>
             <div class="row">
-                <div class="col-lg-6">商品名</div>
-                <div class="col-lg-6"><%= f.text_field :name %></div>
+                <div class="col-lg-3">商品名</div>
+                <div class="col-lg-3"><%= f.text_field :name %></div>
             </div>
             <div class="row">
-                <div class="col-lg-6">ジャケット画像</div>
-                <div class="col-lg-6"><%= f.text_field :name %></div>
+                <div class="col-lg-3">ジャケット画像</div>
+                <div class="col-lg-3"><%= f.attachment_field :image %></div>
             </div>
             <div class="row">
-                <div class="col-lg-6">価格（税込価格）</div>
-                <div class="col-lg-6"><%= f.text_field :price,  autofocus: true %></div>
+                <div class="col-lg-3">価格（税込価格）</div>
+                <div class="col-lg-3"><%= f.text_field :price,  autofocus: true %></div>
             </div>
             <div class="row">
-                <div class="col-lg-6">発売日</div>
-                <div class="col-lg-6"><%= f.text_field :release_date, autofocus: true, class: 'datepicker' %></div>
+                <div class="col-lg-3">発売日</div>
+                <div class="col-lg-3"><%= f.text_field :release_date, autofocus: true, class: 'datepicker' %></div>
             </div>
             <div class="row">
-                <div class="col-lg-6">レーベル</div>
-                <div class="col-lg-6"><%= %></div>
+                <div class="col-lg-3">レーベル</div>
+                <div class="col-lg-3"><%= f.collection_select :company_id, Company.all, :id, :name, :prompt => "選択して下さい" %></div>
             </div>
             <div class="row">
-                <div class="col-lg-6">ジャンル</div>
-                <div class="col-lg-6"><%= %></div>
+                <div class="col-lg-3">ジャンル</div>
+                <div class="col-lg-3"><%= f.collection_select :categorie_id, Categorie.all, :id, :name, :prompt => "選択して下さい" %></div>
             </div>
+            <h4>ディスク・曲名登録登録</h4>
+            <hr class="my-4">
             <div class="row">
-                <div class="col-lg-6">販売ステータス</div>
-                <div class="col-lg-6"><%= %></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">在庫数</div>
-                <div class="col-lg-6"><%= %></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">商品説明</div>
-                <div class="col-lg-6"><%= %></div>
-            </div>
-            <div class="row">
-            <div class="col-lg-12"><p>商品情報を更新する</p></div>
-            </div>
+                <div class="col-lg-12">
+                <div class="text-left">
+                  <div class="links">
+                    <%= link_to_add_association "ディスクを追加", f, :discs,
+                    class: 'btn btn-primary',
+                            data: {
+                              association_insertion_node: '#detail-association-insertion-point',
+                              association_insertion_method: 'after' }
+                    %>
+                  </div>
+                </div>
 
 
+                <table class="table table-list">
+                  <thead>
+                    <tr>
+                      <th>ディスク</th>
+                      <th>曲順</th>
+                      <th>曲名</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+
+                <tbody id='detail-association-insertion-point'>
+                      <div class="form-group">
+                        <br />
+                        <%= f.fields_for :discs do |t| %>
+                          <%= render "disc_fields", f: t %>
+                        <% end %>
+                      </div>
+                </tbody>
+              </table>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-lg-3">販売ステータス</div>
+                <div class="col-lg-3"><%= f.select :status, Product.statuses.keys.to_a, {} %></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">在庫数</div>
+                <div class="col-lg-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">商品説明</div>
+                <div class="col-lg-3"><%= f.text_area :description, autofocus: true %></div>
+            </div>
+            <div class="row">
+            <div class="col-lg-12"><%= f.submit '商品内容を変更する' %></div>
+            </div>
         </div>
+        <% end %>
       </div>
 
-       入荷情報登録 -->
-      <!-- <div class="row">
+      <!-- 入荷情報登録 -->
+      <div class="row">
         <div class="col-lg-12">
+            <br><br>
+            <h3>入荷情報を変更するならこちらでどうぞ</h3>
             <div class="row">
                 <div class="col-lg-6">商品名</div>
-                <div class="col-lg-6"><%= %></div>
+                <div class="col-lg-6"></div>
             </div>
 
             <div class="row">
                 <div class="col-lg-6">入荷数</div>
-                <div class="col-lg-6"><%= %></div>
+                <div class="col-lg-6"></div>
             </div>
 
             <div class="row">
@@ -74,4 +115,4 @@
       </div>
   </div>
 
-</div> -->
+</div>
