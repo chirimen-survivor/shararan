@@ -20,6 +20,8 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+@import 'products';
+
 
 .heading {
   margin-bottom: 30px;
@@ -31,10 +33,66 @@ hr {
 	border: none;
  }
 
+ .top-space {
+	 margin-top: 100px;
+ }
+
+//  header
+.navbar {
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  background: rgba(0, 0, 0, 0.6)!important;
+}
+
+.navbar-inverse .navbar-nav .icon-bar {
+  color: white;
+}
+
 //  カレンダーの位置を調整
 
  #carendar-position {
   position: relative;
+}
+
+
+/* 検索ボックス */
+dl.searchbox{
+  width: 350px;
+  position:relative;
+  background-color:#fff;
+  border:1px solid #aaa;
+	border-radius:6px;
+}
+dl.searchbox dt{
+  padding:2px;
+}
+dl.searchbox dt input{
+  width:70%;
+  height:35px;
+  line-height:35px;
+  background:none;
+  border:none;
+}
+dl.searchbox dd{
+  position:absolute;
+  top:0px;
+  right:0px;
+  width:30%;
+}
+.search-btn{
+  display:block;
+  background:#1e90ff;
+  width:100%;
+  height:100%;
+  line-height:37px;
+  border:none;
+  border-radius: 0 6px 6px 0;
+  color:#FFF;
+}
+
+.search-btn:hover {
+  background:#191970;
 }
 
 // ランキング
@@ -143,7 +201,7 @@ hr {
 .footer{
   text-align: center;
   padding: 50px 0;
-  background-color: #848282;
+  background-color: black;
 }
 
 .footer_text{
@@ -209,6 +267,23 @@ hr {
 	margin: 20px;
 }
 
+//  カート内合計金額
+.total_price {
+	font-size: 30px;
+	text-align: right;
+}
+
+.btn_group1 {
+	margin: 0 0 0 auto;
+	width: 30%;
+
+}
+
+.btn_group2 {
+	max-width: 0 0 0 auto;
+	width: 30%;
+}
+
 
 // ご注文履歴お届け先
 .row-eq-height {
@@ -252,4 +327,3 @@ label3{
 .order-box{
 	margin: 50px auto;
 }
-

@@ -1,0 +1,15 @@
+
+
+// メインビジュアル
+.bg_test-text {
+	border:  solid 1px;                             /* 枠線指定 */
+	display:  inline-block;                         /* インラインブロックにする */
+	padding: 10px 20px;                             /* 余白指定 */
+	background-color: rgba(255, 255, 255, 0.7);     /* 背景色指定 */
+}
+.bg_test {
+	text-align:  center;    /* 文字中央寄せ */
+  background-image: url("/images/backimage1.jpg");    /* 背景画像指定 */
+  background-size: cover;
+  height: 800px;
+}

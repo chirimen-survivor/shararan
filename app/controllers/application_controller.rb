@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
 
 	 before_action :authenticate_customer!
 	 before_action :configure_permitted_parameters, if: :devise_controller?
+	 before_action :set_search
+
+	 def set_search
+    @q = Product.ransack(params[:q])
+  end
 
 	 def after_sign_in_path_for(resource)
 	 	if resource.class == Manager

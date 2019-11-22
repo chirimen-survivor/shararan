@@ -1,12 +1,30 @@
-<div class="container">
-  <h3>商品検索結果</h3>
-  <p><%= "#{@products.total_count}件の検索結果があります" %></p>
-  <hr class="my-4">
-  <% @products.each do |product| %>
-    <p><%= product.name %></p>
-    <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
-    <%= link_to "商品詳細ページを見る", product_path(product.id), class: 'btn btn-primary' %>
+<% if manager_signed_in? %>
+
+  <div class="container">
+      <h3>商品検索結果</h3>
+      <p><%= "#{@products.total_count}件の検索結果があります" %></p>
+      <hr class="my-4">
+      <% @products.each do |product| %>
+        <p><%= product.name %></p>
+        <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
+        <%= link_to "商品詳細ページを見る", managers_product_path(product.id), class: 'btn btn-primary' %>
+        <hr class="my-4">
+      <% end %>
+      <%= paginate @products, class: "paginate" %>
+  </div>
+
+<% else %>
+
+  <div class="container">
+    <h3>商品検索結果</h3>
+    <p><%= "#{@products.total_count}件の検索結果があります" %></p>
     <hr class="my-4">
-  <% end %>
-  <%= paginate @products, class: "paginate" %>
-</div>
+    <% @products.each do |product| %>
+      <p><%= product.name %></p>
+      <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
+      <%= link_to "商品詳細ページを見る", product_path(product.id), class: 'btn btn-primary' %>
+      <hr class="my-4">
+    <% end %>
+    <%= paginate @products, class: "paginate" %>
+  </div>
+<% end %>
