@@ -64,21 +64,30 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
-					<div class="select-address">
-						<h3 class="title-head">商品情報</h3>
-
-						<% @products.each do |product| %>
-						<%= product.image %>
-
-						<%= product.name %>
-
-						<% end %>
-					</div>
+				<div class="col-md-12">
+					<h3 class="title-head">商品情報</h3>
 				</div>
+				<div class="row">
+					<% @carts.each do |cart| %>
+				<div class="col-md-2 text-left">
+					<%= attachment_image_tag cart.product, :image, :fill, 40, 40, format: 'jpeg',fallback: "no_image.jpg", size:'40x40' %>
+				</div>
+
+				<div class="col-md-9">
+						<div class="col-md-3">
+							<%= cart.product.name %>
+						</div><br/>
+						<div class="col-md-3">
+							<%= cart.product.price %> × <%= cart.quantity %>
+						</div>
+						<div class="col-md-3">
+							<%= cart.product.price * cart.quantity%>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
-
+	</div>
 
 
 
@@ -97,7 +106,7 @@
 
 			<div class="row">
 				<div class="col-md-2">
-					〒<%=  %>
+					〒<%= @order.postal_code1 %> - <%= @order.postal_code2 %>
 				</div>
 				<div class="col-md-4 text-left">
 					<%= @order.prefecture_name + @order.city + @order.building %>
@@ -111,7 +120,6 @@
 					<h4 class="title-head">お支払い方法</h4>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-4">
 					<%= @order.payment %>
@@ -125,7 +133,7 @@
 					<label>小計</label>
 				</div>
 				<div class="col-md-5">
-
+					<%  %>
 				</div>
 			</div>
 			<div class="row">
@@ -133,7 +141,7 @@
 					<lebel>送料</lebel>
 				</div>
 				<div class="col-md-5">
-					<%= @order.postage_id %>
+					<%= @postage.ship %>
 				</div>
 			</div>
 			<div class="row">

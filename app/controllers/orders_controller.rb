@@ -5,29 +5,26 @@ class OrdersController < ApplicationController
 	def new
 		# 購入確認画面を表示する
 		@customer = Customer.find(params[:customer_id])
-		@order = Order.new(payment: params[:payment], customer_id: current_customer.id,)
-		@cart = CartItem.find(params[:id])
-		binding.pry
-		@products = @cart.products
+		@order = Order.new(payment: params[:payment], customer_id: current_customer.id,postage_id: 1)
+		@carts = CartItem.where(customer_id: @customer.id)
+		@postage = Postage.find_by(id: @order.postage_id)
 		# 住所が登録住所の場合
 		if params[:address].to_i == 0
-			# @order.postal_code1 = @cusromer.postal_code1
-			# @order.postal_code2 = @cusromer.postal_code2
+			@order.postal_code1 = @cusromer.postal_code1
+			@order.postal_code2 = @cusromer.postal_code2
 			@order.prefecture_name = @customer.prefecture_name
 			@order.city = @customer.city
 			@order.building = @customer.building
 			@name = @customer.last_name + @customer.first_name
 		else
-			# @order.postal_code1 = @address.postal_code1
-			# @order.postal_code2 = @address.postal_code2
 			@address = OtherAddress.find(params[:address].to_i)
+			@order.postal_code1 = @address.postal_code1
+			@order.postal_code2 = @address.postal_code2
 			@order.prefecture_name = @address.prefecture_name
 			@order.city = @address.city
 			@order.building = @address.building
 			@name = @address.last_name + @address.first_name
 		end
-
-
 	end
 
 

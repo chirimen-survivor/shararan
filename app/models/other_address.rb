@@ -1,5 +1,6 @@
 class OtherAddress < ApplicationRecord
 	belongs_to :customer
+  belongs_to :postage
 	has_many :orders
 
 

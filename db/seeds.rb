@@ -87,6 +87,7 @@ end
                   deleted_at: "")
 end
 
+
 20.times do |n|
 	Order.create!(
 		postal_code1: Faker::Number.between(from: 100, to: 999),
@@ -157,8 +158,10 @@ end
 
 5.times do |n|
 	CartItem.create!(
-		customer_id: Faker::Number.between(from: 1, to: 10),
+		customer_id: 1,
 		product_id: Faker::Number.between(from: 1, to: 10),
 		quantity: Faker::Number.between(from: 1, to: 3)
 	)
 end
+
+Postage.create!(ship: 500)
