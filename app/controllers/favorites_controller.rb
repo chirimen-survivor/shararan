@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
 
 	def index
 		@customer = Customer.find(params[:customer_id])
-		@favorites = @customer.favorites
+		@favorites = @customer.favorites.page(params[:page]).per(10)
 		# @product = Product.find(params[:product_id])
 	end
 
