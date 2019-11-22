@@ -5,6 +5,8 @@ class Order < ApplicationRecord
 
 	attachment :image
 
+  belongs_to :postage
+
 
 	include JpPrefecture
   jp_prefecture :prefecture_code

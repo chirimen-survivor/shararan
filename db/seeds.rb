@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
+
 #マスターデータ（カスタマー）のデータ
 Customer.create!(
 	last_name:  "test",
@@ -64,7 +68,7 @@ end
 				  phone_number1: Faker::Number.between(from: 1, to: 9999),
 				  phone_number2: Faker::Number.between(from: 1, to: 9999),
 				  phone_number3: Faker::Number.between(from: 1, to: 9999),
-				  email: Faker::Internet.free_email,
+				  email: Faker::Internet.unique.free_email,
 				  password: Faker::Number.between(from: 100000, to: 999999),
 				  deleted_at: "")
 end
@@ -87,6 +91,8 @@ end
                   deleted_at: "")
 end
 
+Postage.create!(ship: 500)
+
 
 20.times do |n|
 	Order.create!(
@@ -98,11 +104,9 @@ end
 		total: Faker::Number.between(from: 1000, to: 9999),
 		status: 0,
 		tax_id: 1,
-		product_id: Faker::Number.between(from: 1, to: 10),
 		customer_id: 1,
 		payment: 1,
 		postage_id: 1,
-		quantity: 2,
 		)
 end
 
@@ -125,18 +129,6 @@ end
 
 # 住所情報
 10.times do |n|
-      last_name = Faker::Name.name,
-      first_name = Faker::Name.name,
-      last_name_kana = Faker::Name.name,
-      first_name_kana = Faker::Name.name,
-      postal_code1 = Faker::Number.between(from: 100, to: 999),
-      postal_code2 = Faker::Number.between(from: 1000, to: 9999),
-      prefecture_code = Faker::Number.between(from: 1, to: 47),
-      city = Faker::Address.city,
-      building = Faker::Address.street_address,
-      phone_number1 = Faker::Number.between(from: 1, to: 9999),
-      phone_number2 = Faker::Number.between(from: 1, to: 9999),
-      phone_number3 = Faker::Number.between(from: 1, to: 9999),
       OtherAddress.create!(
       last_name: Faker::Name.name,
       first_name: Faker::Name.name,
@@ -164,4 +156,5 @@ end
 	)
 end
 
-Postage.create!(ship: 500)
+
+

@@ -30,13 +30,51 @@ class OrdersController < ApplicationController
 
 	def create
 		# 購入情報を確定する
-		@order = Order.new(order_params)
+		@order = Order.new
+		@customer = Customer.find(params[:customer_id])
 		@order.customer_id = current_customer.id
-		if @order.save
-			redirect_to order_path(@order.id)
+		# @order = Order.new(payment: params[:payment], customer_id: current_customer.id,postage_id: 1)
+		# @order.customer_id = @customer.id
+		@carts = CartItem.where(customer_id: current_customer.id)
+		@postage = Postage.find_by(id: 1)
+		@order.postage_id = @postage.id
 
+		total_price = 0
+		@carts.each do |cart|
+			total_price += cart.product.price * cart.quantity
+		end
+		@order.status = 0
+		@order.tax_id = 1
+		@order.payment = params[:payment]
+		@order.total = total_price + @postage.ship
+		 if params[:address].to_i == 0
+			@order.postal_code1 = @customer.postal_code1
+			@order.postal_code2 = @customer.postal_code2
+			@order.prefecture_name = @customer.prefecture_name
+			@order.city = @customer.city
+			@order.building = @customer.building
+			@name = @customer.last_name + @customer.first_name
 		else
-			render :select
+			@address = OtherAddress.find(params[:address].to_i)
+			@order.postal_code1 = @address.postal_code1
+			@order.postal_code2 = @address.postal_code2
+			@order.prefecture_name = @address.prefecture_name
+			@order.city = @address.city
+			@order.building = @address.building
+			@name = @address.last_name + @address.first_name
+		end
+
+		@carts.each do |cart|
+			@order_detail = @order.order_details.build
+			@order_detail.product_id = cart.product_id
+			@order_detail.subtotal = cart.product.price * cart.quantity
+			@order_detail.quantity = cart.quantity
+		end
+
+		if @order.save
+			redirect_to complete_customer_order_path(@order.id, @customer.id)
+		else
+			render :new
 		end
 	end
 
@@ -46,9 +84,9 @@ class OrdersController < ApplicationController
 		@customer = Customer.find(params[:customer_id])
 		# 顧客のメイン以外の住所
 		@addresses = @customer.other_addresses
-		# 配送先、支払い方法を選択するため
-		@order = Order.find(params[:id])
 
+		@carts = CartItem.where(customer_id: current_customer.id)
+		@postage = Postage.find_by(id: 1)
 
 	end
 

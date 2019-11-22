@@ -157,7 +157,10 @@
 					<div class="col-md-4 text-left">小計
 					</div>
 					<div class="col-md-4 text-right">
-						¥
+						<% total_price = 0 %>
+						<% @carts.each do |cart| %>
+						¥<%= <%= total_price += cart.product.price * cart.quantity
+		end %> %>
 					</div>
 			</div>
 		</div>
@@ -168,7 +171,7 @@
 					</div>
 
 					<div class="col-md-4 text-right">
-						¥ 500
+						¥ <%= @postage.ship %>
 					</div>
 			</div>
 		</div>
@@ -181,7 +184,7 @@
 
 					<div class="col-md-4 text-right">
 						<h4>
-						¥ <%= number_with_delimiter(@order.total * @order.tax_id) %>
+						¥ 
 						</h4>
 					</div>
 			</div>
