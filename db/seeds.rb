@@ -33,7 +33,8 @@ Manager.create!(
 	password: "aaaaaa",
 	)
 
-# アーティスト情報 artists
+
+	# アーティスト情報 artists
 10.times do |n|
 	Artist.create!(
 		name: Faker::Music::GratefulDead.unique.player
@@ -96,7 +97,7 @@ end
   description = "sample text sample text sample text sample text sample text" * 2
   Product.create!(name:  name,
                   price: price,
-                  image_id: 1,
+                  image_id: "",
                   release_date: release_date,
                   status:     0,
                   description: description,
@@ -153,6 +154,7 @@ end
 	)
 end
 
+
 40.times do |n|
 	Arrival.create!(
 		product_id: Faker::Number.between(from: 1, to: 20),
@@ -161,3 +163,11 @@ end
 end
 
 
+# いいね情報
+
+20.times do |n|
+	Favorite.create!(
+		customer_id: Faker::Number.unique.between(from: 1, to: 30),
+		product_id: Faker::Number.between(from: 1, to: 20)
+	)
+end

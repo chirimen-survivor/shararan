@@ -10,7 +10,7 @@
       <%= link_to '商品を探す', root_path, class: 'btn btn-lg btn-primary' %>
       </div>
   <% else %>
-    <% current_customer.cart_items.each do |cart| %>
+
       <table class = "table table-striped">
 
         <thead>
@@ -20,14 +20,20 @@
               <th>数量</th>
               <th></th>
               <th></th>
-              <th>価格(税抜)</th>
+              <th>価格(税別)</th>
+              <th>小計</th>
               <th></th>
           </tr>
         </thead>
 
         <tbody>
+        <% total_price = 0 %>
+        <% current_customer.cart_items.each do |cart| %>
             <tr>
-              <td><%= "写真" %></td>
+              <td><%= attachment_image_tag cart.product, :image, :fill, 60, 60, format: 'jpeg',
+                                                          fallback: "no_image.jpg", size:'60x60' %>
+              </td>
+
               <td><%= cart.product.name %></td>
 
             <%= form_for cart, url: product_cart_items_path(cart.product), method: :patch  do |f| %>
@@ -38,21 +44,29 @@
               </td>
               <% end %>
             <% end %>
-
             <td><%= "¥ #{cart.product.price.to_s(:delimited)}" %></td>
+            <td><%= "¥ #{number_with_delimiter(cart.product.price * cart.quantity)}" %></td>
               <td>
                 <%= link_to product_cart_items_path(cart.product), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
                     <i class="fas fa-times"></i>
                 <% end %>
               </td>
             </tr>
+            <% total_price += cart.product.price * cart.quantity %>
+            <% end %>
         </tbody>
       </table>
-    <% end %>
   </div>
-  <div class="container">
-      <%= link_to '配送先、支払い方法選択画面へ', root_path, class: 'btn btn-info' %>
-  </div>
+
+    <div class="total_price">
+        <p><%= "合計金額: #{total_price.to_s(:delimited)}円" %></p>
+    </div>
+    <div class="btn_group1">
+      <%= link_to '配送先、支払い方法選択画面へ', root_path, class: 'btn btn-block btn-info' %>
+    </div>
+    <div class="btn_group2">
+      <%= link_to '買い物を続ける', root_path, class: 'btn btn-block btn-primary' %>
+    </div>
   <% end %>
   <hr class="my-4">
 </div>
