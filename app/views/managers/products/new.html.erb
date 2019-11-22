@@ -43,24 +43,13 @@
             <%= link_to_add_association "ディスクを追加", f, :discs,
             class: 'btn btn-primary',
                     data: {
-                      association_insertion_node: '#detail-association-insertion-point',
-                      association_insertion_method: 'after' }
+                      association_insertion_node: '#disc-insertion-point',
+                      association_insertion_method: 'append' }
             %>
           </div>
         </div>
 
-
-        <table class="table table-list">
-          <thead>
-            <tr>
-              <th>ディスク</th>
-              <th>曲順</th>
-              <th>曲名</th>
-              <th></th>
-            </tr>
-          </thead>
-
-        <tbody id='detail-association-insertion-point'>
+        <div id='disc-insertion-point'>
               <div class="form-group">
                 <%= f.label :商品名 %><br />
                 <%= f.text_field :name %>
@@ -68,8 +57,7 @@
                   <%= render "disc_fields", f: t %>
                 <% end %>
               </div>
-        </tbody>
-      </table>
+        </div>
     <hr class="my-4">
 
       <div class="field">
