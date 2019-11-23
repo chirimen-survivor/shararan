@@ -2,7 +2,8 @@ class Managers::CustomersController < Managers::ApplicationController
   skip_before_action :authenticate_manager!, only: [:index, :show, :update, :destroy]
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(20)
+
   end
 
   def show
