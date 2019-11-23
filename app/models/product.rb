@@ -46,5 +46,4 @@ class Product < ApplicationRecord
 
     enum status: { 販売停止: 0, 販売中: 1 }
 
-
 end

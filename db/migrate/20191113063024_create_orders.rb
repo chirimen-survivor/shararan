@@ -10,11 +10,9 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     	t.integer :total, null: false
     	t.integer :status, null: false
     	t.integer :tax_id, null: false
-    	t.integer :product_id, null: false
     	t.integer :customer_id, null: false
     	t.integer :payment, null: false
     	t.integer :postage_id, null: false
-    	t.integer :quantity, null: false
 
       t.timestamps
     end

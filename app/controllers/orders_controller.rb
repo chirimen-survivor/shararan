@@ -5,20 +5,78 @@ class OrdersController < ApplicationController
 	def new
 		# 購入確認画面を表示する
 		@customer = Customer.find(params[:customer_id])
-		@order = Order.find(params[:customer_id])
+		@order = Order.new(payment: params[:payment], customer_id: current_customer.id,postage_id: 1)
+		@carts = CartItem.where(customer_id: @customer.id)
+		@postage = Postage.find_by(id: @order.postage_id)
+		# 住所が登録住所の場合
+		if params[:address].to_i == 0
+			@order.postal_code1 = @customer.postal_code1
+			@order.postal_code2 = @customer.postal_code2
+			@order.prefecture_name = @customer.prefecture_name
+			@order.city = @customer.city
+			@order.building = @customer.building
+			@name = @customer.last_name + @customer.first_name
+		else
+			@address = OtherAddress.find(params[:address].to_i)
+			@order.postal_code1 = @address.postal_code1
+			@order.postal_code2 = @address.postal_code2
+			@order.prefecture_name = @address.prefecture_name
+			@order.city = @address.city
+			@order.building = @address.building
+			@name = @address.last_name + @address.first_name
+		end
 	end
 
 
 	def create
 		# 購入情報を確定する
-		@order = Order.new(order_params)
-		@order.customer_id = current_customer.id
-		if @order.save
-			redirect_to order_path(@order.id)
-
-		else
-			render :select
+		@order = Order.new
+		@customer = Customer.find(params[:customer_id])
+		@carts = CartItem.where(customer_id: current_customer.id)
+		@postage = Postage.find_by(id: 1)
+		total_price = 0
+		@carts.each do |cart|
+			total_price += cart.product.price * cart.quantity
 		end
+
+		@order.status = 0
+		@order.tax_id = 1
+		@order.payment = params[:payment]
+		@order.postage_id = @postage.id
+		@order.customer_id = current_customer.id
+		@order.total = total_price + @postage.ship
+		 if params[:address].to_i == 0
+			@order.postal_code1 = @customer.postal_code1
+			@order.postal_code2 = @customer.postal_code2
+			@order.prefecture_name = @customer.prefecture_name
+			@order.city = @customer.city
+			@order.building = @customer.building
+			@name = @customer.last_name + @customer.first_name
+		else
+			@address = OtherAddress.find(params[:address].to_i)
+			@order.postal_code1 = @address.postal_code1
+			@order.postal_code2 = @address.postal_code2
+			@order.prefecture_name = @address.prefecture_name
+			@order.city = @address.city
+			@order.building = @address.building
+			@name = @address.last_name + @address.first_name
+		end
+
+		@carts.each do |cart|
+			@order_detail = @order.order_details.build
+			@order_detail.product_id = cart.product_id
+			@order_detail.subtotal = cart.product.price * cart.quantity
+			@order_detail.quantity = cart.quantity
+		end
+
+
+		@order.transaction do
+			@order.save!
+		end
+			@carts.destroy_all
+			redirect_to complete_customer_order_path(@order.id, @customer.id)
+		rescue => e
+			render :new
 	end
 
 
@@ -26,9 +84,10 @@ class OrdersController < ApplicationController
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
 		# 顧客のメイン以外の住所
-		@addresses = @customer.other_address
-		# 配送先、支払い方法を選択するため
-		@order = Order.find(params[:id])
+		@addresses = @customer.other_addresses
+
+		@carts = CartItem.where(customer_id: current_customer.id)
+		@postage = Postage.find_by(id: 1)
 
 	end
 
@@ -38,9 +97,7 @@ class OrdersController < ApplicationController
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
 		# @ordersに個人の購入履歴
-		@orders = @customer.orders
-		# ページネーション
-		@orders = Order.page(params[:page]).per(10)
+		@orders = Order.where(customer_id: @customer.id).page(params[:page]).per(10)
 	end
 
 	def show
@@ -48,12 +105,10 @@ class OrdersController < ApplicationController
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
 		# 顧客の購入一覧
-		@orders = @customer.orders
 		# 一覧の中の一軒の購入情報
 		@order = Order.find(params[:id])
 		# その中の詳細
-		@details = @order.order_details
-
+		@details = OrderDetail.where(order_id: @order.id)
 	end
 
 

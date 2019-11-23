@@ -8,7 +8,6 @@
 
 
 
-# マスターデータ（カスタマー）のデータ
 Customer.create!(
 	last_name:  "test",
 	first_name: "test",
@@ -107,6 +106,9 @@ end
                   deleted_at: "")
 end
 
+Postage.create!(ship: 500)
+
+
 20.times do |n|
 	Order.create!(
 		postal_code1: Faker::Number.between(from: 100, to: 999),
@@ -117,11 +119,9 @@ end
 		total: Faker::Number.between(from: 1000, to: 9999),
 		status: 0,
 		tax_id: 1,
-		product_id: Faker::Number.between(from: 1, to: 10),
 		customer_id: 1,
 		payment: 1,
 		postage_id: 1,
-		quantity: 2,
 		)
 end
 
@@ -143,11 +143,13 @@ end
 end
 
 
-
 # カート情報
 
 42.times do |n|
 	CartItem.create!(
+		customer_id: 1,
+		product_id: Faker::Number.between(from: 1, to: 10),
+		quantity: Faker::Number.between(from: 1, to: 3),
 		customer_id: Faker::Number.between(from: 1, to: 10),
 		product_id: Faker::Number.unique.between(from: 1, to: 42),
 		quantity: Faker::Number.between(from: 1, to: 5)
@@ -169,5 +171,9 @@ end
 	Favorite.create!(
 		customer_id: Faker::Number.unique.between(from: 1, to: 30),
 		product_id: Faker::Number.between(from: 1, to: 20)
+
 	)
 end
+
+
+

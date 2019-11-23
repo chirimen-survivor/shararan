@@ -23,7 +23,6 @@
 @import 'products';
 
 
-
 .heading {
   margin-bottom: 30px;
 }
@@ -34,9 +33,9 @@ hr {
 	border: none;
  }
 
- .top-space {
-	 margin-top: 100px;
- }
+.flash-field {
+	margin-top: 62px;
+}
 
 //  header
 .navbar {
@@ -326,5 +325,5 @@ label3{
 }
 
 .order-box{
-	margin: 50px;
+	margin: 50px auto;
 }

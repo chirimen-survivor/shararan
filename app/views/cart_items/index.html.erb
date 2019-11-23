@@ -1,4 +1,4 @@
-<div class="container top-space">
+<div class="container">
   <h2><%= "#{ current_customer.last_name}様のカート一覧" %></h2>
   <div class="review">
 
@@ -60,7 +60,7 @@
         <p><%= "合計金額: #{total_price.to_s(:delimited)}円" %></p>
     </div>
     <div class="btn_group1">
-      <%= link_to '配送先、支払い方法選択画面へ', root_path, class: 'btn btn-block btn-info' %>
+      <%= link_to '配送先、支払い方法選択画面へ', select_customer_orders_path(current_customer.id), class: 'btn btn-block btn-info' %>
     </div>
     <div class="btn_group2">
       <%= link_to '買い物を続ける', root_path, class: 'btn btn-block btn-primary' %>

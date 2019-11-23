@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
   	# 購入用のルーティング
   	resources :orders, only: [:new, :index, :show, :create] do
-  		get 'select', on: :member
+  		get 'select', on: :collection
   		get 'complete', on: :member
   	end
 

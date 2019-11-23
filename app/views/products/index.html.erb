@@ -16,7 +16,7 @@
               <div class="card-body">
                 <h4 class="card-title"><%= p.name %></h4>
                 <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
+                  <li><a href="#"><%= "#{p.categorie.name}" %></a></li>
                 </ul>
                 <p class="card-text"><%= p.description %></p>
                 <p class="card-text"><%= "¥ #{p.price.to_s(:delimited)} 税別" %></p>

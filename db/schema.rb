@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_094552) do
+
+
+ActiveRecord::Schema.define(version: 2019_11_21_122930) do
 
   create_table "arrivals", force: :cascade do |t|
     t.integer "product_id"
@@ -124,29 +126,34 @@ ActiveRecord::Schema.define(version: 2019_11_20_094552) do
     t.integer "total", null: false
     t.integer "status", null: false
     t.integer "tax_id", null: false
-    t.integer "product_id", null: false
     t.integer "customer_id", null: false
     t.integer "payment", null: false
     t.integer "postage_id", null: false
-    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "other_addresses", force: :cascade do |t|
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "postal_code1", null: false
-    t.string "postal_code2", null: false
-    t.integer "prefecture_code", null: false
-    t.string "city", null: false
-    t.string "building", null: false
-    t.string "phone_number1", null: false
-    t.string "phone_number2", null: false
-    t.string "phone_number3", null: false
-    t.integer "customer_id", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "postal_code1"
+    t.string "postal_code2"
+    t.integer "prefecture_code"
+    t.string "city"
+    t.string "building"
+    t.string "phone_number1"
+    t.string "phone_number2"
+    t.string "phone_number3"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
+  create_table "postages", force: :cascade do |t|
+    t.integer "ship", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -154,7 +161,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_094552) do
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.text "image_id"
+    t.text "image_id", null: false
     t.string "release_date", null: false
     t.integer "status", default: 0, null: false
     t.text "description", null: false

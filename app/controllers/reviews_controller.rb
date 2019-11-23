@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
 		@reviews = @product.reviews.page(params[:page])
 		redirect_to product_path(@product.id)
 	else
+		@cart_item = CartItem.new(product_id: @product.id)
 		@reviews = @product.reviews.page(params[:page])
 		render "products/show"
 	end
