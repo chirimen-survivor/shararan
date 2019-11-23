@@ -1,7 +1,7 @@
 <h1>顧客詳細</h1>
 
 <%= form_for(@customer, url: managers_customer_path(@customer.id)) do |f| %>
-
+	<%= render 'share/error_messages', object: f.object %>
 	<h3>お名前</h3>
 	<%= f.text_field :last_name %>
 	<%= f.text_field :first_name %>
@@ -41,16 +41,16 @@
 
 		<tr>
 			<td><%= j.rating %>
-				<div id="star-rate-<%= r.id %>"></div>
+				<div id="star-rate-<%= j.id %>"></div>
           		<script>
-          			$('#star-rate-<%= r.id %>').raty({
+          			$('#star-rate-<%= j.id %>').raty({
           			  size: 36,
           			  starOff:  '<%= asset_path('star-off.png') %>',
           			  starOn : '<%= asset_path('star-on.png') %>',
           			  starHalf: '<%= asset_path('star-half.png') %>',
           			  half: true,
           			  readOnly: true,
-          			  score: <%= r.rating %>,
+          			  score: <%= j.rating %>,
           			});
           		</script>
         	</td>

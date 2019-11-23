@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_11_21_122930) do
 
   create_table "arrivals", force: :cascade do |t|
@@ -46,11 +47,11 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "email"
-    t.string "title"
-    t.text "body"
+    t.string "email", null: false
+    t.string "title", null: false
+    t.text "body", null: false
     t.text "reply_message"
-    t.integer "customer_id"
+    t.integer "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -134,19 +135,19 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
   end
 
   create_table "other_addresses", force: :cascade do |t|
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.string "postal_code1", null: false
-    t.string "postal_code2", null: false
-    t.integer "prefecture_code", null: false
-    t.string "city", null: false
-    t.string "building", null: false
-    t.string "phone_number1", null: false
-    t.string "phone_number2", null: false
-    t.string "phone_number3", null: false
-    t.integer "customer_id", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "postal_code1"
+    t.string "postal_code2"
+    t.integer "prefecture_code"
+    t.string "city"
+    t.string "building"
+    t.string "phone_number1"
+    t.string "phone_number2"
+    t.string "phone_number3"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -160,7 +161,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.text "image_id"
+    t.text "image_id", null: false
     t.string "release_date", null: false
     t.integer "status", default: 0, null: false
     t.text "description", null: false

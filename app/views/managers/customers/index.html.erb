@@ -1,5 +1,4 @@
 <div class = "container">
-
 	<div class = "col-xs-9" style= "background-color:white;">
 		<h1>顧客一覧</h1>
 		<table class = "table table-striped">
@@ -11,10 +10,11 @@
 			<% @customers.each do |customer| %>
 				<tr>
 					<td><%= customer.id %>
-					<td><%= link_to customer.last_name, managers_customer_path(customer.id) %></td>
+					<td><%= link_to customer.last_name + customer.first_name, managers_customer_path(customer.id) %></td>
 					<td><%= customer.phone_number1.to_s + "-" + customer.phone_number2 + "-" + customer.phone_number3 %></td>
 				</tr>
 			<% end %>
 		</table>
+		<%= paginate @customers, class: "paginate" %>
 	</div>
 </div>

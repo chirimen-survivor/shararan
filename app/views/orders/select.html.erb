@@ -1,7 +1,7 @@
 
 <!-- お届け先、支払い方法の選択 -->
 <%= form_tag(new_customer_order_path, method: :get) do %>
-
+<div class="heading"></div>
 <div class="container">
 		<div class="row">
 			<div class="col-md-5">
@@ -143,14 +143,6 @@
 		</div>
 	</div>
 
-	<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-						<%= link_to "カートへ戻る", root_path, class: 'btn btn-default btn-lg' %>
-				</div>
-			</div>
-		</div>
-
 		<div class="container">
 		<div class="row">
 			<div class="col-md-4 pull-right">
@@ -159,8 +151,9 @@
 					<div class="col-md-4 text-right">
 						<% total_price = 0 %>
 						<% @carts.each do |cart| %>
-						¥<%= <%= total_price += cart.product.price * cart.quantity
-		end %> %>
+						<% total_price += cart.product.price * cart.quantity %>
+						<% end %>
+						¥<%= number_with_delimiter(total_price) %>
 					</div>
 			</div>
 		</div>
@@ -182,9 +175,9 @@
 						<h4>合計</h4>
 					</div>
 
-					<div class="col-md-4 text-right">
+					<div class="col-md-5 text-right">
 						<h4>
-						¥ 
+						¥<%= number_with_delimiter(total_price + @postage.ship) %>
 						</h4>
 					</div>
 			</div>
