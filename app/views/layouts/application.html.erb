@@ -12,12 +12,15 @@
   <body>
       <!-- header -->
       <%= render 'share/header' %>
-      <!-- Flash メッセージ -->
-      <%= render 'layouts/flash' %>
 
+      <div class="flash-field">
+      </div>
 
         <%= yield %>
       <!-- footer -->
       <%= render 'share/footer' %>
+
+     <!-- Flash メッセージ -->
+      <%= render 'layouts/flash' %>
   </body>
 </html>
