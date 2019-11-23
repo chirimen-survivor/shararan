@@ -1,8 +1,9 @@
 class Managers::CustomersController < Managers::ApplicationController
-  skip_before_action :authenticate_customer!, only: [:index, :show, :update, :destroy]
+  skip_before_action :authenticate_manager!, only: [:index, :show, :update, :destroy]
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(20)
+
   end
 
   def show
@@ -15,8 +16,8 @@ class Managers::CustomersController < Managers::ApplicationController
       if @customer.update(customer_params)
         redirect_to managers_customer_path(@customer.id)
       else
-        @Customers = Customers.all
-        render action: :show
+        @reviews = @customer.reviews.page(params[:page]).per(5)
+        render :show
       end
     end
 

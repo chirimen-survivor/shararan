@@ -52,11 +52,8 @@ class Managers::ProductsController < Managers::ApplicationController
    @arrival = Arrival.new(arrival_params)
    @arrival.product_id = @product.id
    if @arrival.save
-    @product = Product.find(params[:id])
     redirect_to managers_product_path(@product.id)
    else
-    @product = Product.find(params[:id])
-    @arrival = Arrival.new(arrival_params)
     render :edit
    end
  end
