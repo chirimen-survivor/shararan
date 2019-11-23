@@ -24,14 +24,6 @@ class Managers::OrdersController < ApplicationController
 
 	private
 
-	def order_params
-		params.require(:order).permit(:postal_code1, :postal_code2, :prefecture_code, :city, :building, :total, :status, :tax_id, :product_id, :customer_id, :payment, :postage_id, :quantity,)
-	end
-
-	def order_detail_params
-		params.require(:order_detail).permit(:order_id, :product_id, :subtotal, :quantity)
-	end
-
 	def order_status_params
 		params.require(:order).permit(:status)
 	end

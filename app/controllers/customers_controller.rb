@@ -13,7 +13,6 @@ class CustomersController < ApplicationController
       if @customer.update(customer_params)
         redirect_to customer_path(@current_customer.id)
       else
-        @customer = Customer.find(params[:id])
         @reviews = @customer.reviews.page(params[:page]).per(5)
         render :show
       end

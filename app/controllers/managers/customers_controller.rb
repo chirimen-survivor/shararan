@@ -16,7 +16,6 @@ class Managers::CustomersController < Managers::ApplicationController
       if @customer.update(customer_params)
         redirect_to managers_customer_path(@customer.id)
       else
-        @Customer = Customer.find(params[:id])
         @reviews = @customer.reviews.page(params[:page]).per(5)
         render :show
       end
