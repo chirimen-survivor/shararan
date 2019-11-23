@@ -340,6 +340,48 @@ label3{
 }
 
 
-.mypage-text{
-	margin-bottom: 20px;
+.mypage_text{
+	margin-bottom: 5px;
+}
+
+.mypage_column1{
+	display: inline-block;
+	margin-left:80px;
+	font-size: 20px;
+}
+
+.mypage_column2{
+	display: inline-block;
+	margin-left:20px;
+}
+
+.mypage_column3{
+	margin-left:55px;
+	font-size: 20px;
+	margin-bottom:10px;
+}
+
+.mypage_column4{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 15px;
+}
+
+.mypage_column5{
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 20px;
+}
+
+.mypage_column6{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:20px;
+	font-size: 20px;
+}
+
+.mypage_submit{
+	text-align: center;
+	margin-top:10px;
 }
