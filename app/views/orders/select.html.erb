@@ -1,7 +1,7 @@
 
 <!-- お届け先、支払い方法の選択 -->
 <%= form_tag(new_customer_order_path, method: :get) do %>
-
+<div class="heading"></div>
 <div class="container">
 		<div class="row">
 			<div class="col-md-5">
@@ -142,14 +142,6 @@
 
 		</div>
 	</div>
-
-	<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-						<%= link_to "カートへ戻る", root_path, class: 'btn btn-default btn-lg' %>
-				</div>
-			</div>
-		</div>
 
 		<div class="container">
 		<div class="row">

@@ -32,20 +32,18 @@ class OrdersController < ApplicationController
 		# 購入情報を確定する
 		@order = Order.new
 		@customer = Customer.find(params[:customer_id])
-		@order.customer_id = current_customer.id
-		# @order = Order.new(payment: params[:payment], customer_id: current_customer.id,postage_id: 1)
-		# @order.customer_id = @customer.id
 		@carts = CartItem.where(customer_id: current_customer.id)
 		@postage = Postage.find_by(id: 1)
-		@order.postage_id = @postage.id
-
 		total_price = 0
 		@carts.each do |cart|
 			total_price += cart.product.price * cart.quantity
 		end
+
 		@order.status = 0
 		@order.tax_id = 1
 		@order.payment = params[:payment]
+		@order.postage_id = @postage.id
+		@order.customer_id = current_customer.id
 		@order.total = total_price + @postage.ship
 		 if params[:address].to_i == 0
 			@order.postal_code1 = @customer.postal_code1
@@ -71,11 +69,14 @@ class OrdersController < ApplicationController
 			@order_detail.quantity = cart.quantity
 		end
 
-		if @order.save
-			redirect_to complete_customer_order_path(@order.id, @customer.id)
-		else
-			render :new
+
+		@order.transaction do
+			@order.save!
 		end
+			@carts.destroy_all
+			redirect_to complete_customer_order_path(@order.id, @customer.id)
+		rescue => e
+			render :new
 	end
 
 
