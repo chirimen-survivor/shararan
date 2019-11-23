@@ -267,6 +267,17 @@ dl.searchbox dd{
 	margin: 20px;
 }
 
+
+// 支払先選択
+.ec-progress__label1 {
+	color: #5bc0de;
+}
+
+//背景
+.back-color {
+	background-color: #EEEEEE;
+}
+
 //  カート内合計金額
 .total_price {
 	font-size: 30px;
@@ -326,4 +337,9 @@ label3{
 
 .order-box{
 	margin: 50px auto;
+}
+
+
+.mypage-text{
+	margin-bottom: 20px;
 }

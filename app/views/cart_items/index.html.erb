@@ -2,6 +2,58 @@
   <h2><%= "#{ current_customer.last_name}様のカート一覧" %></h2>
   <div class="review">
 
+  <div class="container">
+    <div class="row">
+        <div class="cart-role">
+          <div class="col-md-3">
+            <ul class="list-unstyled">
+            <li class="ec-progress-item text-center">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x">1</i>
+              </span>
+              <div class="ec-progress__label1">カートの商品</div>
+            </li>
+          </ul>
+          </div>
+
+          <div class="col-md-3">
+            <ul class="list-unstyled">
+            <li class="ec-progress-item text-center">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x">2</i>
+              </span>
+              <div class="ec-progress__label">お届け先・支払い方法の選択</div>
+            </li>
+          </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled">
+            <li class="ec-progress-item text-center">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x">3</i>
+              </span>
+              <div class="ec-progress__label">ご注文内容のご確認</div>
+            </li>
+          </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled">
+            <li class="ec-progress-item text-center">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x">4</i>
+              </span>
+              <div class="ec-progress__label">ご注文完了</div>
+            </li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <% if @cart_items.size == 0 %>
       <p>カートに商品がありません</p>
       <div class="text-right">
