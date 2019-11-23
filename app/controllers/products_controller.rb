@@ -22,12 +22,12 @@ class ProductsController < ApplicationController
     @cart_item.product_id = @product.id
     unless same_cartitem(@product).exists?
       @cart_item.save!
-      flash[:success] = "カートに商品を追加しました"
+      flash[:notice] = "カートに商品を追加しました"
       redirect_to customer_cart_items_path(current_customer)
     else
       @cart_item = current_customer.cart_items.find_by(product_id: params[:product_id])
       @cart_item.update(cart_params)
-      flash[:success] = "カートに商品を追加しました"
+      flash[:notice] = "カートに商品を追加しました"
       redirect_to customer_cart_items_path(current_customer)
     end
   end

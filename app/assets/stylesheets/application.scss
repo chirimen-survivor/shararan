@@ -19,6 +19,7 @@
 @import 'bootstrap-datetimepicker';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import "toastr";
 
 @import 'products';
 
@@ -33,8 +34,20 @@ hr {
 	border: none;
  }
 
+//  Flashメッセージ
 .flash-field {
 	margin-top: 62px;
+}
+
+.alert {
+	color: black;
+	margin-bottom: 0px;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: #9ec34b;
+  }
 }
 
 //  header
@@ -150,10 +163,10 @@ dl.searchbox dd{
 }
 .cp_tag01 a:hover {
 	color: #ffffff;
-	background-color: royalblue;
+	background-color: #9ec34b;
 }
 .cp_tag01 a:hover::after {
-	border-left-color: royalblue;
+	border-left-color: #9ec34b;
 }
 
 // cardデザイン
@@ -237,6 +250,28 @@ dl.searchbox dd{
 	margin-top: 15px;
 	margin-bottom: 5px;
 }
+
+/* ここから下がボタンのCSS　*/
+.btn-border {
+  display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 2px solid #9ec34b;
+  font-size: 16px;
+  color: #9ec34b;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: .4s;
+}
+
+.btn-border:hover  {
+  background-color: #9ec34b;
+  border-color: #cbe585;
+  color: #FFF;
+}
+
 
 //  カレンダーの位置を調整
 
