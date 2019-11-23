@@ -149,7 +149,7 @@ end
 	CartItem.create!(
 		customer_id: 1,
 		product_id: Faker::Number.between(from: 1, to: 10),
-		quantity: Faker::Number.between(from: 1, to: 3)
+		quantity: Faker::Number.between(from: 1, to: 3),
 		customer_id: Faker::Number.between(from: 1, to: 10),
 		product_id: Faker::Number.unique.between(from: 1, to: 42),
 		quantity: Faker::Number.between(from: 1, to: 5)
