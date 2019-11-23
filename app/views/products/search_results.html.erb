@@ -1,28 +1,76 @@
 <% if manager_signed_in? %>
 
   <div class="container">
-      <h3>商品検索結果</h3>
+    <h3>商品検索結果</h3>
+    <% if @products.empty? %>
+      <p><%= "#{params[:q][:name_cont]}  に一致する検索結果は見つかりませんでした" %></p>
+      <p><%= "検索のヒント:" %></p>
+      <ul>
+        <li><%= キーワードに誤字・脱字がないか確認します。%></li>
+        <li><%= 別のキーワードを試してみます。%></li>
+      </ul>
+    <% else %>
       <p><%= "#{@products.total_count}件の検索結果があります" %></p>
+    <% end %>
+    <hr class="my-4">
+    <% @products.each do |product| %>
+    <div class="row">
+      <div class="col-md-7 col-md-offset-2">
+        <div class="row">
+            <div class="col-md-3 pucture_field">
+                <a><%= attachment_image_tag product, :image, :fill, 60, 60, format: 'jpeg',
+                                                                  fallback: "no_image.jpg", size:'60x60' %>
+                </a>
+            </div>
+            <div class="col-md-9 name_space">
+              <p><%= product.name %></p>
+              <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+      <%= link_to "商品詳細を見る", managers_product_path(product.id), class: 'btn btn-primary' %>
+      </div>
+    </div>
       <hr class="my-4">
-      <% @products.each do |product| %>
-        <p><%= product.name %></p>
-        <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
-        <%= link_to "商品詳細ページを見る", managers_product_path(product.id), class: 'btn btn-primary' %>
-        <hr class="my-4">
-      <% end %>
-      <%= paginate @products, class: "paginate" %>
+    <% end %>
+    <%= paginate @products, class: "paginate" %>
   </div>
 
 <% else %>
 
   <div class="container">
-    <h3>商品検索結果</h3>
-    <p><%= "#{@products.total_count}件の検索結果があります" %></p>
+    <h3>商品検索結果</h3><br />
+    <% if @products.empty? %>
+      <p><%= "#{params[:q][:name_cont]}  に一致する検索結果は見つかりませんでした" %></p><br />
+      <p><%= "検索のヒント:" %></p><br />
+      <ul>
+        <li><%= "キーワードに誤字・脱字がないか確認します。"%></li>
+        <li><%= "別のキーワードを試してみます。"%></li>
+      </ul>
+    <% else %>
+      <p><%= "#{@products.total_count}件の検索結果があります" %></p>
+    <% end %>
     <hr class="my-4">
     <% @products.each do |product| %>
-      <p><%= product.name %></p>
-      <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
-      <%= link_to "商品詳細ページを見る", product_path(product.id), class: 'btn btn-primary' %>
+    <div class="row">
+      <div class="col-md-7 col-md-offset-2">
+        <div class="row">
+            <div class="col-md-3 pucture_field">
+                <a><%= attachment_image_tag product, :image, :fill, 60, 60, format: 'jpeg',
+                                                                  fallback: "no_image.jpg", size:'60x60' %>
+                </a>
+            </div>
+            <div class="col-md-9 name_space">
+              <p><%= product.name %></p>
+              <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+      <%= link_to "商品詳細を見る", product_path(product.id), class: 'btn btn-primary' %>
+      </div>
+    </div>
       <hr class="my-4">
     <% end %>
     <%= paginate @products, class: "paginate" %>

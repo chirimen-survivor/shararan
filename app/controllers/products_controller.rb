@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_customer!, only: [:index, :show, :search_results]
 
   def index
-    @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true).page(params[:page])
     @all_ranks = Product.find(Favorite.group(:product_id).order('count(product_id) desc').limit(3).pluck(:product_id))
   end
@@ -21,7 +20,7 @@ class ProductsController < ApplicationController
     @cart_item = CartItem.new(cart_params)
     @cart_item.customer_id = current_customer.id
     @cart_item.product_id = @product.id
-    unless CartItem.where(product_id: @product.id).where(customer_id: current_customer.id).exists?
+    unless same_cartitem(@product).exists?
       @cart_item.save!
       flash[:success] = "カートに商品を追加しました"
       redirect_to customer_cart_items_path(current_customer)
@@ -47,4 +46,9 @@ class ProductsController < ApplicationController
     def cart_params
       params.require(:cart_item).permit(:product_id, :quantity)
     end
+
+     # 現在のユーザーがカートに同じ商品を持っていないか確認
+     def same_cartitem(product)
+      CartItem.where(product_id: product.id).where(customer_id: current_customer.id)
+     end
 end
