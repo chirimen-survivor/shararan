@@ -17,6 +17,7 @@ class Managers::OrdersController < ApplicationController
 			@order = Order.find(params[:id])
 			redirect_to managers_order_path(@order.id)
 		else
+			@details = OrderDetail.where(order_id: @order.id)
 			render :show
 		end
 	end

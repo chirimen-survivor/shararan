@@ -4,27 +4,29 @@
 			<table class="col-l-6 table table-bordered">
 			<h3>入荷履歴</h3>
 			<thead>
-			<tr>
-		    	<th>入荷日</th>
-		        <th>商品名</th>
-		        <th>価格（税別）</th>
-		         <th>個数</th>
-		     	<th>小計</th>
-		    </tr>
-		</thead>
-		<% @arrivals.each do |arrival|%>
-			<tbody>
 				<tr>
-			        <th><%= arrival.created_at.strftime('%Y/%m/%d') %></th>
-			        <td><%= arrival.product.name %></td>
-			        <td><%= arrival.product.price %></td>
-			        <td><%= arrival.quantity %></td>
-			        <td><%= number_with_delimiter(arrival.product.price * arrival.quantity) %></td>
-			    </tr>
-			</tbody>
-		    <% end %>
-		    <%= paginate @arrivals, class: "paginate" %>
+		    		<th>入荷日</th>
+		        	<th>商品名</th>
+		        	<th>価格（税別）</th>
+		        	<th>個数</th>
+		     		<th>小計</th>
+		    	</tr>
+			</thead>
+			<% @arrivals.each do |arrival|%>
+				<tbody>
+					<tr>
+			    	    <th><%= arrival.created_at.strftime('%Y/%m/%d') %></th>
+			    	    <td><%= arrival.product.name %></td>
+			    	    <td><%= arrival.product.price %></td>
+			    	    <td><%= arrival.quantity %></td>
+			    	    <td><%= number_with_delimiter(arrival.product.price * arrival.quantity) %></td>
+			    	</tr>
+				</tbody>
+			<% end %>
 			</table>
+			<div class= "text-center">
+				<%= paginate @arrivals, class: "paginate" %>
+			</div>
 		</div>
 	</div>
 </div>
