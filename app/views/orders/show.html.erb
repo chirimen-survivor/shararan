@@ -121,7 +121,7 @@
 						<div class="col-md-4 text-left">
 							<% if detail.product.image %>
 			        <!-- 画像があった時の処理をここに書く -->
-			        <%= image_tag 'sample_img.jpeg', style: "height: 60px" %>
+			        <%= attachment_image_tag detail.product, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
 			        <% end %>
 						</div>
 						<div class="col-md-5 text-center">
