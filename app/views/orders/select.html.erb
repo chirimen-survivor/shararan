@@ -1,5 +1,6 @@
 
 <!-- お届け先、支払い方法の選択 -->
+<%= form_tag(new_customer_order_path, method: :get) do %>
 
 <div class="container">
 		<div class="row">
@@ -70,12 +71,28 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="label2">
 			<div class="col-md-10">
-					<%= form_for(@order.postal_code1 + @order.postal_code2 + @order.prefecture_name.encode + @order.city + @order.building) do |t| %>
+
+						<%= radio_button_tag 'address', 0 %>
+						<label>名前</label>:
+						<label>
+							<%= @customer.last_name + @customer.first_name %></label><br/><br/>
+						<div class="col-md-2">
+						<label>住所</label>:
+						<label>
+							〒<%= @customer.postal_code1 %> - <%= @customer.postal_code2 %></label>
+						</div>
+						<div class="col-md-10 text-left">
+						<label>
+							<%= @customer.prefecture_name + @customer.city + @customer.building %>
+						</label><br/><br/><br/>
+						</div>
+
 						<% @addresses.each do |address| %>
-						<%= t.radio_button :address, address %>
+						<%= radio_button_tag 'address', address.id %>
 						<label>名前</label>:
 						<label>
 							<%= address.last_name + address.first_name %></label><br/><br/>
@@ -91,13 +108,11 @@
 						</div>
 
 						<% end %>
-					<% end %>
 				</div>
 			</div>
 			</div>
 		</div>
 	</div>
-
 
 
 		<div class="container">
@@ -106,20 +121,20 @@
 				<div class="select-address">
 					<h3 class="title-head">支払方法選択</h3>
 
-					<%= form_for(@order.payment) do |t| %>
   					<label>
-  						<%= t.radio_button :payment, 1 %>銀行振込
+						<%= radio_button_tag 'payment', '現金振込' %>現金振込
   					</label>
   					<br/>
   					<label>
-  						<%= t.radio_button :payment, 2 %>クレジットカード
+						<%= radio_button_tag 'payment',  'クレジットカード'%>
+  						クレジットカード
   					</label>
   					<br/>
   					<label>
-  						<%= t.radio_button :payment, 3 %>代引き
+						<%= radio_button_tag 'payment', '代引'%>
+  						代引
   					</label>
 
-  					
 
 				</div>
 			</div>
@@ -142,7 +157,10 @@
 					<div class="col-md-4 text-left">小計
 					</div>
 					<div class="col-md-4 text-right">
-						¥ 3,0000
+						<% total_price = 0 %>
+						<% @carts.each do |cart| %>
+						¥<%= <%= total_price += cart.product.price * cart.quantity
+		end %> %>
 					</div>
 			</div>
 		</div>
@@ -153,7 +171,7 @@
 					</div>
 
 					<div class="col-md-4 text-right">
-						¥ 500
+						¥ <%= @postage.ship %>
 					</div>
 			</div>
 		</div>
@@ -166,7 +184,7 @@
 
 					<div class="col-md-4 text-right">
 						<h4>
-							<%=  %>
+						¥ 
 						</h4>
 					</div>
 			</div>
@@ -175,10 +193,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-right">
-						<%= t.submit "注文する", class: 'btn btn-default btn-md' %>
-						<% end %>
+						<%= submit_tag "確認画面へ", class: 'btn btn-default btn-md' %>
 				</div>
 			</div>
 		</div>
 
 </div>
+<% end %>
