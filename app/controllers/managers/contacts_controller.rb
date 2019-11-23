@@ -15,8 +15,11 @@ class Managers::ContactsController < ApplicationController
 		   redirect_to managers_contact_path(@contact), notice: "メールを送信しました！"
 		   InquiryMailer.with(Inquiry: @contact).send_mail.deliver_later
 		else
-			@constact = Contact.all
-			render :index
+			@contact = Contact.find(params[:id])
+			@customer = Customer.find_by(id: @contact.customer_id)
+			flash.now[:alert] = "返信内容を入力してください"
+			render :show
+
 		end
 	end
 
@@ -25,4 +28,6 @@ class Managers::ContactsController < ApplicationController
 	def contact_params
 	      params.require(:contact).permit(:email,:title,:body,:reply_message)
     end
+
+
 end
