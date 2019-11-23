@@ -10,8 +10,8 @@ class OrdersController < ApplicationController
 		@postage = Postage.find_by(id: @order.postage_id)
 		# 住所が登録住所の場合
 		if params[:address].to_i == 0
-			@order.postal_code1 = @cusromer.postal_code1
-			@order.postal_code2 = @cusromer.postal_code2
+			@order.postal_code1 = @customer.postal_code1
+			@order.postal_code2 = @customer.postal_code2
 			@order.prefecture_name = @customer.prefecture_name
 			@order.city = @customer.city
 			@order.building = @customer.building
