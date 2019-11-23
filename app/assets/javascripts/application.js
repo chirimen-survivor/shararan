@@ -18,8 +18,19 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
-//= require turbolinks
+//= require toastr
 //= require_tree .
+
+
+(function() {
+  'use strict';
+
+  // フラッシュメッセージのfadeout
+  $(function(){
+      $('.flash_message').fadeOut(3000);
+  });
+
+})();
 
 
 (function($) {

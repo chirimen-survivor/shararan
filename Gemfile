@@ -35,6 +35,7 @@ gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem "toastr-rails"
 
 
 group :development, :test do
