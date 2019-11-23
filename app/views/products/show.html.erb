@@ -94,20 +94,6 @@
       </table>
       <% end %>
     </div>
-  <script>
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'review[rating]',
-    half: true,
-  });
-  </script>
-    <h3>タイトル</h3>
-    <%= f.text_field :title %>
-    <h3>本文</h3>
-    <%= f.text_area :body %>
 
 
   <!--- レビュー投稿 -->

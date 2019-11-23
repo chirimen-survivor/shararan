@@ -26,32 +26,45 @@
 
   <div class="container">
     <div class="mypage-info">
+
+
 		  <%= form_for(@customer) do |f| %>
- 	    <div class="row">
-	 		  <div class="co-lg-6">
-          <%= render 'share/error_messages', object: f.object %>
-		      <h3>お名前</h3>
-		      <%= f.text_field :last_name %>
-		      <%= f.text_field :first_name %>
-	 	     </div>
-	 	     <div class="co-lg-6">
-		      <h3>お名前（フリガナ）</h3>
-		      <%= f.text_field :last_name_kana %>
-		      <%= f.text_field :first_name_kana %>
-
-		      <h3>住所</h3>
-		       <div class="co-lg-6">
-            <P>郵便番号</P>
-		      	<%= f.text_field :postal_code1 %>
-		      	<%= f.text_field :postal_code2 %>
-		       </div>
+        <%= render 'share/error_messages', object: f.object %>
+	 		  <div class="row">
+          <div class = "mypage_box">
+            <div class="col-lg-12">
+		        <h4>お名前</h4>
+            <div class = "mypage_column1">
+		         <%= f.text_field :last_name %>
+              <div class = "mypage_column2">
+		            <%= f.text_field :first_name %>
+              </div>
+	 	       </div>
          </div>
-        <div class="co-lg-6">
-		    <!-- 都道府県はプルダウン式にするのでcollectionを使います。 -->
-		    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
-		    <%= f.text_field :city %>
-		    <%= f.text_field :building %>
-
+       </div>
+     </div>
+          <div class = "mypage-box">
+		        <h4>お名前（フリガナ）</h4>
+            <div class = "mypage_column1">
+		          <%= f.text_field :last_name_kana %>
+              <div class = "mypage_column2">
+		            <%= f.text_field :first_name_kana %>
+              </div>
+            </div>
+          </div>
+          <div class="mypage_box">
+		        <h4>住所</h4>
+            <div class = "mypage_column3">
+		      	 〒  <%= f.text_field :postal_code1 %> - <%= f.text_field :postal_code2 %>
+		        </div>
+          </div>
+		      <!-- 都道府県はプルダウン式にするのでcollectionを使います。 -->
+          <div class = "mypage_column4">
+		        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+          </div>
+		      <%= f.text_field :city %>
+		      <%= f.text_field :building %>
+        </div>
 		    <h3>電話番号</h3>
 		    <%= f.text_field :phone_number1 %>
 		    <%= f.text_field :phone_number2 %>
