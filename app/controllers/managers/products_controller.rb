@@ -10,10 +10,10 @@ class Managers::ProductsController < Managers::ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:succss] = "商品情報の登録が完了しました"
+      flash[:notice] = "商品情報の登録が完了しました"
       redirect_to managers_product_path(@product)
     else
-      flash.now[:danger] = "商品情報の登録に失敗しました"
+      flash.now[:alert] = "商品情報の登録に失敗しました"
       render :new
     end
   end
@@ -33,10 +33,10 @@ class Managers::ProductsController < Managers::ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      flash[:succss] = "商品情報の更新が完了しました"
+      flash[:notice] = "商品情報の更新が完了しました"
       redirect_to managers_products_path
     else
-      flash.now[:danger] = "商品情報の更新に失敗しました"
+      flash.now[:alert] = "商品情報の更新に失敗しました"
       render :edit
     end
   end

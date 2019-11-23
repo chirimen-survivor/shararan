@@ -33,8 +33,20 @@ hr {
 	border: none;
  }
 
+//  Flashメッセージ
 .flash-field {
 	margin-top: 62px;
+}
+
+.alert {
+	color: black;
+	margin-bottom: 0px;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: #9ec34b;
+  }
 }
 
 //  header

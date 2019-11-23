@@ -33,6 +33,8 @@ gem 'counter_culture', '~> 1.8'
 gem 'ransack'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 
 group :development, :test do
