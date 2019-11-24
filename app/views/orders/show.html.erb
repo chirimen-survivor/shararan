@@ -1,16 +1,18 @@
 <!-- 購入履歴詳細画面を表示する -->
 
+
 <div class="container top-space">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="page-header">
-					<h2 class="title-head">ご注文履歴詳細</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="page-header">
+						<h2 class="title-head">ご注文履歴詳細</h2>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
+	<% subtotal = 0 %>
 	<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
@@ -51,10 +53,12 @@
 									<label2>小計</label2>
 									<br/>
 								</div>
-
 								<div class="col-md-5 text-right">
 									<label2>
-
+										<% @details.each do |detail| %>
+										<% subtotal += detail.subtotal %>
+										<% end %>
+										¥   <%= subtotal %>
 									</label2>
 								</div>
 							</div>
@@ -76,9 +80,9 @@
 									<h4>合計</h4>
 									<br/>
 								</div>
-								<div class="col-md-5 text-right total">
+								<div class="col-md-4 text-right total">
 									<h4>
-										¥ <%= number_with_delimiter(@order.total * @order.tax_id) %>
+										¥ <%= @order.total  %>
 									</h4>
 								</div>
 							</div>
@@ -119,7 +123,7 @@
 						<div class="col-md-4 text-left">
 							<% if detail.product.image %>
 			        <!-- 画像があった時の処理をここに書く -->
-			        <%= image_tag 'sample_img.jpeg', style: "height: 60px" %>
+			        <%= attachment_image_tag detail.product, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
 			        <% end %>
 						</div>
 						<div class="col-md-5 text-center">
@@ -127,12 +131,11 @@
 							¥<%= detail.product.price %> × <%= detail.quantity %>
 						</div>
 						<div class="col-md-3 text-right">
-							¥<%= number_with_delimiter(detail.product.price * detail.quantity) %>
+							¥<%= detail.subtotal %>
 						</div>
 					</div>
 					<div class="col-md-4 text-right">
-						<%= link_to "レビューを書く", product_path(@product.id), class: 'btn btn-default btn-md' %><br/>
-						<%= link_to "再度購入", product_path(@product.id), class: 'btn btn-default btn-ld' %>
+						<%= link_to "レビューを書く", product_path(detail.product_id), class: 'btn btn-default btn-md' %><br/>
 					</div>
 				</div>
 			</div>
@@ -157,10 +160,10 @@
 						<h4>合計</h4>
 					</div>
 					<div class="col-md-5 text-left">
-						<h4>¥<%= number_with_delimiter(@order.total * @order.tax_id) %></h4>
+						<h4>¥<%= @order.total %></h4>
 					</div>
 				</div>
 			</div>
 	</div>
-
+</div>
 </div>

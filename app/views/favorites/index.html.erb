@@ -1,22 +1,24 @@
-<div class = "container">
-
-	<div class = "col-xs-9" style= "background-color:white;">
-		<h1>いいね一覧</h1>
-		<table class = "table table-striped">
-			<tr>
-				<th>商品名</th>
-				<th>価格</th>
-				<th>販売状況</th>
-				<th></th>
-			</tr>
-			<% @favorites.each do |favorite| %>
+<div class = "top-space">
+	<div class = "container">
+		<div class = "col-xs-9" style= "background-color:white;">
+			<h1>いいね一覧</h1>
+			<table class = "table table-striped">
 				<tr>
-					<td><%= link_to favorite.product.name, product_path(favorite.product.id) %>
-					<td><%= favorite.product.price %></td>
-					<td><%= favorite.product.status %></td>
-					<td><%= render "favorites/favorite", product: favorite.product %></td>
+					<th>商品名</th>
+					<th>価格</th>
+					<th>販売状況</th>
+					<th></th>
 				</tr>
-			<% end %>
-		</table>
+				<% @favorites.each do |favorite| %>
+					<tr>
+						<td><%= link_to favorite.product.name, product_path(favorite.product.id) %>
+						<td><%= favorite.product.price %></td>
+						<td><%= favorite.product.status %></td>
+						<td><%= render "favorites/favorite", product: favorite.product %></td>
+					</tr>
+				<% end %>
+			</table>
+			<%= paginate @favorites, class: "paginate" %>
+		</div>
 	</div>
-</div>
+</td>

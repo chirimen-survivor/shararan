@@ -6,7 +6,8 @@ class OtherAddressesController < ApplicationController
 
  def create
     other_address = OtherAddress.new(other_addresses_params)
-    other_address.save
+    other_address.customer_id = current_customer.id
+    other_address.save!
     redirect_to other_addresses_path
   end
 

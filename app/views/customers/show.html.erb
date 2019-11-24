@@ -1,29 +1,28 @@
-<h1>マイページ</h1>
+<div class = "top-space">
+  <h1>マイページ</h1>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
-<nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-              <ul class="nav navbar-nav">
-                <li><%= link_to 'いいね一覧', customer_favorites_path(@customer.id) %></li>
-                <li><%= link_to '退会手続き', exit_customer_path %></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <span></span>
-
-
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'いいね一覧', customer_favorites_path(@customer.id) %></li>
+          <li><%= link_to '住所一覧', other_addresses_path(@customer.id) %></li>
+          <li><%= link_to 'お問い合わせ', customer_contact_path(@customer.id) %></li>
+          <li><%= link_to '購入一覧', customer_orders_path(@customer.id) %></li>
+          <li><%= link_to '退会手続き', exit_customer_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right"></ul>
+      </div>
+    </div>
+  </nav>
 <div class="container">
 	<div class="mypage-info">
 	<%= form_for(@customer) do |f| %>

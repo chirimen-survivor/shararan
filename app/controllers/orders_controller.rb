@@ -118,9 +118,7 @@ class OrdersController < ApplicationController
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
 		# @ordersに個人の購入履歴
-		@orders = @customer.orders
-		# ページネーション
-		@orders = Order.page(params[:page]).per(10)
+		@orders = Order.where(customer_id: @customer.id).page(params[:page]).per(10)
 	end
 
 	def show
@@ -128,14 +126,10 @@ class OrdersController < ApplicationController
 		# 顧客情報
 		@customer = Customer.find(params[:customer_id])
 		# 顧客の購入一覧
-		@orders = @customer.orders
 		# 一覧の中の一軒の購入情報
 		@order = Order.find(params[:id])
 		# その中の詳細
-		@details = @order.order_details
-		# 商品レビューや再度購入をするため
-		@product = Product.find(params[:id])
-
+		@details = OrderDetail.where(order_id: @order.id)
 	end
 
 

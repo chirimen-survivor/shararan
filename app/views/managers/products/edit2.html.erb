@@ -3,7 +3,7 @@
 <h5>商品名: <%= @product.name %></h5>
 
 <%= form_for @arrival, url: arrival_save_managers_product_path do |f| %>
-
+	<%= render 'share/error_messages', object: f.object %>
 入荷数: <%= f.number_field :quantity %>
 
 <%= f.submit '登録する' %>
