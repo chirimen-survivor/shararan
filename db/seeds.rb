@@ -147,9 +147,6 @@ end
 
 42.times do |n|
 	CartItem.create!(
-		customer_id: 1,
-		product_id: Faker::Number.between(from: 1, to: 10),
-		quantity: Faker::Number.between(from: 1, to: 3),
 		customer_id: Faker::Number.between(from: 1, to: 10),
 		product_id: Faker::Number.unique.between(from: 1, to: 42),
 		quantity: Faker::Number.between(from: 1, to: 5)
@@ -175,5 +172,53 @@ end
 	)
 end
 
+# disk,song情報
 
+20.times do |n|
+	Disk.create!(
+		product_id: Faker::Number.unique.between(from: 1, to: 20),
+		sequence: 1,
+	)
+end
 
+20.times do |n|
+	Disk.create!(
+		product_id: Faker::Number.unique.between(from: 1, to: 20),
+		sequence: 2,
+	)
+end
+
+20.times do |n|
+	Song.create!(
+		disc_id: Faker::Number.unique.between(from: 1, to: 20)
+		sequence: 1,
+	)
+end
+
+20.times do |n|
+	Song.create!(
+		disc_id: Faker::Number.unique.between(from: 1, to: 20)
+		sequence: 2,
+	)
+end
+
+20.times do |n|
+	Song.create!(
+		disc_id: Faker::Number.unique.between(from: 1, to: 20)
+		sequence: 3,
+	)
+end
+
+20.times do |n|
+	Song.create!(
+		disc_id: Faker::Number.unique.between(from: 1, to: 20)
+		sequence: 4,
+	)
+end
+
+20.times do |n|
+	Song.create!(
+		disc_id: Faker::Number.unique.between(from: 1, to: 20)
+		sequence: 5,
+	)
+end
