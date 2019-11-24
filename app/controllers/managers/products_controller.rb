@@ -52,6 +52,7 @@ class Managers::ProductsController < Managers::ApplicationController
    @arrival = Arrival.new(arrival_params)
    @arrival.product_id = @product.id
    if @arrival.save
+
     redirect_to managers_product_path(@product.id)
    else
     render :edit

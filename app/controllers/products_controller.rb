@@ -12,6 +12,9 @@ class ProductsController < ApplicationController
     @reviews = @product.reviews.page(params[:page])
     @cart_item = CartItem.new(product_id: @product.id)
     @discs = @product.discs.all.order(sequence: 'ASC')
+
+    # 在庫数管理
+
   end
 
   # カートに入れる
