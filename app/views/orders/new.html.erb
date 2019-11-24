@@ -1,7 +1,7 @@
 <!-- 購入確認画面を表示する -->
 <%= form_tag(customer_orders_path, method: :post) do %>
 <% total_price = 0 %>
-<div class="container">
+<div class="container top-space">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="page-header">
@@ -43,7 +43,7 @@
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-inverse fa-stack-1x">3</i>
 							</span>
-							<div class="ec-progress__label">ご注文内容のご確認</div>
+							<div class="ec-progress__label1">ご注文内容のご確認</div>
 						</li>
 					</ul>
 					</div>
@@ -110,7 +110,7 @@
 					〒<%= @order.postal_code1 %> - <%= @order.postal_code2 %>
 				</div>
 				<div class="col-md-4 text-left">
-					<%= @order.prefecture_name + @order.city + @order.building %>
+					<%= @order.prefecture_name %><%= @order.city %><%= @order.building %>
 				</div>
 			</div>
 		</div>

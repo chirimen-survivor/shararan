@@ -268,6 +268,17 @@ dl.searchbox dd{
 	margin: 20px;
 }
 
+
+// 支払先選択
+.ec-progress__label1 {
+	color: #5bc0de;
+}
+
+//背景
+.back-color {
+	background-color: #EEEEEE;
+}
+
 //  カート内合計金額
 .total_price {
 	font-size: 30px;
@@ -327,4 +338,51 @@ label3{
 
 .order-box{
 	margin: 50px auto;
+}
+
+
+.mypage_text{
+	margin-bottom: 5px;
+}
+
+.mypage_column1{
+	display: inline-block;
+	margin-left:80px;
+	font-size: 20px;
+}
+
+.mypage_column2{
+	display: inline-block;
+	margin-left:20px;
+}
+
+.mypage_column3{
+	margin-left:55px;
+	font-size: 20px;
+	margin-bottom:10px;
+}
+
+.mypage_column4{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 15px;
+}
+
+.mypage_column5{
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 20px;
+}
+
+.mypage_column6{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:20px;
+	font-size: 20px;
+}
+
+.mypage_submit{
+	text-align: center;
+	margin-top:10px;
 }
