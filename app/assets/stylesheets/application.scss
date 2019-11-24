@@ -19,6 +19,7 @@
 @import 'bootstrap-datetimepicker';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import "toastr";
 
 @import 'products';
 
@@ -33,8 +34,26 @@ hr {
 	border: none;
  }
 
+ body {
+	 background-color: #f5f5f5;
+ }
+
+//  Flashメッセージ
 .flash-field {
-	margin-top: 62px;
+	padding-bottom: 61px;
+	background-color: black;
+	height: 1px;
+}
+
+.alert {
+	color: black;
+	margin-bottom: 0px;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: #9ec34b;
+  }
 }
 
 //  header
@@ -150,53 +169,13 @@ dl.searchbox dd{
 }
 .cp_tag01 a:hover {
 	color: #ffffff;
-	background-color: royalblue;
+	background-color: #FF001E;
 }
 .cp_tag01 a:hover::after {
-	border-left-color: royalblue;
+	border-left-color:#FF001E;
 }
 
-// cardデザイン
 
-.card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 1.25rem;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-title {
-  margin-bottom: 0.75rem;
-}
-
-.card-subtitle {
-  margin-top: -0.375rem;
-  margin-bottom: 0;
-}
-
-.card-text:last-child {
-  margin-bottom: 0;
-}
-
-.card {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  margin-bottom: 50px;
-}
 
 .footer{
   text-align: center;
@@ -238,13 +217,35 @@ dl.searchbox dd{
 	margin-bottom: 5px;
 }
 
+/* ここから下がボタンのCSS*/
+.btn-border {
+  display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 2px solid #9ec34b;
+  font-size: 16px;
+  color: #9ec34b;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: .4s;
+}
+
+.btn-border:hover  {
+  background-color: #9ec34b;
+  border-color: #cbe585;
+  color: #FFF;
+}
+
+
 //  カレンダーの位置を調整
 
 #carendar-position {
   position: relative;
 }
 
-// カートに入れる　いいねアイコンセクション
+// カートに入れるいいねアイコンセクション
 
 .btn-info {
 	float: right;
@@ -265,6 +266,17 @@ dl.searchbox dd{
 
 .container order{
 	margin: 20px;
+}
+
+
+// 支払先選択
+.ec-progress__label1 {
+	color: #5bc0de;
+}
+
+//背景
+.back-color {
+	background-color: #EEEEEE;
 }
 
 //  カート内合計金額
@@ -327,7 +339,6 @@ label3{
 .order-box{
 	margin: 50px auto;
 }
-
 //サイドバー
 .sidebars{
 	background-color: #4d394b;
@@ -380,8 +391,105 @@ label3{
 }
 
 .nav-list-1{
-  list-style: none;   
+  list-style: none;
   display: inline-block;
   padding:15px 50px 10px;
   font-size: 15px;
+//マイページ
+
+.mypage_box {
+	margin-bottom: 100px;
+}
+.mypage_column1 {
+	display: inline-block;
+	margin-left: 100px;
+	font-size: 20px;
+}
+.mypage_column2{
+	display: inline-block;
+	margin-left:30px;
+}
+.mypage_column3{
+	display: inline-block;
+	margin-left:75px;
+	font-size: 20px;
+}
+.mypage_column4{
+	display: inline-block;
+	margin-left:100px;
+	font-size: 15px;
+	margin-top: 10px;
+}
+
+//退会ページ
+.exit_title{
+	margin-left:100px
+}
+
+.exit_address{
+	margin-top: 50px;
+	text-align: center;
+}
+
+.exit_email{
+	margin-top: 20px;
+	text-align: center;
+	font-size:20px;
+}
+
+.exit_link1{
+	margin-top: 40px;
+	margin-left: 250px;
+}
+.exit_link2{
+	display: inline-block;
+	margin-top: 40px;
+	margin-left: 20px;
+}
+
+.mypage_text{
+	margin-bottom: 5px;
+}
+
+.mypage_column1{
+	display: inline-block;
+	margin-left:80px;
+	font-size: 20px;
+}
+
+.mypage_column2{
+	display: inline-block;
+	margin-left:20px;
+}
+
+.mypage_column3{
+	margin-left:55px;
+	font-size: 20px;
+	margin-bottom:10px;
+}
+
+.mypage_column4{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 15px;
+}
+
+.mypage_column5{
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 20px;
+}
+
+.mypage_column6{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:20px;
+	font-size: 20px;
+}
+
+.mypage_submit{
+	text-align: center;
+	margin-top:10px;
+}
 }

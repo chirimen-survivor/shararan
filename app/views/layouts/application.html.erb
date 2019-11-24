@@ -12,16 +12,15 @@
   <body>
       <!-- header -->
       <%= render 'share/header' %>
-      <!-- Flash メッセージ -->
-      <div class="flash-field">
-        <% flash.each do |message_type, message| %>
-          <div class="alert alert-<%= message_type %>"><%= message %></div>
-        <% end %>
-      </div>
 
+      <div class="flash-field">
+      </div>
 
         <%= yield %>
       <!-- footer -->
       <%= render 'share/footer' %>
+
+     <!-- Flash メッセージ -->
+      <%= render 'layouts/flash' %>
   </body>
 </html>

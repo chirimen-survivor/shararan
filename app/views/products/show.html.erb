@@ -12,6 +12,9 @@
           <li><a href="#"><%= "#{@product.categorie.name}" %></a></li>
         <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
         </ul>
+        <div class="sale-status">
+        <p class="btn-border">販売中</p>
+        </div>
       </div>
       <hr class="my-4">
   </div>
@@ -94,21 +97,6 @@
       </table>
       <% end %>
     </div>
-  <script>
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'review[rating]',
-    half: true,
-  });
-  </script>
-    <h3>タイトル</h3>
-    <%= f.text_field :title %>
-    <h3>本文</h3>
-    <%= f.text_area :body %>
-
 
   <!--- レビュー投稿 -->
   <div class="container">
