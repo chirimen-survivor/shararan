@@ -327,3 +327,61 @@ label3{
 .order-box{
 	margin: 50px auto;
 }
+
+//サイドバー
+.sidebars{
+	background-color: #4d394b;
+}
+
+//
+.nav{
+	height: 50px;
+	width: 100%;
+  background: #555459;
+}
+.listings {
+  min-height: 100vh;
+  height: 100%;
+  width: 220px;
+  float: left;
+  color: #ab9ba9;
+  background-color: #4d394b;
+}
+
+.listings_channels {
+  margin: 3rem 0 2rem;
+}
+
+.channel_list {
+  padding: 30;
+  list-style-type: none;
+  text-align: left;
+  color: #ab9ba9;
+}
+
+.black{
+  background: red;
+}
+
+.link_color{
+     color: #FFFFFF;
+     &:hover { color:#dccbe0; text-decoration:none }
+}
+
+.list{
+  margin: 15px 0px 15px 0px;
+}
+.nav-list{
+   text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+  padding:15px 30px 10px 30px;
+  font-size: 20px;
+}
+
+.nav-list-1{
+  list-style: none;   
+  display: inline-block;
+  padding:15px 50px 10px;
+  font-size: 15px;
+}
