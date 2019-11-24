@@ -10,17 +10,21 @@
   </head>
 
   <body>
-      <!-- header -->
-      <%= render 'share/header' %>
+      <div class="wrap">
+              <!-- header -->
+              <%= render 'share/header' %>
 
-      <div class="flash-field">
+              <div class="flash-field">
+              </div>
+
+                <%= yield %>
+              <!-- footer -->
+              <div class="footer">
+              <%= render 'share/footer' %>
+              </div>
+
+             <!-- Flash メッセージ -->
+              <%= render 'layouts/flash' %>
       </div>
-
-        <%= yield %>
-      <!-- footer -->
-      <%= render 'share/footer' %>
-
-     <!-- Flash メッセージ -->
-      <%= render 'layouts/flash' %>
   </body>
 </html>
