@@ -172,36 +172,29 @@ end
 	)
 end
 
-# disk,song情報
+# disc,song情報
 
 20.times do |n|
-	number = Faker::Number.between(from: 1, to: 20)
+
+	sequence = [1,2]
+
+	for i in sequence do
+
 	Disc.create!(
-		product_id: number,
-		sequence: 1,
+		product_id: n+1,
+		sequence: i,
 	)
-	while(true)
-		number2 = Faker::Number.between(from: 1, to: 20)
-		if number != number2
-			break
-		end
 	end
-	Disc.create!(
-		product_id: number2,
-		sequence: 2,
-	)
 end
 
 
 
-20.times do |n|
-	id = Faker::Number.unique.between(from: 1, to: 20)
+40.times do |n|
 	sequence = [1,2,3,4,5]
-
 	for i in sequence do
 
 	Song.create!(
-		disc_id: id,
+		disc_id: n+1,
 		name: Faker::Music::GratefulDead.song,
 		sequence: i,
 	)

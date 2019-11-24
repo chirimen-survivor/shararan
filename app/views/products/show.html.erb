@@ -13,7 +13,7 @@
         <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
         </ul>
         <div class="sale-status">
-        <p class="btn-border">販売中</p>
+        <p class="btn-border"><%= @product.status %></p>
         </div>
       </div>
       <hr class="my-4">
