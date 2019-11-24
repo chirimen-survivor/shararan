@@ -1,13 +1,13 @@
 
 
 // メインビジュアル
-.bg_test-text {
-	border:  solid 1px;                             /* 枠線指定 */
-	display:  inline-block;                         /* インラインブロックにする */
-	padding: 10px 20px;                             /* 余白指定 */
-	background-color: rgba(255, 255, 255, 0.7);     /* 背景色指定 */
-}
-.bg_test {
+// .bg_test-text {
+// 	border:  solid 1px;                             /* 枠線指定 */
+// 	display:  inline-block;                         /* インラインブロックにする */
+// 	padding: 10px 20px;                             /* 余白指定 */
+// 	background-color: rgba(255, 255, 255, 0.7);     /* 背景色指定 */
+// }
+.bg {
 	text-align:  center;    /* 文字中央寄せ */
   background-image: url("/images/backimage2.jpg");    /* 背景画像指定 */
   background-size: cover;
@@ -160,7 +160,8 @@ button:hover:before,button:hover:after{
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  margin-bottom: 50px;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 5px white;
 }
 
 // カードデザイン　商品一覧用
@@ -208,7 +209,8 @@ button:hover:before,button:hover:after{
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  margin-bottom: 50px;
+	margin-bottom: 50px;
+	box-shadow: 0 4px 7px #ccc;
 }
 
 // ボタン調整
@@ -216,5 +218,5 @@ button:hover:before,button:hover:after{
 .b_size {
 	margin-left: 30px;
 	height:30px;
-	padding:0 1em;
+	padding:0 1.2em;
 }
