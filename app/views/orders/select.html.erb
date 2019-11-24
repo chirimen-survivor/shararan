@@ -11,6 +11,7 @@
 			</div>
 		</div>
 
+		<div class="box1234">
 		<div class="container">
 		<div class="row">
 				<div class="cart-role">
@@ -62,18 +63,19 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 md-offset-3">
-					<div class="select-address">
-						<h3 class="title-head">お届け先指定</h3>
-					</div>
-				</div>
-			</div>
-			<div class="row">
 				<div class="col-md-6">
 					<div class="container">
+						<div class="row">
+							<div class="col-md-3 md-offset-3">
+								<div class="select-address">
+									<h3 class="title-head">お届け先指定</h3>
+								</div>
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-md-1 text-right">
 							<%= radio_button_tag 'address', 0 %>
@@ -108,15 +110,14 @@
 							<div class="col-md-3">
 								<div class="select-address">
 								<h3 class="title-head">支払方法選択</h3>
-
-			  					<label>
+			  					<div class="paypay">
 									<%= radio_button_tag 'payment', '現金振込' %>現金振込
-			  					</label>
+			  					</div>
 			  					<br/>
-			  					<label>
+			  					<div class="paypay">
 									<%= radio_button_tag 'payment',  'クレジットカード'%>
 			  						クレジットカード
-			  					</label>
+			  					</div>
 			  					<br/>
 			  					<label>
 									<%= radio_button_tag 'payment', '代引'%>
@@ -128,8 +129,8 @@
 					</div>
 						<div class="row">
 							<div class="row">
-								<div class="col-md-4 text-left">小計</div>
-								<div class="col-md-4 text-right">
+								<div class="col-md-2 text-left">小計</div>
+								<div class="col-md-2 text-right">
 									<% total_price = 0 %>
 									<% @carts.each do |cart| %>
 									<% total_price += cart.product.price * cart.quantity %>
@@ -153,7 +154,7 @@
 						</div>
 					<div class="container">
 						<div class="row">
-							<div class="col-md-8 col-md-offset-2 text-right">
+							<div class="col-md-6 text-center">
 									<%= submit_tag "確認画面へ", class: 'btn btn-default btn-md' %>
 							</div>
 						</div>

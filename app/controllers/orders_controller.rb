@@ -97,7 +97,7 @@ class OrdersController < ApplicationController
 			@order.building = @address.building
 			@name = @address.last_name + @address.first_name
 		end
-			render :new
+			redirect_to customer_cart_items_path
 	end
 
 

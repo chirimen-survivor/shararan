@@ -1,7 +1,7 @@
 <!-- 購入確認画面を表示する -->
 <%= form_tag(customer_orders_path, method: :post) do %>
 <% total_price = 0 %>
-<div class="container top-space">
+<div class="container">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="page-header">
@@ -95,7 +95,7 @@
 		<div class="container order-box">
 			<div class="row">
 				<div class="col-md-3">
-					<h4 class="title-head">お届け先情報</h4>
+					<h3 class="title-head">お届け先情報</h3>
 				</div>
 			</div>
 
@@ -118,7 +118,7 @@
 		<div class="container order-box">
 			<div class="row">
 				<div class="col-md-3">
-					<h4 class="title-head">お支払い方法</h4>
+					<h3 class="title-head">お支払い方法</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -159,7 +159,7 @@
 
 		</div>
 		<input type="hidden" id="orderId" name="orderId" value="order">
-		<input type="hidden" id="payment" name="payment" value="@order.payment">
+		<input type="hidden" id="payment" name="payment" value="<% @order.payment%>">
 	</div>
 
 </div>
