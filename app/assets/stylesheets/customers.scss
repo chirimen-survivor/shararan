@@ -1,3 +1,110 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//退会ページ
+.exit_title{
+	margin-left:100px
+}
+
+.exit_address{
+	margin-top: 50px;
+	text-align: center;
+}
+
+.exit_email{
+	margin-top: 20px;
+	text-align: center;
+	font-size:15px;
+}
+
+.exit_link1{
+	display: inline-block;
+	margin-top: 40px;
+	margin-left: 350px;
+}
+.exit_link2{
+	display: inline-block;
+	margin-top: 40px;
+	margin-left: 250px;
+	margin-bottom: 40px;
+}
+
+//マイページ
+.mypage_text{
+	margin-bottom: 5px;
+}
+
+.mypage_column1{
+	display: inline-block;
+	margin-left:80px;
+	font-size: 15px;
+}
+
+.mypage_column2{
+	display: inline-block;
+	margin-left:20px;
+}
+
+.mypage_column3{
+	margin-left:55px;
+	font-size: 15px;
+	margin-bottom:10px;
+}
+
+.mypage_column4{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 15px;
+}
+
+.mypage_column5{
+	margin-top:15px;
+	margin-left:80px;
+	font-size: 15px;
+}
+
+.mypage_column6{
+	display: inline-block;
+	margin-top:15px;
+	margin-left:20px;
+	font-size: 15px;
+}
+
+.mypage_submit{
+	text-align: center;
+	margin-top:20px;
+	margin-bottom: 20px;
+}
+.myreview {
+	margin-left:50px;
+	font-size:15px;
+}
+
+.myreview_star{
+	display: inline-block;
+}
+.myreview_title{
+	display: inline-block;
+	margin-left:30px;
+}
+
+.myreview_column{
+}
+
+.myreview_time{
+	display: inline-block;
+	margin-top:10px;
+}
+
+.myreview_product{
+	display: inline-block;
+	margin-left:30px;
+}
+
+.myreview_body{
+	margin-top:10px;
+	margin-bottom:20px;
+}
