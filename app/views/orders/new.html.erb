@@ -69,7 +69,7 @@
 				</div>
 				<div class="row">
 				<% @carts.each do |cart| %>
-				<div class="col-md-2 text-left">
+				<div class="col-md-2 text-right">
 					<%= attachment_image_tag cart.product, :image, :fill, 40, 40, format: 'jpeg',fallback: "no_image.jpg", size:'40x40' %>
 				</div>
 
@@ -155,11 +155,11 @@
 			</div>
 
 			<div class="col-md-5 text-center">
-						<%= submit_tag "注文確定", class: 'btn btn-default btn-md' %>
+						<%= submit_tag "注文確定", class: 'btn btn-default btn-md'%>
 
 		</div>
 		<input type="hidden" id="orderId" name="orderId" value="order">
-		<input type="hidden" id="payment" name="payment" value="<% @order.payment%>">
+		<%= hidden_field_tag :payment, @order.payment %>
 	</div>
 
 </div>

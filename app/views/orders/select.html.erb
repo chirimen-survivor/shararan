@@ -3,6 +3,7 @@
 <%= form_tag(new_customer_order_path, method: :get) do %>
 <div class="back-color">
 <div class="container top-space">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
 				<div class="page-header">
@@ -110,7 +111,12 @@
 							<div class="col-md-3">
 								<div class="select-address">
 								<h3 class="title-head">支払方法選択</h3>
-			  					<div class="paypay">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+			  				<div class="paypay">
 									<%= radio_button_tag 'payment', '現金振込' %>現金振込
 			  					</div>
 			  					<br/>
@@ -127,7 +133,7 @@
 							</div>
 						</div>
 					</div>
-						<div class="row">
+						<!-- <div class="row">
 							<div class="row">
 								<div class="col-md-2 text-left">小計</div>
 								<div class="col-md-2 text-right">
@@ -158,9 +164,35 @@
 									<%= submit_tag "確認画面へ", class: 'btn btn-default btn-md' %>
 							</div>
 						</div>
-					</div>
+					</div> -->
+					<div class="col-md-6">
+					<div class="card card-body">
+      				<p class="card-text text-left">小計 
+      					<% total_price = 0 %>
+								<% @carts.each do |cart| %>
+								<% total_price += cart.product.price * cart.quantity %>
+								<% end %>
+								¥<%= number_with_delimiter(total_price) %>
+							</p>
+							<p class="card-text text-left">送料 
+								¥ <%= @postage.ship %>
+							</p>
+							<h4 class="text-right">¥<%= number_with_delimiter(total_price + @postage.ship) %>税込</h4>
+
+								<a><%= submit_tag "確認画面へ", class: 'btn btn-default btn-md' %><a>
+    			</div>
+    		</div>
+<!-- <div class="card card-body">
+									<h5 class="card-title">名前: <%= @customer.last_name + @customer.first_name %></h5>
+									<p class="card-text">住所: 〒<%= @customer.postal_code1 %> - <%= @customer.postal_code2 %></p>
+									<p class="card-text"><%= @customer.prefecture_name + @customer.city + @customer.building %></p>
+								</div> -->
+
+							</div>
+
 					</div>
 				</div>
 			</div>
-	<% end %>
+		<% end %>
+	</div>
 </div>
