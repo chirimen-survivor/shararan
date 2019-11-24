@@ -1,7 +1,23 @@
 <h1>customers画面</h1>
 <h3>お問合せフォーム</h3>
 
-<div class="container">
+<% if flash[:notice] %>
+<div class="flash">
+	<%= flash[:notice]%>
+</div>
+<% end %>
+<!-- エラーメッセージ -->
+<% if @contact.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="top-space container">
 	<div class="row">
 	 <div class="col-lg-12">
 	 	<%= form_for @contact , url: customer_contacts_path do |f| %>

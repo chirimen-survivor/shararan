@@ -1,16 +1,14 @@
 
-      <div class="bg_test">
-          <div class="bg_test-text">
-            <p>背景画像</p>
-          </div>
-      </div>
+<div class="bg">
+</div>
 
-      <div class="container">
-        <h3 class="heading">いいね数ランキング</h3>
+<div class="rank-inner">
+  <div class="container">
+      <h3 class="heading">Favorite Ranking</h3>
         <% @all_ranks.each.with_index(1) do |p, i| %>
         <div class="row">
-          <div class="col-lg-4">
-            <p class="rank"><%= "#{i}位" %></p>
+          <div class="col-md-4">
+            <p class="ranks"><%= "#{i}位" %></p>
             <div class="card">
               <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/chikyuGFVS3960_TP_V.jpg" alt="イメージ画像">
               <div class="card-body">
@@ -18,35 +16,43 @@
                 <ul class="cp_tag01">
                   <li><a href="#"><%= "#{p.categorie.name}" %></a></li>
                 </ul>
-                <p class="card-text"><%= p.description %></p>
+                <p class="card-text ellipsis"><%= p.description %></p>
                 <p class="card-text"><%= "¥ #{p.price.to_s(:delimited)} 税別" %></p>
-                <%= link_to "詳細を見る", product_path(p.id), class: 'btn btn-primary' %>
+                <%= link_to product_path(p.id) do %>
+                    <button>詳細を見る</button>
+                <% end %>
               </div>
             </div>
           </div>
           <% end %>
-          </div>
-        </div>
-
-      <div class="container">
-      <h3 class="heading">商品一覧</h3>
-        <div class="row">
-        <% @products.each do |product| %>
-          <div class="col-lg-4">
-            <div class="card">
-              <img class="card-img-top" src="https://www.pakutaso.com/shared/img/thumb/chikyuGFVS3960_TP_V.jpg" alt="イメージ画像">
-              <div class="card-body">
-                <h4 class="card-title"><%= product.name %></h4>
-                <ul class="cp_tag01">
-                  <li><a href="#">clsssic</a></li>
-                </ul>
-                <p class="card-text"><%= product.description %></p>
-                <p class="card-text"><%= "¥ #{product.price.to_s(:delimited)} 税別" %></p>
-                <%= link_to "詳細を見る", product_path(product.id), class: 'btn btn-primary' %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <%= paginate @products, class: "paginate" %>
         </div>
       </div>
+    </div>
+</div>
+
+<div class="index_inner">
+    <div class="container">
+        <h3 class="title">商品一覧</h3>
+        <div class="row">
+            <% @products.each do |product| %>
+              <div class="col-md-3">
+                <div class="card1">
+                  <img class="card-img-top1" src="https://www.pakutaso.com/shared/img/thumb/chikyuGFVS3960_TP_V.jpg" alt="イメージ画像">
+                  <div class="card-body1">
+                    <h4 class="card-title1"><%= product.name %></h4>
+                    <ul class="cp_tag01">
+                      <li><a href="#">clsssic</a></li>
+                    </ul>
+                    <p class="card-text1 ellipsis"><%= product.description %></p>
+                    <i class="card-text2"><%= "¥ #{product.price.to_s(:delimited)} 税別" %></i>
+                    <%= link_to product_path(product.id) do %>
+                        <button class="b_size">詳細を見る</button>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <%= paginate @products, class: "paginate" %>
+        </div>
+      </div>
+</div>

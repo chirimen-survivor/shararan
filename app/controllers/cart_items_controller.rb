@@ -25,7 +25,7 @@ class CartItemsController < ApplicationController
     # 正しいユーザーかどうか確認
     def correct_customer
       if current_customer.id != params[:customer_id].to_i
-        flash[:warning] = "カート一覧にアクセス出来ませんでした"
+        flash[:alert] = "カート一覧にアクセス出来ませんでした"
         redirect_to root_path
       end
     end
