@@ -175,50 +175,35 @@ end
 # disk,song情報
 
 20.times do |n|
-	Disk.create!(
-		product_id: Faker::Number.unique.between(from: 1, to: 20),
+	number = Faker::Number.between(from: 1, to: 20)
+	Disc.create!(
+		product_id: number,
 		sequence: 1,
 	)
-end
-
-20.times do |n|
-	Disk.create!(
-		product_id: Faker::Number.unique.between(from: 1, to: 20),
+	while(true)
+		number2 = Faker::Number.between(from: 1, to: 20)
+		if number != number2
+			break
+		end
+	end
+	Disc.create!(
+		product_id: number2,
 		sequence: 2,
 	)
 end
 
-20.times do |n|
-	Song.create!(
-		disc_id: Faker::Number.unique.between(from: 1, to: 20)
-		sequence: 1,
-	)
-end
+
 
 20.times do |n|
-	Song.create!(
-		disc_id: Faker::Number.unique.between(from: 1, to: 20)
-		sequence: 2,
-	)
-end
+	id = Faker::Number.unique.between(from: 1, to: 20)
+	sequence = [1,2,3,4,5]
 
-20.times do |n|
-	Song.create!(
-		disc_id: Faker::Number.unique.between(from: 1, to: 20)
-		sequence: 3,
-	)
-end
+	for i in sequence do
 
-20.times do |n|
 	Song.create!(
-		disc_id: Faker::Number.unique.between(from: 1, to: 20)
-		sequence: 4,
+		disc_id: id,
+		name: Faker::Music::GratefulDead.song,
+		sequence: i,
 	)
-end
-
-20.times do |n|
-	Song.create!(
-		disc_id: Faker::Number.unique.between(from: 1, to: 20)
-		sequence: 5,
-	)
+	end
 end
