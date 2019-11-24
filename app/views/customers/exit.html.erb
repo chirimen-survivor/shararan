@@ -1,12 +1,16 @@
 <div class = "top-space">
 	<div class = "container">
-		<h2>本当に退会しますか？</h2>
-
-		<h3>メールアドレス   <%= @customer.email %></h3>
-
-		<%= link_to 'マイページに戻る', customer_path %>
-
-		<!-- 退会後は商品一覧ページに行きます。 -->
-		<%= link_to "退会する", customer_path(@customer.id), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+		<h2 class = "exit_title">本当に退会しますか？</h2>
+		<div class = "exit_address">
+			<h3>メールアドレス</h3>
+			<div class = "exit_email"><%= @customer.email %></div>
+		</div>
+		<div class = "exit_link1">
+			<%= link_to 'マイページに戻る', customer_path %>
+		</div>
+		<div class = "exit_link2">
+			<!-- 退会後は商品一覧ページに行きます。 -->
+			<%= link_to "退会する", customer_path(@customer.id), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+		</div>
 	</div>
 </div>
