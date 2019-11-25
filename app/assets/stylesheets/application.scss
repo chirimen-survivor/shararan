@@ -498,7 +498,7 @@ footer{
 
 //サイドバー
 .sidebars{
-	background-color: #4d394b;
+	background-color: #efeff3;
 }
 .nav{
 	height: 50px;
@@ -510,8 +510,9 @@ footer{
   height: 100%;
   width: 220px;
   float: left;
-  color: #ab9ba9;
-  background-color: #4d394b;
+  color: #aeaeb1;
+  font-size: 17px;
+  background-color: #efeff3;
 }
 
 .listings_channels {
@@ -522,16 +523,16 @@ footer{
   padding: 30;
   list-style-type: none;
   text-align: left;
-  color: #ab9ba9;
+  color: #aeaeb1;
 }
 
 .black{
-  background: red;
+/*  background: white;*/
 }
 
 .link_color{
-     color: #FFFFFF;
-     &:hover { color:#dccbe0; text-decoration:none }
+     color: #79797a;
+     &:hover { color:#d2d2d6; text-decoration:none }
 }
 
 .list{
@@ -550,4 +551,21 @@ footer{
   display: inline-block;
   padding:15px 50px 10px;
   font-size: 15px;
+}
+
+//マネジャーヘッダー
+.Mnager-header{
+	display: flex;
+	height: 80px;
+	font-size: 20px;
+	color: #9b9cb6;
+	background-color: #3a3c50;
+	padding-top: 30px;
+}
+.Mnager-header-logo{
+	padding: 0 20px 0 20px;
+}
+.Mnager-header-text{
+	font-size: 15px;
+	margin-top: 5px;
 }
