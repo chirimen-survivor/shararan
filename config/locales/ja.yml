@@ -23,3 +23,7 @@ ja:
       rating: 評価
       title: タイトル
       body: 本文
+      errors:
+        messages:
+          invalid_date: の指定が不正です。
+          invalid_date_format: の形式が不正です。

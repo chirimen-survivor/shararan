@@ -172,5 +172,31 @@ end
 	)
 end
 
+# disc,song情報
+
+20.times do |n|
+
+	sequence = [1,2]
+
+	for i in sequence do
+
+	Disc.create!(
+		product_id: n+1,
+		sequence: i,
+	)
+	end
+end
 
 
+
+40.times do |n|
+	sequence = [1,2,3,4,5]
+	for i in sequence do
+
+	Song.create!(
+		disc_id: n+1,
+		name: Faker::Music::GratefulDead.song,
+		sequence: i,
+	)
+	end
+end
