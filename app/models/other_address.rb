@@ -17,12 +17,12 @@ class OtherAddress < ApplicationRecord
   end
 
   	# バリデーションチェック
-	validates :last_name, presence: true, presence: true, length: {minimum: 1}
-	validates :first_name, presence: true, presence: true, length: {minimum: 1}
-	validates :last_name_kana, presence: true, presence: true, length: {minimum: 1}, presence: true, length: {minimum: 1}
-	validates :first_name_kana, presence: true, presence: true, length: {minimum: 1}
+	validates :last_name, presence: true, length: {minimum: 1}
+	validates :first_name, presence: true, length: {minimum: 1}
+	validates :last_name_kana, presence: true, length: {minimum: 1}
+	validates :first_name_kana, presence: true, length: {minimum: 1}
 	validates :postal_code1, presence: true, length: {minimum: 1, maximum: 3}
-	validates :postal_code2, presence: true, length: {minimum: 1, maximum: 3}
+  	validates :postal_code2, presence: true, length: {minimum: 1, maximum: 4}
 	validates :prefecture_code, presence: true, numericality: {less_than_or_equal_to: 47}
 	validates :city, presence: true, length: {minimum: 1, maximum: 200}
 	validates :building, presence: true, length: {minimum: 1, maximum: 200}
