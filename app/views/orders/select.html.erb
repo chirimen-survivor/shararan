@@ -1,6 +1,8 @@
 
 <!-- お届け先、支払い方法の選択 -->
 <%= form_tag(new_customer_order_path, method: :get) do %>
+<body>
+<div class="wrap">
 <div class="back-color">
 	<div class="container">
 		<div class="row">
@@ -151,13 +153,14 @@
 							</p>
 							<h4 class="text-right">¥<%= number_with_delimiter(total_price + @postage.ship) %>(税込)</h4>
 
-								<%= submit_tag "確認画面へ", class: 'btn btn-default btn-md ' %>
+								<%= submit_tag "確認画面へ", class: 'btn btn-danger btn-md center-block' %>
 							</div>
     			</div>
     			</div>
-
 							</div>
-
 					</div>
 				</div>
 		<% end %>
+	</label>
+</div>
+</body>

@@ -22,7 +22,7 @@
 @import "toastr";
 
 @import 'products';
-@import 'bar';
+
 @import 'devise_form';
 
 
@@ -229,6 +229,7 @@ dl.searchbox dd{
 //注文内容の確認
 .box5{
 	background-color: #CCCCCC;
+	margin-bottom: 20px;
 }
 
 // ご注文履歴お届け先
@@ -278,7 +279,7 @@ label3{
 }
 
 .order-box{
-	margin: 50px auto;
+	margin: 20px auto;
 }
 
 
