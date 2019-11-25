@@ -1,7 +1,7 @@
 <!-- 購入履歴詳細画面を表示する -->
 
-
-<div class="container top-space">
+<div class="back-color">
+<div class="container">
 	<div class="container">
 		<div class="container">
 			<div class="row">
@@ -49,16 +49,17 @@
 							<label>ご請求額</label>
 							<br/>
 							<div class="row">
+								<% total_price = 0 %>
+								<% @details.each do |detail| %>
+								<% total_price += detail.product.price * detail.quantity %>
+								<% end %>
 								<div class="col-md-2 text-center">
 									<label2>小計</label2>
 									<br/>
 								</div>
 								<div class="col-md-5 text-right">
 									<label2>
-										<% @details.each do |detail| %>
-										<% subtotal += detail.subtotal %>
-										<% end %>
-										¥   <%= subtotal %>
+									¥<%= number_with_delimiter(total_price) %>
 									</label2>
 								</div>
 							</div>
@@ -70,7 +71,7 @@
 								</div>
 								<div class="col-md-5 text-right">
 									<label2>
-										¥ 500
+										¥<%= @order.postage.ship %>
 									</label2>
 								</div>
 							</div>
@@ -82,7 +83,7 @@
 								</div>
 								<div class="col-md-4 text-right total">
 									<h4>
-										¥ <%= @order.total  %>
+									¥<%= number_with_delimiter(total_price + @order.postage.ship) %>
 									</h4>
 								</div>
 							</div>
@@ -120,22 +121,22 @@
 				<div class="col-md-12">
 					<div class="order-box">
 					<div class="col-md-6">
-						<div class="col-md-4 text-left">
-							<% if detail.product.image %>
+						<div class="col-md-4 text-right">
+							<%= attachment_image_tag detail.product, :image, :fill, 60, 60, format: 'jpeg',fallback: "no_image.jpg", size:'60x60' %>
 			        <!-- 画像があった時の処理をここに書く -->
-			        <%= attachment_image_tag detail.product, :image_id, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
-			        <% end %>
 						</div>
 						<div class="col-md-5 text-center">
 							<%= detail.product.name %><br/>
 							¥<%= detail.product.price %> × <%= detail.quantity %>
 						</div>
 						<div class="col-md-3 text-right">
-							¥<%= detail.subtotal %>
+							¥<%= detail.product.price * detail.quantity %>
 						</div>
 					</div>
 					<div class="col-md-4 text-right">
-						<%= link_to "レビューを書く", product_path(detail.product_id), class: 'btn btn-default btn-md' %><br/>
+
+						<%= link_to "レビュー", product_path(@order.id), class: 'btn btn-default btn-md' %><br/>
+						<%= link_to "再度購入", product_path(@order.id), class: 'btn btn-default btn-ld' %>
 					</div>
 				</div>
 			</div>
@@ -150,7 +151,7 @@
 						<label1>送料</label1>
 					</div>
 					<div class="col-md-6 text-left">
-						<label1>¥ 500</label1>
+						<label1>¥<%= @order.postage.ship %></label1>
 					</div>
 				</div>
 			</div>
@@ -160,10 +161,11 @@
 						<h4>合計</h4>
 					</div>
 					<div class="col-md-5 text-left">
-						<h4>¥<%= @order.total %></h4>
+
+						<h4>¥<%= number_with_delimiter(total_price + @order.postage.ship) %></h4>
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
-</div>
 </div>
