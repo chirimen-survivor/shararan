@@ -22,6 +22,7 @@
 @import "toastr";
 
 @import 'products';
+@import 'devise_form';
 
 
 .heading {
@@ -346,102 +347,4 @@ label3{
 
 .order-box{
 	margin: 50px auto;
-}
-
-//マイページ
-
-.mypage_box {
-	margin-bottom: 100px;
-}
-.mypage_column1 {
-	display: inline-block;
-	margin-left: 100px;
-	font-size: 20px;
-}
-.mypage_column2{
-	display: inline-block;
-	margin-left:30px;
-}
-.mypage_column3{
-	display: inline-block;
-	margin-left:75px;
-	font-size: 20px;
-}
-.mypage_column4{
-	display: inline-block;
-	margin-left:100px;
-	font-size: 15px;
-	margin-top: 10px;
-}
-
-//退会ページ
-.exit_title{
-	margin-left:100px;
-}
-
-.exit_address{
-	margin-top: 50px;
-	text-align: center;
-}
-
-.exit_email{
-	margin-top: 20px;
-	text-align: center;
-	font-size:20px;
-}
-
-.exit_link1{
-	margin-top: 40px;
-	margin-left: 250px;
-}
-.exit_link2{
-	display: inline-block;
-	margin-top: 40px;
-	margin-left: 20px;
-}
-
-.mypage_text{
-	margin-bottom: 5px;
-}
-
-.mypage_column1{
-	display: inline-block;
-	margin-left:80px;
-	font-size: 20px;
-}
-
-.mypage_column2{
-	display: inline-block;
-	margin-left:20px;
-}
-
-.mypage_column3{
-	margin-left:55px;
-	font-size: 20px;
-	margin-bottom:10px;
-}
-
-.mypage_column4{
-	display: inline-block;
-	margin-top:15px;
-	margin-left:80px;
-	font-size: 15px;
-}
-
-.mypage_column5{
-	margin-top:15px;
-	margin-left:80px;
-	font-size: 20px;
-}
-
-.mypage_column6{
-	display: inline-block;
-	margin-top:15px;
-	margin-left:20px;
-	font-size: 20px;
-}
-
-.mypage_submit{
-	text-align: center;
-	margin-top:10px;
 }
