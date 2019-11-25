@@ -1,7 +1,7 @@
 <!--- 商品情報 -->
-<div class="container top-space">
+<div class="container">
     <hr class="my-4">
-    <div class="row padding">
+    <div class="row">
       <div class="col-lg-5 col-lg-offset-1">
         <img src="https://www.pakutaso.com/shared/img/thumb/00_PP59_PP_TP_V.jpg" class="img-size">
       </div>
@@ -13,7 +13,10 @@
         <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
         </ul>
         <div class="sale-status">
-        <p class="btn-border">販売中</p>
+          <% if !@current_stock_array.empty? && @product.status == 1 %>
+            <p class="btn-border">販売中</p>
+          <% else %>
+            <p class="btn-border">販売停止</p>
         </div>
       </div>
       <hr class="my-4">
@@ -23,7 +26,9 @@
     <div class="icon-field">
       <%= form_for @cart_item, url: product_cart_items_path(@product) do |f| %>
         <%= f.label :"数量" %>
-        <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :selected => 1 %>
+        <% if !@current_stock_array.empty? %>
+          <%= f.select :quantity, @current_stock_array %>
+        <% end %>
         <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
       <% end %>
 <!--  非同期通信のためにレンダーでここは部分テンプレート追加します。詳細はfavorites/_favorite.html.erbを参照 -->
@@ -31,7 +36,7 @@
     </div>
   </div>
 
-  <div class="container">
+<div class="container">
       <hr class="my-4">
       <div class="product-release">
         <h4>商品の情報</h4>
@@ -60,9 +65,11 @@
     <% end %>
     </div>
   </div>
+  </div>
+</div>
 
   <!--- レビュー一覧 -->
-  <div class="container">
+<div class="container">
     <div class="review">
       <% @reviews.each do |r| %>
     <table class = "table table-striped">
@@ -97,32 +104,32 @@
       </table>
       <% end %>
     </div>
+</div>
 
   <!--- レビュー投稿 -->
   <div class="container">
-  <%= form_for [@product, @review] do |f| %>
-    <%= render 'share/error_messages', object: f.object %>
-      <!-- ここから星評価つけるための処理 -->
-      <div class="form-group row" id="star">
-        <%= f.label :rating,'評価 ', class:'col-md-3 col-form-label' %>
-        <%= f.hidden_field :rating, id: :review_star %>
-      </div>
-    <script>
-    $('#star').raty({
-      size     : 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      scoreName: 'review[rating]',
-      half: true,
-    });
-    </script>
-    <!-- ここまでが星評価つけるための処理 -->
-      <h3>タイトル</h3>
-      <%= f.text_field :title %>
-      <h3>本文</h3>
-      <%= f.text_area :body %>
-      <%= f.submit '投稿する' %>
-    <% end %>
-  </div>
+    <%= form_for [@product, @review] do |f| %>
+      <%= render 'share/error_messages', object: f.object %>
+        <!-- ここから星評価つけるための処理 -->
+        <div class="form-group row" id="star">
+          <%= f.label :rating,'評価 ', class:'col-md-3 col-form-label' %>
+          <%= f.hidden_field :rating, id: :review_star %>
+        </div>
+      <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'review[rating]',
+        half: true,
+      });
+      </script>
+      <!-- ここまでが星評価つけるための処理 -->
+        <h3>タイトル</h3>
+        <%= f.text_field :title %>
+        <h3>本文</h3>
+        <%= f.text_area :body %>
+        <%= f.submit '投稿する' %>
+      <% end %>
 </div>

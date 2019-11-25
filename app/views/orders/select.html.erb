@@ -2,7 +2,7 @@
 <!-- お届け先、支払い方法の選択 -->
 <%= form_tag(new_customer_order_path, method: :get) do %>
 <div class="back-color">
-<div class="container top-space">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
 				<div class="page-header">
@@ -10,7 +10,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
+	<div class="box1234">
 		<div class="container">
 		<div class="row">
 				<div class="cart-role">
@@ -62,21 +64,24 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3 md-offset-3">
-					<div class="select-address">
-						<h3 class="title-head">お届け先指定</h3>
-					</div>
-				</div>
-			</div>
+	<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-1 text-right">
-							<%= radio_button_tag 'address', 0 %>
+							<div class="col-md-3 md-offset-3">
+								<div class="select-address">
+									<h3 class="title-head text-center">お届け先指定</h3>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col-md-1 text-right label4">
+							<%= radio_button_tag 'address', 0, checked: true %>
 							</div>
 							<div class="col-md-3">
 								<div class="card card-body">
@@ -88,7 +93,7 @@
 						</div>
 						<% @addresses.each do |address| %>
 						<div class="row">
-							<div class="col-md-1 text-right">
+							<div class="col-md-1 text-right label4">
 								<%= radio_button_tag 'address', 0 %>
 							</div>
 							<div class="col-md-3">
@@ -108,15 +113,19 @@
 							<div class="col-md-3">
 								<div class="select-address">
 								<h3 class="title-head">支払方法選択</h3>
-
-			  					<label>
-									<%= radio_button_tag 'payment', '現金振込' %>現金振込
-			  					</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+			  				<div class="paypay">
+									<%= radio_button_tag 'payment', '現金振込', checked: true %>現金振込
+			  					</div>
 			  					<br/>
-			  					<label>
-									<%= radio_button_tag 'payment',  'クレジットカード'%>
+			  					<div class="paypay">
+									<%= radio_button_tag'payment',  'クレジットカード'%>
 			  						クレジットカード
-			  					</label>
+			  					</div>
 			  					<br/>
 			  					<label>
 									<%= radio_button_tag 'payment', '代引'%>
@@ -125,41 +134,28 @@
 								</div>
 							</div>
 						</div>
-					</div>
-						<div class="row">
-							<div class="row">
-								<div class="col-md-4 text-left">小計</div>
-								<div class="col-md-4 text-right">
-									<% total_price = 0 %>
-									<% @carts.each do |cart| %>
-									<% total_price += cart.product.price * cart.quantity %>
-									<% end %>
-									¥<%= number_with_delimiter(total_price) %>
-								</div>
+
+						<div class="label4">
+							<div class="card card-body col-md-6">
+      				<p class="card-text text-left">小計 
+      					<% total_price = 0 %>
+								<% @carts.each do |cart| %>
+								<% total_price += cart.product.price * cart.quantity %>
+								<% end %>
+								¥<%= number_with_delimiter(total_price) %>
+							</p>
+							<p class="card-text text-left">送料 
+								¥ <%= @postage.ship %>
+							</p>
+							<h4 class="text-right">¥<%= number_with_delimiter(total_price + @postage.ship) %>(税込)</h4>
+
+								<%= submit_tag "確認画面へ", class: 'btn btn-default btn-md ' %>
 							</div>
-							<div class="row">
-								<div class="col-md-4 text-left">送料</div>
-								<div class="col-md-4 text-right">¥ <%= @postage.ship %></div>
+    			</div>
+    			</div>
+
 							</div>
 
-							<div class="row">
-								<div class="col-md-3 text-left">
-									<h4>合計</h4>
-								</div>
-								<div class="col-md-5 text-right">
-									<h4>¥<%= number_with_delimiter(total_price + @postage.ship) %></h4>
-								</div>
-							</div>
-						</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2 text-right">
-									<%= submit_tag "確認画面へ", class: 'btn btn-default btn-md' %>
-							</div>
-						</div>
-					</div>
 					</div>
 				</div>
-			</div>
-	<% end %>
-</div>
+		<% end %>

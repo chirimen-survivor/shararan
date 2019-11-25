@@ -1,13 +1,14 @@
 <div class="nested-fields">
     <div>
+        <%= f.label :'Disc Number', class: 'label-position' %><br />
         <%= f.select :sequence, options_for_select(1..10)%><br />
-        <%= link_to_remove_association "ディスクを削除", f, class: 'btn btn-sm btn-danger' %>
+        <%= link_to_remove_association "ディスクを削除", f, class: 'btn btn-default label-position' %>
     </div>
     <div>
         <%= f.fields_for :songs do |u| %>
             <%= render "song_fields", f: u %>
         <% end %>
     </div>
-    <div><%= link_to_add_association "曲を追加", f, :songs, class: 'btn btn-sm btn-primary'%>
+    <div><%= link_to_add_association "曲を追加", f, :songs, class: 'btn btn-success label-position'%>
      </div>
 </div>

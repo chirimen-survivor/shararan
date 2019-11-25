@@ -11,9 +11,11 @@ class CustomersController < ApplicationController
   def update
       @customer = Customer.find(params[:id])
       if @customer.update(customer_params)
+        flash[:notice] = "登録情報を変更しました"
         redirect_to customer_path(@current_customer.id)
       else
         @reviews = @customer.reviews.page(params[:page]).per(5)
+        flash.now[:alert] = "登録情報を変更できませんでした"
         render :show
       end
     end

@@ -47,10 +47,10 @@
             </h3>
           </div><br/>
           <div class="col-md-2 md-offset-2">
-            <%= f.text_field :postal_code1, autofocus: true, autocomplete: "postal_code1" %>
+            <%= f.text_field :postal_code1, autofocus: true, autocomplete: "postal_code1",  id: "zip1" %>
           </div>
           <div class="col-md-2 md-offset-2">
-            <%= f.text_field :postal_code2, autofocus: true, autocomplete: "postal_code2" %>
+            <%= f.text_field :postal_code2, autofocus: true, autocomplete: "postal_code2",  id: "zip2"  %>
           </div>
         </div>
 
@@ -61,7 +61,7 @@
             </h3>
           </div><br/>
           <div class="col-md-3 md-offset-3">
-          <%= f.text_field :prefecture_code, autofocus: true, autocomplete: "prefecture_code" %>
+          <%= f.text_field :prefecture_code, autofocus: true, autocomplete: "prefecture_code", id: "adrs3" %>
           </div>
         </div>
 
@@ -72,7 +72,7 @@
             </h3>
           </div><br/>
           <div class="col-md-2 md-offset-2">
-            <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
+            <%= f.text_field :city, autofocus: true, autocomplete: "city", id: "adrs4" %>
           </div>
         </div>
 
@@ -83,7 +83,7 @@
             </h3>
           </div><br/>
           <div class="col-md-2 md-offset-2">
-            <%= f.text_area :building, autofocus: true, autocomplete: "building" %>
+            <%= f.text_area :building, autofocus: true, autocomplete: "building", id: "adrs5" %>
           </div>
         </div>
 

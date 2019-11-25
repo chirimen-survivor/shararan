@@ -41,7 +41,6 @@ class OrdersController < ApplicationController
 		@order.status = 0
 		@order.tax_id = 1
 		@order.payment = params[:payment]
-		binding.pry
 		@order.postage_id = @postage.id
 		@order.customer_id = current_customer.id
 		@order.total = total_price + @postage.ship
@@ -97,7 +96,7 @@ class OrdersController < ApplicationController
 			@order.building = @address.building
 			@name = @address.last_name + @address.first_name
 		end
-			render :new
+			redirect_to customer_cart_items_path
 	end
 
 

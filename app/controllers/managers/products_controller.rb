@@ -26,6 +26,7 @@ class Managers::ProductsController < Managers::ApplicationController
   def show
     @product = Product.find(params[:id])
     @reviews = @product.reviews.page(params[:page]).per(5)
+    @details = OrderDetail.where(product_id: @product.id)
   end
 
 

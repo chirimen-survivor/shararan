@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
     t.integer "order_id", null: false
     t.integer "product_id", null: false
     t.integer "subtotal", null: false
-    t.integer "quantity", null: false
+    t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

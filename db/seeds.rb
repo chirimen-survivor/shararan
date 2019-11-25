@@ -72,21 +72,21 @@ end
 end
 
 # 住所情報
-10.times do |n|
-    OtherAddress.create!(last_name: Faker::Name.name,
-     					first_name: Faker::Name.name,
-      					last_name_kana: Faker::Name.name,
-      					first_name_kana: Faker::Name.name,
-      					postal_code1: Faker::Number.between(from: 100, to: 999),
-      					postal_code2: Faker::Number.between(from: 1000, to: 9999),
-      					prefecture_code: Faker::Number.between(from: 1, to: 47),
-      					city: Faker::Address.city,
-      					building: Faker::Address.street_address,
-      					phone_number1: Faker::Number.between(from: 1, to: 9999),
-      					phone_number2: Faker::Number.between(from: 1, to: 9999),
-      					phone_number3: Faker::Number.between(from: 1, to: 9999),
-      					customer_id: 1)
-end
+# 10.times do |n|
+#     OtherAddress.create!(last_name: Faker::Name.name,
+#      					first_name: Faker::Name.name,
+#       					last_name_kana: Faker::Name.name,
+#       					first_name_kana: Faker::Name.name,
+#       					postal_code1: Faker::Number.between(from: 100, to: 999),
+#       					postal_code2: Faker::Number.between(from: 1000, to: 9999),
+#       					prefecture_code: Faker::Number.between(from: 1, to: 47),
+#       					city: Faker::Address.city,
+#       					building: Faker::Address.street_address,
+#       					phone_number1: Faker::Number.between(from: 1, to: 9999),
+#       					phone_number2: Faker::Number.between(from: 1, to: 9999),
+#       					phone_number3: Faker::Number.between(from: 1, to: 9999),
+#       					customer_id: 1)
+# end
 
 # 商品情報のサンプルデータ
 42.times do |n|
@@ -172,5 +172,31 @@ end
 	)
 end
 
+# disc,song情報
+
+20.times do |n|
+
+	sequence = [1,2]
+
+	for i in sequence do
+
+	Disc.create!(
+		product_id: n+1,
+		sequence: i,
+	)
+	end
+end
 
 
+
+40.times do |n|
+	sequence = [1,2,3,4,5]
+	for i in sequence do
+
+	Song.create!(
+		disc_id: n+1,
+		name: Faker::Music::GratefulDead.song,
+		sequence: i,
+	)
+	end
+end
