@@ -1,3 +1,67 @@
 // Place all the styles related to the CartItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table-space {
+  margin-top: 50px;
+}
+
+.table-striped {
+  background-color: #fff;
+  box-shadow: 0 7px 10px #ccc;
+}
+
+
+
+.thead-dark {
+  background-color:black;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8)
+}
+
+.btn_group1 {
+
+
+  .btn-info {
+    background-color: #FF001E;
+    border-style: none;
+      &:hover {
+        background-color: #FF001E;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+        transform: translateY(-0.1875em);
+      }
+
+  }
+
+}
+
+.btn_group2 {
+  background-color:black;
+  border-style: none;
+  .btn-primary {
+    background-color:black;
+    color: #fff;
+    &:hover {
+      background-color: black;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+      transform: translateY(-0.1875em);
+    }
+  }
+}
+
+// 削除ボタン
+.fa-times {
+  color: black;
+      &:hover {
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+        color: #FF001E;
+      }
+}
+
+.fa-redo {
+  color: black;
+      &:hover {
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+        color: #1e90ff;
+      }
+}
