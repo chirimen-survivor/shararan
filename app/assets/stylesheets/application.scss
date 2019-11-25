@@ -22,7 +22,6 @@
 @import "toastr";
 
 @import 'products';
-@import 'bar';
 @import 'devise_form';
 
 
@@ -92,7 +91,7 @@ dl.searchbox dt input{
   width:70%;
   height:35px;
   line-height:35px;
-  background:#f3f3f3;//紫
+  background:#f3f3f3;
   border:none;
 }
 dl.searchbox dd{
@@ -113,7 +112,7 @@ dl.searchbox dd{
 }
 
 .search-btn:hover {
-  background:#f3f3f3;
+  background:#b22222;
 }
 
 // ランキング

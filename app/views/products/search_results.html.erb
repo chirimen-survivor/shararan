@@ -12,6 +12,15 @@
     <% else %>
       <p><%= "#{@products.total_count}件の検索結果があります" %></p>
     <% end %>
+    <div class="sort-area">
+      <%= search_form_for @q, url: search_path do |f| %>
+        <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '発売の古い順': 'release_date asc', '発売の新しい順': 'release_date desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+        <%= f.button :type => "submit", style: 'border-style: none;' do %>
+            <i class="fas fa-search"></i>
+        <% end %>
+        <i>Sort</i>
+      <% end %>
+    </div>
     <hr class="my-4">
     <% @products.each do |product| %>
     <div class="row">
@@ -29,7 +38,9 @@
         </div>
       </div>
       <div class="col-md-3">
-      <%= link_to "商品詳細を見る", managers_product_path(product.id), class: 'btn btn-primary' %>
+        <%= link_to product_path(product.id) do %>
+          <button class="btn-design">詳細を見る</button>
+        <% end %>
       </div>
     </div>
       <hr class="my-4">
@@ -51,6 +62,15 @@
     <% else %>
       <p><%= "#{@products.total_count}件の検索結果があります" %></p>
     <% end %>
+    <div class="sort-area">
+      <%= search_form_for @q, url: search_path do |f| %>
+        <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '発売の古い順': 'release_date asc', '発売の新しい順': 'release_date desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+        <%= f.button :type => "submit", style: 'border-style: none;' do %>
+            <i class="fas fa-search"></i>
+        <% end %>
+        <i>Sort</i>
+       <% end %>
+     </div>
     <hr class="my-4">
     <% @products.each do |product| %>
     <div class="row">

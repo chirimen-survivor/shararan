@@ -46,14 +46,14 @@ class ProductsController < ApplicationController
   end
 
   def search_results
-    @q = Product.search(search_params)
-    @products = @q.result(distinct: true).page(params[:page])
+      @q = Product.search(search_params)
+      @products = @q.result(distinct: true).page(params[:page])
   end
 
   private
 
     def search_params
-      params.require(:q).permit(:name_cont)
+      params.require(:q).permit(:sorts, :name_cont)
     end
 
     def cart_params
