@@ -88,7 +88,9 @@
         </div>
       </div>
       <div class="col-md-3">
-      <%= link_to "商品詳細を見る", product_path(product.id), class: 'btn btn-primary' %>
+        <%= link_to product_path(product.id) do %>
+                      <button class="btn-design">詳細を見る</button>
+        <% end %>
       </div>
     </div>
       <hr class="my-4">
