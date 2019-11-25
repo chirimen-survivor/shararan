@@ -40,43 +40,6 @@ hr {
 	 background-color: #f5f5f5;
  }
 
-//  Flashメッセージ
-.flash-field {
-	padding-bottom: 61px;
-	background-color: black;
-	height: 1px;
-}
-
-.alert {
-	color: black;
-	margin-bottom: 0px;
-  &__alert{
-    background-color: red;
-  }
-  &__notice {
-    background-color: #9ec34b;
-  }
-}
-
-//  header
-.navbar {
-  font-weight: 700;
-  font-size: .9rem;
-  letter-spacing: .3rem;
-  background: rgba(0, 0, 0, 0.6)!important;
-}
-
-.navbar-inverse .navbar-nav .icon-bar {
-  color: white;
-}
-
-//  カレンダーの位置を調整
-
- #carendar-position {
-  position: relative;
-}
-
-
 /* 検索ボックス */
 dl.searchbox{
   width: 350px;
@@ -84,6 +47,8 @@ dl.searchbox{
   background-color:#f3f3f3;
   border:1px solid 	#FFFFF0;
   border-radius:6px;
+  top:10px;
+  left:230px;
 }
 dl.searchbox dt{
   padding:2px;
@@ -115,6 +80,56 @@ dl.searchbox dd{
 .search-btn:hover {
   background:#f3f3f3;
 }
+
+/*フッター*/
+.footer{
+  text-align: center;
+/*  padding: 50px 0;*/
+  background-color: black;
+  height: 100px;
+}
+
+.footer_text{
+  color: #fff;
+  float: left;
+  width: 200px;
+}
+
+.footer_text_box{
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 30px;
+}
+
+//  Flashメッセージ
+.flash-field {
+	padding-bottom: 61px;
+	background-color: black;
+	height: 1px;
+}
+
+.alert {
+	color: black;
+	margin-bottom: 0px;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: #9ec34b;
+  }
+}
+
+
+//  カレンダーの位置を調整
+
+ #carendar-position {
+  position: relative;
+}
+
+
+
 
 // ランキング
 .rank {
@@ -179,25 +194,6 @@ dl.searchbox dd{
 
 
 
-.footer{
-  text-align: center;
-  padding: 50px 0;
-  background-color: black;
-}
-
-.footer_text{
-  color: #fff;
-  float: left;
-  width: 200px;
-}
-
-.footer_text_box{
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-    margin-bottom: 30px;
-}
 
 
 
@@ -279,3 +275,82 @@ label3{
 .order-box{
 	margin: 50px auto;
 }
+
+
+.mypage_submit{
+	text-align: center;
+	margin-top:10px;
+}
+
+
+/*ヘッダー*/
+ .list1 {
+	flex-grow:4;
+}
+ .list2 {
+ 	flex-grow:4;
+ 	left: 100px;
+}
+ .list3 {
+ 	flex-grow:0.5;
+	font-size: 15px;
+}
+.block{
+	display: flex;
+	font-style: italic
+}
+.navbar {
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .3rem;
+  background: rgba(0, 0, 0, 0.6)!important;
+}
+
+.navbar-inverse .navbar-nav .icon-bar {
+  color: white;
+}
+
+
+/*フッター */
+footer{
+	background-color: black;
+	color: #f0f4f6;
+}
+.Lower-Footer{
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 50px 0px 50px;
+	border-top: 1px solid;
+	color: white;
+	opacity: 0.5;
+}
+.Footer-title{
+	opacity: 0.5;
+	margin-top: 40px;
+	font-size: 20px;
+}
+.Footer-Genre{
+	margin-top: 20px;
+}
+.Genre-list{
+	font-size: 20px;
+	line-height: 26px;
+	width: 43%;
+	text-decoration: none;
+	border-bottom: 2px solid;
+	margin-right: 8%;
+	margin-bottom: 35px;
+}
+.Author-list{
+	font-family: Sentinel SSm A,Sentinel SSm B,Georgia,serif;
+	font-size: 20px;
+	margin: 15px 0px 12px;
+	padding: 2px 0px;
+}
+.Footer-Social{
+	font-size: 30px;
+}
+.Footer-Owner-container{
+	font-size: 15px;
+}
+
