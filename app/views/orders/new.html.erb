@@ -1,6 +1,7 @@
 <!-- 購入確認画面を表示する -->
 <%= form_tag(customer_orders_path, method: :post) do %>
 <% total_price = 0 %>
+<div class="back-color">
 <div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -62,15 +63,16 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container order-box">
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="title-head">商品情報</h3>
+					<h3 class="box5 col-md-5">商品情報</h3>
 				</div>
+			</div>
 				<div class="row">
 				<% @carts.each do |cart| %>
 				<div class="col-md-2 text-right">
-					<%= attachment_image_tag cart.product, :image, :fill, 40, 40, format: 'jpeg',fallback: "no_image.jpg", size:'40x40' %>
+					<%= attachment_image_tag cart.product, :image, :fill, 100, 100, format: 'jpeg',fallback: "no_image.jpg", size:'100x100' %>
 				</div>
 
 				<div class="col-md-9">
@@ -88,14 +90,13 @@
 				<% end %>
 			</div>
 		</div>
-	</div>
 
 
 
 		<div class="container order-box">
 			<div class="row">
-				<div class="col-md-3">
-					<h3 class="title-head">お届け先情報</h3>
+				<div class="col-md-12">
+					<h3 class="box5 col-md-5">お届け先情報</h3>
 				</div>
 			</div>
 
@@ -117,8 +118,8 @@
 
 		<div class="container order-box">
 			<div class="row">
-				<div class="col-md-3">
-					<h3 class="title-head">お支払い方法</h3>
+				<div class="col-md-12">
+					<h3 class="box5 col-md-5">お支払い方法</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -164,5 +165,4 @@
 
 </div>
 <% end %>
-
 
