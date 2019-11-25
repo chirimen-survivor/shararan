@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   # 検索結果のルート
 
-  get 'search', to: 'products#search_results'
+  get 'search', to: 'products#search_results', via: [:get, :post]
   post 'products/:product_id/cart_items', to: 'products#create'
 
 
