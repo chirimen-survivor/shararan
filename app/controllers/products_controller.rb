@@ -12,9 +12,19 @@ class ProductsController < ApplicationController
     @reviews = @product.reviews.page(params[:page])
     @cart_item = CartItem.new(product_id: @product.id)
     @discs = @product.discs.all.order(sequence: 'ASC')
-
+    @details = OrderDetail.where(product_id: @product.id)
     # 在庫数管理
-
+    @details = OrderDetail.where(product_id: @product.id)
+    @stock = @product.arrivals.sum(:quantity) - @details.sum(:quantity)
+    @current_stock_array = []
+    # stock回数分だけ回す！
+    @stock.times do |quantity|
+      if quantity < 10
+        @current_stock_array.push(quantity + 1)
+      else
+        break
+      end
+    end
   end
 
   # カートに入れる

@@ -14,6 +14,8 @@
         <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
         </ul>
         <p class="amount">数量</p>
+          <% stock = @product.arrivals.sum(:quantity) - @details.sum(:quantity) %>
+          <%= stock %>
         <form action="#" method="post" class="form-position">
           <input type="text" name="name"></p>
         </form>
