@@ -118,16 +118,18 @@
 						</div>
 						<div class="row">
 							<div class="col-md-3">
-			  				<div class="paypay">
+			  					<label class="paypay">
 									<%= radio_button_tag 'payment', '現金振込', checked: true %>現金振込
-			  					</div>
+			  					</lavel>
 			  					<br/>
-			  					<div class="paypay">
+			  					<br/>
+			  					<label class="paypay">
 									<%= radio_button_tag'payment',  'クレジットカード'%>
 			  						クレジットカード
-			  					</div>
+			  					</label>
 			  					<br/>
-			  					<label>
+			  					<br/>
+			  					<label class="paypay">
 									<%= radio_button_tag 'payment', '代引'%>
 			  						代引
 			  					</label>
