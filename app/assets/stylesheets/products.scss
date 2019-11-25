@@ -220,3 +220,47 @@ button:hover:before,button:hover:after{
 	height:30px;
 	padding:0 1.2em;
 }
+
+.myreview {
+  margin-left:50px;
+  font-size:15px;
+}
+
+.myreview_star{
+  display: inline-block;
+}
+.myreview_title{
+  display: inline-block;
+  margin-left:30px;
+}
+
+.myreview_column{
+}
+
+.myreview_time{
+  display: inline-block;
+  margin-top:10px;
+}
+
+.myreview_product{
+  display: inline-block;
+  margin-left:30px;
+}
+
+.myreview_body{
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+.mypage_font{
+  color:white;
+}
+
+.myreview_font{
+  color:white;
+  font-weight: bold;
+}
+
+preview_font {
+  color:black;
+}

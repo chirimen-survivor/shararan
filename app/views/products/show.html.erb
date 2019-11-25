@@ -26,13 +26,13 @@
   <div class="container">
     <div class="icon-field">
       <%= form_for @cart_item, url: product_cart_items_path(@product) do |f| %>
-        <%= f.label :"数量" %>
         <% if !@current_stock_array.empty? %>
+          <%= f.label :"数量" %>
           <%= f.select :quantity, @current_stock_array %>
+          <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
         <% end %>
-        <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
       <% end %>
-<!--  非同期通信のためにレンダーでここは部分テンプレート追加します。詳細はfavorites/_favorite.html.erbを参照 -->
+      <!--  非同期通信のためにレンダーでここは部分テンプレート追加します。詳細はfavorites/_favorite.html.erbを参照 -->
       <%= render "favorites/favorite", product: @product %>
     </div>
   </div>
@@ -66,45 +66,47 @@
     <% end %>
     </div>
   </div>
+  <hr class="my-4">
 
   <!--- レビュー一覧 -->
   <div class="container">
+    <h2>レビュー一覧</h2>
     <div class="review">
-      <% @reviews.each do |r| %>
-    <table class = "table table-striped">
-      <tr>
-        <th>評価</th>
-        <th>商品名</th>
-        <th>作成日時</th>
-        <th>タイトル</th>
-        <th>本文</th>
-      </tr>
-
-      <tr>
-          <td><%= r.rating %>
-          <div id="star-rate-<%= r.id %>"></div>
-            <script>
-            $('#star-rate-<%= r.id %>').raty({
-              size: 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              half: true,
-              readOnly: true,
-              score: <%= r.rating %>,
+      <% @reviews.each do |review| %>
+        <div class = myreview_star>
+          <div id="star-rate-<%= review.id %>"></div>
+          <script>
+            $('#star-rate-<%= review.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= review.rating %>,
             });
-            </script>
-          </td>
-          <td><%= @product.name %></td>
-          <td><%= r.created_at %></td>
-          <td><%= r.title %></td>
-          <td><%= r.body %></td>
-        </tr>
-      </table>
-      <% end %>
+          </script>
+          </div>
+        <div class = "myreview_title">
+        <h5 class = "preview_font"><%= review.title %></h5>
+      </div>
+      <div class = "myreview_column">
+        <div class = "myreview_time">
+          <h5 class = "preview_font"><%= review.created_at.strftime('%Y/%m/%d') %></h5>
+        </div>
+        <div class = "myreview_product">
+          <h5 class = "preview_font"><%= review.product.name %></h5>
+        </div>
+      </div>
+      <div class = "myreview_body">
+        <h5 class = "preview_font"><%= review.body %></h5>
+      </div>
+    <% end %>
+      <%= paginate @reviews, class: "paginate" %>
     </div>
-
+    <hr class="my-4">
   <!--- レビュー投稿 -->
+  <h2>レビュー投稿</h2>
   <div class="container">
   <%= form_for [@product, @review] do |f| %>
     <%= render 'share/error_messages', object: f.object %>
