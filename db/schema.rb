@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_122930) do
   create_table "arrivals", force: :cascade do |t|
     t.integer "product_id"
     t.integer "quantity"
+    t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
