@@ -13,7 +13,11 @@
         <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
         </ul>
         <div class="sale-status">
-        <p class="btn-border">販売中</p>
+          <% if !@current_stock_array.empty? && @product.status == 1 %>
+            <p class="btn-border">販売中</p>
+          <% else %>
+            <p class="btn-border">販売停止</p>
+          <% end %>
         </div>
       </div>
       <hr class="my-4">
@@ -23,7 +27,9 @@
     <div class="icon-field">
       <%= form_for @cart_item, url: product_cart_items_path(@product) do |f| %>
         <%= f.label :"数量" %>
-        <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :selected => 1 %>
+        <% if !@current_stock_array.empty? %>
+          <%= f.select :quantity, @current_stock_array %>
+        <% end %>
         <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
       <% end %>
 <!--  非同期通信のためにレンダーでここは部分テンプレート追加します。詳細はfavorites/_favorite.html.erbを参照 -->

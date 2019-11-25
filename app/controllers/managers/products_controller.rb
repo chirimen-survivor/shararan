@@ -26,6 +26,7 @@ class Managers::ProductsController < Managers::ApplicationController
   def show
     @product = Product.find(params[:id])
     @reviews = @product.reviews.page(params[:page]).per(5)
+    @details = OrderDetail.where(product_id: @product.id)
   end
 
 
@@ -52,7 +53,6 @@ class Managers::ProductsController < Managers::ApplicationController
    @arrival = Arrival.new(arrival_params)
    @arrival.product_id = @product.id
    if @arrival.save
-
     redirect_to managers_product_path(@product.id)
    else
     render :edit
