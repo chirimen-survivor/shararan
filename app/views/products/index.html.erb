@@ -19,7 +19,7 @@
                 <p class="card-text ellipsis"><%= p.description %></p>
                 <p class="card-text"><%= "¥ #{p.price.to_s(:delimited)} 税別" %></p>
                 <%= link_to product_path(p.id) do %>
-                    <button>詳細を見る</button>
+                    <button class="btn-design">詳細を見る</button>
                 <% end %>
               </div>
             </div>
@@ -46,7 +46,7 @@
                     <p class="card-text1 ellipsis"><%= product.description %></p>
                     <i class="card-text2"><%= "¥ #{product.price.to_s(:delimited)} 税別" %></i>
                     <%= link_to product_path(product.id) do %>
-                        <button class="b_size">詳細を見る</button>
+                        <button class="b_size btn-design">詳細を見る</button>
                     <% end %>
                   </div>
                 </div>

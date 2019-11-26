@@ -3,14 +3,16 @@
   <% if customer_signed_in? %>
     <% if product.good?(current_customer) %>
     	<%= link_to product_favorites_path(product_id: product.id), {method: :delete, remote: true} do %>
-        	<%= button_tag(class: "btn btn-default btn-sm") do %>
-          	<%= content_tag :span, "#{product.favorites_count}", class: "glyphicon glyphicon-heart" %>
+<!--         	<%= button_tag do %> -->
+            <i class="fa fa-heart faa-pulse animated fa-2x" aria-hidden="true" style="color: red;" ></i>
+          	<%= content_tag :span, "#{product.favorites_count}" %>
           <% end %>
     	<% end %>
     <% else %>
 		  <%= link_to  product_favorites_path(product_id: product.id), {method: :post, remote: true} do %>
-        	<%= button_tag(class: "btn btn-default btn-sm") do %>
-          	<%= content_tag :span, "#{product.favorites_count}", class: "glyphicon glyphicon-heart-empty" %>
+<!--         	<%= button_tag do %>
+ -->          <i class="far fa-heart fa-2x" aria-hidden="true"></i>
+         	<%= content_tag :span, "#{product.favorites_count}" %>
           <% end %>
 		  <% end %>
     <% end %>

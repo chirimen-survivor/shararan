@@ -42,7 +42,7 @@
 	font-family: 'lato', sans-serif;
 }
 
-button{
+.btn-design{
   background: #FF001E;
   color:#fff;
   border:none;
@@ -54,11 +54,11 @@ button{
   transition:800ms ease all;
   outline:none;
 }
-button:hover{
+.btn-design:hover{
   background:#fff;
   color:#FF001E;
 }
-button:before,button:after{
+.btn-design:before,.btn-design:after{
   content:'';
   position:absolute;
   top:0;
@@ -68,13 +68,13 @@ button:before,button:after{
   background: #FF001E;
   transition:400ms ease all;
 }
-button:after{
+.btn-design:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
-button:hover:before,button:hover:after{
+.btn-design:hover:before,.btn-design:hover:after{
   width:100%;
   transition:800ms ease all;
 }
@@ -221,6 +221,41 @@ button:hover:before,button:hover:after{
 	padding:0 1.2em;
 }
 
+
+//商品詳細
+.product_name{
+  margin-left:80px;
+}
+
+.product_status{
+  margin-top:20px;
+}
+
+.product_artist{
+  margin-top:10px;
+  margin-bottom:20px;
+  margin-left:80px;
+}
+
+.product_categorie{
+  margin-left:80px;
+}
+
+.product_quantity{
+  margin-top:5px;
+  font-size:16px;
+}
+
+.product_price{
+  margin-top:20px;
+  margin-left:80px;
+}
+
+.product_favorite{
+  margin-left:120px;
+  margin-top:20px
+}
+
 .myreview {
   margin-left:50px;
   font-size:15px;
@@ -228,18 +263,17 @@ button:hover:before,button:hover:after{
 
 .myreview_star{
   display: inline-block;
+  margin-left:50px;
 }
 .myreview_title{
   display: inline-block;
   margin-left:30px;
 }
 
-.myreview_column{
-}
-
 .myreview_time{
   display: inline-block;
   margin-top:10px;
+  margin-left:50px;
 }
 
 .myreview_product{
@@ -250,6 +284,7 @@ button:hover:before,button:hover:after{
 .myreview_body{
   margin-top:10px;
   margin-bottom:20px;
+  margin-left:50px;
 }
 
 .mypage_font{
@@ -263,4 +298,200 @@ button:hover:before,button:hover:after{
 
 preview_font {
   color:black;
+}
+
+.review_forms{
+  margin-bottom:15px;
+}
+
+.review_rate {
+  font-size:18px;
+  font-weight: normal;
+}
+
+.review_title{
+  display: inline-block;
+  font-weight: bold;
+}
+
+.review_form1{
+  display: inline-block;
+  margin-bottom:30px;
+}
+
+.review_field{
+  display: inline-block;
+  margin-left:70px;
+}
+
+.review_title2 {
+  display: inline-block;
+  margin-top:50px;
+  font-weight: bold;
+}
+
+.review_body{
+  display: inline-block;
+  margin-left:45px;
+  margin_bottom:70px;
+}
+
+.review_submit{
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left:450px;
+}
+
+// 商品画像サイズ調整
+.img-size {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	margin: 20px auto;
+}
+
+// 商品情報
+.price {
+	font-size: 23px;
+	margin-top: 5px;
+}
+
+.amount {
+	font-size: 20px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+/* ここから下がボタンのCSS　*/
+.btn-border {
+  display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 2px solid #9ec34b;
+  font-size: 16px;
+  color: #9ec34b;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: .4s;
+}
+
+.btn-border:hover  {
+  background-color: #9ec34b;
+  border-color: #cbe585;
+  color: #FFF;
+}
+
+.btn-warning {
+	background-color: #1e90ff;
+	border-radius: 20px;
+	border-style: none;
+	width: 350px;
+}
+
+.btn-warning:hover {
+	background-color: #1e90ff;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.1875em);
+}
+
+.btn-warning:visited {
+	background-color: #1e90ff;
+}
+
+.btn-success {
+	background-color: #1e90ff;
+	border-radius: 20px;
+	border-style: none;
+	width: 120px;
+}
+
+.btn-success:hover {
+	background-color: #1e90ff;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.1875em);
+}
+
+.btn-success:visited {
+	background-color: #1e90ff;
+}
+
+.btn-danger {
+	background-color: #FF001E;
+	border-radius: 20px;
+	border-style: none;
+	width: 120px;
+}
+
+.btn-danger:hover {
+	background-color: #FF001E;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.1875em);
+}
+
+.btn-danger:visited {
+	background-color: #FF001E;
+}
+
+.btn-default {
+	background-color: #FF001E;
+	border-radius: 20px;
+	border-style: none;
+  width: 350px;
+  color: #FFF;
+}
+
+.btn-default:hover {
+	background-color: #FF001E;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.1875em);
+}
+
+.btn-default:visited {
+	background-color: #FF001E;
+}
+
+//  カレンダーの位置を調整
+
+#carendar-position {
+  position: relative;
+}
+
+// カートに入れる　いいねアイコンセクション
+
+.btn-info {
+	float: right;
+}
+
+.icon-field {
+	width: 35%;
+	float: right;
+	margin-right: 100px;
+	margin-bottom: 15px;
+}
+
+.fa-thumbs-up {
+	font-size: 40px;
+	margin: 15px auto;
+}
+
+
+.container order{
+	margin: 20px;
+}
+
+
+// フォームの調整
+
+.area-position {
+  margin-bottom: 40px;
+}
+
+.label-position {
+  margin-top: 15px;
+}
+
+.f-position {
+  margin-bottom: 20px;
 }

@@ -4,28 +4,23 @@
     <title>Shararan</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
   </head>
 
   <body>
-      <div class="wrap">
               <!-- header -->
               <%= render 'share/header' %>
 
               <div class="flash-field">
               </div>
 
-                <%= yield %>
+              <%= yield %>
               <!-- footer -->
-              <div class="footer">
               <%= render 'share/footer' %>
-              </div>
-
              <!-- Flash メッセージ -->
               <%= render 'layouts/flash' %>
-      </div>
   </body>
 </html>
