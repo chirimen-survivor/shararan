@@ -1,6 +1,8 @@
 
 <!-- お届け先、支払い方法の選択 -->
 <%= form_tag(new_customer_order_path, method: :get) do %>
+<body>
+<div class="wrap">
 <div class="back-color">
 	<div class="container">
 		<div class="row">
@@ -14,7 +16,7 @@
 
 	<div class="box1234">
 		<div class="container">
-		<div class="row">
+			<div class="row">
 				<div class="cart-role">
 					<div class="col-md-3">
 						<ul class="list-unstyled">
@@ -84,7 +86,7 @@
 							<%= radio_button_tag 'address', 0, checked: true %>
 							</div>
 							<div class="col-md-3">
-								<div class="card card-body">
+								<div class="card1 card-body">
 									<h5 class="card-title">名前: <%= @customer.last_name + @customer.first_name %></h5>
 									<p class="card-text">住所: 〒<%= @customer.postal_code1 %> - <%= @customer.postal_code2 %></p>
 									<p class="card-text"><%= @customer.prefecture_name + @customer.city + @customer.building %></p>
@@ -97,7 +99,7 @@
 								<%= radio_button_tag 'address', 0 %>
 							</div>
 							<div class="col-md-3">
-								<div class="card card-body">
+								<div class="card1 card-body">
 									<h5 class="card-title">名前: <%= address.last_name + address.first_name %></h5>
 									<p class="card-text">住所: 〒<%= address.postal_code1 %> - <%= address.postal_code2 %></p>
 									<p class="card-text"><%= address.prefecture_name + address.city + address.building %></p>
@@ -118,16 +120,18 @@
 						</div>
 						<div class="row">
 							<div class="col-md-3">
-			  				<div class="paypay">
+			  					<label class="paypay">
 									<%= radio_button_tag 'payment', '現金振込', checked: true %>現金振込
-			  					</div>
+			  					</lavel>
 			  					<br/>
-			  					<div class="paypay">
+			  					<br/>
+			  					<label class="paypay">
 									<%= radio_button_tag'payment',  'クレジットカード'%>
 			  						クレジットカード
-			  					</div>
+			  					</label>
 			  					<br/>
-			  					<label>
+			  					<br/>
+			  					<label class="paypay">
 									<%= radio_button_tag 'payment', '代引'%>
 			  						代引
 			  					</label>
@@ -136,26 +140,29 @@
 						</div>
 
 						<div class="label4">
-							<div class="card card-body col-md-6">
-      				<p class="card-text text-left">小計 
-      					<% total_price = 0 %>
-								<% @carts.each do |cart| %>
-								<% total_price += cart.product.price * cart.quantity %>
-								<% end %>
-								¥<%= number_with_delimiter(total_price) %>
-							</p>
-							<p class="card-text text-left">送料 
-								¥ <%= @postage.ship %>
-							</p>
-							<h4 class="text-right">¥<%= number_with_delimiter(total_price + @postage.ship) %>(税込)</h4>
-
-								<%= submit_tag "確認画面へ", class: 'btn btn-default btn-md ' %>
+							<div class="card1 card-body col-md-7">
+								<div class="row item">
+									<div class="col-md-3 text-center">小計</div>
+										<div class="col-md-7 text-right">
+	      							<% total_price = 0 %>
+											<% @carts.each do |cart| %>
+											<% total_price += cart.product.price * cart.quantity %>
+											<% end %>
+											¥<%= number_with_delimiter(total_price) %>
+	      						</div>
+	      					</div>
+	      					<div class="row">
+										<div class="col-md-3 text-center">送料</div>
+											<div class="col-md-7 text-right">
+												¥ <%= @postage.ship %>
+											</div>
+									</div>
+									<h4 class="total_confirm text-right">¥<%= number_with_delimiter(total_price + @postage.ship) %>(税込)</h4>
+									<%= submit_tag "確認画面へ", class: 'btn btn-danger btn-md center-block' %>
 							</div>
+    				</div>
     			</div>
-    			</div>
-
-							</div>
-
-					</div>
 				</div>
-		<% end %>
+			<% end %>
+		</div>
+</body>
