@@ -148,16 +148,16 @@
 											<% @carts.each do |cart| %>
 											<% total_price += cart.product.price * cart.quantity %>
 											<% end %>
-											¥<%= number_with_delimiter(total_price) %>
+											¥ <%= number_with_delimiter(total_price) %>
 	      						</div>
 	      					</div>
-	      					<div class="row">
+	      					<div class="row item">
 										<div class="col-md-3 text-center">送料</div>
 											<div class="col-md-7 text-right">
 												¥ <%= @postage.ship %>
 											</div>
 									</div>
-									<h4 class="total_confirm text-right">¥<%= number_with_delimiter(total_price + @postage.ship) %>(税込)</h4>
+									<h4 class="total_confirm text-right">¥ <%= number_with_delimiter(total_price + @postage.ship) %>(税込)</h4>
 									<%= submit_tag "確認画面へ", class: 'btn btn-danger btn-md center-block' %>
 							</div>
     				</div>
