@@ -127,27 +127,26 @@
 				</div>
 			</div>
 
-
 			<div class="col-md-6">
 				<div class="container">
 					<div class="col-md-6">
 						<div class="label8">
-								<div class="card1 col-md-6">
+								<div class="card1 col-md-7">
 									<div class="row item">
 										<div class="col-md-4 text-center">小計</div>
-										<div class="col-md-8 text-right">
-	      							¥<%= number_with_delimiter(total_price.to_i) %>
+										<div class="col-md-6 text-right">
+	      							¥ <%= number_with_delimiter(total_price.to_i) %>
 		      					</div>
 		      				</div>
-	      					<div class="row-sp">
-										<div class="col-md-3 text-center">送料</div>
-										<div class="col-md-9 text-right">
-											¥<%= @postage.ship %>
+	      					<div class="row item">
+										<div class="col-md-4 text-center">送料</div>
+										<div class="col-md-6 text-right">
+											¥ <%= @postage.ship %>
 										</div>
 									</div>
-									<h4 class="total_confirm text-right">¥<%= number_with_delimiter(total_price.to_i + @postage.ship) %> (税込)</h4>
+									<h4 class="total_confirm text-right">¥ <%= number_with_delimiter(total_price.to_i + @postage.ship) %> (税込)</h4>
 
-									<%= submit_tag "確認画面へ", class: 'btn btn-danger btn-md center-block' %>
+									<%= submit_tag "注文する", class: 'btn btn-danger btn-md center-block' %>
 								</div>
 	    				</div>
 	    			</div>
