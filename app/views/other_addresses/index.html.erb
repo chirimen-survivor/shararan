@@ -29,7 +29,7 @@
 	 		</div>
 	 	</div>
 	 	<div class="row">
-	 			<%= f.text_field :prefecture_code, autofocus: true, autocomplete: "prefecture_code", id: "adrs3" %>
+	 		<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, {}, id:"adrs3" %>
 	 			<%= f.text_field :city, autofocus: true, autocomplete: "city", id: "adrs4" %>
 	 	</div>
 	 	<div class="row">
