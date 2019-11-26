@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     else
       @cart_item = current_customer.cart_items.find_by(product_id: params[:product_id])
       @cart_item.update(cart_params)
-      flash[:notice] = "カートに商品を追加しました"
+      flash[:notice] = "カートの商品数を更新しました"
       redirect_to customer_cart_items_path(current_customer)
     end
   end
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   private
 
     def search_params
-      params.require(:q).permit(:sorts, :name_cont)
+      params.require(:q).permit(:sorts, :name_or_categorie_name_or_artist_name_cont )
     end
 
     def cart_params
