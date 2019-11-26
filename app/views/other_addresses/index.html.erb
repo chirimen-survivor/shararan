@@ -23,17 +23,17 @@
 	 	<div class="row">
 	 			<h5>住所</h5>
 	 		<div class="co-lg-6">
-	 			<P>〒</P>
-	 			<%= f.number_field :postal_code1 %>
-	 			<%= f.number_field :postal_code2 %>
+	 			<p>〒</p>
+	 			<%= f.text_field :postal_code1,  id: "zip1"  %>
+	 			<%= f.text_field :postal_code2,  id: "zip2"  %>
 	 		</div>
 	 	</div>
 	 	<div class="row">
-	 			<%= f.collection_select :prefecture_code,  JpPrefecture::Prefecture.all, :code, :name %>
-	 			<%= f.text_field :city %>
+	 			<%= f.text_field :prefecture_code, autofocus: true, autocomplete: "prefecture_code", id: "adrs3" %>
+	 			<%= f.text_field :city, autofocus: true, autocomplete: "city", id: "adrs4" %>
 	 	</div>
 	 	<div class="row">
-	 		<%= f.text_field :building %>
+	 		<%= f.text_field :building, autofocus: true, autocomplete: "building", id: "adrs5" %>
 	 	</div>
 	 	<div class="row">
 	 			<h5>電話番号</h5>
@@ -119,3 +119,23 @@
 	 <% end %>
 	</div>
 </div>
+
+<script>
+$(window).ready( function() {
+	$('#zip1').jpostal({
+		postcode : [
+			'#zip1',	//郵便番号1
+			'#zip2' 	//郵便番号2
+		],
+		address : {
+			'#adrs3'  : '%3',	//都道府県
+			'#adrs4'  : '%4',	//市区町村
+			'#adrs5'  : '%5',	//町域
+			'#adrs6'  : '%6',	//大口事業所の番地
+			'#adrs7'  : '%7',	//大口事業所の名称
+			'#adrs8'  : '%8',	//都道府県カナ
+			'#adrs9'  : '%9'	//市区町村カナ
+		}
+	});
+});
+</script>
