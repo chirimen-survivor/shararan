@@ -12,7 +12,7 @@
               <p class="navbar-brand">しゃららん</p>
             </div>
 
-            <div class="collapse navbar-collapse list1 id="bs-example-navbar-collapse-2">
+            <div class="collapse navbar-collapse list1" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav">
                 <li><%= link_to '商品一覧', root_path %></li>
                 <li><%= link_to 'マイページ', customer_path(current_customer.id) %></li>
@@ -21,13 +21,13 @@
               </ul>
             </div>
             <div class="list2"><%= render 'share/seach_form' %></div>
-            <div class="list3">ログイン中</div>
+            <div class="list3"><%= current_customer.last_name %>さま</div>
           </div>
         </nav>
       <!-- customer がログインしていなかった場合 -->
       <% else %>
         <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container-fluid">
+          <div class="container-fluid block">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
                 <span class="sr-only">Toggle navigation</span>
@@ -38,14 +38,14 @@
               <p class="navbar-brand">しゃららん</p>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <div class="collapse navbar-collapse list1" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav">
                 <li><%= link_to '商品一覧',root_path%> <span class="sr-only">(current)</span></a></li>
                 <li><%= link_to 'ログイン',new_customer_session_path%></li>
                 <li><%= link_to '新規登録',new_customer_registration_path%></li>
-                <li><%= render 'share/seach_form' %></li>
               </ul>
             </div>
+          <div class="list4"><%= render 'share/seach_form' %></div>
           </div>
         </nav>
       <% end %>

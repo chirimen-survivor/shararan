@@ -30,12 +30,6 @@
   margin-bottom: 30px;
 }
 
-.heading a {
-	
-}
-
-
-
 hr {
 	height: 2px;
 	background-color: black;
@@ -300,6 +294,7 @@ label3{
  .list3 {
  	flex-grow:0.5;
 	font-size: 15px;
+	margin-top: 20px;
 }
 .block{
 	display: flex;
@@ -329,6 +324,9 @@ label3{
  	flex-grow:0.5;
 	font-size: 15px;
 }
+.list4{
+ 	flex-grow:2;
+}
 .block{
 	display: flex;
 	font-style: italic
@@ -347,7 +345,7 @@ label3{
 
 //フッター
 footer{
-	background-color: black;
+	background-color: #262c30;
 	color: #f0f4f6;
 }
 .Lower-Footer{
@@ -481,4 +479,6 @@ footer{
 	font-size: 15px;
 	margin-top: 5px;
 }
-
+.black2{
+	background-color: #f0f3f6;
+	}
