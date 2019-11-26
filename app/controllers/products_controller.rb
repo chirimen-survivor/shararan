@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   private
 
     def search_params
-      params.require(:q).permit(:sorts, :name_or_categorie_name_or_artist_name_cont )
+      params.require(:q).permit(:sorts, :name_or_categorie_name_or_artist_name_or_discs_songs_name_cont )
     end
 
     def cart_params
