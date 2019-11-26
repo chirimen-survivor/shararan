@@ -196,11 +196,12 @@ dl.searchbox dd{
 
 
 
-// 支払先選択
+// 購入時の現在地
 .ec-progress__label1 {
 	color: #5bc0de;
 }
 
+//支払選択
 
 //背景
 .back-color {
@@ -224,6 +225,11 @@ dl.searchbox dd{
 	width: 30%;
 }
 
+//注文内容の確認
+.box5{
+	background-color: #CCCCCC;
+	margin-bottom: 20px;
+}
 
 // ご注文履歴お届け先
 .row-eq-height {
@@ -272,7 +278,7 @@ label3{
 }
 
 .order-box{
-	margin: 50px auto;
+	margin: 20px auto;
 }
 
 
