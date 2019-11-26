@@ -1,159 +1,135 @@
-<div class = "top-space">
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
-<nav class="navbar navbar-default ">
-  <div class="container-fluid">
-  <!-- ヘッダー部分 ================ -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">マイページ</a>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav_target">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-  <!-- 右寄せになる部分 ================ -->
-      <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><%= link_to 'いいね一覧', customer_favorites_path(@customer.id) %></a></li>
-              <li><a href="#"><%= link_to '住所一覧', other_addresses_path(@customer.id) %></a></li>
-              <li><a href="#"><%= link_to 'お問い合わせ', customer_contact_path(@customer.id) %></a></li>
-              <li><a href="#"><%= link_to '購入一覧', customer_orders_path(@customer.id  ) %></a></li>
-              <li><a href="#"><%= link_to '退会手続き', exit_customer_path %></a></li>
-            </ul>
-          </li>
+<div class = "mypage_color">
+  <div class="container">
+    <h1 class = "mypage_name">マイページ</h1>
+    <div class = "mynav">
+      <ul id="nav">
+      <li><a href="#"><%= link_to 'いいね一覧', customer_favorites_path(@customer. id) %></a></li>
+      <li><a href="#"><%= link_to '住所一覧', other_addresses_path(@customer.id)  %></a></li>
+      <li><a href="#"><%= link_to 'お問い合わせ', customer_contact_path(@customer.  id) %></a></li>
+      <li><a href="#"><%= link_to '購入一覧', customer_orders_path(@customer.id   ) %></a></li>
+      <li><a href="#"><%= link_to '退会手続き', exit_customer_path %></a ></li>
       </ul>
     </div>
-</nav>
-<div class="container">
-	<div class="mypage-info">
-	<%= form_for(@customer) do |f| %>
-	 	<div class="row">
-      <div class=" mypage_text">
-	 		  <div class="co-lg-6">
-		      <h3 class = "mypage_font">お名前</h3>
-          <div class = "mypage_column1">
-		        <%= f.text_field :last_name %>
-            <div class = "mypage_column2">
-		          <%= f.text_field :first_name %>
-            </div>
-          </div>
-	 		  </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class=" mypage_text">
-	 	   <div class="co-lg-6">
-		    <h3 class = "mypage_font">お名前（フリガナ）</h3>
-          <div class = "mypage_column1">
-		        <%= f.text_field :last_name_kana %>
-            <div class = "mypage_column2">
-		          <%= f.text_field :first_name_kana %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class=" mypage_text">
-        <div class="co-lg-6">
-		      <h3 class = "mypage_font">住所</h3>
-          <div class = "mypage_column3">
-            〒 <%= f.text_field :postal_code1, size:"10x10" %> - <%= f.text_field :postal_code2, size:"10x10" %>
-          </div>
-          <div class = "My_address">
-            <div class = "mypage_column4">
-		          <!-- 都道府県はプルダウン式にするのでcollectionを使います。 -->
-		          <%= f.collection_select :prefecture_code, JpPrefecture::  Prefecture.all, :code, :name %>
-            </div>
-            <div class = "mypage_column6">
-		          <%= f.text_field :city, size:"35x10" %>
-            </div>
-            <div class = "mypage_column5">
-		          <%= f.text_area :building, size: "30x3" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class=" mypage_text">
-        <div class="co-lg-6">
-        	<h3 class = "mypage_font">電話番号</h3>
-          <div class = "mypage_column1">
-		        <%= f.text_field :phone_number1, size:"10x10" %> - 
-		        <%= f.text_field :phone_number2, size:"10x10" %> - 
-		        <%= f.text_field :phone_number3, size:"10x10" %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class=" mypage_text">
-        <div class="co-lg-6">
-        		<h3 class = "mypage_font">メールアドレス</h3>
+  </div>
+  <div class="container">
+  	<div class="mypage-info">
+  	<%= form_for(@customer) do |f| %>
+  	 	<div class="row">
+        <div class=" mypage_text">
+  	 		  <div class="co-lg-6">
+  		      <h3 class = "mypage_font">お名前</h3>
             <div class = "mypage_column1">
-		          <%= f.email_field :email, size:"40x10" %>
+  		        <%= f.text_field :last_name %>
+              <div class = "mypage_column2">
+  		          <%= f.text_field :first_name %>
+              </div>
+            </div>
+  	 		  </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" mypage_text">
+  	 	   <div class="co-lg-6">
+  		    <h3 class = "mypage_font">お名前（フリガナ）</h3>
+            <div class = "mypage_column1">
+  		        <%= f.text_field :last_name_kana %>
+              <div class = "mypage_column2">
+  		          <%= f.text_field :first_name_kana %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class = "mypage_submit">
-			 <%= f.submit('保存する', class: 'btn btn-danger') %>
-      </div>
-      </div>
-		</div>
-	</div>
-<% end %>
-
-<div class="container">
-  <h2 class = "mypage_font">レビュー一覧</h2>
-  <div class="myreview">
-    <% @reviews.each do |r| %>
-    <div class = myreview_star>
-     <div id="star-rate-<%= r.id %>"></div>
-        <script>
-        $('#star-rate-<%= r.id %>').raty({
-          size: 36,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          half: true,
-          readOnly: true,
-          score: <%= r.rating %>,
-        });
-        </script>
-      </div>
-      <div class = "myreview_title">
-        <h5 class = "myreview_font"><%= r.title %></h5>
-      </div>
-      <div class = "myreview_column">
-        <div class = "myreview_time">
-          <h5 class = "myreview_font"><%= r.created_at.strftime('%Y/%m/%d') %></h5>
-        </div>
-        <div class = "myreview_product">
-          <h5 class = "myreview_font"><%= r.product.name %></h5>
+      <div class="row">
+        <div class=" mypage_text">
+          <div class="co-lg-6">
+  		      <h3 class = "mypage_font">住所</h3>
+            <div class = "mypage_column3">
+              〒 <%= f.text_field :postal_code1, size:"10x10" %> -   <%= f.text_field :postal_code2, size:"10x10" %>
+            </div>
+            <div class = "My_address">
+              <div class = "mypage_column4">
+  		          <!--  都道府県はプルダウン式にするのでcollectionを使います。 -->
+  		          <%= f.collection_select :prefecture_code,   JpPrefecture::  Prefecture.all, :code, :name %>
+              </div>
+              <div class = "mypage_column6">
+  		          <%= f.text_field :city, size:"35x10" %>
+              </div>
+              <div class = "mypage_column5">
+  		          <%= f.text_area :building, size: "30x3" %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class = "myreview_body">
-        <h5 class = "myreview_font"><%= r.body %></h5>
+  
+      <div class="row">
+        <div class=" mypage_text">
+          <div class="co-lg-6">
+          	<h3 class = "mypage_font">電話番号</h3>
+            <div class = "mypage_column1">
+  		        <%= f.text_field :phone_number1, size:"10x10" %> - 
+  		        <%= f.text_field :phone_number2, size:"10x10" %> - 
+  		        <%= f.text_field :phone_number3, size:"10x10" %>
+            </div>
+          </div>
+        </div>
       </div>
-    <% end %>
+      <div class="row">
+        <div class=" mypage_text">
+          <div class="co-lg-6">
+          		<h3 class = "mypage_font">メールアドレス</h3>
+              <div class = "mypage_column1">
+  		          <%= f.email_field :email, size:"40x10" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "mypage_submit">
+  			 <%= f.submit('保存する', class: 'btn btn-danger') %>
+        </div>
+        </div>
+  		</div>
+  <% end %>
+  
+  <div class="container">
+    <h2 class = "mypage_font">レビュー一覧</h2>
+    <div class="myreview">
+      <% @reviews.each do |r| %>
+      <div class = myreview_star>
+       <div id="star-rate-<%= r.id %>"></div>
+          <script>
+          $('#star-rate-<%= r.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= r.rating %>,
+          });
+          </script>
+        </div>
+        <div class = "myreview_title">
+          <h5 class = "myreview_font"><%= r.title %></h5>
+        </div>
+        <div class = "myreview_column">
+          <div class = "myreview_time">
+            <h5 class = "myreview_font"><%= r.created_at.strftime('%Y /%m/%d') %></h5>
+          </div>
+          <div class = "myreview_product">
+            <h5 class = "myreview_font"><%= r.product.name %></h5>
+          </div>
+        </div>
+        <div class = "myreview_body">
+          <h5 class = "myreview_font"><%= r.body %></h5>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class = "text-center">
+    <%= paginate @reviews, class: "paginatate" %>
   </div>
 </div>
-<div class = "text-center">
-  <%= paginate @reviews, class: "paginatate" %>
-</div>
+
+

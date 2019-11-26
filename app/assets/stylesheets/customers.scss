@@ -32,6 +32,12 @@
 }
 
 //マイページ
+
+.mypage_drop{
+	display:inline-block;
+}
+
+
 .mypage_text{
 	margin-bottom: 5px;
 }
@@ -116,4 +122,35 @@
 .myreview_font{
 	color:white;
 	font-weight: bold;
+}
+
+#nav {
+  list-style: none;
+  font-size: 0;
+}
+
+#nav li {
+  width: 140px;
+  text-align: center;
+  background-color: #333;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#nav li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.mypage_color{
+	background-color:gray;
+}
+
+.mypage_name{
+	color:white;
+}
+
+.mynav{
+	margin-top:20px;
 }

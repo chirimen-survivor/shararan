@@ -3,24 +3,22 @@
     <hr class="my-4">
     <div class="row">
       <div class="col-lg-5 col-lg-offset-1">
-        <img src="https://www.pakutaso.com/shared/img/thumb/00_PP59_PP_TP_V.jpg" class="img-size">
+        <img src="https://www.pakutaso.com/shared/img/thumb/00_PP59_PP_TP_V.jpg" width="350" height="350">
       </div>
-      <div class="col-lg-6">
-        <div class="sale-status">
-          <div class = "row">
-            <div class = "col-lg-8">
-              <div class = "product_name">
-                <h2><%= @product.name %></h2>
+      <div class="col-sm-6">
+        <div class = "row">
+          <div class = "col-sm-6">
+            <div class = "product_name">
+              <h2><%= @product.name %></h2>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class = "product_status">
-                <% if !@current_stock_array.empty? || @product.status == 1 %>
-                  <p class="btn-border">販売中</p>
-                <% else %>
-                  <p class="btn-border">販売停止</p>
-                <% end %>
-              </div>
+          </div>
+          <div class="col-md-4">
+            <div class = "product_status">
+              <% if !@current_stock_array.empty? || @product.status == 1 %>
+                <p class="btn-border">販売中</p>
+              <% else %>
+                <p class="btn-border">販売停止</p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -35,12 +33,8 @@
             <p class="price"><%= "¥ #{@product.price.to_s(:delimited)} 税込" %></p>
           </div>
         </ul>
-
       </div>
       <hr class="my-4">
-  </div>
-
-  <div class="container">
     <div class="icon-field">
       <%= form_for @cart_item, url: product_cart_items_path(@product) do |f| %>
         <% if !@current_stock_array.empty? %>
@@ -52,7 +46,9 @@
               </div>
             </div>
             <div class="col-sm-8">
-              <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
+              <div class = "cart_button">
+                <%= f.submit 'カートに入れる', class: "btn btn-block btn-info" %>
+              </div>
             </div>
           </div>
         <% end %>
@@ -63,33 +59,44 @@
       </div>
     </div>
   </div>
+</div>
 
   <div class="container">
     <hr class="my-4">
     <div class="product-release">
       <h4>商品の情報</h4>
+    </div>
+    <div class = "release_info">
       <p><%= "発売日  #{@product.release_date}" %></p>
       <p><%= "レーベル名: #{@product.company.name}" %></p>
     </div>
     <hr class="my-4">
     <div class="product-description">
       <h4>商品説明</h4>
+    </div>
+    <div class = "product_explain">
       <p><%= @product.description %></p>
     </div>
     <hr class="my-3">
   </div>
   <div class="container">
-    <h4><%= "構成数:#{@product.discs.size}枚組" %></h4><br>
-    <p>曲名</p>
-    <div class="disc-info">
-      <div class="disc1">
-        <% @discs.each do |disc| %>
-          <p><%= "Disc#{disc.sequence}" %></p>
-          <% songs = disc.songs.all.order(sequence: 'ASC') %>
-          <% songs.each do |song| %>
-            <p><%= "#{song.sequence}.#{song.name}" %></p>
+    <div class = "disc_info">
+      <h4><%= "構成数:#{@product.discs.size}枚組" %></h4><br>
+      <div class = "product_song">
+        <p>曲名</p>
+      </div>
+      <div class="disc-info">
+        <div class="disc1">
+          <% @discs.each do |disc| %>
+            <p><%= "Disc#{disc.sequence}" %></p>
+              <% songs = disc.songs.all.order(sequence: 'ASC') %>
+              <div class = "song_name">
+                <% songs.each do |song| %>
+                  <p><%= "#{song.sequence}.#{song.name}" %></p>
+                <% end %>
+              </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   <hr class="my-4">
