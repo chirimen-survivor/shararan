@@ -6,11 +6,11 @@
 			<div class = "exit_email"><%= @customer.email %></div>
 		</div>
 		<div class = "exit_link1">
-			<%= link_to 'マイページに戻る', customer_path %>
+			<%= link_to 'マイページに戻る', customer_path, class: 'btn btn-default' %>
 		</div>
 		<div class = "exit_link2">
 			<!-- 退会後は商品一覧ページに行きます。 -->
-			<%= link_to "退会する", customer_path(@customer.id), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+			<%= link_to "退会する", customer_path(@customer.id),class: 'btn btn-default', method: :delete, "data-confirm" => "本当に退会しますか？" %>
 		</div>
 	</div>
 </div>

@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def show
     @review = Review.new
     @product = Product.find(params[:id])
-    @reviews = @product.reviews.page(params[:page])
+    @reviews = @product.reviews.page(params[:page]).per(3)
     @cart_item = CartItem.new(product_id: @product.id)
     @discs = @product.discs.all.order(sequence: 'ASC')
     @details = OrderDetail.where(product_id: @product.id)
