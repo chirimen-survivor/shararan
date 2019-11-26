@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
 		end
 	end
 
-
 	def create
 		# 購入情報を確定する
 		@order = Order.new
@@ -67,7 +66,6 @@ class OrdersController < ApplicationController
 			@order_detail.subtotal = cart.product.price * cart.quantity
 			@order_detail.quantity = cart.quantity
 		end
-
 
 		@order.transaction do
 			@order.save!
