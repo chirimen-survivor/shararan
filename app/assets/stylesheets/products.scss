@@ -437,14 +437,21 @@ preview_font {
 	margin-bottom: 5px;
 }
 
+
+.img-shadow {
+  box-shadow: 0 5px 8px #696969;
+  width: 350px;
+  height: 350px;
+}
+
 /* ここから下がボタンのCSS　*/
 .btn-border {
   display: inline-block;
   max-width: 180px;
   text-align: left;
-  border: 2px solid #9ec34b;
+  border: 2px solid #ff0000;
   font-size: 16px;
-  color: #9ec34b;
+  color: #ff0000;
   text-decoration: none;
   font-weight: bold;
   padding: 8px 16px;
@@ -453,8 +460,8 @@ preview_font {
 }
 
 .btn-border:hover  {
-  background-color: #9ec34b;
-  border-color: #cbe585;
+  background-color: #ff0000;
+  border-color: #ff0000;
   color: #FFF;
 }
 
@@ -534,10 +541,23 @@ preview_font {
 }
 
 // カートに入れる　いいねアイコンセクション
+.cart_button {
+  background-color:black;
+  border-style: none;
+    .btn-info {
+      background-color:black;
+      border-style: none;
+      float: right;
 
-.btn-info {
-	float: right;
+      &:hover {
+        background-color: black;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+        transform: translateY(-0.1875em);
+      }
+    }
+
 }
+
 
 .icon-field {
 	width: 35%;
