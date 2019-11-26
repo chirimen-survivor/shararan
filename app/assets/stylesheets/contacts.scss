@@ -1,3 +1,61 @@
 // Place all the styles related to the Contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Contact{
+	height: 900px;
+	width: 700px;
+	text-align: center;
+}
+.Contact-Tanaka{
+	font-size: 20px;
+	color: black;
+	font-style: italic;
+	padding: 70px 0 15px 0;
+	margin: 0 0 30px 0;
+	border-bottom: 2px solid;
+	width: 43%;
+	font-family: 'Monaco','Segoe UI Symbol',sans-serif;
+}
+.Contact-box{
+	padding: 100px 0 100px 0;
+	border-radius: 10px;
+	background-color: white;
+	font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,sans-serif;
+}
+.Contact-box-contents {
+	margin: 50px auto;
+}
+.Contact{
+input[type="text"] {
+        width: 400px;
+        height: 40px;
+    }
+input[type="submit"] {
+        width: 100px;
+        height: 40px;
+        border-style: solid;
+        color: #79797a;
+        background-color: #f5f5f5;
+        border-radius: 15px;
+
+    }
+input:hover[type="submit"] {
+        color: white;
+        background-color: #BB0000;
+        border-radius: 15px;
+        opacity: 0.8;
+    }
+}
+.Maneger-Contact-box{
+	margin: 50px 0 0 20px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.Contact-title{
+	font-size: 30px;
+	border-bottom: solid 3px #3a3b50;
+}
+.Contact-text{
+	color: #3a3b50;
+	margin: 10px;
+}

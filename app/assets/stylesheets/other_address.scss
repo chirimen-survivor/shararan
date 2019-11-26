@@ -1,0 +1,60 @@
+.other_address{
+}
+.other_address_box{
+	margin: 0 auto;
+	width: 57%;
+}
+.other_address_box-submit{
+		margin: 10px 0 10px 450px;
+		input[type="submit"] {
+        width: 70px;
+        height: 30px;
+        border-style: solid;
+        color: #79797a;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+    	}
+		input:hover[type="submit"] {
+        color: white;
+        background-color: #BB0000;
+        border-radius: 15px;
+        opacity: 0.8;
+    }
+}
+.other_address_number{
+	margin-top: auto;
+    	input[type="text"] {
+        width: 50px;
+        height: 25px;
+    }
+}
+.other_address_add{
+	width: 400px;
+	display: flex;
+	margin:50px 0 0 100px;
+	h5{
+		border-bottom: 2px solid;	}
+}
+.other_address_box_add{
+	margin: 0 auto;
+	width: 80%;
+	background-color: blue;
+}
+.other_address_box_button{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #668ad8;
+  border: dashed 1px #FFF;
+}
+.other_address_box_button:hover {
+  border: dotted 1px #FFF;
+}
+.other-address-title{
+	margin:100px 0 0 50px;
+	background: linear-gradient(transparent 50%, yellow 50%);
+	width: 30%;
+}
