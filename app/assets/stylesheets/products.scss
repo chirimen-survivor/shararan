@@ -8,12 +8,47 @@
 // 	background-color: rgba(255, 255, 255, 0.7);     /* 背景色指定 */
 // }
 .bg {
-	text-align:  center;    /* 文字中央寄せ */
+	// text-align:  center;    /* 文字中央寄せ */
   background-image: url("/images/backimage2.jpg");    /* 背景画像指定 */
   background-size: cover;
   height: 800px;
+  position: relative;
 }
 
+.bg-text1 {
+  position: absolute;
+  top: 370px;
+  left: 140px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.bg-text2 {
+  position: absolute;
+  top: 420px;
+  left: 140px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.bg-text3 {
+  position: absolute;
+  top: 470px;
+  left: 140px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.bg-image {
+  position: absolute;
+  top: 270px;
+  left: 130px;
+  width: 448px;
+  height: auto;
+}
 
 // ランキング
 
@@ -39,7 +74,9 @@
 .ranks {
 	color: #fff;
 	font-size: 25px;
-	font-family: 'lato', sans-serif;
+  font-family: 'lato', sans-serif;
+  border-bottom: solid 2px #ff0000;
+  width: 50px;
 }
 
 .btn-design{
