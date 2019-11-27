@@ -1,11 +1,10 @@
 <script src="other_addresses.js" charset="utf-8"></script>
 
 <div class="container">
-	<h1>住所一覧</h1>
 	<div class="row">
 
 		<!-- 住所追加 -->
-		 <h4>新しい住所の追加</h4>
+		 <div class="other-address-title-top">新しい住所の追加</div>
 		 <div class="other_address well col-md-6">
 		 	<div class="other_address_box">
 			 	<%= form_for(@other_address) do |f| %>
@@ -56,36 +55,38 @@
 			<% @other_addresses.each do |other_address|%>
 			<div class="other_address_add well">
 				<div class="other_address_box">
-				 		<div class="other_address_box-list">
-				 			<h5>お名前</h5>
-				 			<%= other_address.last_name %>
-			        		<%= other_address.first_name %>
-				 		</div>
-				 		<div class="other_address_box-list">
-				 			<h5>フリガナ</h5>
-				 			<%= other_address.last_name_kana %>
-			        		<%= other_address.first_name_kana %>
-				 		</div>
 				 	<div class="other_address_box-list">
-				 		<div class="other_address_box-list other_address_number">
-				 			<h5>郵便番号</h5>
+				 		<div class="other_address_box-postal">
+				 			<!-- <h5>郵便番号</h5> -->
 				 			<span> 〒 </span>
 				 			<%= other_address.postal_code1 %><span> - </span>
 				 			<%= other_address.postal_code2 %>
 				 		</div>
 				 	</div>
-				 	<div class="other_address_box-list">
-				 			<h5>住所</h5>
+				 	<div class="other_address_box-city">
+				 			<!-- <h5>住所</h5> -->
 				 			<%= other_address.prefecture_code %>
 				 	</div>
-				 	<div class="other_address_box-list">
+				 	<div class="other_address_box-city">
 				 		<%= other_address.city %>
 				 	</div>
-				 	<div class="other_address_box-list">
+				 	<div class="other_address_box-city">
 				 		<%= other_address.building %>
 				 	</div>
-				 	<div class="other_address_box-list other_address_number">
-				 			<h5>電話番号</h5>
+				 		<div class="other_address_name_kana">
+				 			<!-- <h5>フリガナ</h5> -->
+				 			<%= other_address.last_name_kana %><span>   </span>
+			        		<%= other_address.first_name_kana %>
+				 		</div>
+				 		<div class="other_address_box-name">
+				 			<!-- <h5>お名前</h5> -->
+				 			<%= other_address.last_name %><span>   </span>
+			        		<%= other_address.first_name %><span> さま </span>
+				 		</div>
+
+
+				 	<div class="other_address_phone_number">
+				 			<span>Tell : </span>
 				 			<%= other_address.phone_number1 %><span> - </span>
 			        		<%= other_address.phone_number2 %><span> - </span>
 			        		<%= other_address.phone_number3 %>
