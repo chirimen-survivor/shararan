@@ -1,7 +1,7 @@
 class Managers::ArrivalsController < ApplicationController
 
 	def index
-		@arrivals = Arrival.all.all.order(id: "DESC").page(params[:page]).per(20)
+		@arrivals = Arrival.includes(:product).all.order(id: "DESC").page(params[:page]).per(20)
 	end
 
 	private

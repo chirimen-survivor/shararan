@@ -2,14 +2,14 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_customer!, only: [:index, :show, :search_results]
 
   def index
-    @products = @q.result(distinct: true).page(params[:page])
-    @all_ranks = Product.find(Favorite.group(:product_id).order('count(product_id) desc').limit(3).pluck(:product_id))
+    @products = Product.page(params[:page])
+    @all_ranks = Product.includes(:categorie).find(Favorite.group(:product_id).order('count(product_id) desc').limit(3).pluck(:product_id))
   end
 
   def show
     @review = Review.new
     @product = Product.find(params[:id])
-    @reviews = @product.reviews.page(params[:page])
+    @reviews = @product.reviews.page(params[:page]).per(3)
     @cart_item = CartItem.new(product_id: @product.id)
     @discs = @product.discs.all.order(sequence: 'ASC')
     @details = OrderDetail.where(product_id: @product.id)
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     else
       @cart_item = current_customer.cart_items.find_by(product_id: params[:product_id])
       @cart_item.update(cart_params)
-      flash[:notice] = "カートに商品を追加しました"
+      flash[:notice] = "カートの商品数を更新しました"
       redirect_to customer_cart_items_path(current_customer)
     end
   end
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   private
 
     def search_params
-      params.require(:q).permit(:sorts, :name_cont)
+      params.require(:q).permit(:sorts, :name_or_categorie_name_or_artist_name_or_discs_songs_name_cont )
     end
 
     def cart_params

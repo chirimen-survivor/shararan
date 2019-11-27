@@ -3,7 +3,7 @@
   <div class="container">
     <h3>商品検索結果</h3>
     <% if @products.empty? %>
-      <p><%= "#{params[:q][:name_cont]}  に一致する検索結果は見つかりませんでした" %></p>
+      <p><%= "#{params[:q][:name_or_categorie_name_or_artist_name_or_discs_songs_name_cont ]}  に一致する検索結果は見つかりませんでした" %></p>
       <p><%= "検索のヒント:" %></p>
       <ul>
         <li><%= キーワードに誤字・脱字がないか確認します。%></li>
@@ -11,8 +11,7 @@
       </ul>
     <% else %>
       <p><%= "#{@products.total_count}件の検索結果があります" %></p>
-    <% end %>
-    <div class="sort-area">
+      <div class="sort-area">
       <%= search_form_for @q, url: search_path do |f| %>
         <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '発売の古い順': 'release_date asc', '発売の新しい順': 'release_date desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
         <%= f.button :type => "submit", style: 'border-style: none;' do %>
@@ -21,19 +20,25 @@
         <i>Sort</i>
       <% end %>
     </div>
+    <% end %>
+
     <hr class="my-4">
     <% @products.each do |product| %>
     <div class="row">
       <div class="col-md-7 col-md-offset-2">
         <div class="row">
             <div class="col-md-3 pucture_field">
-                <a><%= attachment_image_tag product, :image, :fill, 60, 60, format: 'jpeg',
-                                                                  fallback: "no_image.jpg", size:'60x60' %>
+                <a><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg',
+                                                                  fallback: "no_image.jpg", size:'100x100' %>
                 </a>
             </div>
             <div class="col-md-9 name_space">
               <p><%= product.name %></p>
               <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
+              <ul class="cp_tag01">
+                  <li><a href="#"><%= "#{product.categorie.name}" %></a></li>
+                </ul>
+              <p><%= "#{product.artist.name}" %></p>
             </div>
         </div>
       </div>
@@ -53,7 +58,7 @@
   <div class="container">
     <h3>商品検索結果</h3><br />
     <% if @products.empty? %>
-      <p><%= "#{params[:q][:name_cont]}  に一致する検索結果は見つかりませんでした" %></p><br />
+      <p><%= "#{params[:q][:name_or_categorie_name_or_artist_name_or_discs_songs_name_cont]}  に一致する検索結果は見つかりませんでした" %></p><br />
       <p><%= "検索のヒント:" %></p><br />
       <ul>
         <li><%= "キーワードに誤字・脱字がないか確認します。"%></li>
@@ -61,8 +66,7 @@
       </ul>
     <% else %>
       <p><%= "#{@products.total_count}件の検索結果があります" %></p>
-    <% end %>
-    <div class="sort-area">
+      <div class="sort-area">
       <%= search_form_for @q, url: search_path do |f| %>
         <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '発売の古い順': 'release_date asc', '発売の新しい順': 'release_date desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
         <%= f.button :type => "submit", style: 'border-style: none;' do %>
@@ -71,19 +75,25 @@
         <i>Sort</i>
        <% end %>
      </div>
+    <% end %>
+
     <hr class="my-4">
     <% @products.each do |product| %>
     <div class="row">
       <div class="col-md-7 col-md-offset-2">
         <div class="row">
             <div class="col-md-3 pucture_field">
-                <a><%= attachment_image_tag product, :image, :fill, 60, 60, format: 'jpeg',
-                                                                  fallback: "no_image.jpg", size:'60x60' %>
+                <a><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg',
+                                                                  fallback: "no_image.jpg", size:'100x100' %>
                 </a>
             </div>
             <div class="col-md-9 name_space">
               <p><%= product.name %></p>
               <p><%= "¥ #{product.price.to_s(:delimited)}" %></p>
+              <ul class="cp_tag01">
+                  <li><a href="#"><%= "#{product.categorie.name}" %></a></li>
+              </ul>
+              <p><%= "#{product.artist.name}" %></p>
             </div>
         </div>
       </div>

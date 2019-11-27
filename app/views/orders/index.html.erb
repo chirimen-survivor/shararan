@@ -1,5 +1,5 @@
 <!-- 購入履歴を確認する -->
-<div class = "top-space">
+<div class = "back-color">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -37,7 +37,7 @@
 					<div class="col-md-8 text-right">
 						<!-- umber_with_delimiter は数値を3桁に区切るためのヘルパ -->
 						<h4>合計 : ¥<%= order.total %>
-							<%= link_to "詳細", customer_order_path(@customer.id, order.id), class: 'btn btn-default btn-xs' %>
+							<%= link_to "詳細", customer_order_path(@customer.id, order.id), class: 'btn btn-danger btn-md' %>
 						</h4>
 					</div>
 				</div>

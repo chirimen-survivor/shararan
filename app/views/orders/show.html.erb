@@ -24,7 +24,7 @@
 							</label2>
 							<br/>
 							<label2>
-								¥
+								〒
 								<%= @order.postal_code1 %> - <%= @order.postal_code2 %>
 							</label2>
 							<br/>
@@ -135,8 +135,8 @@
 					</div>
 					<div class="col-md-4 text-right">
 
-						<%= link_to "レビュー", product_path(@order.id), class: 'btn btn-default btn-md' %><br/>
-						<%= link_to "再度購入", product_path(@order.id), class: 'btn btn-default btn-ld' %>
+						<%= link_to "レビュー", product_path(@order.id), class: 'btn btn-danger btn-md' %><br/><br/>
+						<%= link_to "再度購入", product_path(@order.id), class: 'btn btn-danger btn-md' %>
 					</div>
 				</div>
 			</div>
