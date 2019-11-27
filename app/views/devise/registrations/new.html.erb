@@ -61,7 +61,7 @@
             </h3>
           </div><br/>
           <div class="col-md-3 md-offset-3">
-          <%= f.text_field :prefecture_code, autofocus: true, autocomplete: "prefecture_code", id: "adrs3" %>
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, id:"adrs3" %>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-<div class = "mypage_color">
+<div class = "back-color">
   <div class="container">
     <h1 class = "mypage_name">マイページ</h1>
     <div class = "mynav">
@@ -17,7 +17,7 @@
   	 	<div class="row">
         <div class=" mypage_text">
   	 		  <div class="co-lg-6">
-  		      <h3 class = "mypage_font">お名前</h3>
+  		      <h3>お名前</h3>
             <div class = "mypage_column1">
   		        <%= f.text_field :last_name %>
               <div class = "mypage_column2">
@@ -30,7 +30,7 @@
       <div class="row">
         <div class=" mypage_text">
   	 	   <div class="co-lg-6">
-  		    <h3 class = "mypage_font">お名前（フリガナ）</h3>
+  		    <h3>お名前（フリガナ）</h3>
             <div class = "mypage_column1">
   		        <%= f.text_field :last_name_kana %>
               <div class = "mypage_column2">
@@ -43,30 +43,30 @@
       <div class="row">
         <div class=" mypage_text">
           <div class="co-lg-6">
-  		      <h3 class = "mypage_font">住所</h3>
+  		      <h3>住所</h3>
             <div class = "mypage_column3">
-              〒 <%= f.text_field :postal_code1, size:"10x10" %> -   <%= f.text_field :postal_code2, size:"10x10" %>
+              〒 <%= f.text_field :postal_code1,id: "zip1", size:"10x10" %> -   <%= f.text_field :postal_code2,id: "zip2", size:"10x10" %>
             </div>
             <div class = "My_address">
               <div class = "mypage_column4">
   		          <!--  都道府県はプルダウン式にするのでcollectionを使います。 -->
-  		          <%= f.collection_select :prefecture_code,   JpPrefecture::  Prefecture.all, :code, :name %>
+  		          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, id:"adrs3" %>
               </div>
               <div class = "mypage_column6">
-  		          <%= f.text_field :city, size:"35x10" %>
+  		          <%= f.text_field :city, autofocus: true, autocomplete: "city", id: "adrs4" %>
               </div>
               <div class = "mypage_column5">
-  		          <%= f.text_area :building, size: "30x3" %>
+  		          <%= f.text_area :building, autofocus: true, autocomplete: "building", id: "adrs5",size: "35x3" %>
               </div>
             </div>
           </div>
         </div>
       </div>
-  
+
       <div class="row">
         <div class=" mypage_text">
           <div class="co-lg-6">
-          	<h3 class = "mypage_font">電話番号</h3>
+          	<h3>電話番号</h3>
             <div class = "mypage_column1">
   		        <%= f.text_field :phone_number1, size:"10x10" %> - 
   		        <%= f.text_field :phone_number2, size:"10x10" %> - 
@@ -78,7 +78,7 @@
       <div class="row">
         <div class=" mypage_text">
           <div class="co-lg-6">
-          		<h3 class = "mypage_font">メールアドレス</h3>
+          		<h3>メールアドレス</h3>
               <div class = "mypage_column1">
   		          <%= f.email_field :email, size:"40x10" %>
               </div>
@@ -88,13 +88,13 @@
         <div class = "mypage_submit">
   			 <%= f.submit('保存する', class: 'btn btn-danger') %>
         </div>
-        </div>
-  		</div>
+      </div>
+  	</div>
   <% end %>
-  
+
   <div class="container">
-    <h2 class = "mypage_font">レビュー一覧</h2>
-    <div class="myreview">
+    <h2>レビュー一覧</h2>
+    <div class="mypage_review">
       <% @reviews.each do |r| %>
       <div class = myreview_star>
        <div id="star-rate-<%= r.id %>"></div>
@@ -111,18 +111,18 @@
           </script>
         </div>
         <div class = "myreview_title">
-          <h5 class = "myreview_font"><%= r.title %></h5>
+          <h5 class = "mypreview_font"><%= r.title %></h5>
         </div>
         <div class = "myreview_column">
           <div class = "myreview_time">
-            <h5 class = "myreview_font"><%= r.created_at.strftime('%Y /%m/%d') %></h5>
+            <h5 class = "mypreview_font"><%= r.created_at.strftime('%Y /%m/%d') %></h5>
           </div>
           <div class = "myreview_product">
-            <h5 class = "myreview_font"><%= r.product.name %></h5>
+            <h5 class = "mypreview_font"><%= r.product.name %></h5>
           </div>
         </div>
         <div class = "myreview_body">
-          <h5 class = "myreview_font"><%= r.body %></h5>
+          <h5 class = "mypreview_font"><%= r.body %></h5>
         </div>
       <% end %>
     </div>

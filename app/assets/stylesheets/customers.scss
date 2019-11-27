@@ -32,12 +32,19 @@
 
 //マイページ
 
+
+.mypage_font {
+	color:black;
+}
+
+
 .mypage_drop{
 	display:inline-block;
 }
 
 
 .mypage_text{
+	font-color:black;
 	margin-bottom: 5px;
 }
 
@@ -92,6 +99,7 @@
 	display: inline-block;
 }
 .myreview_title{
+	color:black;
 	display: inline-block;
 	margin-left:30px;
 }
@@ -114,13 +122,9 @@
 	margin-bottom:20px;
 }
 
-.mypage_font{
-	color:white;
-}
-
-.myreview_font{
-	color:white;
+.mypreview_font{
 	font-weight: bold;
+	color:black;
 }
 
 #nav {
@@ -142,14 +146,11 @@
   font-weight: bold;
 }
 
-.mypage_color{
-	background-color:gray;
-}
-
-.mypage_name{
-	color:white;
-}
-
 .mynav{
 	margin-top:20px;
+}
+
+
+.mypage_review {
+	color:black;
 }

@@ -26,14 +26,14 @@
 			 		</div>
 			 	</div>
 			 	<div class="other_address_box-list">
-			 			<h5>住所</h5>
-			 			<%= f.text_field :prefecture_code, autofocus: true, autocomplete: "prefecture_code", id: "adrs3" %>
+			 		<h5>住所</h5>
+				 	<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, id:"adrs3" %>
 			 	</div>
 			 	<div class="other_address_box-list">
-			 		<%= f.text_field :city, autofocus: true, autocomplete: "city", id: "adrs4" %>
+			 		<%= f.text_area :city, autofocus: true, autocomplete: "city", id: "adrs4" %>
 			 	</div>
 			 	<div class="other_address_box-list">
-			 		<%= f.text_field :building, autofocus: true, autocomplete: "building", id: "adrs5" %>
+			 		<%= f.text_area :building, autofocus: true, autocomplete: "building", id: "adrs5" %>
 			 	</div>
 			 	<div class="other_address_box-list other_address_number">
 			 			<h5>電話番号</h5>
