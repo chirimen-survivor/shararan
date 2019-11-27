@@ -1,6 +1,6 @@
 class Managers::ContactsController < Managers::ApplicationController
 	def index
-		@contacts = Contact.all
+		@contacts = Contact.includes(:customer).all
 		#binding.pry
 	end
 
