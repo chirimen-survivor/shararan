@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
   end
 
   def search_results
-      @q = Product.search(search_params)
+      @q = Product.includes(:categorie, :artist).search(search_params)
       @products = @q.result(distinct: true).page(params[:page]).per(10)
   end
 

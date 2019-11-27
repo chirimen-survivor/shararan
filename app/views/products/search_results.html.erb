@@ -13,7 +13,7 @@
       <p><%= "#{@products.total_count}件の検索結果があります" %></p>
       <div class="sort-area">
       <%= search_form_for @q, url: search_path do |f| %>
-        <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '発売の古い順': 'release_date asc', '発売の新しい順': 'release_date desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+        <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '発売の古い順': 'release_date asc', '発売の新しい順': 'release_date desc'} , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
         <%= f.button :type => "submit", style: 'border-style: none;' do %>
             <i class="fas fa-search"></i>
         <% end %>

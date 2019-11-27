@@ -15,6 +15,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require cocoon
+//= require bootstrap
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
@@ -31,6 +32,17 @@
   });
 
 })();
+
+
+  $(function(){
+      $('.datepicker').datetimepicker({
+        format : "YYYY/MM/DD",
+        icons: {
+          previous: "fa fa-arrow-left",
+          next: "fa fa-arrow-right"
+        }
+      });
+    });
 
 // 住所自動入力
 $(window).ready( function() {
