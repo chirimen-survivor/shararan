@@ -3,7 +3,7 @@
   <div class="container">
     <h3>商品検索結果</h3>
     <% if @products.empty? %>
-      <p><%= "#{params[:q][:name_or_categorie_name_or_artist_name_cont]}  に一致する検索結果は見つかりませんでした" %></p>
+      <p><%= "#{params[:q][:name_or_categorie_name_or_artist_name_or_discs_songs_name_cont ]}  に一致する検索結果は見つかりませんでした" %></p>
       <p><%= "検索のヒント:" %></p>
       <ul>
         <li><%= キーワードに誤字・脱字がないか確認します。%></li>
@@ -58,7 +58,7 @@
   <div class="container">
     <h3>商品検索結果</h3><br />
     <% if @products.empty? %>
-      <p><%= "#{params[:q][:name_or_categorie_name_or_artist_name_cont ]}  に一致する検索結果は見つかりませんでした" %></p><br />
+      <p><%= "#{params[:q][:name_or_categorie_name_or_artist_name_or_discs_songs_name_cont]}  に一致する検索結果は見つかりませんでした" %></p><br />
       <p><%= "検索のヒント:" %></p><br />
       <ul>
         <li><%= "キーワードに誤字・脱字がないか確認します。"%></li>

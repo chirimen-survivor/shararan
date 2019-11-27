@@ -1,4 +1,4 @@
-class Managers::ContactsController < ApplicationController
+class Managers::ContactsController < Managers::ApplicationController
 	def index
 		@contacts = Contact.all
 		#binding.pry
