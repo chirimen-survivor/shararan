@@ -1,39 +1,48 @@
-<h1>OtherAddresses#edit</h1>
-<p>Find me in app/views/other_addresses/edit.html.erb</p>
+
 <p>住所編集します</p>
 <div class="container">
 	<%= form_for(@other_address) do |f| %>
-	   <div class="row">
-	    <div class="co-lg-6">
-    	<h4>お名前</h4>
+    <div class="Address-box">
+	  <div class="">
+	    <div class="">
+    	 <h4>お名前</h4>
     	 <%= f.text_field :last_name %>
-         <%= f.text_field :first_name %>
-        </div>
-   	   </div>
-       <div class="row">
-       	<div class="co-lg-6">
-    	<h4>お名前（カナ）</h4>
-    	 <%= f.text_field :last_name_kana %>
+       <%= f.text_field :first_name %>
+      </div>
+   	</div>
+    <div class="">
+      <div class="">
+    	   <h4>フリガナ</h4>
+    	   <%= f.text_field :last_name_kana %>
          <%= f.text_field :first_name_kana %>
      	</div>
-       </div>
-       <div class="row">
-       	<div class="co-lg-6">
-    	<h4>住所</h4>
-    	 <%= f.number_field :postal_code1 %>
-	 	 <%= f.number_field :postal_code2 %>
-        </div>
-   	   </div>
-       <div class="row">
-       	<div class="co-lg-6">
-    	<h4>電話番号</h4>
-    	 <%= f.text_field :phone_number1 %>
-         <%= f.text_field :phone_number2 %>
+    </div>
+    <div class="">
+      <div class="">
+    	   <h4>郵便番号</h4>
+      	 <%= f.number_field :postal_code1,  id: "zip1" %>
+	 	     <%= f.number_field :postal_code2,  id: "zip2" %>
+      </div>
+   	</div>
+    <div class="">
+      <div class="">
+         <span>都道府県</span><div class="Address_list"><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, id:"adrs3" %></div>
+         <span>市町村</span><div class="Address_list"><%= f.text_area :city, autofocus: true, autocomplete: "city", id: "adrs4" %></div>
+         <span>番地</span><div class="Address_list"><%= f.text_area :building, autofocus: true, autocomplete: "building", id: "adrs5" %></div>
+      </div>
+    </div>
+    <div class="">
+      <div class="other_address_number">
+    	   <h4>電話番号</h4>
+    	   <%= f.text_field :phone_number1 %><span> - </span>
+         <%= f.text_field :phone_number2 %><span> - </span>
          <%= f.text_field :phone_number3 %>
-        </div>
-   	   </div>
-       <div class="row">
+      </div>
+   	</div>
+    <div class="">
+      <br>
     	 <%= f.submit '変更する' %>
-       </div>
+    </div>
+  </div>
 	<% end %>
 </div>

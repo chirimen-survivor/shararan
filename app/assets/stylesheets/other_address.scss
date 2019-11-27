@@ -33,28 +33,66 @@
 	display: flex;
 	margin:50px 0 0 100px;
 	h5{
-		border-bottom: 2px solid;	}
+		border-top: 2px solid;	}
 }
 .other_address_box_add{
 	margin: 0 auto;
 	width: 80%;
-	background-color: blue;
 }
 .other_address_box_button{
-  display: inline-block;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  background: #668ad8;
-  color: #FFF;
-  border-radius: 4px;
-  box-shadow: 0px 0px 0px 5px #668ad8;
-  border: dashed 1px #FFF;
+        width: 200px;
+        height: 30px;
+        margin-top: 10px;
+        border-style: solid;
+        color: #79797a;
+        background-color: #f5f5f5;
+        border-radius: 7px;
+        text-align: center;
+        a{
+        	color: #252c30;
+        }
 }
 .other_address_box_button:hover {
-  border: dotted 1px #FFF;
+        color: white;
+        background-color: #BB0000;
+        border-radius: 10px;
+        opacity: 0.8;
 }
 .other-address-title{
 	margin:100px 0 0 50px;
-	background: linear-gradient(transparent 50%, yellow 50%);
+	background: linear-gradient(transparent 50%, #78202c);
 	width: 30%;
+}
+.other_address_box-postal{
+	font-size: 24px;
+	margin:10px 0 10px 0;
+}
+.other_address_box-city{
+	font-size: 20px;
+	margin-left: 20px;
+}
+.other_address_name_kana{
+	font-size: 10px;
+	margin:20px 0 0 20px;
+}
+.other_address_box-name{
+	font-size: 25px;
+	margin-left: 20px;
+}
+.other_address_phone_number{
+	margin: 10px 0 0 20px;
+}
+.other-address-title-top{
+	margin:100px 0 50px 50px;
+	background: linear-gradient(transparent 50%, #78202c);
+	width: 15%;
+	font-size: 19px;
+}
+.Address_list{
+    margin: 5px 0 13px 15px;
+}
+.Address-box{
+    width: 350px;
+    height: 1400px;
+    margin: 0 auto;
 }
