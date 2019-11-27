@@ -66,9 +66,9 @@ class OrdersController < ApplicationController
 			@order_detail.subtotal = cart.product.price * cart.quantity
 			@order_detail.quantity = cart.quantity
 		end
-
 		@order.transaction do
 			@order.save!
+ 			InquiryMailer.send_when_create(@order, @customer).deliver_later
 		end
 			@carts.destroy_all
 			redirect_to complete_customer_order_path(@order.id, @customer.id)
