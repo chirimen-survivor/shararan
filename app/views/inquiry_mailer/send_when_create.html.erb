@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+	<p>【しゃららん】ご注文ありがとうございます（自動送信メール）</p>
+
+	<body>
+		<p><%= @customer.first_name %> <%= @customer.first_name %>様</p>
+		<p>このたびは、「しゃららん」をご利用いただきありがとうございます。</p>
+		<p>お客様のご注文を以下の内容で承りました。</p>
+		<p>ご確認いただき、内容に誤りなどございましたらお知らせください。</p>
+	<br/>
+		<p>■ご注文内容■</p>
+		<p><ご注文日時>: <%= @order.created_at.strftime('%Y/%m/%d') %></p>
+	<br/>
+	<br/>
+	<br/>
+
+		<p>■商品のお届け先■</p>
+		<p><%= @customer.first_name %> <%= @customer.first_name %>様</p>
+		<p>〒 <%= @order.postal_code1 %> - <%= @order.postal_code2 %></p>
+		<p><%= @order.prefecture_name %><%= @order.city %><%= @order.building %></p>
+	<br/>
+	<br/>
+
+		<p>■お支払い方法■</p>
+		<p><お支払い方法>: <%= @order.payment %></p>
+		<p><お支払い期限>: 2019/12/4</p>
+		<p>※前払いを選ばれた場合は、ご入金確認後の発送となります。</p>
+		<p>※お支払い期限までにご入金がなかった場合は、ご注文をキャンセルさせていただきます。何卒ご了承ください。</p>
+	<br/>
+	<br/>
+
+		<p>商品の在庫確保が完了しましたら、担当者より「ご注文確定メール」をお送りします。</p>
+		<p>ご不明な点などがございましたら、お気軽にお知らせください。</p>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+	</body>
+</html>
