@@ -510,6 +510,7 @@ preview_font {
 	background-color: #FF001E;
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
   transform: translateY(-0.1875em);
+  color: #FFF;
 }
 
 .btn-danger:visited {
@@ -528,6 +529,7 @@ preview_font {
 	background-color: #FF001E;
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
   transform: translateY(-0.1875em);
+  color: #FFF;
 }
 
 .btn-default:visited {
@@ -667,9 +669,17 @@ dl.search-box dd{
 
 .product-wrapper {
   width: 1100px;
-  height: 1400px;
+  height: auto;
   background-color:#fff;
   margin-bottom: 150px;
   margin-top: 20px;
   box-shadow: 0 7px 10px #ccc;
+}
+
+.btn-space {
+  margin-bottom: 40px;
+}
+
+.review_submit {
+  padding-right: 50px;
 }

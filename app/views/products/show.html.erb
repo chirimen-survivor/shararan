@@ -31,7 +31,7 @@
               <li><a href="#"><%= "#{@product.categorie.name}" %></a></ li>
             </div>
             <div class = "product_price">
-              <p class="price"><%= "¥ #{@product.price.to_s(:delimited) } 税込" %></p>
+              <p class="price"><%= "¥ #{(@product.price * BigDecimal("1.1")).round.to_s(:delimited) } 税込" %></p>
             </div>
           </ul>
         </div>
@@ -183,7 +183,7 @@
           </div>
         </div>
         <div class = "review_submit">
-          <%= f.submit '投稿する' %>
+          <%= f.submit '投稿する', class: 'btn btn-warning' %>
         </div>
       <% end %>
     </div>
