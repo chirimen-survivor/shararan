@@ -8,7 +8,7 @@ class Managers::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@details = OrderDetail.where(order_id: @order.id)
+		@details = OrderDetail.includes(:product).where(order_id: @order.id)
 	end
 
 	def update

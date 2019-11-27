@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @reviews = @customer.reviews.page(params[:page]).per(5)
+    @reviews = @customer.reviews.includes(:product).page(params[:page]).per(5)
 
   end
 

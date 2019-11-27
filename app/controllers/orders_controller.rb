@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
 		end
 	end
 
-
 	def create
 		# 購入情報を確定する
 		@order = Order.new
@@ -67,7 +66,6 @@ class OrdersController < ApplicationController
 			@order_detail.subtotal = cart.product.price * cart.quantity
 			@order_detail.quantity = cart.quantity
 		end
-
 
 		@order.transaction do
 			@order.save!
@@ -128,7 +126,7 @@ class OrdersController < ApplicationController
 		# 一覧の中の一軒の購入情報
 		@order = Order.find(params[:id])
 		# その中の詳細
-		@details = OrderDetail.where(order_id: @order.id)
+		@details = OrderDetail.includes(:product).where(order_id: @order.id)
 	end
 
 

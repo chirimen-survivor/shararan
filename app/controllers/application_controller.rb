@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 	 before_action :set_search
 
 	 def set_search
-		@q = Product.includes(:categorie, :artist).ransack(params[:q])
+		@q = Product.includes(:categorie, :artist, :songs, :discs).ransack(params[:q])
   end
 
 	 def after_sign_in_path_for(resource)

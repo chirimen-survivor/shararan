@@ -1,11 +1,9 @@
-<h1>manegers画面</h1>
-	<h3>お問合せ一覧</h3>
 
-	<div class="container">
-		<div class="row">
+<div class="container-fluid">
+		<div class="row Maneger-Contact-box">
 			<table class="col-l-6 table table-bordered">
-			<h3>お問合せ一覧</h3>
-			<p><%= @contacts.length %>件のお問い合わせがあります</p>
+			<p class="Contact-title">お問合せ一覧</p>
+			<p class="Contact-text"><%= @contacts.length %>  件のお問い合わせがあります</p>
 		    <thead>
 		        <tr>
 		            <th>顧客名</th>
@@ -17,7 +15,7 @@
 		    <% @contacts.each do |contact|%>
 			    <tbody>
 			        <tr>
-			            <th><%= contact.customer.last_name %></th>
+			            <th><%= contact.customer.last_name %>さん</th>
 			            <td><%= contact.title %></td>
 			            <td><%= contact.created_at %></td>
 			            <td><%= link_to '詳細', managers_contact_path(contact) %></td>
