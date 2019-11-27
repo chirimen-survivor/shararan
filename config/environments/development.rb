@@ -62,4 +62,19 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :letter_opener_web
   BetterErrors::Middleware.allow_ip! "192.168.33.1"
+
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+
+
+    # ホワイトリストを指定.
+    Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Product', association: :songs
+    Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Product', association: :discs
+    Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Product', association: :artist
+  end
 end

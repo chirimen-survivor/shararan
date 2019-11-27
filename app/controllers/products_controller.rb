@@ -2,8 +2,8 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_customer!, only: [:index, :show, :search_results]
 
   def index
-    @products = @q.result(distinct: true).page(params[:page])
-    @all_ranks = Product.find(Favorite.group(:product_id).order('count(product_id) desc').limit(3).pluck(:product_id))
+    @products = Product.page(params[:page])
+    @all_ranks = Product.includes(:categorie).find(Favorite.group(:product_id).order('count(product_id) desc').limit(3).pluck(:product_id))
   end
 
   def show

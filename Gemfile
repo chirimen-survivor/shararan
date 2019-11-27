@@ -38,6 +38,7 @@ gem 'devise-i18n-views'
 gem "toastr-rails"
 
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -51,6 +52,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'jquery-rails'
   gem 'letter_opener_web'
+  gem 'bullet'
 end
 
 group :test do

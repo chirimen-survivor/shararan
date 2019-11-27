@@ -128,7 +128,7 @@ class OrdersController < ApplicationController
 		# 一覧の中の一軒の購入情報
 		@order = Order.find(params[:id])
 		# その中の詳細
-		@details = OrderDetail.where(order_id: @order.id)
+		@details = OrderDetail.includes(:product).where(order_id: @order.id)
 	end
 
 
