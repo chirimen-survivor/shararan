@@ -95,14 +95,14 @@
               <% end %>
             <% end %>
             <td><%= "¥ #{cart.product.price.to_s(:delimited)}" %></td>
-            <td><%= "¥ #{number_with_delimiter(cart.product.price * cart.quantity)}" %></td>
+            <td><%= "¥ #{(cart.product.price * BigDecimal("1.1") * cart.quantity).round.to_s(:delimited)}" %></td>
               <td>
                 <%= link_to product_cart_items_path(cart.product), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
                     <i class="fas fa-times"></i>
                 <% end %>
               </td>
             </tr>
-            <% total_price += cart.product.price * cart.quantity %>
+            <% total_price += (cart.product.price * BigDecimal("1.1") * cart.quantity).round %>
             <% end %>
         </tbody>
       </table>
