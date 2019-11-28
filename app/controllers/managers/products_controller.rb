@@ -60,6 +60,14 @@ class Managers::ProductsController < Managers::ApplicationController
  end
 
 
+  def destroy
+      @product = Product.find(params[:id])
+      @product.destroy
+      flash[:notice] = "商品情報を削除しました"
+      redirect_to managers_products_path
+  end
+
+
   private
 
   def search_params

@@ -26,13 +26,15 @@
 			 		</div>
 			 	</div>
 			 	<div class="other_address_box-list">
-			 		<h5>住所</h5>
+			 		<h5>都道府県</h5>
 				 	<%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {}, id:"adrs3" %>
 			 	</div>
 			 	<div class="other_address_box-list">
+			 		<h5>市町村</h5>
 			 		<%= f.text_area :city, autofocus: true, autocomplete: "city", id: "adrs4" %>
 			 	</div>
 			 	<div class="other_address_box-list">
+			 		<h5>番地</h5>
 			 		<%= f.text_area :building, autofocus: true, autocomplete: "building", id: "adrs5" %>
 			 	</div>
 			 	<div class="other_address_box-list other_address_number">
@@ -49,7 +51,7 @@
 		 </div>
 
 		<!-- 追加されていく住所 -->
-		<div class="col-md-6">
+		<div class="col-md-6 add-address-box">
 		 	<div class="other-address-title">追加された住所</div>
 			<% @other_addresses.each do |other_address|%>
 			<div class="other_address_add well">
@@ -64,7 +66,7 @@
 				 	</div>
 				 	<div class="other_address_box-city">
 				 			<!-- <h5>住所</h5> -->
-				 			<%= other_address.prefecture_code %>
+				 			<%= other_address.prefecture_name %>
 				 	</div>
 				 	<div class="other_address_box-city">
 				 		<%= other_address.city %>
