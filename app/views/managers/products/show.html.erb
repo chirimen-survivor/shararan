@@ -20,6 +20,7 @@
           <input type="text" name="name"></p>
         </form>
         <div><%= link_to '商品の編集', edit_managers_product_path(@product.id) %></div>
+        <div><%= link_to '商品の削除', managers_product_path(@product.id), method: :delete %></div>
       </div>
     </div>
     <hr class="my-4">

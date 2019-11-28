@@ -9,9 +9,10 @@ class ContactsController < ApplicationController
 		@contact = Contact.new(contact_params)
 		@contact.customer_id = current_customer.id
    		if @contact.save
-   			flash[:notice]
+   			flash[:notice] = 'Tanakaへ送りました'
     		redirect_to customer_contact_path(@customer.id, @contact)
     	else
+    		flash[:notice] = 'Tanakaへ送信できませんでした'
     		render :show
     	end
 	end

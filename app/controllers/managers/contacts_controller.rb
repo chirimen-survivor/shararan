@@ -12,7 +12,8 @@ class Managers::ContactsController < Managers::ApplicationController
 	def update
 		@contact = Contact.find(params[:id])
 		if @contact.update(contact_params)
-		   redirect_to managers_contact_path(@contact), notice: "メールを送信しました！"
+			flash[:notice] = "メールを送信しました！"
+		   redirect_to managers_contacts_path(@contact)
 		   InquiryMailer.with(Inquiry: @contact).send_mail.deliver_later
 		else
 			@contact = Contact.find(params[:id])

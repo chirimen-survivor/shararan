@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
 		<div class="row Maneger-Contact-box">
 			<table class="col-l-6 table table-bordered">
@@ -17,7 +16,7 @@
 			        <tr>
 			            <th><%= contact.customer.last_name %>さん</th>
 			            <td><%= contact.title %></td>
-			            <td><%= contact.created_at %></td>
+			            <td><%= contact.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
 			            <td><%= link_to '詳細', managers_contact_path(contact) %></td>
 			        </tr>
 			    </tbody>

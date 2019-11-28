@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :managers do
 
-    resources :products, only: [:new, :create, :show, :index, :edit, :update] do
+    resources :products, only: [:new, :create, :show, :index, :edit, :update,:destroy] do
       post 'arrival_save', on: :member
     end
 
