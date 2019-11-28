@@ -53,53 +53,59 @@
 		<!-- 追加されていく住所 -->
 		<div class="col-md-6 add-address-box">
 		 	<div class="other-address-title">追加された住所</div>
-			<% @other_addresses.each do |other_address|%>
-			<div class="other_address_add well">
-				<div class="other_address_box">
-				 	<div class="other_address_box-list">
-				 		<div class="other_address_box-postal">
-				 			<!-- <h5>郵便番号</h5> -->
-				 			<span> 〒 </span>
-				 			<%= other_address.postal_code1 %><span> - </span>
-				 			<%= other_address.postal_code2 %>
-				 		</div>
-				 	</div>
-				 	<div class="other_address_box-city">
-				 			<!-- <h5>住所</h5> -->
-				 			<%= other_address.prefecture_name %>
-				 	</div>
-				 	<div class="other_address_box-city">
-				 		<%= other_address.city %>
-				 	</div>
-				 	<div class="other_address_box-city">
-				 		<%= other_address.building %>
-				 	</div>
-				 		<div class="other_address_name_kana">
-				 			<!-- <h5>フリガナ</h5> -->
-				 			<%= other_address.last_name_kana %><span>   </span>
-			        		<%= other_address.first_name_kana %>
-				 		</div>
-				 		<div class="other_address_box-name">
-				 			<!-- <h5>お名前</h5> -->
-				 			<%= other_address.last_name %><span>   </span>
-			        		<%= other_address.first_name %><span> さま </span>
-				 		</div>
+
+		 	<% if @other_addresses.present?  %>
+				<% @other_addresses.each do |other_address|%>
+				<div class="other_address_add well">
+					<div class="other_address_box">
+					 	<div class="other_address_box-list">
+					 		<div class="other_address_box-postal">
+					 			<!-- <h5>郵便番号</h5> -->
+					 			<span> 〒 </span>
+					 			<%= other_address.postal_code1 %><span> - </span>
+					 			<%= other_address.postal_code2 %>
+					 		</div>
+					 	</div>
+					 	<div class="other_address_box-city">
+					 			<!-- <h5>住所</h5> -->
+					 			<%= other_address.prefecture_name %>
+					 	</div>
+					 	<div class="other_address_box-city">
+					 		<%= other_address.city %>
+					 	</div>
+					 	<div class="other_address_box-city">
+					 		<%= other_address.building %>
+					 	</div>
+					 		<div class="other_address_name_kana">
+					 			<!-- <h5>フリガナ</h5> -->
+					 			<%= other_address.last_name_kana %><span>   </span>
+				        		<%= other_address.first_name_kana %>
+					 		</div>
+					 		<div class="other_address_box-name">
+					 			<!-- <h5>お名前</h5> -->
+					 			<%= other_address.last_name %><span>   </span>
+				        		<%= other_address.first_name %><span> さま </span>
+					 		</div>
 
 
-				 	<div class="other_address_phone_number">
-				 			<span>Tell : </span>
-				 			<%= other_address.phone_number1 %><span> - </span>
-			        		<%= other_address.phone_number2 %><span> - </span>
-			        		<%= other_address.phone_number3 %>
-				 	</div>
-				 	<div class="other_address_box_button">
-					 	<%= link_to '編集', edit_other_address_path(other_address) %>
-					 </div>
-					 <div class="other_address_box_button">
-						<%= link_to '削除',other_address_path(other_address),method: :delete %>
-				 	</div>
+					 	<div class="other_address_phone_number">
+					 			<span>Tell : </span>
+					 			<%= other_address.phone_number1 %><span> - </span>
+				        		<%= other_address.phone_number2 %><span> - </span>
+				        		<%= other_address.phone_number3 %>
+					 	</div>
+					 	<div class="other_address_box_button">
+						 	<%= link_to '編集', edit_other_address_path(other_address) %>
+						 </div>
+						 <div class="other_address_box_button">
+							<%= link_to '削除',other_address_path(other_address),method: :delete %>
+					 	</div>
+					</div>
 				</div>
-			</div>
+				<% end %>
+		 	<% else %>
+		 		<!-- <p> 住所がありません</p>
+ -->
 			<% end %>
 		</div>
 	</div>

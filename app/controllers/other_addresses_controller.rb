@@ -5,10 +5,16 @@ class OtherAddressesController < ApplicationController
  end
 
  def create
-    other_address = OtherAddress.new(other_addresses_params)
-    other_address.customer_id = current_customer.id
-    other_address.save!
-    redirect_to other_addresses_path
+    @other_address = OtherAddress.new(other_addresses_params)
+    @other_address.customer_id = current_customer.id
+    if @other_address.save
+       flash[:notice] = "登録されました"
+       redirect_to other_addresses_path
+    else
+        @other_addresses = OtherAddress.all
+        flash[:alert] = "入力項目が足りません"
+        render :index
+      end
   end
 
   def edit
