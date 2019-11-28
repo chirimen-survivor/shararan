@@ -11,7 +11,7 @@ class Managers::ProductsController < Managers::ApplicationController
     @product = Product.new(product_params)
     if @product.save
       flash[:notice] = "商品情報の登録が完了しました"
-      redirect_to managers_product_path(@product)
+      redirect_to product_path(@product)
     else
       flash.now[:alert] = "商品情報の登録に失敗しました"
       render :new
