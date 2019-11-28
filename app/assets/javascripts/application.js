@@ -1468,7 +1468,7 @@ Jpostal.Jpostal.prototype.main = function () {
 
     this.scanPostcode();
     if (this.postcode.length < this.minLen) {
-        // git hub issue #4: 郵便番号欄が0～2文字のとき、住所欄を空欄にせず、入力内容を維持してほしい 
+        // git hub issue #4: 郵便番号欄が0～2文字のとき、住所欄を空欄にせず、入力内容を維持してほしい
         return;
     }
 
