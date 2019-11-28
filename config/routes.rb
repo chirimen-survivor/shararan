@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :accs, only: [:new, :create, :edit, :update, :destroy]
     resources :arrivals, only: [:index]
     resources :orders, only: [:index, :show, :update]
+    resources :reviews, only: [:update, :destroy]
   end
 
 

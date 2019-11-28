@@ -63,37 +63,46 @@
 
 <div class="container">
   <div class="review">
-    <% @reviews.each do |r| %>
-  <table class = "table table-striped">
-    <tr>
-      <th>評価</th>
-      <th>商品名</th>
-      <th>作成日時</th>
-      <th>タイトル</th>
-      <th>本文</th>
-    </tr>
+    <% @reviews.each do |review| %>
+      <%= form_for [@product,review], url:managers_review_path(review.id),method: :patch do |f| %>
+        <table class = "table table-striped">
+          <tr>
+            <th>評価</th>
+            <th>商品名</th>
+            <th>作成日時</th>
+            <th>タイトル</th>
+            <th>本文</th>
+          </tr>
 
-    <tr>
-        <td><%= r.rating %>
-          <div id="star-rate-<%= r.id %>"></div>
-          <script>
-          $('#star-rate-<%= r.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= r.rating %>,
-          });
-          </script>
-        </td>
-        <td><%= @product.name %></td>
-        <td><%= r.created_at %></td>
-        <td><%= r.title %></td>
-        <td><%= r.body %></td>
-      </tr>
-    </table>
+          <tr>
+            <td>
+              <%= 
+              #f.hidden_field :rating, id: :review_star 
+              %>
+            <div id="star-rate-<%= f.object.id %>"></div>
+            <%# binding.pry %>
+            <script>
+            $('#star-rate-<%= f.object.id %>').raty({
+              size: 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              score: <%= f.object.rating %>,
+              scoreName: 'review[rating][<%= f.object.id %>]',
+
+            });
+            </script>
+            </td>
+            <td><%= @product.name %></td>
+            <td><%= f.text_field :created_at %></td>
+            <td><%= f.text_field :title %></td>
+            <td><%= f.text_area :body %></td>
+            <td><%= f.submit '更新' %></td>
+            <td><%= link_to "削除", managers_review_path(review.id),class: 'btn btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+          </tr>
+        </table>
+      <% end %>
     <% end %>
   </div>
   <hr class="my-4">
