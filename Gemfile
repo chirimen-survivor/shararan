@@ -23,7 +23,7 @@ gem 'jp_prefecture'
 gem 'paranoia'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'rails-i18n'
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
